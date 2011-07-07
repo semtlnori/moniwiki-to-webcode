@@ -94,7 +94,8 @@ those lines
 which //directly// follow each other
 belong to //one// paragraph.
 
-Preformatted text (e.g. a copy of an email) should be placed inside three curly braces `{{{ ... }}}`: {{{
+Preformatted text (e.g. a copy of an email) should be placed inside three curly braces `{{{ ... }}}`:
+{{{
 First Line
 ...
 Last Line
@@ -125,7 +126,7 @@ For details see HelpOnLists.
 Tables appear if you separate the content of the columns by &#160;`|`. All fields of the same row must be also on the same line in the editor.
 
 Markup:
- {{{
+{{{
 |<rowbgcolor="#FFFFE0"> **Column 1**  || **Column 2 & 3** |
 |<)> 1  |<:> 2 |<(> 3 |
 }}}
