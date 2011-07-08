@@ -1,6 +1,6 @@
-Total [[PageCount]] pages
+Total [[[[PageCount]]]] pages
 
-[[HTML(<a href="?action=blogrss&all=1">)]][[Icon(moni-rss.png)]] [[HTML(</a>)]]
+[[[[HTML(<a href="?action=blogrss&all=1">)]]]][[[[Icon(moni-rss.png)]]]] [[[[HTML(</a>)]]]]
 
 ----
 {{{[[BlogChanges('Blog/.*',10,simple)]]}}}

@@ -6,7 +6,7 @@ Uploads:theme-blue.tgz 현재 보고계신 테마입니다.
 IE에서 레이아웃이 사라지는 버그가 있습니다.
 급하게나마 css wikiBody background-color: #fff; 부분을 주석처리하니 제대로 보입니다.
 attachment:WikiIEbug.PNG
- -- cocowest [[Date(2004-11-03T08:35:43)]]
+ -- cocowest [[[[Date(2004-11-03T08:35:43)]]]]
 ----
 {{{background-color: #fff;}}}를 쓰면 페이지가 길어질때 이상하게 보일 가능성이 있습니다. -- WkPark [[Date(2004-11-03T09:09:02)]]
 ----

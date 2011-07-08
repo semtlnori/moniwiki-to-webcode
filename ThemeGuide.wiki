@@ -1,7 +1,7 @@
 #title nFORGE 배포용 테마 개발 가이드
 nFORGE의 테마를 개발할 때의 방법 및 가이드를 제시한다.
 
-[[TableOfContents]]
+[[[[TableOfContents]]]]
 
 === 기본적인 테마 작업 개요 ===
 
@@ -34,29 +34,29 @@ nFORGE의 테마를 개발할 때의 방법 및 가이드를 제시한다.
 
 === 사용 가능한 변수들 ===
 
- '''>> Layout.tpl '''
+ **>> Layout.tpl **
 
-   * title: 제목 표시줄에 표시될 내용
-   * url_prefix: nforge가 설치된 디렉토리의 url
-   * theme_url: 테마가 설치된 디렉토리의 url
-   * top_kind: 현재 어떤 메뉴인지에 대한 정보 (더 자세한 내용 정리 필요)
-   * is_logged_in: 로그인한 상태인지
-    * user_unixname
-    * user_name
-   * is_admin: 관리자로 로그인한 상태인지
-    * project_unix_name: <a href="{$url_prefix}/projects/{$project_unixname}/admin">{_ t="Project Admins"}</a> 와 같은 식으로 사용되고 있는데, g_make_url 등의 결과를 이용하여 project_admin_link 등의 변수로 대체해야할 것으로 보임
-   * projectTab: 프로젝트 페이지인지 여부 (project_list 가 NULL 인지를 체크하는 것으로 대체?)
-   * project_list: 프로젝트 메뉴 리스트, 이 리스트의 각 멤버는 하위 멤버로 아래와 같은 값들을 가진다.
-    * css: 각 메뉴의 css class
-    * dir: 각 메뉴 링크 경로 (link로 변경?)
-    * selected: 현재 이 메뉴가 선택되었는지에 대한 정보
-    * title: 메뉴 이름
-   * content: 각 페이지마다 다르게 출력되는 부분들에 대한 내용
-   * feedback: 에러가 발생했을 경우 에러메시지를 담고 있음. 에러가 없다면 NULL
+* title: 제목 표시줄에 표시될 내용
+* url_prefix: nforge가 설치된 디렉토리의 url
+* theme_url: 테마가 설치된 디렉토리의 url
+* top_kind: 현재 어떤 메뉴인지에 대한 정보 (더 자세한 내용 정리 필요)
+* is_logged_in: 로그인한 상태인지
+** user_unixname
+** user_name
+* is_admin: 관리자로 로그인한 상태인지
+** project_unix_name: <a href="{$url_prefix}/projects/{$project_unixname}/admin">{_ t="Project Admins"}</a> 와 같은 식으로 사용되고 있는데, g_make_url 등의 결과를 이용하여 project_admin_link 등의 변수로 대체해야할 것으로 보임
+* projectTab: 프로젝트 페이지인지 여부 (project_list 가 NULL 인지를 체크하는 것으로 대체?)
+* project_list: 프로젝트 메뉴 리스트, 이 리스트의 각 멤버는 하위 멤버로 아래와 같은 값들을 가진다.
+** css: 각 메뉴의 css class
+** dir: 각 메뉴 링크 경로 (link로 변경?)
+** selected: 현재 이 메뉴가 선택되었는지에 대한 정보
+** title: 메뉴 이름
+* content: 각 페이지마다 다르게 출력되는 부분들에 대한 내용
+* feedback: 에러가 발생했을 경우 에러메시지를 담고 있음. 에러가 없다면 NULL
 
- '''>> index.tpl (Layout.tpl에서 사용가능한 변수들은 index.tpl에서도 모두 사용 가능)'''
+ **>> index.tpl (Layout.tpl에서 사용가능한 변수들은 index.tpl에서도 모두 사용 가능)**
 
-   * 정리 필요
+* 정리 필요
 
 === CSS 작업을 위한 정보 ===
 
@@ -84,7 +84,7 @@ nFORGE의 테마를 개발할 때의 방법 및 가이드를 제시한다.
 
 === 템플릿 수정 시 주의 사항 ===
 
- '''>> '{', '}'를 바로 사용할 수 없음 '''
+ **>> '{', '}'를 바로 사용할 수 없음 **
 
    1. '{' 대신 {ldelim}을 '}' 대신 {rdelim}을 사용한다.
 
@@ -96,7 +96,7 @@ nFORGE의 테마를 개발할 때의 방법 및 가이드를 제시한다.
 
    2. CSS image replacement 기법을 적용할 경우에는 아래와 같은 식으로 i18n을 구현한다. (한글, 영어 등 각 언어에 따라 body에 지정되는 클래스에 대한 내용을 정리할 필요가 있음)
 
-    * h1 a { display: block; width: some_width; height: some_height; background: url('images/en_message.png'); }
-    * h1 a span { display: none; }
-    * .ko h1 a { width: some_width; height: some_height; background: url('images/Korean_message.png'); }
-    * .ru h1 a { width: some_width; height: some_height; background: url('images/Russian_message.png'); }
+* h1 a { display: block; width: some_width; height: some_height; background: url('images/en_message.png'); }
+* h1 a span { display: none; }
+* .ko h1 a { width: some_width; height: some_height; background: url('images/Korean_message.png'); }
+* .ru h1 a { width: some_width; height: some_height; background: url('images/Russian_message.png'); }

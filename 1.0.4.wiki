@@ -1,7 +1,7 @@
 2009-06-10  semtlnori
 
-	* common/tracker/ArtifactType.class, www/include/project_home.php:
+ common/tracker/ArtifactType.class, www/include/project_home.php:
 	  branch 1.0에 merge (버전 1.0.3에서 실수로 빠졌기 때문에 버전 1.0.4에 추가)
 	  
-	  * r763: [#2600] 프로젝트의 포럼/이슈/코드 등에 권한이 없는 경우, 프로젝트 활동 내역에도 보이지 않도록
+* r763: [[#2600]] 프로젝트의 포럼/이슈/코드 등에 권한이 없는 경우, 프로젝트 활동 내역에도 보이지 않도록
 	  합니다. 또한 권한이 없어도 url 입력 등으로 포럼/이슈/코드 등에 접근이 가능했던 문제도 수정했습니다.

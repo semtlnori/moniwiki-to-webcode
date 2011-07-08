@@ -10,20 +10,20 @@
 #   You can find out more about MT-Blacklist at
 #   http://www.jayallen.org/projects/mt-blacklist
 #
-([\w\-_.]+\.)?(l(so|os)tr)\.[a-z]{2,}     # Catchall regex for lsotr.xxx and lostr.xxx with or without a subdomain
-(blow)[\w\-_.]*job[\w\-_.]*\.[a-z]{2,}     # This stops a whole slew of domain name variations relating to -- well -- you know...
-(buy)[\w\-_.]*online[\w\-_.]*\.[a-z]{2,}     # Catchall regexp for many spam sites
-(diet|penis)[\w\-_.]*(pills|enlargement)[\w\-_.]*\.[a-z]{2,}     # Catchall regexp for many spam sites
-(i|la)-sonneries?[\w\-_.]*\.[a-z]{2,}
-(levitra|lolita|phentermine|viagra|vig-?rx|zyban|valtex|xenical|adipex|meridia\b)[\w\-_.]*\.[a-z]{2,}     # Super regexp for domains containing levitra, lolita, phentermine, viagra, vigrx, vig-rx, zyban, valtex, xenical, adipex and meridia
-(magazine)[\w\-_.]*(finder|netfirms)[\w\-_.]*\.[a-z]{2,}
-(mike)[\w\-_.]*apartment[\w\-_.]*\.[a-z]{2,}     # Catchall regexp for Mike's Apartment variations
-(milf)[\w\-_.]*(hunter|moms|fucking)[\w\-_.]*\.[a-z]{2,}
-(online)[\w\-_.]*casino[\w\-_.]*\.[a-z]{2,}     # Catchall regexp for a hundred online casino sites
-(prozac|zoloft|xanax|valium|hydrocodone|vicodin|paxil|vioxx)[\w\-_.]*\.[a-z]{2,}     # Super regexp for domains containing prozac, zoloft, xanax, valium, hydrocodone, vicodin, paxil, vioxx
-(ragazze)-?\w+\.[a-z]{2,}     # Catchall regexp for many spam sites
-#(ultram\b|\btenuate|tramadol|pheromones|phendimetrazine|ionamin|ortho.?tricyclen|retin.?a\b)[\w\-_.]*\.[a-z]{2,}     # Third drug super regexp
-#(valtrex|zyrtec|\bhgh\b|ambien\b|flonase|allegra|didrex|renova\b|bontril|nexium)[\w\-_.]*\.[a-z]{2,}     # Fourth drug super regexp
+([[\w\-_.]]+\.)?(l(so|os)tr)\.[[a-z]]{2,}     # Catchall regex for lsotr.xxx and lostr.xxx with or without a subdomain
+(blow)[[\w\-_.]]*job[[\w\-_.]]*\.[[a-z]]{2,}     # This stops a whole slew of domain name variations relating to -- well -- you know...
+(buy)[[\w\-_.]]*online[[\w\-_.]]*\.[[a-z]]{2,}     # Catchall regexp for many spam sites
+(diet|penis)[[\w\-_.]]*(pills|enlargement)[[\w\-_.]]*\.[[a-z]]{2,}     # Catchall regexp for many spam sites
+(i|la)-sonneries?[[\w\-_.]]*\.[[a-z]]{2,}
+(levitra|lolita|phentermine|viagra|vig-?rx|zyban|valtex|xenical|adipex|meridia\b)[[\w\-_.]]*\.[[a-z]]{2,}     # Super regexp for domains containing levitra, lolita, phentermine, viagra, vigrx, vig-rx, zyban, valtex, xenical, adipex and meridia
+(magazine)[[\w\-_.]]*(finder|netfirms)[[\w\-_.]]*\.[[a-z]]{2,}
+(mike)[[\w\-_.]]*apartment[[\w\-_.]]*\.[[a-z]]{2,}     # Catchall regexp for Mike's Apartment variations
+(milf)[[\w\-_.]]*(hunter|moms|fucking)[[\w\-_.]]*\.[[a-z]]{2,}
+(online)[[\w\-_.]]*casino[[\w\-_.]]*\.[[a-z]]{2,}     # Catchall regexp for a hundred online casino sites
+(prozac|zoloft|xanax|valium|hydrocodone|vicodin|paxil|vioxx)[[\w\-_.]]*\.[[a-z]]{2,}     # Super regexp for domains containing prozac, zoloft, xanax, valium, hydrocodone, vicodin, paxil, vioxx
+(ragazze)-?\w+\.[[a-z]]{2,}     # Catchall regexp for many spam sites
+#(ultram\b|\btenuate|tramadol|pheromones|phendimetrazine|ionamin|ortho.?tricyclen|retin.?a\b)[[\w\-_.]]*\.[[a-z]]{2,}     # Third drug super regexp
+#(valtrex|zyrtec|\bhgh\b|ambien\b|flonase|allegra|didrex|renova\b|bontril|nexium)[[\w\-_.]]*\.[[a-z]]{2,}     # Fourth drug super regexp
 -4-you.info
 -4u.info
 -mobile-phones.org

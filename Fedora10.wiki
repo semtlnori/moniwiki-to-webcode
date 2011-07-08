@@ -1,10 +1,10 @@
 == nFORGE 버전 1.0.0.561 - Fedora10 / pgsql / nss-pgsql ==
- * Fedora10 pgsql 버전입니다.
- * 시스템 관리자 비번: nforge
- * 계정관리는 nss-pgsql을 사용합니다.
- * DB이름 : nforge / DB사용자 : nforge / DB비밀번호 : nforge
-  * nss-pgsql : nss DB사용자 : nforge_nss
- * 사이트 관리자 : nforgeadmin / 사이트관리자 비번: nforgeadmin
+* Fedora10 pgsql 버전입니다.
+* 시스템 관리자 비번: nforge
+* 계정관리는 nss-pgsql을 사용합니다.
+* DB이름 : nforge / DB사용자 : nforge / DB비밀번호 : nforge
+** nss-pgsql : nss DB사용자 : nforge_nss
+* 사이트 관리자 : nforgeadmin / 사이트관리자 비번: nforgeadmin
 
 == 알려진 문제점 ==
- * gittracker가 제대로 작동하지 않습니다. [#2297]
+* gittracker가 제대로 작동하지 않습니다. [[#2297]]

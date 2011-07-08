@@ -2,32 +2,32 @@
 버그 트래커 기능만 갖고 있기 때문에, permission 체계가 단순합니다. 권한 검사 함수들을 동작방식별로 이름을 통해 분명하게 구분 가능하게 하고 있습니다. (get/has/ensure)
 ==== 권한을 얻어오는 함수 ====
 $p_user_id에 해당하는 유저가, $id에 해당하는 {global, project}에 대해 갖고 있는 권한 등급을 얻어옴
- * access_get_global_level( $p_user_id = null )
- * access_get_project_level( $p_project_id = null, $p_user_id = null )
+* access_get_global_level( $p_user_id = null )
+* access_get_project_level( $p_project_id = null, $p_user_id = null )
 ==== 권한이 있는지 확인하는 함수 ====
 $p_user_id에 해당하는 유저가, $id에 해당하는 {global, project, bug}에 대해 $p_access_level 이상의 권한을 갖고 있는지 검사
- * access_has_global_level( $p_access_level, $p_user_id = null )
- * access_has_project_level( $p_access_level, $p_project_id, $p_user_id = null )
- * access_has_bug_level( $p_access_level, $p_bug_id, $p_user_id = null )
+* access_has_global_level( $p_access_level, $p_user_id = null )
+* access_has_project_level( $p_access_level, $p_project_id, $p_user_id = null )
+* access_has_bug_level( $p_access_level, $p_bug_id, $p_user_id = null )
 ==== 권한을 검사하고 접근을 제한하는 함수 ====
 access_has_{global,project,bug}_level과 같으나, acesss denied가 발생했다면 false를 리턴하는 것이 아니라 안내 페이지를 내보내고 종료
- * access_ensure_global_level( $p_access_level, $p_user_id = null )
- * access_ensure_project_level( $p_access_level, $p_project_id, $p_user_id = null )
- * access_ensure_bug_level( $p_access_level, $p_bug_id, $p_user_id = null )
+* access_ensure_global_level( $p_access_level, $p_user_id = null )
+* access_ensure_project_level( $p_access_level, $p_project_id, $p_user_id = null )
+* access_ensure_bug_level( $p_access_level, $p_bug_id, $p_user_id = null )
 ==== 기타 권한 검사 유틸리티 함수들 ====
- * access_has_any_project
- * access_has_bugnote_level
- * access_ensure_bugnote_level
- * access_can_close_bug
- * access_ensure_can_close_bug
- * access_can_reopen_bug
- * access_ensure_can_reopen_bug
+* access_has_any_project
+* access_has_bugnote_level
+* access_ensure_bugnote_level
+* access_can_close_bug
+* access_ensure_can_close_bug
+* access_can_reopen_bug
+* access_ensure_can_reopen_bug
 === redmine ===
 permission, role, member는 각각 다음의 주체가 다음과 같이 정의할 수 있습니다.
-|| || 주체 || 정의 내용 ||
-|| permission || 개발자 ||어떤 permission으로 어떤 controller의 어떤 action을 실행할 수 있는지 ||
-|| role || 사이트 관리자||어떤 role이 어떤 permission을 갖는지 ||
-|| member || 프로젝트 관리자||누가 이 프로젝트의 member이며, 어떤 member가 어떤 role을 갖는지 ||
+| | 주체 | 정의 내용 |
+| permission | 개발자 |어떤 permission으로 어떤 controller의 어떤 action을 실행할 수 있는지 |
+| role | 사이트 관리자|어떤 role이 어떤 permission을 갖는지 |
+| member | 프로젝트 관리자|누가 이 프로젝트의 member이며, 어떤 member가 어떤 role을 갖는지 |
 
 ==== AccessControl::Mapper.permission(name, hash, options={}) ====
 어떤 퍼미션(name)으로 어떤 일(hash)을 할 수 있는지 정의합니다.

@@ -3,8 +3,8 @@ MoniWiki는 기본적으로 header.php와 footer.php를 고쳐서 다양한 모�
 === header.php, footer.php ===
 기본적으로 header.php, footer.php를 읽는다. 이게 없으면 기본값으로 대치된다.
 
- * header.php, footer.php는 자신이 원하는 대로 꾸밀 수 있다.
- * '''include'''로 처리된다.
+* header.php, footer.php는 자신이 원하는 대로 꾸밀 수 있다.
+* **include**로 처리된다.
 
 === 임의의 Theme 설정 및 지원 ===
 

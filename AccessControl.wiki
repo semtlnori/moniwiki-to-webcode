@@ -1,89 +1,89 @@
-'''''nFORGE 3.0 이상에서 적용됩니다.'''''
+**//nFORGE 3.0 이상에서 적용됩니다.**//
 
-[[TableOfContents]]
+[[[[TableOfContents]]]]
 
 == 권한 정의 ==
 
 === 이슈 ===
-|| 권한명(한글) || 권한명(영문) || 권한없음(-1)[[FootNote(이슈 비공개시 아무 권한 없음)]] || 쓰기(0) || 기본관리(1) || 관리(2) || 익명[[FootNote(이슈 비공개시 아무 권한 없음)]] || 비멤버[[FootNote(이슈 비공개시 아무 권한 없음)]] ||
-|| 읽기(목록조회, 내용읽기) || tracker_read || O || O || O || O || O || O ||
-|| 이슈 등록[[FootNote(이슈 등록시에는 누구나 세부항목 설정 가능)]] || tracker_write || O || O || O || O || O[[FootNote(익명 글쓰기를 허용한 경우에만)]] || O ||
-|| 댓글 쓰기 || tracker_write_comment || O || O || O || O || O[[FootNote(익명 글쓰기를 허용한 경우에만)]] || O ||
-|| 세부항목 편짐 || tracker_edit_field || X || O || O || O || X || X ||
-|| 이슈상태 편집 || tracker_edit_state || X || O || O || O || X || X ||
-|| 제목 수정[[FootNote(본인이 작성한 게시물에 대해서는 제목 수정 가능)]] || tracker_edit_title || X || X || X || O || X || X ||
-|| 본문 수정[[FootNote(드래프트 모드에서는 본인이 작성한 게시물의 본문 수정 가능)]] || tracker_edit_body || X || X || X || X || X || X ||
-|| 담당자 편집 || tracker_edit_assignee || X || X || X || O || X || X ||
-|| 중요도 편집 || tracker_edit_priority || X || X || X || O || X || X ||
-|| 마일스톤 편집 || tracker_edit_milestone || X || X || X || O || X || X ||
-|| 분류 편집 || tracker_edit_category || X || X || X || O || X || X ||
-|| 공지사항 설정/해제 || tracker_edit_notice || X || X || X || O || X || X ||
-|| 이슈 삭제 || tracker_delete_artifact || X || X || X || O || X || X ||
-|| 댓글 삭제 || tracker_delete_comment || X || X || X || O || X || X ||
+| 권한명(한글) | 권한명(영문) | 권한없음(-1)[[[[FootNote(이슈 비공개시 아무 권한 없음)]]]] | 쓰기(0) | 기본관리(1) | 관리(2) | 익명[[[[FootNote(이슈 비공개시 아무 권한 없음)]]]] | 비멤버[[[[FootNote(이슈 비공개시 아무 권한 없음)]]]] |
+| 읽기(목록조회, 내용읽기) | tracker_read | O | O | O | O | O | O |
+| 이슈 등록[[[[FootNote(이슈 등록시에는 누구나 세부항목 설정 가능)]]]] | tracker_write | O | O | O | O | O[[[[FootNote(익명 글쓰기를 허용한 경우에만)]]]] | O |
+| 댓글 쓰기 | tracker_write_comment | O | O | O | O | O[[[[FootNote(익명 글쓰기를 허용한 경우에만)]]]] | O |
+| 세부항목 편짐 | tracker_edit_field | X | O | O | O | X | X |
+| 이슈상태 편집 | tracker_edit_state | X | O | O | O | X | X |
+| 제목 수정[[[[FootNote(본인이 작성한 게시물에 대해서는 제목 수정 가능)]]]] | tracker_edit_title | X | X | X | O | X | X |
+| 본문 수정[[[[FootNote(드래프트 모드에서는 본인이 작성한 게시물의 본문 수정 가능)]]]] | tracker_edit_body | X | X | X | X | X | X |
+| 담당자 편집 | tracker_edit_assignee | X | X | X | O | X | X |
+| 중요도 편집 | tracker_edit_priority | X | X | X | O | X | X |
+| 마일스톤 편집 | tracker_edit_milestone | X | X | X | O | X | X |
+| 분류 편집 | tracker_edit_category | X | X | X | O | X | X |
+| 공지사항 설정/해제 | tracker_edit_notice | X | X | X | O | X | X |
+| 이슈 삭제 | tracker_delete_artifact | X | X | X | O | X | X |
+| 댓글 삭제 | tracker_delete_comment | X | X | X | O | X | X |
 
 === 게시판 ===
-|| 권한명(한글) || 권한명(영문) || 권한없음(-1)[[FootNote(게시판 비공개시 아무 권한 없음)]] || 쓰기(0) || 관리(2) || 익명[[FootNote(게시판 비공개시 아무 권한 없음)]] || 비멤버[[FootNote(게시판 비공개시 아무 권한 없음)]] ||
-|| 읽기(목록조회, 내용읽기) || tracker_read || O || O || O || O || O ||
-|| 게시물 등록 || tracker_write || O || O || O || O[[FootNote(익명 글쓰기를 허용한 경우에만)]] || O ||
-|| 댓글 쓰기 || tracker_write_comment || O || O || O || O[[FootNote(익명 글쓰기를 허용한 경우에만)]] || O ||
-|| 제목 수정 || tracker_edit_title || X || X || O || X || X ||
-|| 본문 수정 || tracker_edit_body || X || X || O || X || X ||
-|| 분류 편집 || tracker_edit_category || X || X || O || X || X ||
-|| 공지사항 설정/해제 || tracker_edit_notice || X || X || O || X || X ||
-|| 게시물 삭제 || tracker_delete_artifact || X || X || O || X || X ||
-|| 댓글 삭제 || tracker_delete_comment || X || X || O || X || X ||
-|| 첨부파일 추가 || tracker_add_attachment || X || X || O || X || X ||
-|| 첨부파일 삭제 || tracker_delete_attachment || X || X || O || X || X ||
+| 권한명(한글) | 권한명(영문) | 권한없음(-1)[[[[FootNote(게시판 비공개시 아무 권한 없음)]]]] | 쓰기(0) | 관리(2) | 익명[[[[FootNote(게시판 비공개시 아무 권한 없음)]]]] | 비멤버[[[[FootNote(게시판 비공개시 아무 권한 없음)]]]] |
+| 읽기(목록조회, 내용읽기) | tracker_read | O | O | O | O | O |
+| 게시물 등록 | tracker_write | O | O | O | O[[[[FootNote(익명 글쓰기를 허용한 경우에만)]]]] | O |
+| 댓글 쓰기 | tracker_write_comment | O | O | O | O[[[[FootNote(익명 글쓰기를 허용한 경우에만)]]]] | O |
+| 제목 수정 | tracker_edit_title | X | X | O | X | X |
+| 본문 수정 | tracker_edit_body | X | X | O | X | X |
+| 분류 편집 | tracker_edit_category | X | X | O | X | X |
+| 공지사항 설정/해제 | tracker_edit_notice | X | X | O | X | X |
+| 게시물 삭제 | tracker_delete_artifact | X | X | O | X | X |
+| 댓글 삭제 | tracker_delete_comment | X | X | O | X | X |
+| 첨부파일 추가 | tracker_add_attachment | X | X | O | X | X |
+| 첨부파일 삭제 | tracker_delete_attachment | X | X | O | X | X |
 
 게시물 등록자의 경우, 자신의 게시물에 대해 다음의 권한을 추가로 가집니다.
- * 제목 편집
- * 본문 편집
- * 게시물 삭제
- * 첨부파일 추가
- * 첨부파일 삭제
+* 제목 편집
+* 본문 편집
+* 게시물 삭제
+* 첨부파일 추가
+* 첨부파일 삭제
 
 댓글 등록자의 경우, 자신의 댓글에 대해 다음의 권한을 추가로 가집니다.
- * 댓글 삭제
+* 댓글 삭제
 
 === 다운로드 권한 ===
-|| 권한명(한글)|| 권한명(영문) || 읽기(0) || 쓰기(1) || 관리 || 비멤버 || 익명 ||
-|| 읽기(전체) || frs_read  || O || O || O || X || X ||
-|| 읽기(is_public=1) || frs_public_read  || X || X || X || O || O ||
-|| 릴리즈추가 || frs_add_release || X || O || O || X || X ||
-|| 릴리즈삭제 || frs_delete_release || X || 0 || O || X || X ||
-|| 릴리즈편집 || frs_edit_release || X || 0 || O || X || X ||
-|| 릴리즈순서변경 || frs_order_release || X || 0 || O || X || X ||
-|| 댓글쓰기 || frs_write_comment || 0 || 0 || O || O || O ||
-|| 댓글삭제 || frs_delete_comment || X || X || O || X || X ||
-|| 자신이 쓴 댓글 삭제 || frs_delete_own_comment || 0 || O || O || O || X ||
+| 권한명(한글)| 권한명(영문) | 읽기(0) | 쓰기(1) | 관리 | 비멤버 | 익명 |
+| 읽기(전체) | frs_read  | O | O | O | X | X |
+| 읽기(is_public=1) | frs_public_read  | X | X | X | O | O |
+| 릴리즈추가 | frs_add_release | X | O | O | X | X |
+| 릴리즈삭제 | frs_delete_release | X | 0 | O | X | X |
+| 릴리즈편집 | frs_edit_release | X | 0 | O | X | X |
+| 릴리즈순서변경 | frs_order_release | X | 0 | O | X | X |
+| 댓글쓰기 | frs_write_comment | 0 | 0 | O | O | O |
+| 댓글삭제 | frs_delete_comment | X | X | O | X | X |
+| 자신이 쓴 댓글 삭제 | frs_delete_own_comment | 0 | O | O | O | X |
 
- * 비멤버 : 로그인 하였으나 프로젝트 멤버가 아닌 사용자
- * 익명사용자 : 로그인 하지 않은 사용자
+* 비멤버 : 로그인 하였으나 프로젝트 멤버가 아닌 사용자
+* 익명사용자 : 로그인 하지 않은 사용자
   (단, 익명사용자와 비멤버의 경우는 "다운로드 기능이 익명사용자에게 공개되고 Activate된 항목"에 대해서만 권한부여가 가능 함)
 
 === 코드 권한 ===
-|| 권한명(한글)|| 권한명(영문) || 읽기(0) || 쓰기(1) || 권한없음(-1) || 비멤버 || 익명 ||
-|| 읽기 || scm_read  || O || O || O || O || O ||
-|| 쓰기 || scm_write || X || O || X || X || X ||
+| 권한명(한글)| 권한명(영문) | 읽기(0) | 쓰기(1) | 권한없음(-1) | 비멤버 | 익명 |
+| 읽기 | scm_read  | O | O | O | O | O |
+| 쓰기 | scm_write | X | O | X | X | X |
 
- * 권한없음 : 프로젝트 멤버 중, 코드에 권한이 없는 사용자
- * 비멤버 : 로그인 하였으나 프로젝트 멤버가 아닌 사용자
- * 익명사용자 : 로그인 하지 않은 사용자
- * 코드 권한은 코드관련 메뉴 페이지(코드 트리 보기, 커밋로그, 코드통계)와 저장소 접근에 대한 권한이다.
+* 권한없음 : 프로젝트 멤버 중, 코드에 권한이 없는 사용자
+* 비멤버 : 로그인 하였으나 프로젝트 멤버가 아닌 사용자
+* 익명사용자 : 로그인 하지 않은 사용자
+* 코드 권한은 코드관련 메뉴 페이지(코드 트리 보기, 커밋로그, 코드통계)와 저장소 접근에 대한 권한이다.
   (단, 권한없음, 비멤버, 익명사용자의 경우는 "코드 저장소 익명접근 허용된 경우"에만 권한부여가 가능 함)
 
 === 새소식 권한 ===
-|| 권한명(한글)|| 권한명(영문) || 프로젝트관리 || 멤버 || 비멤버 || 익명 ||
-|| 읽기(목록, 상세내용) || news_read  || O || O || O || O ||
-|| 새소식제출 || news_write || O || X || X || X ||
-|| 새소식편집 || news_edit || O || X || X || X ||
-|| 댓글쓰기 || news_write_comment || 0 || 0 || O || X ||
-|| 댓글삭제 || news_delete_comment || O || X || X || X ||
-|| 자신이 쓴 댓글 삭제 || news_delete_own_comment || O || O || O || X ||
+| 권한명(한글)| 권한명(영문) | 프로젝트관리 | 멤버 | 비멤버 | 익명 |
+| 읽기(목록, 상세내용) | news_read  | O | O | O | O |
+| 새소식제출 | news_write | O | X | X | X |
+| 새소식편집 | news_edit | O | X | X | X |
+| 댓글쓰기 | news_write_comment | 0 | 0 | O | X |
+| 댓글삭제 | news_delete_comment | O | X | X | X |
+| 자신이 쓴 댓글 삭제 | news_delete_own_comment | O | O | O | X |
 
- * 멤버 : 프로젝트 멤버 중, 관리권한이 없는 사용자
- * 비멤버 : 로그인 하였으나 프로젝트 멤버가 아닌 사용자
- * 익명사용자 : 로그인 하지 않은 사용자
+* 멤버 : 프로젝트 멤버 중, 관리권한이 없는 사용자
+* 비멤버 : 로그인 하였으나 프로젝트 멤버가 아닌 사용자
+* 익명사용자 : 로그인 하지 않은 사용자
 
 == Acl 모듈 사용하기 ==
 현재 사용자가 어떤 대상에 대해 어떤 권한을 갖고 있는지 검사하기 위해서는 Acl 모듈을 사용해야 합니다.
@@ -103,4 +103,4 @@ if (!$acl->isAllowed(session_get_user(), $tracker, 'tracker_write')) {
 }}}
 
 == 관련논의 ==
- * NForge3/AccessControlDiscussion
+* NForge3/AccessControlDiscussion

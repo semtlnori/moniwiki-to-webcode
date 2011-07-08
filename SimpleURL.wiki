@@ -4,39 +4,39 @@ URL 끝에 .xml을 붙이면 결과를 xml로 가져오도록 합니다.
 
 아래 URL에서 /projects는 생략 가능합니다.
 == 프로젝트 ==
-|| 기능 || URL || 진행상황 ||
-|| 프로젝트 ||/projects/프로젝트명 || 완료 ||
-|| ||/프로젝트명 || 완료 ||
+| 기능 | URL | 진행상황 |
+| 프로젝트 |/projects/프로젝트명 | 완료 |
+| |/프로젝트명 | 완료 |
 == 트래커 ==
-|| 기능 || URL || 진행상황 ||
-|| 이슈 목록 보기 ||/projects/프로젝트명/tracker이름 || 완료 ||
-|| ||/projects/프로젝트명/tracker이름/all || 완료 ||
-|| 최근 변경된 순서로 이슈 목록 보기 ||/projects/프로젝트명/tracker이름/last || 완료 ||
-|| 열린 이슈 목록 보기 ||/projects/프로젝트명/tracker이름/open || 완료 ||
-|| 닫힌 이슈 목록 보기 ||/projects/프로젝트명/tracker이름/close || 완료 ||
-|| 이슈 읽기 ||/projects/프로젝트명/tracker이름/번호 || 완료 ||
-|| ||/projects/프로젝트명/번호 || 완료 ||
-|| 이슈 등록 ||/projects/프로젝트명/tracker이름/add || 완료 ||
-|| 이슈 삭제 ||/projects/프로젝트명/tracker이름/번호/delete || ||
-|| 첨부 파일 ||/projects/프로젝트명/tracker이름/번호/파일아이디 || ||
+| 기능 | URL | 진행상황 |
+| 이슈 목록 보기 |/projects/프로젝트명/tracker이름 | 완료 |
+| |/projects/프로젝트명/tracker이름/all | 완료 |
+| 최근 변경된 순서로 이슈 목록 보기 |/projects/프로젝트명/tracker이름/last | 완료 |
+| 열린 이슈 목록 보기 |/projects/프로젝트명/tracker이름/open | 완료 |
+| 닫힌 이슈 목록 보기 |/projects/프로젝트명/tracker이름/close | 완료 |
+| 이슈 읽기 |/projects/프로젝트명/tracker이름/번호 | 완료 |
+| |/projects/프로젝트명/번호 | 완료 |
+| 이슈 등록 |/projects/프로젝트명/tracker이름/add | 완료 |
+| 이슈 삭제 |/projects/프로젝트명/tracker이름/번호/delete | |
+| 첨부 파일 |/projects/프로젝트명/tracker이름/번호/파일아이디 | |
 issue/new 도 덤으로 지원했으면 합니다. --wkpark
 
 생각해보니 new까지는 필요 없을것 같습니다. new 링크에 대해서는 그냥 ?action=new와 같은 식도 괜찮겠죠.
 그리고 /new와 같은 링크는 서치엔진에게 이 링크는 따라가지 말라고 rel="nofollow"를 넣어줘야 할것입니다.
 == 다운로드 ==
 아래 표에서 download는 files로 바꿔 쓸 수 있습니다.
-|| 기능 || URL || 진행상황 || 비고 ||
-|| 릴리즈 목록 보기 ||/projects/프로젝트명/download || 완료 || ||
-|| ||/projects/프로젝트명/releases || 완료 || ||
-|| 릴리즈 노트 ||/projects/프로젝트명/download/note/릴리즈번호 || 완료 || ||
-|| ||/projects/프로젝트명/releases/릴리즈번호 || 완료 || ||
-|| 파일 다운로드 받기 ||/projects/프로젝트명/download/파일번호 || 완료 || ||
-|| ||/projects/프로젝트명/download/릴리즈번호/파일번호 || 완료 || ||
-|| ||/projects/프로젝트명/releases/릴리즈번호/파일번호 || 완료 || ||
-|| 릴리즈 편집 ||/projects/프로젝트명/download/릴리즈번호/edit || 완료 || 다운로드 받기와 비교해보았을 때 일관성이 없네요. ||
-|| ||/projects/프로젝트명/releases/릴리즈번호/edit || 완료 || ||
-|| 릴리즈 삭제 ||/projects/프로젝트명/download/릴리즈번호/delete || 완료 || 다운로드 받기와 비교해보았을 때 일관성이 없네요. ||
-|| ||/projects/프로젝트명/releases/릴리즈번호/delete || 완료 || ||
+| 기능 | URL | 진행상황 | 비고 |
+| 릴리즈 목록 보기 |/projects/프로젝트명/download | 완료 | |
+| |/projects/프로젝트명/releases | 완료 | |
+| 릴리즈 노트 |/projects/프로젝트명/download/note/릴리즈번호 | 완료 | |
+| |/projects/프로젝트명/releases/릴리즈번호 | 완료 | |
+| 파일 다운로드 받기 |/projects/프로젝트명/download/파일번호 | 완료 | |
+| |/projects/프로젝트명/download/릴리즈번호/파일번호 | 완료 | |
+| |/projects/프로젝트명/releases/릴리즈번호/파일번호 | 완료 | |
+| 릴리즈 편집 |/projects/프로젝트명/download/릴리즈번호/edit | 완료 | 다운로드 받기와 비교해보았을 때 일관성이 없네요. |
+| |/projects/프로젝트명/releases/릴리즈번호/edit | 완료 | |
+| 릴리즈 삭제 |/projects/프로젝트명/download/릴리즈번호/delete | 완료 | 다운로드 받기와 비교해보았을 때 일관성이 없네요. |
+| |/projects/프로젝트명/releases/릴리즈번호/delete | 완료 | |
 
 /download/파일번호/파일이름 이 가장 구현하기 쉽겠고 (파일번호까지만 넣으면 실제로 가능), 나머지는 덤으로 지원했으면 하네요. 파일 순서는 불필요할 것 같습니다. 릴리스이름이 중간에 들어가면 이해하기 편리하겠네요. 그런데 릴리스이름에 "/" 구분자가 들어가면 ? 지능적으로 서치를 해야겠네요. ?
  우선은 가장 쉬운 방법으로 해보겠습니다.
@@ -45,8 +45,8 @@ issue/new 도 덤으로 지원했으면 합니다. --wkpark
  release/릴리즈번호가 릴리즈 노트였는데... download/note/릴리즈번호가 더 낫겠네요. 바꾸겠습니다.
 
 == 위키 ==
-|| 기능 || URL || 진행상황 ||
-|| 페이지 읽기 ||/projects/프로젝트명/wiki/페이지명 || ||
+| 기능 | URL | 진행상황 |
+| 페이지 읽기 |/projects/프로젝트명/wiki/페이지명 | |
 
 == 테스트 ==
 TrunkFile:nforge/tests/func/action.php
@@ -55,4 +55,4 @@ TrunkFile:nforge/tests/func/action.php
 ----
 Dynamic 컨텐츠는 query를 쓰는 것이 낫고, static한 컨텐츠는 SimpleURL이 나을 것이라 생각합니다. 이와 더불어 Wiki:NoFollow 지원도~
 
-SeeAlso [API]
+SeeAlso [[API]]

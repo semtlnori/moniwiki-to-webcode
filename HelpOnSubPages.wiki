@@ -2,7 +2,7 @@
 
 Subpages are groups of pages that share a common prefix, which itself is another page. While this is also possible with "classic" wiki, by using names like {{{SomeTopicSubTopic}}}, the use of {{{SomeTopic/SubTopic}}} allows better navigational support, and you can omit the common prefix when linking from the parent page to the child page.
 
-Thus, by using "/" to concatenate several WikiName''''''s, you can create arbitrarily deep hierarchies (within limits, especially the length of filenames on your system). In reality, subpages are normal pages that contain a "/" in their name, and thus they are stored besides all other pages in the file system.
+Thus, by using "/" to concatenate several WikiName****s, you can create arbitrarily deep hierarchies (within limits, especially the length of filenames on your system). In reality, subpages are normal pages that contain a "/" in their name, and thus they are stored besides all other pages in the file system.
 
 Links to sibling pages start with "`../`", for example ../SubPages (a link to this page).
 
@@ -18,16 +18,16 @@ Links to sibling pages start with "`../`", for example ../SubPages (a link to th
 }}} 
 
 === Display ===
- * HelpOnSubPages/SubPages
- * [wiki:HelpOnSubPages/SubPages sub page]
- * /ThirdLevel
- * [wiki:/ThirdLevel A page below this one]
- * ../HelpOnSubPages
- * ["../"] (anonymous parent link)
- * [wiki:../ free parent link]
+* HelpOnSubPages/SubPages
+* [[wiki:HelpOnSubPages/SubPages sub page]]
+* /ThirdLevel
+* [[wiki:/ThirdLevel A page below this one]]
+* ../HelpOnSubPages
+* [["../"]] (anonymous parent link)
+* [[wiki:../ free parent link]]
 ----
 /!\ Please do all of us a favour and don't create the /ThirdLevel pages, it's just an example!
 === MoniWiki Extensions ===
- * MoniWiki support "./SubPages" syntax.
+* MoniWiki support "./SubPages" syntax.
 ----
-[[Navigation(HelpOnEditing)]]
+[[[[Navigation(HelpOnEditing)]]]]

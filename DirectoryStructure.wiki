@@ -1,44 +1,44 @@
 #title nFORGE 디렉토리 구조
 == 설치 디렉토리/파일 ==
-|| 경로 || 내용 ||
-||common ||각종 모듈 ||
-||www ||DocumentRoot ||
-||www/themes ||테마 ||
-||www/js ||자바스크립트 파일 ||
-||www/include/languages ||메시지 테이블 파일(.tab) ||
-||www/wiki ||var/wiki에 대한 심볼릭 링크 ||
-||var ||데이터: SVN 저장소, 첨부파일 등 ||
-||var/wiki ||각 프로젝트의 위키 ||
-||var/log ||[:Logging 로그] ||
-||var/uploads ||다운로드 파일, 첨부파일 ||
-||var/svnroot, var/gitroot, var/cvsroot ||SCM 저장소 ||
-||var/*cache* ||cache ||
-||var/test ||테스트용 데이터를 위한 디렉토리 ||
-||plugins ||[:Plugin 플러그인] ||
-||tests ||[:UnitTest 테스트] ||
-||cronjobs ||[:CronJobs 크론잡] ||
-||db ||DB 초기화/업그레이드 관련 파일들 ||
-||bin, util, tools ||각종 유틸리티들 ||
-||share ||서드파티 라이브러리 등 ||
-||migration ||nforge 1.x -> 2.0 마이그레이션 스크립트 ||
-||jpgraph ||jpgraph ||
-||etc ||[설정파일]의 템플릿들 ||
-||contrib ||서드파티 라이브러리에 대한 패치 ||
-||locale ||표준 i18n 지원 #3708 ||
-||/etc/nforge ||nFORGE [:Configuration 설정파일] ||
-||/etc/cron.d/nforgecron ||nFORGE를 위한 크론 테이블 ||
-||/nforge-backups ||nFORGE 백업 디렉토리 ||
+| 경로 | 내용 |
+|common |각종 모듈 |
+|www |DocumentRoot |
+|www/themes |테마 |
+|www/js |자바스크립트 파일 |
+|www/include/languages |메시지 테이블 파일(.tab) |
+|www/wiki |var/wiki에 대한 심볼릭 링크 |
+|var |데이터: SVN 저장소, 첨부파일 등 |
+|var/wiki |각 프로젝트의 위키 |
+|var/log |[[:Logging 로그]] |
+|var/uploads |다운로드 파일, 첨부파일 |
+|var/svnroot, var/gitroot, var/cvsroot |SCM 저장소 |
+|var/*cache* |cache |
+|var/test |테스트용 데이터를 위한 디렉토리 |
+|plugins |[[:Plugin 플러그인]] |
+|tests |[[:UnitTest 테스트]] |
+|cronjobs |[[:CronJobs 크론잡]] |
+|db |DB 초기화/업그레이드 관련 파일들 |
+|bin, util, tools |각종 유틸리티들 |
+|share |서드파티 라이브러리 등 |
+|migration |nforge 1.x -> 2.0 마이그레이션 스크립트 |
+|jpgraph |jpgraph |
+|etc |[[설정파일]]의 템플릿들 |
+|contrib |서드파티 라이브러리에 대한 패치 |
+|locale |표준 i18n 지원 #3708 |
+|/etc/nforge |nFORGE [[:Configuration 설정파일]] |
+|/etc/cron.d/nforgecron |nFORGE를 위한 크론 테이블 |
+|/nforge-backups |nFORGE 백업 디렉토리 |
 trunk/nforge의 구조도 위와 같습니다.
 == nFORGE 프로젝트 저장소 디렉토리 구조 ==
 === trunk ===
 주로 이곳에서 개발이 이루어집니다.
-||trunk/nforge ||코어. 이 디렉토리를 체크아웃 받아 nFORGE 설치 가능. ||
-||trunk/bin ||nFORGE의 개발/관리를 돕는 도구들 ||
-||trunk/themes ||추가 테마 ||
-||trunk/plugins ||추가 플러그인 ||
-||trunk/docs ||문서 ||
+|trunk/nforge |코어. 이 디렉토리를 체크아웃 받아 nFORGE 설치 가능. |
+|trunk/bin |nFORGE의 개발/관리를 돕는 도구들 |
+|trunk/themes |추가 테마 |
+|trunk/plugins |추가 플러그인 |
+|trunk/docs |문서 |
 === branch ===
-||''version''-stable ||해당 버전의 안정화를 위한 브랜치. 버그 수정 등의 안정화를 위한 코드 변경만 커밋할 것. ||
-||그 외 ||특정 목적을 위한 브랜치 ||
+|//version//-stable |해당 버전의 안정화를 위한 브랜치. 버그 수정 등의 안정화를 위한 코드 변경만 커밋할 것. |
+|그 외 |특정 목적을 위한 브랜치 |
 === tags ===
 베타 버전 이상을 릴리즈하는 경우, 이 디렉토리에 태깅을 한 뒤 릴리즈함.

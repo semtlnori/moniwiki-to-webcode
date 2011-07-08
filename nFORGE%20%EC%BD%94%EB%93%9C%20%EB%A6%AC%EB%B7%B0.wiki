@@ -1,5 +1,5 @@
 #title nFORGE 코드 리뷰
-[[TableOfContents]]
+[[[[TableOfContents]]]]
 == nFORGE 코드 리뷰 ==
 nFORGE 코드리뷰에는 누구나 참여할 수 있습니다. 부담없이 보시고 코드에 직접 의견을 달아 주세요!
 http://dev.naver.com/projects/nforge/code
@@ -10,24 +10,24 @@ nFORGE 온라인 코드 리뷰와 관련한 동영상은 아래 링크를 참조
 온라인 코드리뷰 자료로 포럼도( #1745 ) 참조하세요
 
 == nFORGE 코드 리뷰 정책 ==
- * nFORGE에 코드를 반영하는 조건은 단 한가지 커미터 한명 이상의 동의를 받으시면 됩니다.
- * 커미터가 아니시더라도 패치로 포럼이나 이슈에서 코드리뷰를 요청하시면 커미터의 리뷰와 동의로 코드 수정에 참여할 수 있습니다.
- * 코드 반영 프로세스를 요약해 드리면 이슈등록 => 코드수정 => 리뷰요청 => 동의 => 커밋 => 확인 => 이슈종료의 과정을 거칩니다.
+* nFORGE에 코드를 반영하는 조건은 단 한가지 커미터 한명 이상의 동의를 받으시면 됩니다.
+* 커미터가 아니시더라도 패치로 포럼이나 이슈에서 코드리뷰를 요청하시면 커미터의 리뷰와 동의로 코드 수정에 참여할 수 있습니다.
+* 코드 반영 프로세스를 요약해 드리면 이슈등록 => 코드수정 => 리뷰요청 => 동의 => 커밋 => 확인 => 이슈종료의 과정을 거칩니다.
 
  attachment:UploadedFiles/nforge_codereview.png
 
 == nFORGE 코드 리뷰 요청 방법 ==
- * 커미터 권한을 가진 개발자는 nFORGE 코드 bin/ 폴더에 있는 cr_upload를 사용하시면 개발 환경에서 바로 리뷰를 요청할 수 있습니다.
+* 커미터 권한을 가진 개발자는 nFORGE 코드 bin/ 폴더에 있는 cr_upload를 사용하시면 개발 환경에서 바로 리뷰를 요청할 수 있습니다.
 
  attachment:UploadedFiles/nforge_crupload.png
 
- * 커미터 권한이 없는 일반 개발자는 nFORGE 코드를 체크아웃 받으신 다음 svn diff > XXX.patch의 방식으로 패치를 작성하셔서 포럼이나 이슈의 상세 화면 하단에 있는 코드리뷰등록을 통해서 리뷰를 요청하시면 됩니다.
+* 커미터 권한이 없는 일반 개발자는 nFORGE 코드를 체크아웃 받으신 다음 svn diff > XXX.patch의 방식으로 패치를 작성하셔서 포럼이나 이슈의 상세 화면 하단에 있는 코드리뷰등록을 통해서 리뷰를 요청하시면 됩니다.
 
  attachment:UploadedFiles/nforge_patchupload.png
 
 == nFORGE 코드 리뷰 참여하기 ==
- * nFORGE 코드 리뷰는 PHP언어와 리눅스 시스템에 경험이 있는 개발자라면 누구나 참여할 수 있습니다.
- * 다른 프로젝트에 참여하고 계신 개발자, 심지어 로그인하지 않으신 분이라도 리뷰에 참여하실 수 있습니다.
- * nFORGE 코드탬에서 http://dev.naver.com/projects/nforge/code 요청중 또는 리뷰중인 코드 리뷰를 보시고 Side-by-side Diff의 특정 라인 번호나 내용을 클릭하시면 코드 수정 내용에 대해서 다양한 의견을 말씀하시 수 있습니다.
+* nFORGE 코드 리뷰는 PHP언어와 리눅스 시스템에 경험이 있는 개발자라면 누구나 참여할 수 있습니다.
+* 다른 프로젝트에 참여하고 계신 개발자, 심지어 로그인하지 않으신 분이라도 리뷰에 참여하실 수 있습니다.
+* nFORGE 코드탬에서 http://dev.naver.com/projects/nforge/code 요청중 또는 리뷰중인 코드 리뷰를 보시고 Side-by-side Diff의 특정 라인 번호나 내용을 클릭하시면 코드 수정 내용에 대해서 다양한 의견을 말씀하시 수 있습니다.
 
  attachment:UploadedFiles/nforge_diff.png

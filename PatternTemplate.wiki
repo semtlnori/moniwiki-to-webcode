@@ -1,7 +1,7 @@
 = Pattern Name =
-''Name of Pattern ''
+//Name of Pattern //
 
-'''Aliases:''' ''Aliases (or None at this time) ''
+**Aliases:** //Aliases (or None at this time) //
 
 == Problem ==
 A statement of the problem this pattern solves. The problem may be stated as a question. 
@@ -11,8 +11,8 @@ The setting for the problem. This can include a description of the target user, 
 
 == Forces ==
 The forces influencing the problem and solution. This can be represented as a list. 
-    * Force one 
-    * Force two 
+* Force one 
+* Force two 
 
 == Solution ==
 The solution to the problem. 
@@ -38,14 +38,14 @@ http://www.agcs.com/graphics/patterns/sketch.gif
 
 
 ----
-'''Author(s):''' Author's name or "as told to" for pattern mining 
+**Author(s):** Author's name or "as told to" for pattern mining 
 
-'''Date:''' Date string, e.g. 2000-12-31
+**Date:** Date string, e.g. 2000-12-31
 
-[mailto:author@somewhere.com Send email to author(s)]
+[[mailto:author@somewhere.com Send email to author(s)]]
 
 ----
-'''References:''' References cited in the pattern. 
+**References:** References cited in the pattern. 
 
 == Keywords ==
 A comma delimited string of terms to be used for searching. 

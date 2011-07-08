@@ -516,7 +516,7 @@ msgstr "북마크"
 
 #: ../plugin/RecentChanges.php:244
 #, c-format
-msgid "[%sh %sm ago]"
+msgid "[[%sh %sm ago]]"
 msgstr ""
 
 #: ../plugin/SlideShow.php:28
@@ -565,7 +565,7 @@ msgid "TwinPages of %s"
 msgstr "%s의 쌍둥이 페이지"
 
 #: ../plugin/TwinPages.php:19 ../wiki.php:3760
-msgid "See [TwinPages]: "
+msgid "See [[TwinPages]]: "
 msgstr ""
 
 #: ../plugin/TwinPages.php:21
@@ -1230,7 +1230,7 @@ msgid "TwinPages"
 msgstr "TwinPages"
 
 #: ../wiki.php:2508
-msgid "See [TwinPages]:"
+msgid "See [[TwinPages]]:"
 msgstr ""
 
 #: ../wiki.php:3193 ../locale/dummy.php:6
@@ -1307,31 +1307,31 @@ msgstr "정확한 비밀번호를 넣어주세요"
 
 #: ../wikilib.php:526
 msgid ""
-"<b>Emphasis:</b> ''<i>italics</i>''; '''<b>bold</b>'''; '''''<b><i>bold "
-"italics</i></b>''''';\n"
-"''<i>mixed '''<b>bold</b>''' and italics</i>''; ---- horizontal rule.<br />\n"
+"<b>Emphasis:</b> //<i>italics</i>//; **<b>bold</b>**; **//<b><i>bold "
+"italics</i></b>**//;\n"
+"//<i>mixed **<b>bold</b>** and italics</i>//; ---- horizontal rule.<br />\n"
 "<b>Headings:</b> = Title 1 =; == Title 2 ==; === Title 3 ===;\n"
 "==== Title 4 ====; ===== Title 5 =====.<br />\n"
 "<b>Lists:</b> space and one of * bullets; 1., a., A., i., I. numbered "
 "items;\n"
 "1.#n start numbering at n; space alone indents.<br />\n"
-"<b>Links:</b> JoinCapitalizedWords; [\"brackets and double quotes\"];\n"
-"[bracketed words];\n"
-"url; [url]; [url label].<br />\n"
-"<b>Tables</b>: || cell text |||| cell text spanning two columns ||;\n"
+"<b>Links:</b> JoinCapitalizedWords; [[\"brackets and double quotes\"]];\n"
+"[[bracketed words]];\n"
+"url; [[url]]; [[url label]].<br />\n"
+"<b>Tables</b>: | cell text || cell text spanning two columns |;\n"
 "no trailing white space allowed after tables or titles.<br />\n"
 msgstr ""
-"<b>강조:</b> ''<i>기울임</i>''; '''<b>굵게</b>'''; '''''<b><i>굵은 기울임</"
-"i></b>''''';\n"
-"''<i>기울여 '''<b>굵게 </b>''' 섞어서</i>''; ---- 가로선.<br />\n"
+"<b>강조:</b> //<i>기울임</i>//; **<b>굵게</b>**; **//<b><i>굵은 기울임</"
+"i></b>**//;\n"
+"//<i>기울여 **<b>굵게 </b>** 섞어서</i>//; ---- 가로선.<br />\n"
 "<b>제목:</b> = 제목 1 =; == 제목 2 ==; === 제목 3 ===;\n"
 "==== 제목 4 ====; ===== 제목 5 =====.<br />\n"
 "<b>목록:</b> 공백과 * 총알 한개; 1., a., A., i., I. 번호달린 목록;\n"
 "1.#n 숫자 n부터 번호 매기기; 공백만 있으면 들여쓰기.<br />\n"
-"<b>연결:</b> JoinCapitalizedWords; [\"중괄호와 큰따옴표를 써서\"];\n"
-"[중괄호로 괄호쳐서 연결];\n"
-"url; [url]; [url 표시될 이름].<br />\n"
-"<b>테이블</b>: || 셀 내용 |||| 두칸에 걸친 내용 ||;<br />\n"
+"<b>연결:</b> JoinCapitalizedWords; [[\"중괄호와 큰따옴표를 써서\"]];\n"
+"[[중괄호로 괄호쳐서 연결]];\n"
+"url; [[url]]; [[url 표시될 이름]].<br />\n"
+"<b>테이블</b>: | 셀 내용 || 두칸에 걸친 내용 |;<br />\n"
 "테이블이나 제목 끝에 공백이 오면 안됩니다.<br />\n"
 
 #: ../wikilib.php:564

@@ -1,4 +1,4 @@
-[[FullSearch()]] 
+[[[[FullSearch()]]]] 
 == HotDraw Usage ==
 {{{[[Draw(Picture name)]]}}}
 

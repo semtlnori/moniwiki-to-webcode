@@ -2,7 +2,7 @@
 
 nFORGE에 관련된 빈번한 질문과 답변
 
-[[TableOfContents]]
+[[[[TableOfContents]]]]
 
 == 로그인 ==
 === 동일한 아이디를 가지고 여러대의 PC에서 동시에 사용할 수 있나요? ===
@@ -90,15 +90,15 @@ r15
 
 === nFORGE 설치에 필요한 환경을 간단히 말씀해 주세요 ===
  기본적으로 리눅스 설치 환경이 필요하구요 필요한 유틸리티는 아래와 같습니다.(보안 취약점과 원활한 운영을 위해서 추천하는 버전을 기술했습니다)
- * Apache 2.2.8 이상
- * PHP 5.2.0이상
- * CVS 1.11 이상(ssh 포함) 또는 SVN 1.2.3 이상
- * 아파치 확장 모듈 : mod_rewrite, mod_dav_svn, mod_ssl
- * PHP 확장 모듈 : php-pgsql, php-gd
- * 메일 송수신 : sendmail, postfix
- * DBMS : PostgreSQL
- * Perl
- * Python
+* Apache 2.2.8 이상
+* PHP 5.2.0이상
+* CVS 1.11 이상(ssh 포함) 또는 SVN 1.2.3 이상
+* 아파치 확장 모듈 : mod_rewrite, mod_dav_svn, mod_ssl
+* PHP 확장 모듈 : php-pgsql, php-gd
+* 메일 송수신 : sendmail, postfix
+* DBMS : PostgreSQL
+* Perl
+* Python
 
 == 사이트  관리 ==
 ----

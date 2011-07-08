@@ -1,6 +1,6 @@
 == 테스트를 실행하기 위해 필요한 것 ==
- * 다음의 패키지를 설치: moreutils pcregrep
- * PHPUnit을 설치
+* 다음의 패키지를 설치: moreutils pcregrep
+* PHPUnit을 설치
  {{{
 # adding channel
 pear channel-discover pear.phpunit.de
@@ -40,12 +40,12 @@ phpunit  --filter test_update_artifact ArtifactTest
 
 == 테스트 작성 가이드 ==
 === 디렉토리 구조 ===
-|| 디렉토리 || 설명 ||
-||tests/func || 기능 테스트 ||
-||tests/code || 코드 자체에 대한 테스트(문법 검사 등) ||
-||tests/fixture || 테스트를 위한 초기값, 데이터 등 ||
-||tests/script || 자동으로 설치->테스트를 진행하는 스크립트 ||
-||tests/unit || 유닛 테스트 ||
+| 디렉토리 | 설명 |
+|tests/func | 기능 테스트 |
+|tests/code | 코드 자체에 대한 테스트(문법 검사 등) |
+|tests/fixture | 테스트를 위한 초기값, 데이터 등 |
+|tests/script | 자동으로 설치->테스트를 진행하는 스크립트 |
+|tests/unit | 유닛 테스트 |
 
 === vim과의 연동 ===
 {{{
@@ -64,8 +64,8 @@ phpunit --stderr AllTrackerTests
 
 == 파일 업로드 테스트를 할 수 없는 문제 ==
 파일을 실제로 HTTP 서버에 전송하지 않고서는 파일 업로드를 테스트하기 어렵습니다. 그러나 phpt를 이용하면 서버 없이 가능합니다. 또한 phpt로 만들어진 테스트를 PhpUnit에서 실행할 수도 있습니다.
- * 파일 업로드 테스트하기: http://qafoo.com/blog/013_testing_file_uploads_with_php.html
- * pear가 --cgi 옵션을 설정하라는 메시지를 출력할 때: http://shortrecipes.blogspot.com/2011/01/ear-run-tests-seting-cgi-option-for-to.html
+* 파일 업로드 테스트하기: http://qafoo.com/blog/013_testing_file_uploads_with_php.html
+* pear가 --cgi 옵션을 설정하라는 메시지를 출력할 때: http://shortrecipes.blogspot.com/2011/01/ear-run-tests-seting-cgi-option-for-to.html
 
 == 참고 - 다른 테스트 프레임워크 ==
 http://www.simpletest.org/images/simpletest-logo.png
@@ -73,9 +73,9 @@ http://www.simpletest.org/images/simpletest-logo.png
 http://www.simpletest.org/
 
 == TODO ==
- * #16158 유닛테스트시 테스트 전용 환경 사용하도록 하기
- * 현재 각 setUp()에 위치한 초기화 코드를 Fixture로 옮김
- * PHPUnit_Extensions_Database_TestCase 사용하기
-  * http://www.phpunit.de/manual/3.4/en/database.html
-  * XML 혹은 CSV로 작성된 Fixture를 읽어들여 그 데이터로 데이터베이스의 각 테이블을 초기화함. 데이터베이스와 테이블은 존재하고 있는 상태여야 함.
-  * cubrid 8.2.2는 아직 PDO를 지원하지 않아 PHPUnit_Extensions_Database_TestCase 의 사용이 어려울 수 있음.
+* #16158 유닛테스트시 테스트 전용 환경 사용하도록 하기
+* 현재 각 setUp()에 위치한 초기화 코드를 Fixture로 옮김
+* PHPUnit_Extensions_Database_TestCase 사용하기
+** http://www.phpunit.de/manual/3.4/en/database.html
+** XML 혹은 CSV로 작성된 Fixture를 읽어들여 그 데이터로 데이터베이스의 각 테이블을 초기화함. 데이터베이스와 테이블은 존재하고 있는 상태여야 함.
+** cubrid 8.2.2는 아직 PDO를 지원하지 않아 PHPUnit_Extensions_Database_TestCase 의 사용이 어려울 수 있음.

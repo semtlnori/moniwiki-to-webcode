@@ -1,9 +1,9 @@
-attachment:test2_1.txt [[TableOfContents]]
+attachment:test2_1.txt [[[[TableOfContents]]]]
 
-  * Level1 레벨 1
-  * Level2 레벨 2
-   * Level3 레벨 3
- * Level1. 레벨1 [[FootNote(주석달기 테스트)]]
+* Level1 레벨 1
+* Level2 레벨 2
+** Level3 레벨 3
+* Level1. 레벨1 [[[[FootNote(주석달기 테스트)]]]]
 
 test
 
@@ -14,9 +14,9 @@ test2
 == 최환수 ==
 = 오밥 =
 === 최환수 ===
-* 최
- * 환
- * 수
+ 최
+* 환
+* 수
 
 attachment:test_1.txt
 ----

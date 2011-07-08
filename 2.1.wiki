@@ -1,390 +1,390 @@
 2009-12-30  semtlnori
 
-	* common/include/GForge.class: [#5596] 버전을 2.1로 올림
-	* www/tracker/include/ArtifactTypeSmarty.class.php: [#5594] r2733로
+ common/include/GForge.class: [[#5596]] 버전을 2.1로 올림
+ www/tracker/include/ArtifactTypeSmarty.class.php: [[#5594]] r2733로
 	  인해 트래커의 상단 탭이 동작하지 않는 문제가 발생하여 고침
-	* www/tracker/include/ArtifactTypeSmarty.class.php: [#5594]
+ www/tracker/include/ArtifactTypeSmarty.class.php: [[#5594]]
 	  deprecated된 HTTP_GET_VARS 제거
-	* www/tracker/include/ArtifactTypeSmarty.class.php: [#5594] 트래커의
+ www/tracker/include/ArtifactTypeSmarty.class.php: [[#5594]] 트래커의
 	  pagination의 링크들에서 불필요한 파라메터 제거
 
 2009-12-29  semtlnori
 
-	* www/themes/naver/css/style.css, www/themes/naver/news_read.tpl:
-	  [#4769] r2731을 롤백하고, css를 고쳐서 문제를 바로잡음
+ www/themes/naver/css/style.css, www/themes/naver/news_read.tpl:
+	  [[#4769]] r2731을 롤백하고, css를 고쳐서 문제를 바로잡음
 
 2009-12-29  utumdol
 
-	* www/themes/naver/news_read.tpl: [#4769] style.css를 수정함에 따라 뉴스
+ www/themes/naver/news_read.tpl: [[#4769]] style.css를 수정함에 따라 뉴스
 	  레이아웃이 깨지는 현상이 있어서 수정합니다.
 
 2009-12-29  semtlnori
 
-	* www/include/activity_util.php: [#5588] 유저 페이지에서 활동내역을 보여줄 때, 활동헀던
+ www/include/activity_util.php: [[#5588]] 유저 페이지에서 활동내역을 보여줄 때, 활동헀던
 	  프로젝트가 삭제된 경우에도 에러가 발생하지 않게 고칩니다: 프로젝트가 삭제된 경우 해당 프로젝트의 링크는 붙여주지
 	  않음
-	* www/frs/shownotes.php: [#5022] [#5109] [#5459] r2590에서 문자열 치환을
+ www/frs/shownotes.php: [[#5022]] [[#5109]] [[#5459]] r2590에서 문자열 치환을
 	  잘못한 코드 다시 고침: project_show_release_note -> project_shownotes
-	* www/include/tracker_util.php: [#5408] 로그인하지 않은 상태에서 다른 사람의 검색패턴이
+ www/include/tracker_util.php: [[#5408]] 로그인하지 않은 상태에서 다른 사람의 검색패턴이
 	  모두 노출되는 문제 고침: 로그인하지 않은 경우, user_id가 100으로 저장된 검색 패턴만 보여지게 합니다
 
 2009-12-28  semtlnori
 
-	* www/themes/naver/css/style.css, www/themes/naver/tracker.tpl:
-	  [#5408] 검색패턴 저장탭에서 보이지 말아야 할 submit 버튼이 파이어폭스에서는 보이고 있어서 보이지 않도록
+ www/themes/naver/css/style.css, www/themes/naver/tracker.tpl:
+	  [[#5408]] 검색패턴 저장탭에서 보이지 말아야 할 submit 버튼이 파이어폭스에서는 보이고 있어서 보이지 않도록
 	  처리
-	* plugins/moniwiki/www/index.php: [#5587] 불필요한 ArtifactTypeHtml 생성
+ plugins/moniwiki/www/index.php: [[#5587]] 불필요한 ArtifactTypeHtml 생성
 	  코드 제거
 
 2009-12-28  utumdol
 
-	* common/include/utils.php: [#5586] select 쿼리의 where 절에서 integer
+ common/include/utils.php: [[#5586]] select 쿼리의 where 절에서 integer
 	  type에 string type을 대입하고 있습니다. 해당 오류를 수정합니다.
-	* www/softwaremap/trove_list.php: [#5585] order_by 값이 전달되고 있지 않습니다.
+ www/softwaremap/trove_list.php: [[#5585]] order_by 값이 전달되고 있지 않습니다.
 	  해당 내용을 수정합니다.
 
 2009-12-28  semtlnori
 
-	* www/tracker/include/ArtifactTypeSmarty.class.php: [#5582] 최근 변경순을
+ www/tracker/include/ArtifactTypeSmarty.class.php: [[#5582]] 최근 변경순을
 	  정렬시 정렬 방식을 DESC로 설정하는 코드가 실수로 제거되어서 복원합니다.
-	* www/tracker/tracker.php: [#5463] [#5489] r2674에서 제거된 Priority,
+ www/tracker/tracker.php: [[#5463]] [[#5489]] r2674에서 제거된 Priority,
 	  Status, Assignee 필드(url query-string의 field)를 복구
-	* www/include/actions/projects.php: [#5564] r2716으로 인해 커밋로그가 나타나지
+ www/include/actions/projects.php: [[#5564]] r2716으로 인해 커밋로그가 나타나지
 	  않게 되는 문제 고침: $viewfunc가 browse인 경우에 대해 처리가 누락되지 않도록 합니다.
 
 2009-12-24  semtlnori
 
-	* www/themes/naver/css/style.css, www/tracker/artifact.php: [#4769]
+ www/themes/naver/css/style.css, www/tracker/artifact.php: [[#4769]]
 	  이슈 본문에서 상태 아이콘이 잘못 나오는 문제를 고치고 CSS의 중복을 제거합니다.
-	* www/tracker/browse.php: [#5422] 고급검색시 다른 페이지로 넘어가면, 검색 조건이 유지되지
+ www/tracker/browse.php: [[#5422]] 고급검색시 다른 페이지로 넘어가면, 검색 조건이 유지되지
 	  않고 검색패턴 저장 탭이 사라지는 문제가 있어 고칩니다: serialize된 parameter를
 	  unserialize하는 과정을 복원하고, is_advanced_search 파라메터를 paginate 할 때
 	  설정하도록 함
 
 2009-12-23  utumdol
 
-	* www/softwaremap/trove_list.php: [#5411] 프로젝트 설명 역시 두 단어 이상은 OR로
+ www/softwaremap/trove_list.php: [[#5411]] 프로젝트 설명 역시 두 단어 이상은 OR로
 	  검색되도록 합니다.
 
 2009-12-23  semtlnori
 
-	* www/themes/naver/tracker.tpl: [#5366] [#5408] IE6에서 검색패턴을 저장할 수
+ www/themes/naver/tracker.tpl: [[#5366]] [[#5408]] IE6에서 검색패턴을 저장할 수
 	  없는 문제 고침
-	  * IE6에서는 form과 같은 이름의 변수를 사용할 수 없는 것으로 보입니다. 변수명을 바꿉니다.
-	  * IE6에서는 form을 엔터키로 submit하려면 image type의 input element가 필요하므로
+* IE6에서는 form과 같은 이름의 변수를 사용할 수 없는 것으로 보입니다. 변수명을 바꿉니다.
+* IE6에서는 form을 엔터키로 submit하려면 image type의 input element가 필요하므로
 	  추가합니다.
-	* www/include/actions/projects.php: [#5564] 코드 > 코드트리 보기 메뉴 클릭 시 빈
+ www/include/actions/projects.php: [[#5564]] 코드 > 코드트리 보기 메뉴 클릭 시 빈
 	  페이지가 나타나는 문제 고침: viewfunc=browse 인 경우에 대한 처리를 제대로 못하고 있어서 바로잡습니다.
 	  code subpage와 src subpage를 통합합니다.
-	* www/frs/index.php: [#5563] 빠진 $feedback 파라메터 추가
-	* www/frs/index.php: [#5562] 릴리즈의 파일 관리 기능이 동작하지 않는 문제 고침: 빠진 파라메터
+ www/frs/index.php: [[#5563]] 빠진 $feedback 파라메터 추가
+ www/frs/index.php: [[#5562]] 릴리즈의 파일 관리 기능이 동작하지 않는 문제 고침: 빠진 파라메터
 	  추가
-	* plugins/cvstracker/common/cvstrackerPlugin.class,
-	  plugins/svntracker/common/svntrackerPlugin.class: [#5561]
+ plugins/cvstracker/common/cvstrackerPlugin.class,
+	  plugins/svntracker/common/svntrackerPlugin.class: [[#5561]]
 	  $group_id를 전역변수로 사용하지 않게 되면서 트래커에서 에러가 발생하는 경우가 있어 고칩니다:
 	  $group_id를 전역변수가 아닌 $params에서 가져오도록 함
 
 2009-12-22  ritzs
 
-	* www/news/detail.php: [#5550] 뉴스 덧글에 br 이 되도록 nl2br 을 추가 합니다.
+ www/news/detail.php: [[#5550]] 뉴스 덧글에 br 이 되도록 nl2br 을 추가 합니다.
 
 2009-12-22  semtlnori
 
-	* www/frs/download.php, www/frs/downloading.php, www/frs/index.php,
-	  www/frs/monitor.php, www/frs/shownotes.php, www/projects: [#5459]
+ www/frs/download.php, www/frs/downloading.php, www/frs/index.php,
+	  www/frs/monitor.php, www/frs/shownotes.php, www/projects: [[#5459]]
 	  다운로드 기능 관련 파일을 include하는 경우, 명시적으로 main 함수를 실행하지 않는 이상 코드의 내용이
 	  실행되지 않게 함: 테스트를 쉽게 하기 위함입니다.
 
 2009-12-22  ritzs
 
-	* www/frs/shownotes.php: [#5438] downloading 을 제외하고 다운로드 페이지의 덧글
+ www/frs/shownotes.php: [[#5438]] downloading 을 제외하고 다운로드 페이지의 덧글
 	  부분에 사이즈 자동 조절을 적용 합니다.
 
 2009-12-22  utumdol
 
-	* plugins/ggit/common/GgitPlugin.class,
+ plugins/ggit/common/GgitPlugin.class,
 	  plugins/scmcvs/common/CVSPlugin.class,
-	  plugins/scmsvn/common/SVNPlugin.class: [#5508] 커밋 로그에서 중복으로 검색결과가
+	  plugins/scmsvn/common/SVNPlugin.class: [[#5508]] 커밋 로그에서 중복으로 검색결과가
 	  나오는 현상 수정합니다. cvs, git에서도 동일하게 동작하도록 함.
-	* plugins/scmsvn/common/SVNPlugin.class: [#5508] 커밋 로그에서 중복으로 검색결과가
+ plugins/scmsvn/common/SVNPlugin.class: [[#5508]] 커밋 로그에서 중복으로 검색결과가
 	  나오는 현상 수정합니다.
 
 2009-12-22  ritzs
 
-	* www/themes/naver/news_read.tpl: [#5438] 뉴스와 새소식의 덧글에도 창 크기를 조절
+ www/themes/naver/news_read.tpl: [[#5438]] 뉴스와 새소식의 덧글에도 창 크기를 조절
 	  되도록 합니다.
-	* www/themes/naver/Theme.class, www/themes/naver/tracker_read.tpl:
-	  [#5438] 댓글창 높이가 조절 되도록 수정 합니다.
+ www/themes/naver/Theme.class, www/themes/naver/tracker_read.tpl:
+	  [[#5438]] 댓글창 높이가 조절 되도록 수정 합니다.
 
 2009-12-22  semtlnori
 
-	* www/frs/include/frs_utils.php, www/frs/monitor.php: [#5459]
+ www/frs/include/frs_utils.php, www/frs/monitor.php: [[#5459]]
 	  $sys_use_frs 검사 복구
-	* www/project/admin/frs/deleterelease.php,
+ www/project/admin/frs/deleterelease.php,
 	  www/project/admin/frs/editrelease.php,
-	  www/project/admin/frs/qrs.php: [#5459] global scope에서 실행되는 릴리즈 관리
+	  www/project/admin/frs/qrs.php: [[#5459]] global scope에서 실행되는 릴리즈 관리
 	  관련 코드들을 함수로 만듭니다.
-	* www/frs/downloading.php, www/frs/include/frs_utils.php,
+ www/frs/downloading.php, www/frs/include/frs_utils.php,
 	  www/frs/index.php, www/frs/monitor.php, www/frs/shownotes.php:
-	  [#5459] 다운로드 관련 코드에서 전역 변수를 모두 제거
+	  [[#5459]] 다운로드 관련 코드에서 전역 변수를 모두 제거
 
 2009-12-21  semtlnori
 
-	* tests/func/TrackerTestCase.php: [#5489] r2701에서 실수로 빠진
+ tests/func/TrackerTestCase.php: [[#5489]] r2701에서 실수로 빠진
 	  superclass인 TrackerTestCase 추가
-	* tests/func/AllTrackerTests.php, tests/func/ArtifactTest.php,
+ tests/func/AllTrackerTests.php, tests/func/ArtifactTest.php,
 	  tests/func/ArtifactTypeSmartyTest.php,
 	  tests/func/CommentsHtmlTest.php,
 	  tests/func/TestArtifactTypeSmarty.php, tests/func/artifact.php:
-	  [#5489] 댓글에 대한 테스트 케이스 추가 및 각 테스트에 중복되는 유틸리티 함수들을 extract
+	  [[#5489]] 댓글에 대한 테스트 케이스 추가 및 각 테스트에 중복되는 유틸리티 함수들을 extract
 	  superclass함
-	* www/themes/naver/css/style.css,
+ www/themes/naver/css/style.css,
 	  www/tracker/include/ArtifactSmarty.class.php,
-	  www/tracker/include/CommentsHtml.class: [#5463] 댓글과 게시물 본문의 첨부파일을
+	  www/tracker/include/CommentsHtml.class: [[#5463]] 댓글과 게시물 본문의 첨부파일을
 	  처리하는 코드를 일원화
-	* tests/func/TestArtifactTypeSmarty.php: [#5489] make_date_range()에
+ tests/func/TestArtifactTypeSmarty.php: [[#5489]] make_date_range()에
 	  대한 테스트 추가
-	* www/tracker/tracker.php: [#5463] r2692에서 form_key 검사 코드를 덜 옮긴 부분이
+ www/tracker/tracker.php: [[#5463]] r2692에서 form_key 검사 코드를 덜 옮긴 부분이
 	  있어서 마저 옮깁니다.
-	* www/themes/naver/tracker_post.tpl,
+ www/themes/naver/tracker_post.tpl,
 	  www/themes/naver/tracker_read.tpl, www/tracker/tracker.php:
-	  [#5539] 의도가 애매한 $body_text를 제거하고, 댓글의 경우는 $comment_body를 쓰고 본문의
+	  [[#5539]] 의도가 애매한 $body_text를 제거하고, 댓글의 경우는 $comment_body를 쓰고 본문의
 	  경우는 $details를 쓰도록 고침
 
 2009-12-21  ritzs
 
-	* www/account/index.php: [#5374] IE8에서 form과 table 을 동급으로 보는 문제가
+ www/account/index.php: [[#5374]] IE8에서 form과 table 을 동급으로 보는 문제가
 	  있습니다. 향후 API 부분의 UI가 분리 되어야 할 필요가 있습니다.
 
 2009-12-21  utumdol
 
-	* www/include/tracker_util.php: [#5408] 잘못 들어간 코드가 있으므로 수정합니다.
+ www/include/tracker_util.php: [[#5408]] 잘못 들어간 코드가 있으므로 수정합니다.
 
 2009-12-21  semtlnori
 
-	* www/include/exit.php: [#5489] Exception 발생시 파라메터를 한개만 넣어야 해서 고침
-	* common/include/Error.class, tests/func/AllTrackerTests.php,
+ www/include/exit.php: [[#5489]] Exception 발생시 파라메터를 한개만 넣어야 해서 고침
+ common/include/Error.class, tests/func/AllTrackerTests.php,
 	  tests/func/TestArtifactTypeSmarty.php, tests/func/artifact.php,
-	  www/include/exit.php, www/include/squal_exit.php: [#5489] 트래커에 대한
+	  www/include/exit.php, www/include/squal_exit.php: [[#5489]] 트래커에 대한
 	  테스트 추가 등
-	  * 디버그 모드일 때는 에러 발생시 그냥 종료하지 않고 Exception을 발생시켜서 에러 발생 위치를 추적하기 쉽게
+* 디버그 모드일 때는 에러 발생시 그냥 종료하지 않고 Exception을 발생시켜서 에러 발생 위치를 추적하기 쉽게
 	  개선함
-	  * exit_from_double_submit()가 정의되어있지 않아 테스트가 실패하는 문제를 회피하기 위해 같은
+* exit_from_double_submit()가 정의되어있지 않아 테스트가 실패하는 문제를 회피하기 위해 같은
 	  이름의 함수를 정의함
-	  * 게시물을 갱신하는 코드에 대한 테스트 추가: test_update_artifact()
-	  * 검색패턴을 다루는 코드에 대한 테스트 추가 (smoke test 수준)
-	  * test_delete_search_query()
-	  * test_save_search_query()
-	  * test_update_search_query()
-	  * test_load_search_query()
-	  * test_process_search_query()
-	  * smoke test를 위한 테스트 유틸리티 함수 check_parameters() 추가
-	* common/tracker/ArtifactQuery.class, www/tracker/browse.php,
+* 게시물을 갱신하는 코드에 대한 테스트 추가: test_update_artifact()
+* 검색패턴을 다루는 코드에 대한 테스트 추가 (smoke test 수준)
+* test_delete_search_query()
+* test_save_search_query()
+* test_update_search_query()
+* test_load_search_query()
+* test_process_search_query()
+* smoke test를 위한 테스트 유틸리티 함수 check_parameters() 추가
+ common/tracker/ArtifactQuery.class, www/tracker/browse.php,
 	  www/tracker/include/ArtifactTypeSmarty.class.php,
-	  www/tracker/tracker.php: [#5463] 트래커의 불필요한 코드/중복 제거
-	  * form_key 검사 코드의 중복을 제거
-	  * 읽기전용 API로 접근했는지 검사하는 코드의 중복을 제거
-	  * 불필요한 파라메터 제거
-	  * 아무 일도 하지 않는 불필요한 코드 제거
-	  * 에러 처리를 보다 간결하게 개선: 에러 메시지 출력을 실제로 실행하는 코드는 가급적 callee보다는
+	  www/tracker/tracker.php: [[#5463]] 트래커의 불필요한 코드/중복 제거
+* form_key 검사 코드의 중복을 제거
+* 읽기전용 API로 접근했는지 검사하는 코드의 중복을 제거
+* 불필요한 파라메터 제거
+* 아무 일도 하지 않는 불필요한 코드 제거
+* 에러 처리를 보다 간결하게 개선: 에러 메시지 출력을 실제로 실행하는 코드는 가급적 callee보다는
 	  caller에서 수행하도록 하여 중복을 줄임
 
 2009-12-17  semtlnori
 
-	* www/tracker/artifact-template-1.0.inc.php,
-	  www/tracker/tracker.php: [#5489] 관련 이슈를 보여주는 기능은 1.0테마에서만 동작하므로
+ www/tracker/artifact-template-1.0.inc.php,
+	  www/tracker/tracker.php: [[#5489]] 관련 이슈를 보여주는 기능은 1.0테마에서만 동작하므로
 	  해당 코드를 1.0테마 파일로 옮깁니다.
-	* common/tracker/Artifact.class: [#5489] [#5463]
+ common/tracker/Artifact.class: [[#5489]] [[#5463]]
 	  Artifact::update()의 불필요한 파라메터 제거
-	* tests/func/artifact.php, tests/func/issue.php,
-	  www/tracker/index.php, www/tracker/tracker.php: [#5489] 트래커 관련
+ tests/func/artifact.php, tests/func/issue.php,
+	  www/tracker/index.php, www/tracker/tracker.php: [[#5489]] 트래커 관련
 	  테스트 케이스 추가
 	  다음의 테스트 케이스를 추가합니다.
-	  * ArtifactType 초기화 테스트
-	  * 댓글 삭제 테스트
-	  * 댓글 수정 테스트
-	  * 자동통보 변경 테스트
-	  * 이슈 등록 테스트
-	  * 세부항목 변경 테스트
-	  * 첨부파일 삭제 테스트
-	  * 대량갱신 테스트
-	  * 트래커에 대한 요청 처리 테스트
+* ArtifactType 초기화 테스트
+* 댓글 삭제 테스트
+* 댓글 수정 테스트
+* 자동통보 변경 테스트
+* 이슈 등록 테스트
+* 세부항목 변경 테스트
+* 첨부파일 삭제 테스트
+* 대량갱신 테스트
+* 트래커에 대한 요청 처리 테스트
 	  또한 테스트를 쉽게 할 수 있도록 불필요한 파라메터를 제거합니다.
-	* common/include/Group.class: [#5525] 프로젝트 삭제시 게시판이 없다면 에러가 발생할 수
+ common/include/Group.class: [[#5525]] 프로젝트 삭제시 게시판이 없다면 에러가 발생할 수
 	  있는 문제 고침: 보호절 추가
-	* common/include/Error.class, common/include/Group.class: [#5522]
+ common/include/Error.class, common/include/Group.class: [[#5522]]
 	  r2686에서 잘못 섞인 패치 제거
-	* common/include/Error.class, common/include/Group.class,
+ common/include/Error.class, common/include/Group.class,
 	  common/tracker/Artifact.class, common/tracker/ArtifactType.class:
-	  [#5522] 잘못된 setError() 호출 제거: 정상 수행한 상황이므로 setError()를 호출해서는
+	  [[#5522]] 잘못된 setError() 호출 제거: 정상 수행한 상황이므로 setError()를 호출해서는
 	  안됩니다.
 
 2009-12-17  utumdol
 
-	* www/softwaremap/trove_list.php: [#5516]
+ www/softwaremap/trove_list.php: [[#5516]]
 	  sys_project_reg_restricted 세팅에 따라서 오픈프로젝트 메인 상단에 프로젝트 등록 메뉴가
 	  나타나도록 합니다.
 
 2009-12-17  semtlnori
 
-	* tests/func/artifact.php, tests/func/issue.php: [#5489] 함수 호출 스펙의
+ tests/func/artifact.php, tests/func/issue.php: [[#5489]] 함수 호출 스펙의
 	  변경에 따라 caller도 변경
 
 2009-12-16  semtlnori
 
-	* www/tracker/tracker.php: [#5408] r2681에서의 오류 고침
-	* www/themes/naver/css/style.css,
+ www/tracker/tracker.php: [[#5408]] r2681에서의 오류 고침
+ www/themes/naver/css/style.css,
 	  www/themes/naver/images/bg_assigned.jpg,
-	  www/themes/naver/images/bg_closed.jpg: [#4769] 닫힘/진행중 아이콘 적용
-	* www/include/tracker_util.php, www/tracker/artifact.php,
+	  www/themes/naver/images/bg_closed.jpg: [[#4769]] 닫힘/진행중 아이콘 적용
+ www/include/tracker_util.php, www/tracker/artifact.php,
 	  www/tracker/browse.php, www/tracker/index.php,
-	  www/tracker/tracker.php: [#5408] 검색패턴 탭은 자신이 등록한 것만 보이도록 합니다.
-	* www/themes/naver/tracker.tpl: [#5408] 탭이 너무 많으면 검색패턴 저장 탭이 나타나지
+	  www/tracker/tracker.php: [[#5408]] 검색패턴 탭은 자신이 등록한 것만 보이도록 합니다.
+ www/themes/naver/tracker.tpl: [[#5408]] 탭이 너무 많으면 검색패턴 저장 탭이 나타나지
 	  않게 합니다.
-	* www/themes/naver/css/compat.css: [#5408] 저장된 검색패턴 탭에서, 패턴 이름이 탭을
+ www/themes/naver/css/compat.css: [[#5408]] 저장된 검색패턴 탭에서, 패턴 이름이 탭을
 	  넘어가지 않도록 overflow:hidden을 설정합니다
-	* www/themes/naver/tracker.tpl: [#5463] r2676에서 잘못 들어간 alert 제거
-	* www/themes/naver/tracker.tpl: [#5463] r2618에서 잘못 삭제한 form_key 복구
-	* www/themes/naver/tracker.tpl: [#5463] r2618에서 잘못 삭제한 query_action
+ www/themes/naver/tracker.tpl: [[#5463]] r2676에서 잘못 들어간 alert 제거
+ www/themes/naver/tracker.tpl: [[#5463]] r2618에서 잘못 삭제한 form_key 복구
+ www/themes/naver/tracker.tpl: [[#5463]] r2618에서 잘못 삭제한 query_action
 	  복구
-	* tests/func/artifact.php: [#5489] 게시물 삭제 테스트 추가
-	* www/tracker/add-template-1.0.inc.php,
+ tests/func/artifact.php: [[#5489]] 게시물 삭제 테스트 추가
+ www/tracker/add-template-1.0.inc.php,
 	  www/tracker/artifact-template-1.0.inc.php,
 	  www/tracker/browse-template-1.0.inc.php, www/tracker/index.php,
-	  www/tracker/tracker.php: [#5463] [#5489] 테스트를 쉽게 하기 위해 전역변수를 함수의
+	  www/tracker/tracker.php: [[#5463]] [[#5489]] 테스트를 쉽게 하기 위해 전역변수를 함수의
 	  파라메터로 치환하고 불필요한 코드는 제거
 
 2009-12-16  ritzs
 
-	* www/themes/naver/tracker_post.tpl: [#2884] 새버그 입력시 세부정보 부분이 기본적으로
+ www/themes/naver/tracker_post.tpl: [[#2884]] 새버그 입력시 세부정보 부분이 기본적으로
 	  숨겨지도록 합니다.
 
 2009-12-16  utumdol
 
-	* www/themes/naver/Theme.class.orig,
-	  www/themes/naver/login_button.patch: [#5357] 테마 생성 시 잘못 생성된 불필요한
+ www/themes/naver/Theme.class.orig,
+	  www/themes/naver/login_button.patch: [[#5357]] 테마 생성 시 잘못 생성된 불필요한
 	  파일을 삭제합니다.
-	* common/search/CommitLogSearchQuery.class,
+ common/search/CommitLogSearchQuery.class,
 	  www/search/include/renderers/CommitLogSearchRenderer.class:
-	  [#5508] 커밋로그에서 커미터 이름으로도 검색이 되도록 합니다.
-	* common/search/NewsSearchQuery.class,
+	  [[#5508]] 커밋로그에서 커미터 이름으로도 검색이 되도록 합니다.
+ common/search/NewsSearchQuery.class,
 	  www/search/include/renderers/NewsHtmlSearchRenderer.class:
-	  [#5508] 뉴스에서 글쓴이 이름으로도 검색이 되도록 합니다.
-	* common/search/FrsSearchQuery.class,
-	  www/search/include/renderers/FrsHtmlSearchRenderer.class: [#5508]
+	  [[#5508]] 뉴스에서 글쓴이 이름으로도 검색이 되도록 합니다.
+ common/search/FrsSearchQuery.class,
+	  www/search/include/renderers/FrsHtmlSearchRenderer.class: [[#5508]]
 	  다운로드에서 글쓴이 이름으로도 검색이 되도록 합니다.
-	* common/search/ArtifactSearchQuery.class,
+ common/search/ArtifactSearchQuery.class,
 	  www/search/include/renderers/ArtifactHtmlSearchRenderer.class:
-	  [#5508] 게시판/버그에서 글쓴이 이름으로도 검색이 되도록 합니다.
+	  [[#5508]] 게시판/버그에서 글쓴이 이름으로도 검색이 되도록 합니다.
 
 2009-12-15  semtlnori
 
-	* tests/func/issue.php: [#5489] test coverage 측정 대상에 들어가야하는 tracker
+ tests/func/issue.php: [[#5489]] test coverage 측정 대상에 들어가야하는 tracker
 	  관련 파일 추가로 include
-	* tests/func/AllTrackerTests.php: [#5489] tracker에 대한 모든 테스트를 실행하는
+ tests/func/AllTrackerTests.php: [[#5489]] tracker에 대한 모든 테스트를 실행하는
 	  test suite 추가
-	* tests/func/artifact.php: [#5489] artifact에 대한 테스트케이스 추가
-	  * 게시물 보기
-	  * 댓글 보기
-	  * 변경내역 보기
-	  * 파일 올리기
-	* plugins/gittracker/common/gittrackerPlugin.class: [#5489] 테스트를 쉽게
+ tests/func/artifact.php: [[#5489]] artifact에 대한 테스트케이스 추가
+* 게시물 보기
+* 댓글 보기
+* 변경내역 보기
+* 파일 올리기
+ plugins/gittracker/common/gittrackerPlugin.class: [[#5489]] 테스트를 쉽게
 	  하기 위해 전역변수 $group_id 제거
-	* www/tracker/artifact.php, www/tracker/index.php,
-	  www/tracker/tracker.php: [#5463] [#5489] 테스트하기 쉽도록 코드 개선
-	  * artifact.php를 include 하더라도 코드가 바로 실행되지 않고 artifact_main()을 호출해야
+ www/tracker/artifact.php, www/tracker/index.php,
+	  www/tracker/tracker.php: [[#5463]] [[#5489]] 테스트하기 쉽도록 코드 개선
+* artifact.php를 include 하더라도 코드가 바로 실행되지 않고 artifact_main()을 호출해야
 	  실행되도록 함
-	  * global variable 제거
-	  * tracker.php를 include 하더라도 코드가 바로 실행되지 않게 함
-	* www/tracker/index.php: [#5463] [#5489] r2661에서 빠뜨린 add_main()의 호출
+* global variable 제거
+* tracker.php를 include 하더라도 코드가 바로 실행되지 않게 함
+ www/tracker/index.php: [[#5463]] [[#5489]] r2661에서 빠뜨린 add_main()의 호출
 	  추가
-	* www/tracker/add.php, www/tracker/tracker.php: [#5463] [#5489]
+ www/tracker/add.php, www/tracker/tracker.php: [[#5463]] [[#5489]]
 	  add_main()을 호출해야만 add.php안의 코드가 실행되도록 함: 테스트를 쉽게 하기 위함입니다.
-	* common/include/xml_utils.php: [#5463] redeclare 에러를 막기 위해 nested
+ common/include/xml_utils.php: [[#5463]] redeclare 에러를 막기 위해 nested
 	  function을 함수 밖으로 빼냄
-	* www/tracker/artifact.php: [#5463] 함수의 중복 선언을 막기 위해 일반 함수 선언을
+ www/tracker/artifact.php: [[#5463]] 함수의 중복 선언을 막기 위해 일반 함수 선언을
 	  create_function()을 이용한 함수 생성으로 대체
-	* www/tracker/include/CommentsHtml.class: [#5463] 전역변수 $group_id 제거
+ www/tracker/include/CommentsHtml.class: [[#5463]] 전역변수 $group_id 제거
 
 2009-12-15  utumdol
 
-	* common/include/utils.php: [#5300] 여러 단어가 입력될 경우 입력된 내용을 통짜로 검색해서
+ common/include/utils.php: [[#5300]] 여러 단어가 입력될 경우 입력된 내용을 통짜로 검색해서
 	  하이라이팅 위치를 파악하려고 했었습니다. 여러 단어로 검색할 경우에도 하이라이팅이 제대로 적용될 수 있도록
 	  수정합니다.
 
 2009-12-15  ritzs
 
-	* www/frs/downloading.php, www/frs/shownotes.php, www/js/utils.js,
+ www/frs/downloading.php, www/frs/shownotes.php, www/js/utils.js,
 	  www/themes/naver/css/style.css, www/themes/naver/news_read.tpl,
-	  www/themes/naver/tracker_read.tpl: [#5438] 댓글창의 높이를 자동으로 조절 되도록
+	  www/themes/naver/tracker_read.tpl: [[#5438]] 댓글창의 높이를 자동으로 조절 되도록
 	  변경 합니다.
 	  textarea 의 height 속성을 rows=5 로 대체 합니다.
 
 2009-12-15  utumdol
 
-	* plugins/moniwiki/common/MoniWikiPlugin.class: [#3571] Refresh 링크에
+ plugins/moniwiki/common/MoniWikiPlugin.class: [[#3571]] Refresh 링크에
 	  urlencode를 추가합니다.
 
 2009-12-15  semtlnori
 
-	* www/tracker/tracker.php: [#5463] $include_file의 return을 빠뜨려서 추가
+ www/tracker/tracker.php: [[#5463]] $include_file의 return을 빠뜨려서 추가
 
 2009-12-15  utumdol
 
-	* www/project/admin/frs/editrelease.php,
-	  www/themes/naver/css/style.css: [#3539] 첨부 파일을 모두 삭제하였을 경우 레이아웃이
+ www/project/admin/frs/editrelease.php,
+	  www/themes/naver/css/style.css: [[#3539]] 첨부 파일을 모두 삭제하였을 경우 레이아웃이
 	  깨지는 현상을 수정합니다.
 
 2009-12-15  semtlnori
 
-	* www/tracker/tracker.php: [#5463] 리팩토링 과정에서 트래커에 대한 자동알림이 동작하지 않는
+ www/tracker/tracker.php: [[#5463]] 리팩토링 과정에서 트래커에 대한 자동알림이 동작하지 않는
 	  문제가 발생해서 고침
 
 2009-12-15  utumdol
 
-	* www/project/admin/frs/editrelease.php: [#3539] 첨부 파일 삭제 시
+ www/project/admin/frs/editrelease.php: [[#3539]] 첨부 파일 삭제 시
 	  javascript 오류가 발생하여 해당 문제를 수정합니다.
-	* www/search/index.php: [#2638] ArtifactType.class 파일이 삭제되었으므로 파일
+ www/search/index.php: [[#2638]] ArtifactType.class 파일이 삭제되었으므로 파일
 	  내에 포함시키지 않도록 합니다.
-	* common/search/FrsSearchQuery.class,
-	  www/search/include/renderers/FrsHtmlSearchRenderer.class: [#5413]
+ common/search/FrsSearchQuery.class,
+	  www/search/include/renderers/FrsHtmlSearchRenderer.class: [[#5413]]
 	  다운로의 덧글 또한 검색 대상에 포함되도록 합니다.
 
 2009-12-15  semtlnori
 
-	* tests/func/issue.php, www/tracker/tracker.php: [#5463]
+ tests/func/issue.php, www/tracker/tracker.php: [[#5463]]
 	  update_artifact_fields() 함수에서 불필요한 코드 제거 및 댓글을 추가하는 코드 분리
 
 2009-12-15  utumdol
 
-	* common/search/NewsSearchQuery.class,
+ common/search/NewsSearchQuery.class,
 	  www/search/include/renderers/NewsHtmlSearchRenderer.class:
-	  [#5413] 뉴스의 덧글 또한 검색 대상에 포함되도록 합니다.
-	* www/search/include/renderers/ArtifactHtmlSearchRenderer.class:
-	  [#5413] 덧글 또한 내용 미리 보기에서 출력되도록 변경합니다.
-	* common/search/ArtifactSearchQuery.class: [#5413] 덧글도 검색 대상에 포함되도록
+	  [[#5413]] 뉴스의 덧글 또한 검색 대상에 포함되도록 합니다.
+ www/search/include/renderers/ArtifactHtmlSearchRenderer.class:
+	  [[#5413]] 덧글 또한 내용 미리 보기에서 출력되도록 변경합니다.
+ common/search/ArtifactSearchQuery.class: [[#5413]] 덧글도 검색 대상에 포함되도록
 	  하였습니다. 동일한 결과는 group 화하여 한 번만 출력되도록 하였습니다.
 
 2009-12-14  semtlnori
 
-	* www/tracker/tracker.php: [#5463] 댓글의 파일 첨부 기능과 본문의 파일 첨부 기능이
+ www/tracker/tracker.php: [[#5463]] 댓글의 파일 첨부 기능과 본문의 파일 첨부 기능이
 	  중복이므로 하나로 통합. 코드 44줄 감소
-	* www/include/html.php,
-	  www/tracker/include/ArtifactSmarty.class.php: [#5498] r2639에서 빠진
+ www/include/html.php,
+	  www/tracker/include/ArtifactSmarty.class.php: [[#5498]] r2639에서 빠진
 	  ArtifactSmarty.class.php 추가
-	* www/tracker/index.php, www/tracker/tracker.php: [#5463] 파일 첨부 코드의
+ www/tracker/index.php, www/tracker/tracker.php: [[#5463]] 파일 첨부 코드의
 	  중복 제거
-	* www/tracker/tracker.php: [#5463] 불필요한 else block 제거
-	* www/tracker/include/ArtifactTypeSmarty.class.php: [#5498] r2638에서
+ www/tracker/tracker.php: [[#5463]] 불필요한 else block 제거
+ www/tracker/include/ArtifactTypeSmarty.class.php: [[#5498]] r2638에서
 	  $this를 빠뜨린 부분이 있어서 채워넣음
-	* www/my/monitor_util.php, www/project/admin/tracker/index.php,
+ www/my/monitor_util.php, www/project/admin/tracker/index.php,
 	  www/tracker/add.php, www/tracker/artifact.php,
 	  www/tracker/include/ArtifactHtml.class,
 	  www/tracker/include/ArtifactTypeSmarty.class.php,
 	  www/tracker/include/CommentsHtml.class, www/tracker/index.php,
-	  www/tracker/tracker.php: [#5498] smarty 테마를 사용하는 경우,
+	  www/tracker/tracker.php: [[#5498]] smarty 테마를 사용하는 경우,
 	  ArtifactHtml.class를 사용하지 않고 ArtifactSmarty.class.php를 사용하도록 합니다.
-	* www/include/html.php, www/include/tracker_util.php,
+ www/include/html.php, www/include/tracker_util.php,
 	  www/my/monitor_util.php, www/project/admin/tracker/index.php,
 	  www/project/admin/tracker/reporting/index.php,
 	  www/project/admin/tracker/reporting/trackerpie_graph.php,
@@ -393,188 +393,188 @@
 	  www/search/index.php, www/tracker/artifact.php,
 	  www/tracker/browse.php,
 	  www/tracker/include/ArtifactTypeSmarty.class.php,
-	  www/tracker/index.php, www/tracker/tracker.php: [#5498] smarty
+	  www/tracker/index.php, www/tracker/tracker.php: [[#5498]] smarty
 	  테마를 사용하는 경우, ArtifactTypeHtml.class를 사용하지 않고
 	  ArtifactTypeSmarty.class.php를 사용하도록 합니다.
-	* www/include/tracker_util.php, www/tracker/tracker.php: [#5463]
+ www/include/tracker_util.php, www/tracker/tracker.php: [[#5463]]
 	  set_flag_title_body()를 tracker.php에서 tracker_util.php로 옮김
 	  (tracker.php이외의 파일에서 사용하므로)
 
 2009-12-14  utumdol
 
-	* common/search/ArtifactSearchQuery.class: [#5413] 이전 상태로 원복합니다.
+ common/search/ArtifactSearchQuery.class: [[#5413]] 이전 상태로 원복합니다.
 	  덧글도 검색 대상에 포함될 경우 동일한 결과가 여러번 나타나는 현상이 발생하므로 원복하고 다시 구현방법을 생각해
 	  보기로 합니다.
-	* common/search/ArtifactSearchQuery.class: [#5413] 이슈 및 포럼의 댓글이 검색의
+ common/search/ArtifactSearchQuery.class: [[#5413]] 이슈 및 포럼의 댓글이 검색의
 	  대상이 되도록 수정합니다.
 
 2009-12-14  semtlnori
 
-	* www/themes/naver/Theme.class: [#5463] 불필요한 함수 제거
+ www/themes/naver/Theme.class: [[#5463]] 불필요한 함수 제거
 
 2009-12-14  ritzs
 
-	* www/softwaremap/trove_list.php: [#5411] 프로젝트설명에서도 검색이 가능 하도록 합니다.
+ www/softwaremap/trove_list.php: [[#5411]] 프로젝트설명에서도 검색이 가능 하도록 합니다.
 	  설명의 대소문자 또한 구분없이 검색이 가능 하도록 합니다.
-	* www/softwaremap/trove_list.php: [#5410] SQL문을 대소문자 구분하여 다시 작성
+ www/softwaremap/trove_list.php: [[#5410]] SQL문을 대소문자 구분하여 다시 작성
 	  합니다.
-	* www/softwaremap/trove_list.php: [#5410] 프로젝트 검색시 대소문자 검색이 가능 하도록
+ www/softwaremap/trove_list.php: [[#5410]] 프로젝트 검색시 대소문자 검색이 가능 하도록
 	  필드명과 검색어에 LOWER 을 추가 합니다.
 
 2009-12-14  utumdol
 
-	* common/include/utils.php: [#5490] 말 줄임표가 제대로 나타나지 않는 현상이 있어서 함께
+ common/include/utils.php: [[#5490]] 말 줄임표가 제대로 나타나지 않는 현상이 있어서 함께
 	  수정합니다.
-	* common/include/utils.php: [#5490] mb_strcut과 mb_substr은 문자를 다른
+ common/include/utils.php: [[#5490]] mb_strcut과 mb_substr은 문자를 다른
 	  방식으로 세고 있습니다. mb_substr은 2바이트를 한 문자로 세는 반면에 mb_strcut은 1바이트를 한
 	  문자로 세고 있습니다. mb_substr을 mb_strcut으로 변경합니다.
 
 2009-12-14  semtlnori
 
-	* www/tracker/browse.php, www/tracker/tracker.php: [#5489] [#5463]
+ www/tracker/browse.php, www/tracker/tracker.php: [[#5489]] [[#5463]]
 	  tracker_browse_main()의 caller를 browse.php에서 분리: r2626에서 추가한
 	  테스트케이스를 동작시키기 위함입니다.
-	* tests/func/issue.php: [#5489] r2626에서 빠진 include 추가
-	* tests/func/issue.php: [#5489] 트래커 페이지의 렌더링에 대한 테스트 추가
-	* tests/func/issue.php: [#5489] 이슈의 세부항목 수정에 대한 테스트 추가
-	* tests/func/issue.php: [#5489] 이슈의 제목 수정에 대한 테스트 추가
-	* tests/func/issue.php: [#5489] 댓글 작성에 대한 테스트케이스 추가
-	* tests/func/issue.php: [#5489] tracker 테스트에서 이슈를 추가하는 코드를
+ tests/func/issue.php: [[#5489]] r2626에서 빠진 include 추가
+ tests/func/issue.php: [[#5489]] 트래커 페이지의 렌더링에 대한 테스트 추가
+ tests/func/issue.php: [[#5489]] 이슈의 세부항목 수정에 대한 테스트 추가
+ tests/func/issue.php: [[#5489]] 이슈의 제목 수정에 대한 테스트 추가
+ tests/func/issue.php: [[#5489]] 댓글 작성에 대한 테스트케이스 추가
+ tests/func/issue.php: [[#5489]] tracker 테스트에서 이슈를 추가하는 코드를
 	  addIssue()로 extract method
 
 2009-12-11  semtlnori
 
-	* tests/func/issue.php: [#2534] r2620으로 인해 불필요해진 soap테스트 제거
-	* tests/func/AllTests.php, tests/func/soap.php: [#2534] soap 테스트 분리
-	* www/include/languages/Base.tab: [#5370] r2617에서 Base.tab이 빠져서 추가
-	* www/themes/naver/tracker.tpl: [#5463] 불필요한 form_key와 query_action
+ tests/func/issue.php: [[#2534]] r2620으로 인해 불필요해진 soap테스트 제거
+ tests/func/AllTests.php, tests/func/soap.php: [[#2534]] soap 테스트 분리
+ www/include/languages/Base.tab: [[#5370]] r2617에서 Base.tab이 빠져서 추가
+ www/themes/naver/tracker.tpl: [[#5463]] 불필요한 form_key와 query_action
 	  파라메터 제거
-	* www/include/languages/Korean.tab: [#5370] r2613에서 빼먹은 번역파일 커밋 추가
+ www/include/languages/Korean.tab: [[#5370]] r2613에서 빼먹은 번역파일 커밋 추가
 
 2009-12-11  utumdol
 
-	* www/search/include/renderers/CommitLogSearchRenderer.class,
+ www/search/include/renderers/CommitLogSearchRenderer.class,
 	  www/search/include/renderers/NewsHtmlSearchRenderer.class:
-	  [#5415] 새소식과 커밋로그에서도 대소문자 구분없이 하이라이팅이 되도록 수정합니다.
-	* www/search/include/renderers/ArtifactHtmlSearchRenderer.class:
-	  [#5415] 기존의 하이라이팅 함수를 사용하도록 수정합니다.
-	* www/search/include/renderers/FrsHtmlSearchRenderer.class,
-	  www/search/include/renderers/HtmlSearchRenderer.class: [#5415]
+	  [[#5415]] 새소식과 커밋로그에서도 대소문자 구분없이 하이라이팅이 되도록 수정합니다.
+ www/search/include/renderers/ArtifactHtmlSearchRenderer.class:
+	  [[#5415]] 기존의 하이라이팅 함수를 사용하도록 수정합니다.
+ www/search/include/renderers/FrsHtmlSearchRenderer.class,
+	  www/search/include/renderers/HtmlSearchRenderer.class: [[#5415]]
 	  다운로드에서 대소문자 구분없이 하이라이팅이 되도록 수정합니다.
 
 2009-12-11  semtlnori
 
-	* www/tracker/browse.php: [#5370] 고급검색에서 최근 변경일과 조회수로도 정렬할 수 있도록 함
+ www/tracker/browse.php: [[#5370]] 고급검색에서 최근 변경일과 조회수로도 정렬할 수 있도록 함
 
 2009-12-11  utumdol
 
-	* www/search/include/renderers/ArtifactHtmlSearchRenderer.class:
-	  [#5415] 게시판 및 버그에서 하이라이팅이 되지 않는 문제를 수정합니다.
+ www/search/include/renderers/ArtifactHtmlSearchRenderer.class:
+	  [[#5415]] 게시판 및 버그에서 하이라이팅이 되지 않는 문제를 수정합니다.
 
 2009-12-11  semtlnori
 
-	* www/tracker/browse.php: [#5022] [#5109] [#5463] r2602에서의 실수 고침:
+ www/tracker/browse.php: [[#5022]] [[#5109]] [[#5463]] r2602에서의 실수 고침:
 	  탭을 선택하지 않은 경우 기본적으로 '전체' 탭에 선택되도록 함
 
 2009-12-11  utumdol
 
-	* www/search/include/renderers/HtmlSearchRenderer.class: [#5416] 더
+ www/search/include/renderers/HtmlSearchRenderer.class: [[#5416]] 더
 	  보기 내부에서도 개수를 표시하도록 합니다.
-	* www/frs/shownotes.php: [#5022] 문법에 맞지 않게 추가된 부분이 있어서 수정합니다.
-	* www/search/index.php: [#5416] 카테고리 별로 검색 개수를 출력하도록 수정합니다.
-	* www/search/index.php: [#5416] 카테고리 별로 검색 개수를 출력하도록 수정합니다.
+ www/frs/shownotes.php: [[#5022]] 문법에 맞지 않게 추가된 부분이 있어서 수정합니다.
+ www/search/index.php: [[#5416]] 카테고리 별로 검색 개수를 출력하도록 수정합니다.
+ www/search/index.php: [[#5416]] 카테고리 별로 검색 개수를 출력하도록 수정합니다.
 
 2009-12-10  semtlnori
 
-	* www/tracker/downloadcsv.php: [#5022] [#5109] [#5463] 고급검색 결과를 csv
+ www/tracker/downloadcsv.php: [[#5022]] [[#5109]] [[#5463]] 고급검색 결과를 csv
 	  파일로 다운로드 받는 코드를 extract method
-	* www/tracker/download.php: [#5022] [#5109] [#5463] 게시물의 첨부파일을 다운로드
+ www/tracker/download.php: [[#5022]] [[#5109]] [[#5463]] 게시물의 첨부파일을 다운로드
 	  받는 코드를 다음의 세 함수로 나누어서 extract method
-	  * get_fixed_filename(): 파일이름을 브라우저에 맞게 수정하는 함수
-	  * get_artifact_file(): 첨부파일 object를 적절하게 생성해주는 함수
-	  * download_main(): 다운로드 기능 메인 함수
-	* www/tracker/index.php: [#5022] [#5109] [#5463] tracker의 entry
+* get_fixed_filename(): 파일이름을 브라우저에 맞게 수정하는 함수
+* get_artifact_file(): 첨부파일 object를 적절하게 생성해주는 함수
+* download_main(): 다운로드 기능 메인 함수
+ www/tracker/index.php: [[#5022]] [[#5109]] [[#5463]] tracker의 entry
 	  point 코드를 tracker_main()으로 extract method
-	* www/tracker/index.php: [#5022] [#5109] [#5463] 트래커의 entry point
+ www/tracker/index.php: [[#5022]] [[#5109]] [[#5463]] 트래커의 entry point
 	  부분 리팩토링
-	  * 첨부파일 검사 코드를 check_attachments(), check_attachment_files()로
+* 첨부파일 검사 코드를 check_attachments(), check_attachment_files()로
 	  extract method
-	* www/themes/naver/tracker.tpl,
+ www/themes/naver/tracker.tpl,
 	  www/tracker/browse-template-1.0.inc.php, www/tracker/browse.php:
-	  [#5022] [#5109] [#5463] 고급검색 관련 코드 리팩토링
-	  * 함수 이름 변경
+	  [[#5022]] [[#5109]] [[#5463]] 고급검색 관련 코드 리팩토링
+* 함수 이름 변경
 	  get_request() -> get_search_query()
 	  create_search_query() -> save_search_query()
 	  
-	  * 기존의 코드에서 extract method
+* 기존의 코드에서 extract method
 	  count_pins() 공지사항의 갯수를 카운트
 	  build_artifact_factory() 게시물들을 가져오는 코드
 	  tracker_browse_main() 게시물 목록 보기 코드의 메인 함수
 	  update_date_range() 사용자의 검색 요청에 게시물 날짜 범위가 빠진 경우 채워넣어주는 함수
 	  
-	* www/tracker/add-template-1.0.inc.php, www/tracker/add.php:
-	  [#5022] [#5109] [#5463] 게시물 등록 페이지 관련 코드 리팩토링
-	  * 1.0 테마 코드를 add-template-1.0.inc.php로 분리
-	  * 전체 코드를 assign_template()과 generate_tabs()로 분리
+ www/tracker/add-template-1.0.inc.php, www/tracker/add.php:
+	  [[#5022]] [[#5109]] [[#5463]] 게시물 등록 페이지 관련 코드 리팩토링
+* 1.0 테마 코드를 add-template-1.0.inc.php로 분리
+* 전체 코드를 assign_template()과 generate_tabs()로 분리
 
 2009-12-09  semtlnori
 
-	* www/frs/include/frs_utils.php: [#5022] [#5109] [#5459] 사용되지 않는
+ www/frs/include/frs_utils.php: [[#5022]] [[#5109]] [[#5459]] 사용되지 않는
 	  frs_admin_header() 제거
-	* www/frs/downloading.php, www/frs/include/frs_utils.php,
-	  www/frs/index.php, www/frs/shownotes.php: [#5022] [#5109] [#5459]
+ www/frs/downloading.php, www/frs/include/frs_utils.php,
+	  www/frs/index.php, www/frs/shownotes.php: [[#5022]] [[#5109]] [[#5459]]
 	  잘못된 매개변수 $f를 제거하고, $group_id가 없어서 오류가 발생하는 문제 고침
-	* www/frs/download.php: [#5022] [#5109] [#5459] r2595에서
+ www/frs/download.php: [[#5022]] [[#5109]] [[#5459]] r2595에서
 	  $sys_download_resume이 정의되지 않은 경우 파일이 다운로드 되지 않는 문제가 발생하여 고침
-	* www/frs/downloading.php: [#5022] [#5109] [#5459] 다운로드중 표시될 페이지 관련
+ www/frs/downloading.php: [[#5022]] [[#5109]] [[#5459]] 다운로드중 표시될 페이지 관련
 	  코드를 downloading_main(), downloading_body() 로 분리
-	* www/frs/monitor.php: [#5022] [#5109] [#5459] 릴리즈 모니터링 코드를
+ www/frs/monitor.php: [[#5022]] [[#5109]] [[#5459]] 릴리즈 모니터링 코드를
 	  frs_monitor_main(), frs_monitor_stop(), frs_monitor_start()로 분리
-	* www/frs/download.php: [#5022] [#5109] [#5459] 다운로드 처리 코드를
+ www/frs/download.php: [[#5022]] [[#5109]] [[#5459]] 다운로드 처리 코드를
 	  download_main(), update_download_stat()으로 분리
-	* www/frs/index.php: [#5022] [#5109] [#5459] r2529의 오타 고침
-	* www/tracker/tracker.php: [#5022] [#5109] [#5463]
+ www/frs/index.php: [[#5022]] [[#5109]] [[#5459]] r2529의 오타 고침
+ www/tracker/tracker.php: [[#5022]] [[#5109]] [[#5463]]
 	  artifact_action()의 복잡도를 낮춥니다.
-	  * 댓글을 편집하는 코드를 edit_comment()로 extract
-	  * 대량갱신을 수행하는 코드를 mass_update()로 extract
-	  * 기타 중복 제거
-	* www/frs/include/frs_utils.php, www/frs/index.php: [#5022] [#5109]
-	  [#5459] post_release()와 show_releases_table_body()의 복잡성을 낮춥니다.
+* 댓글을 편집하는 코드를 edit_comment()로 extract
+* 대량갱신을 수행하는 코드를 mass_update()로 extract
+* 기타 중복 제거
+ www/frs/include/frs_utils.php, www/frs/index.php: [[#5022]] [[#5109]]
+	  [[#5459]] post_release()와 show_releases_table_body()의 복잡성을 낮춥니다.
 
 2009-12-08  semtlnori
 
-	* www/frs/index.php: [#5022] [#5109] [#5459] 릴리즈 목록을 보여주는 코드를
+ www/frs/index.php: [[#5022]] [[#5109]] [[#5459]] 릴리즈 목록을 보여주는 코드를
 	  extract method:
-	  * 릴리즈 목록 페이지를 렌더링하는 show_releases()
-	  * 릴리즈 목록 페이지에서 테이블 부분을 렌더링하는 show_releases_table()
-	  * 릴리즈 목록 테이블의 body를 렌더링하는 show_releases_table_body()
-	  * 전체를 처리하는 frs_main()
+* 릴리즈 목록 페이지를 렌더링하는 show_releases()
+* 릴리즈 목록 페이지에서 테이블 부분을 렌더링하는 show_releases_table()
+* 릴리즈 목록 테이블의 body를 렌더링하는 show_releases_table_body()
+* 전체를 처리하는 frs_main()
 	  이렇게 분리합니다
-	* www/frs/shownotes.php: [#5022] [#5109] [#5459] shownotes.php의
+ www/frs/shownotes.php: [[#5022]] [[#5109]] [[#5459]] shownotes.php의
 	  코드들을 extract method
-	  * 댓글을 다는 add_comment()
-	  * 댓글을 삭제하는 delete_comment()
-	  * 릴리즈 노트를 보여주는 show_release_note()
+* 댓글을 다는 add_comment()
+* 댓글을 삭제하는 delete_comment()
+* 릴리즈 노트를 보여주는 show_release_note()
 	  로 분리합니다.
-	* plugins/bzrtracker, plugins/hgtracker, plugins/nusoap,
-	  plugins/scmbzr, plugins/scmhg: [#5423] 핋수적이지 않은 플러그인을
+ plugins/bzrtracker, plugins/hgtracker, plugins/nusoap,
+	  plugins/scmbzr, plugins/scmhg: [[#5423]] 핋수적이지 않은 플러그인을
 	  trunk/nforge/plugins에서 trunk/plugins로 옮깁니다.
-	* utils/cr_upload, utils/db_create_xml.php, utils/db_create_xml.sh,
+ utils/cr_upload, utils/db_create_xml.php, utils/db_create_xml.sh,
 	  utils/db_print_xml.php, utils/export_setting.php,
 	  utils/install-test-all.sh, utils/remote-install-test.sh,
 	  utils/remote-install.sh, utils/remote-uninstall.sh,
 	  utils/sql2sql.php, utils/static-analyze-code.py,
 	  utils/static-generate-plot.py, utils/static-print-complexity,
-	  utils/xml2sql.php: [#5423] trunk/nforge/utils의 스크립트들 중 nFORGE에서
+	  utils/xml2sql.php: [[#5423]] trunk/nforge/utils의 스크립트들 중 nFORGE에서
 	  직접 사용하지 않는 것은 모두 trunk/bin으로 옮깁니다. install-nss-sql.sh는
 	  install.php에서 사용하므로 옮기지 않습니다.
-	* www/themes/nforge-dev, www/themes/skel, www/themes/stony: [#5423]
+ www/themes/nforge-dev, www/themes/skel, www/themes/stony: [[#5423]]
 	  기본 테마를 제외한 테마를 모두 trunk/themes로 옮깁니다
-	* ., AUTHORS, AUTHORS.gforge, AUTHORS.sourceforge, COPYING,
+ ., AUTHORS, AUTHORS.gforge, AUTHORS.sourceforge, COPYING,
 	  CREDITS, INSTALL, Makefile, README, README.gforge, bin, common,
 	  contrib, create_table.php, cronjobs, crontab.in, crontab.php, db,
 	  etc, install.php, install_util.php, jpgraph, load_setting.inc,
 	  locale, migration, nforge-install-1.php, nforge-install-2.php,
 	  nforge-install-3.php, nforge-upgrade-db.php, plugins,
 	  setting.php, share, tests, tools, upgrade.sh, upgrade_utils.php,
-	  utils, www: [#5423] trunk를 trunk/nforge로 옮깁니다
+	  utils, www: [[#5423]] trunk를 trunk/nforge로 옮깁니다

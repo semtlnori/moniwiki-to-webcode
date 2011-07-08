@@ -1,10 +1,10 @@
 == Graphical Smileys ==
-To insert a smiley, just type in your favourite from the list below. They're only converted to an icon though if they are ''surrounded by whitespace''.
+To insert a smiley, just type in your favourite from the list below. They're only converted to an icon though if they are //surrounded by whitespace//.
 
 For more information on the possible markup, see HelpOnEditing. 
 
 === Examples ===
-[[ShowSmiley]]
+[[[[ShowSmiley]]]]
 == MoniWiki extensions ==
 {{{[[SmileyChooser]]}}}
 ----
@@ -18,4 +18,4 @@ HelpOnEditing | ThisWiki
 }}}
 
 ----
-[[Navigation(HelpOnEditing)]]
+[[[[Navigation(HelpOnEditing)]]]]

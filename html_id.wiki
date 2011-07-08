@@ -12,6 +12,6 @@
 
 ----
 See also
- * NewTheme - 새 테마에서 참고할 것들
- * ThemeGuide - 구 테마의 가이드
- * CSSStyleGuide - CSS 스타일 가이드 (by WkPark)
+* NewTheme - 새 테마에서 참고할 것들
+* ThemeGuide - 구 테마의 가이드
+* CSSStyleGuide - CSS 스타일 가이드 (by WkPark)

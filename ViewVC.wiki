@@ -7,8 +7,8 @@ nFORGE는 CGI를 이용해 ViewVC를 실행합니다.
 1. viewvc.cgi에서 사용자 요청에 맞게 코드 저장소에 대한 웹페이지를 렌더링
 
 === 관련 파일/디렉토리 ===
- * www/scm/include/viewvc_utils.php
- * www/scm/viewvc
+* www/scm/include/viewvc_utils.php
+* www/scm/viewvc
 
 === 참고 ===
- * http://www.viewvc.org/
+* http://www.viewvc.org/

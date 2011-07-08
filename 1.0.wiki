@@ -1,31 +1,31 @@
 == 주요 기능 ==
- * SmartInstall 지원: 우분투(데비안) / Fedora / CentOS
- * nFORGE 사이트들의 새소식을 서로 공유하는 기능 추가
- * GIT 소스 레포지터리 지원 추가
+* SmartInstall 지원: 우분투(데비안) / Fedora / CentOS
+* nFORGE 사이트들의 새소식을 서로 공유하는 기능 추가
+* GIT 소스 레포지터리 지원 추가
 == 자세한 기능 업데이트 목록 ==
- * SmartInstall 지원: 우분투(데비안) / Fedora / CentOS (by semtlnori)
- * nFORGE 사이트들의 새소식을 서로 공유하는 기능 추가 (by utumdol)
- * GIT 소스 레포지터리 지원 추가 (by wkpark)
-  * ggit을 이용하고 gittracker 추가. ggit의 ssh 지원 추가. (webdav 대신 ssh사용)
- * 스케쥴러 기능 강화 (by semtlnori)
-  * crontab 지원및 보안 강화 (by wkpark)
-  * 스케쥴러를 통한 crontab 항목 활성/비활성 제어. (by wkpark)
- * 업로드 UI개선
- * 이메일 지원 강화 (by 다즐링)
- * nss-pgsql / nss-mysql 지원으로 Git/CVS 사용자 관리모듈 강화 (by wkpark)
-  * nss-*sql의 추가및 제거를 손쉽게함.
-  * nss-mysql의 경우 libnss-mysql과 libnss-mysql-bg 모두 지원.
- * 위키위키 모듈화 및 코드 분리. (by wkpark)
-  * 프로젝트별 위키위키 설정 지원.
-  * 필수적인 플러그인 추가.
-  * 기본페이지 정리
-  * 모니위키 1.1.3의 일부 최신기능 지원.
- * 프로젝트 등록 절차 간소화 (by kss, semtlnori)
- * 코드리뷰 코드의 분리/모듈화 및 CVS/GIT 동시 지원 (by wkpark)
-  * patch/diff파일에 대한 view 개선
-  * 패치별 변화 추가.
- * chroot관련된 지원 개선 (by wkpark)
- * lightbox2 플러그인 추가 (by wkpark)
- * SimpleURL 일부 지원.
-  * download 링크의 간소화.
-  * fake mod_rewrite 기능: 404 페이지를 통한, mod_rewrite기능의 일부 지원.
+* SmartInstall 지원: 우분투(데비안) / Fedora / CentOS (by semtlnori)
+* nFORGE 사이트들의 새소식을 서로 공유하는 기능 추가 (by utumdol)
+* GIT 소스 레포지터리 지원 추가 (by wkpark)
+** ggit을 이용하고 gittracker 추가. ggit의 ssh 지원 추가. (webdav 대신 ssh사용)
+* 스케쥴러 기능 강화 (by semtlnori)
+** crontab 지원및 보안 강화 (by wkpark)
+** 스케쥴러를 통한 crontab 항목 활성/비활성 제어. (by wkpark)
+* 업로드 UI개선
+* 이메일 지원 강화 (by 다즐링)
+* nss-pgsql / nss-mysql 지원으로 Git/CVS 사용자 관리모듈 강화 (by wkpark)
+** nss-*sql의 추가및 제거를 손쉽게함.
+** nss-mysql의 경우 libnss-mysql과 libnss-mysql-bg 모두 지원.
+* 위키위키 모듈화 및 코드 분리. (by wkpark)
+** 프로젝트별 위키위키 설정 지원.
+** 필수적인 플러그인 추가.
+** 기본페이지 정리
+** 모니위키 1.1.3의 일부 최신기능 지원.
+* 프로젝트 등록 절차 간소화 (by kss, semtlnori)
+* 코드리뷰 코드의 분리/모듈화 및 CVS/GIT 동시 지원 (by wkpark)
+** patch/diff파일에 대한 view 개선
+** 패치별 변화 추가.
+* chroot관련된 지원 개선 (by wkpark)
+* lightbox2 플러그인 추가 (by wkpark)
+* SimpleURL 일부 지원.
+** download 링크의 간소화.
+** fake mod_rewrite 기능: 404 페이지를 통한, mod_rewrite기능의 일부 지원.

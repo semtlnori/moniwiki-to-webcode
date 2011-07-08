@@ -1,43 +1,43 @@
 #title nFORGE 설치하기 - Ubuntu + MySQL 기반
-[[TableOfContents]]
+[[[[TableOfContents]]]]
 === 들어가는 말 ===
- * 설치 환경
-  * Ubuntu 9.04 Server
-  * MySQL 5.0
-  * PHP 5
+* 설치 환경
+** Ubuntu 9.04 Server
+** MySQL 5.0
+** PHP 5
 
 === 설치를 위해 필요한 기본 패키지 설치 ===
 
- * 터미널로 접속할 수 있도록 ssh 설치.
+* 터미널로 접속할 수 있도록 ssh 설치.
 {{{
 sudo apt-get install openssh-server
 }}}
 
- * svn으로 최신 소스를 다운받아 설치할 수 있도록 subversion 설치
+* svn으로 최신 소스를 다운받아 설치할 수 있도록 subversion 설치
 {{{
 sudo apt-get install subversion
 }}}
 
- * php shell script를 실행할 수 있도록 php 설치
+* php shell script를 실행할 수 있도록 php 설치
 {{{
 sudo apt-get install php5-cli
 }}}
 
- * php 메일 송수신이 가능하도록 exim4 설정
+* php 메일 송수신이 가능하도록 exim4 설정
 {{{
 sudo dpkg-reconfigure exim4-config
 }}}
 
 === nFORGE 운영을 위해 필요한 패키지 설치 ===
 
- * dbms 설치
+* dbms 설치
 {{{
 sudo apt-get install mysql-server mysql-client php5-mysql
 }}}
 
 === nFORGE source checkout ===
- * Tagging된 안정 버전 중 사용하고자 하는 버전을 선택해 checkout합니다.
- * 개발 중인 최신 버전을 사용하시려면 trunk를 사용하셔도 무방합니다.
+* Tagging된 안정 버전 중 사용하고자 하는 버전을 선택해 checkout합니다.
+* 개발 중인 최신 버전을 사용하시려면 trunk를 사용하셔도 무방합니다.
 {{{
 svn checkout --username anonsvn --password anonsvn https://dev.naver.com/svn/nforge/tags/1.0.1 newnforge
 }}}
@@ -47,19 +47,19 @@ svn checkout --username anonsvn --password anonsvn https://dev.naver.com/svn/nfo
 cd newnforge
 sudo ./install.php
 }}}
- * 이어서 나오는 질문에 차례로 답변합니다. 대부분 아래 내용을 제외하고 default로 설정된 대로 답변하시면 무방합니다.
-  * Site Name: Site의 목적에 맞는 적당한 이름을 정해 줍니다. ex) 네이버 개발자 센터
-  * Apache User: www-data (Ubuntu의 경우 www-data를 apache-user로 사용합니다. / 우분투9.04의 경우 www-data를 사용합니다.)
-  * Apache Group: www-data (Ubuntu의 경우 www-data를 apache-group으로 사용합니다.)
+* 이어서 나오는 질문에 차례로 답변합니다. 대부분 아래 내용을 제외하고 default로 설정된 대로 답변하시면 무방합니다.
+** Site Name: Site의 목적에 맞는 적당한 이름을 정해 줍니다. ex) 네이버 개발자 센터
+** Apache User: www-data (Ubuntu의 경우 www-data를 apache-user로 사용합니다. / 우분투9.04의 경우 www-data를 사용합니다.)
+** Apache Group: www-data (Ubuntu의 경우 www-data를 apache-group으로 사용합니다.)
 
 === nFORGE 정상 동작 확인 ===
- * 웹 브라우저를 열고 설정한 도메인 또는 IP로 접속합니다. nFORGE가 뜬다면 성공입니다.
+* 웹 브라우저를 열고 설정한 도메인 또는 IP로 접속합니다. nFORGE가 뜬다면 성공입니다.
 
 === 사이트 어드민 > 보고서 시스템 초기화/재구축 ===
- * install.php에서 수행한 어드민 아이디와 패스워드로 로그인 하신후 http://nFORGE도메인/admin으로 접속합니다.
- * 보고서 > 보고서 시스템 초기화 재구축을 1회만 실행합니다.
+* install.php에서 수행한 어드민 아이디와 패스워드로 로그인 하신후 http://nFORGE도메인/admin으로 접속합니다.
+* 보고서 > 보고서 시스템 초기화 재구축을 1회만 실행합니다.
 
 === 마치는 말 ===
- * 새로운 프로젝트와 새로운 사용자를 등록하신 후 자유롭게 사용해 보시기 바랍니다.
- * 이것으로 Ubuntu + MySQL 환경에서 nFORGE 설치를 마치도록 하겠습니다.
- * 보신 것처럼 Ubuntu 9.04 Server + MySQL + nFORGE의 조합의 설치는 매우 쉽고 간편합니다. :-)
+* 새로운 프로젝트와 새로운 사용자를 등록하신 후 자유롭게 사용해 보시기 바랍니다.
+* 이것으로 Ubuntu + MySQL 환경에서 nFORGE 설치를 마치도록 하겠습니다.
+* 보신 것처럼 Ubuntu 9.04 Server + MySQL + nFORGE의 조합의 설치는 매우 쉽고 간편합니다. :-)

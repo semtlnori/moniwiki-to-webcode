@@ -1,4 +1,4 @@
-[[TableOfContents]]
+[[[[TableOfContents]]]]
 == Error Handling 가이드 ==
 === 에러 전파 ===
 에러를 직접 처리할 수 없는 경우에는 caller에게 전파합니다.
@@ -7,44 +7,44 @@
 false, null, 0 등을 리턴하여 caller에게 에러가 발생했음을 알립니다. 어떤 상황에서 어떤 return값을 반환하는지에 대해 반드시 함수별로 문서화하도록 합니다.
 
 장점
- * 비용이 작습니다. 
- * 에러를 처리하는 코드와 에러가 발생한 코드가 항상 가까이 위치하게 됩니다.
+* 비용이 작습니다. 
+* 에러를 처리하는 코드와 에러가 발생한 코드가 항상 가까이 위치하게 됩니다.
 
 단점
- * caller가 return값이 에러인지 정상 결과값인지 항상 구분해줘야 하므로 코드가 복잡해 질 수 있습니다.
- * caller가 예외를 처리하지 않으면 에러의 발생을 모르고 지나치게 될 위험이 있습니다.
- * 에러를 처리하는 코드와 에러가 발생한 코드가 항상 가까이 위치하게 됩니다.
- * 에러상황에 대해 담을 수 있는 정보가 극히 제한됩니다.
+* caller가 return값이 에러인지 정상 결과값인지 항상 구분해줘야 하므로 코드가 복잡해 질 수 있습니다.
+* caller가 예외를 처리하지 않으면 에러의 발생을 모르고 지나치게 될 위험이 있습니다.
+* 에러를 처리하는 코드와 에러가 발생한 코드가 항상 가까이 위치하게 됩니다.
+* 에러상황에 대해 담을 수 있는 정보가 극히 제한됩니다.
 
 ==== 에러 저장해두기 ====
 에러를 어딘가에 저장합니다. 저장된 에러를 어디선가 처리합니다. nFORGE에서는 Error::setError() 메소드로 에러 메시지를 기록하고 Error::isError()와 Error::getErrorMessage()로 에러를 확인하는 메카니즘을 사용해왔습니다. 또한 이 방식을 광범위하게 사용할 수 있도록 거의 모든 클래스를 Error 클래스의 파생 클래스로 정의하였습니다.
 
 장점
- * 에러상황에 대해 다양한 정보를 담을 수 있습니다.
+* 에러상황에 대해 다양한 정보를 담을 수 있습니다.
 
 단점
- * caller가 에러를 처리하지 않으면 에러의 발생을 모르고 지나치게 될 위험이 있습니다.
- * 에러 저장 공간이 단순하게 만들어져 있는 경우, 에러가 처리되기 전에 새 에러에 의해 덮어씌워질 위험이 있습니다.
+* caller가 에러를 처리하지 않으면 에러의 발생을 모르고 지나치게 될 위험이 있습니다.
+* 에러 저장 공간이 단순하게 만들어져 있는 경우, 에러가 처리되기 전에 새 에러에 의해 덮어씌워질 위험이 있습니다.
 
 ==== Throw exception ====
 예외를 던집니다. 어떤 상황에서 어떤 예외를 던지는지에 대해 반드시 함수별로 문서화하도록 합니다.
 
 장점
- * caller가 예외를 처리하지 않으면 unexpected exception이 발생하게 되므로, 에러의 발생을 모르고 지나칠 위험이 적습니다.
- * 상위 caller에 재전파시 아무 코드도 작성할 필요가 없습니다.
- * 에러를 처리하는 코드와 비지니스 로직을 분리할 수 있습니다.
- * 에러 상황에 대해 다양한 정보를 담을 수 있습니다.
+* caller가 예외를 처리하지 않으면 unexpected exception이 발생하게 되므로, 에러의 발생을 모르고 지나칠 위험이 적습니다.
+* 상위 caller에 재전파시 아무 코드도 작성할 필요가 없습니다.
+* 에러를 처리하는 코드와 비지니스 로직을 분리할 수 있습니다.
+* 에러 상황에 대해 다양한 정보를 담을 수 있습니다.
 
 단점
- * 비용이 큽니다.
- * caller는 callee가 던질 수 있는 exception에 대해 고려해야 합니다. caller가 처리하지 못하는 exception이 발생하는 경우 프로그램이 중단될 수 있기 때문입니다.
+* 비용이 큽니다.
+* caller는 callee가 던질 수 있는 exception에 대해 고려해야 합니다. caller가 처리하지 못하는 exception이 발생하는 경우 프로그램이 중단될 수 있기 때문입니다.
 
 주의사항
- * exception을 던진다는 것은 프로그램의 흐름에서 벗어나는 것입니다. 따라서 현재 진행중인 작업이 중단되어도 문제가 없을지 판단하고, 문제가 있을 수 있다면 exception을 발생시키기 전에 현재 작업을 rollback 하도록 합니다. rollback 할 수 없다면 작업이 어디까지 완료되었고 어디서 중단되었는지 사용자에게 알려주도록 합니다. (db_rollback(), form_release_key() 등을 활용)
- * DB 트랜잭션에 대한 커밋 및 롤백에 대한 책임은 db_begin()의 caller가 집니다. db_begin()의 caller는 DB 트랜잭션이 수행되는 동안 exception이 발생한 경우 그 DB 트랜잭션을 적절히 처리해 주어야 합니다.
+* exception을 던진다는 것은 프로그램의 흐름에서 벗어나는 것입니다. 따라서 현재 진행중인 작업이 중단되어도 문제가 없을지 판단하고, 문제가 있을 수 있다면 exception을 발생시키기 전에 현재 작업을 rollback 하도록 합니다. rollback 할 수 없다면 작업이 어디까지 완료되었고 어디서 중단되었는지 사용자에게 알려주도록 합니다. (db_rollback(), form_release_key() 등을 활용)
+* DB 트랜잭션에 대한 커밋 및 롤백에 대한 책임은 db_begin()의 caller가 집니다. db_begin()의 caller는 DB 트랜잭션이 수행되는 동안 exception이 발생한 경우 그 DB 트랜잭션을 적절히 처리해 주어야 합니다.
 
 예외처리의 예
- * 예외가 발생한 경우, 롤백하고 에러 메시지를 사용자에게 전달
+* 예외가 발생한 경우, 롤백하고 에러 메시지를 사용자에게 전달
  {{{
 db_begin();
 try {
@@ -59,7 +59,7 @@ try {
 }}}
  -- plugins/milestone/www/delete.php
 
- * 예외가 발생한 경우, form_key를 해제하고 예외를 재전파
+* 예외가 발생한 경우, form_key를 해제하고 예외를 재전파
  {{{
 try {
 	$u =& user_get_object(user_getid());
@@ -71,7 +71,7 @@ try {
  -- www/account/change_email.php
 
 Unexpected Exception
- * 현재 nFORGE는 Unexpected Exception(아무데서도 catch 하지 못한 exception)이 발생한 경우, exit_error()를 호출하여 에러 페이지를 보여주고 에러에 대해 로그를 남깁니다.
+* 현재 nFORGE는 Unexpected Exception(아무데서도 catch 하지 못한 exception)이 발생한 경우, exit_error()를 호출하여 에러 페이지를 보여주고 에러에 대해 로그를 남깁니다.
 
 === 에러 처리 ===
 ==== 복구후 속행 ====
@@ -120,20 +120,20 @@ try {
 프로그램을 종료합니다.
 
 nFORGE에는 다음과 같은 종료 함수들이 존재합니다. 함수별로 그에 맞는 에러 페이지를 보여주도록 작성되어 있습니다.
- * exit_form_double_submit
- * exit_not_logged_in
- * exit_disabled
- * exit_missing_param
- * exit_permission_denied
- * exit_error
- * exit_no_group
+* exit_form_double_submit
+* exit_not_logged_in
+* exit_disabled
+* exit_missing_param
+* exit_permission_denied
+* exit_error
+* exit_no_group
 
 장점
- * 반드시 종료해야만 하는 치명적인 에러가 발생한 경우 확실하게 종료시킬 수 있습니다.
+* 반드시 종료해야만 하는 치명적인 에러가 발생한 경우 확실하게 종료시킬 수 있습니다.
 
 단점
- * caller에서 callee를 제어할 수 없습니다.
- * 즉각 프로그램이 종료되므로 유닛테스트가 어렵습니다. 테스트 중에 이 코드가 실행되면 테스트조차 종료되어 버리기 때문입니다.
+* caller에서 callee를 제어할 수 없습니다.
+* 즉각 프로그램이 종료되므로 유닛테스트가 어렵습니다. 테스트 중에 이 코드가 실행되면 테스트조차 종료되어 버리기 때문입니다.
 
 == 문제점 ==
 === group / user / artifact ===
@@ -146,7 +146,7 @@ group / user / artifact 등등은 모두 *_get_object()에 의해서 가져오�
  2. group / user / artifact의 경우 삭제/탈퇴 등등에 의해서 Exception이 빈번하게 발생할 소지가 있다. Exception처리에 의한 try-cath를 써야 하는 경우가 많아지게 된다. 그러나 Exception처리는 거의 발생하지 않을 예외를 처리하도록 설계된 방식이라는 것을 볼때에 Exception처리는 group / user / artifact에 대해서 그다지 맞지 않다. release / file 등등에 대해서도 마찬가지.
 
 == Discussion ==
- * [ErrorHandling/Discussion]
- * 에러처리 개선: #5504
- * 로깅기능 구현하기: #7743
+* [[ErrorHandling/Discussion]]
+* 에러처리 개선: #5504
+* 로깅기능 구현하기: #7743
 

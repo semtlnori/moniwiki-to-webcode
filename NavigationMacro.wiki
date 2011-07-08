@@ -1,7 +1,7 @@
- * MoniWiki
- * WikiName
- * HelpOnEditing
- * MoniWikiFeatures
+* MoniWiki
+* WikiName
+* HelpOnEditing
+* MoniWikiFeatures
 ----
-[[Navigation(NavigationMacro,action)]]
+[[[[Navigation(NavigationMacro,action)]]]]
 

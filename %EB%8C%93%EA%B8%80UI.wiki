@@ -1,1 +1,1 @@
-[UserInterface/CommentForm]
+[[UserInterface/CommentForm]]

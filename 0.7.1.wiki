@@ -1,202 +1,202 @@
 #title ChangeLog/0.7.1
- * r148 rokmcseosu 2009-01-30 18:45:45
-  *  M /trunk/common/include/Group.class
+* r148 rokmcseosu 2009-01-30 18:45:45
+**  M /trunk/common/include/Group.class
 
- [#1147]폐쇄형 프로젝트에 대한 CLI 접근 관련 버그를 수정합니다
-
-
- * r149 rokmcseosu 2009-01-30 18:48:12
-  *  M /trunk/www/themes/nforge-dev/images/main_visual.gif
-
- [#1175]배너이미지의 문구를 적절하게 수정합니다
+ [[#1147]]폐쇄형 프로젝트에 대한 CLI 접근 관련 버그를 수정합니다
 
 
- * r150 rokmcseosu 2009-02-02 15:08:22
-  *  M /trunk/db/xml/project_weekly_metric.xml
+* r149 rokmcseosu 2009-01-30 18:48:12
+**  M /trunk/www/themes/nforge-dev/images/main_visual.gif
 
- [#1277]설치시 중복 인덱스 생성 버그 수정
+ [[#1175]]배너이미지의 문구를 적절하게 수정합니다
 
 
- * r151 utumdol 2009-02-02 15:09:38
-  *  M /trunk/www/include/languages/Base.tab
-  *  M /trunk/www/include/languages/Korean.tab
-  *  M /trunk/www/tracker/index.php
+* r150 rokmcseosu 2009-02-02 15:08:22
+**  M /trunk/db/xml/project_weekly_metric.xml
+
+ [[#1277]]설치시 중복 인덱스 생성 버그 수정
+
+
+* r151 utumdol 2009-02-02 15:09:38
+**  M /trunk/www/include/languages/Base.tab
+**  M /trunk/www/include/languages/Korean.tab
+**  M /trunk/www/tracker/index.php
 
  일부 에러 메시지를 세팅된 언어에 맞게 출력하도록 하였습니다.
 
 
- * r152 semtlnori 2009-02-02 15:20:51
-  *  M /trunk/www/project/admin/project_admin_utils.php
+* r152 semtlnori 2009-02-02 15:20:51
+**  M /trunk/www/project/admin/project_admin_utils.php
 
- [#1199] 프로젝트 관리 페이지에서 위키 사용 권한을 수정헀을 때 에러가 발생하는 문제를 수정했습니다. 전역변수 이 null이 되기 때문에 생기는 문제였습니다.
-
-
- * r153 leecj4u 2009-02-02 15:37:34
-  *  M /trunk/www/admin/trove/trove_cat_add.php
-  *  M /trunk/www/admin/trove/trove_cat_edit.php
-  *  M /trunk/www/include/languages/Base.tab
-  *  M /trunk/www/include/languages/Korean.tab
-
- [#1151] 소프트웨어맵추가시 각언어별 항목추가 , 편집시 해당 탭 파일 내용수정
+ [[#1199]] 프로젝트 관리 페이지에서 위키 사용 권한을 수정헀을 때 에러가 발생하는 문제를 수정했습니다. 전역변수 이 null이 되기 때문에 생기는 문제였습니다.
 
 
- * r154 rokmcseosu 2009-02-02 15:49:38
-  *  M /trunk/common/tracker/Artifact.class
-  *  M /trunk/www/include/html.php
-  *  M /trunk/www/tracker/browse.php
+* r153 leecj4u 2009-02-02 15:37:34
+**  M /trunk/www/admin/trove/trove_cat_add.php
+**  M /trunk/www/admin/trove/trove_cat_edit.php
+**  M /trunk/www/include/languages/Base.tab
+**  M /trunk/www/include/languages/Korean.tab
 
- [#1155]포럼/이슈 목록에 덧글 카운트 표시
-
-
- * r155 leecj4u 2009-02-02 15:57:46
-  *  M /trunk/www/admin/trove/trove_cat_add.php
-
- [#1151] 소프트웨어맵추가부분  } 빠진거 삽입;
+ [[#1151]] 소프트웨어맵추가시 각언어별 항목추가 , 편집시 해당 탭 파일 내용수정
 
 
- * r156 semtlnori 2009-02-02 16:21:15
-  *  M /trunk/CREDITS
-  *  M /trunk/common/tracker/Artifact.class
+* r154 rokmcseosu 2009-02-02 15:49:38
+**  M /trunk/common/tracker/Artifact.class
+**  M /trunk/www/include/html.php
+**  M /trunk/www/tracker/browse.php
 
- [#1061] 이슈 자동알림 메일에서, 내용의 순서가 '본문 - 전체 덧글 - 이슈상태' 순으로 되어있는 것을, 변경사항을 더 쉽게 알 수 있도록 '이슈상태 - 본문 - 최근 덧글 - 전체 덧글' 순으로 변경합니다. 이 변경은 cwryu님의 패치를 반영한 것입니다.
+ [[#1155]]포럼/이슈 목록에 덧글 카운트 표시
 
 
- * r157 utumdol 2009-02-02 17:22:52
-  *  M /trunk/www/themes/nforge-dev/css/dev_style.css
+* r155 leecj4u 2009-02-02 15:57:46
+**  M /trunk/www/admin/trove/trove_cat_add.php
+
+ [[#1151]] 소프트웨어맵추가부분  } 빠진거 삽입;
+
+
+* r156 semtlnori 2009-02-02 16:21:15
+**  M /trunk/CREDITS
+**  M /trunk/common/tracker/Artifact.class
+
+ [[#1061]] 이슈 자동알림 메일에서, 내용의 순서가 '본문 - 전체 덧글 - 이슈상태' 순으로 되어있는 것을, 변경사항을 더 쉽게 알 수 있도록 '이슈상태 - 본문 - 최근 덧글 - 전체 덧글' 순으로 변경합니다. 이 변경은 cwryu님의 패치를 반영한 것입니다.
+
+
+* r157 utumdol 2009-02-02 17:22:52
+**  M /trunk/www/themes/nforge-dev/css/dev_style.css
 
  fix form width
 
 
- * r158 semtlnori 2009-02-02 17:50:18
-  *  M /trunk/www/themes/nforge-dev/Theme.class
+* r158 semtlnori 2009-02-02 17:50:18
+**  M /trunk/www/themes/nforge-dev/Theme.class
 
- [#1288] 배포용 nFORGE의 타이틀이 local.inc의 으로 설정되도록 수정합니다. 현재는 항상 NAVER : Developer Center로 되어있는 상태입니다. 또한 warning을 제거하기 위해, ['top_kind']에 아무 값도 들어있지 않은 경우 null을 넣도록 수정했습니다.
-
-
- * r159 semtlnori 2009-02-02 19:01:45
-  *  M /trunk/www/themes/nforge-dev/Theme.class
-
- [#1288] r158에서 전역변수를 잘못 선언해서 수정했습니다.
+ [[#1288]] 배포용 nFORGE의 타이틀이 local.inc의 으로 설정되도록 수정합니다. 현재는 항상 NAVER : Developer Center로 되어있는 상태입니다. 또한 warning을 제거하기 위해, [['top_kind']]에 아무 값도 들어있지 않은 경우 null을 넣도록 수정했습니다.
 
 
- * r160 rokmcseosu 2009-02-03 11:49:05
-  *  M /trunk/cronjobs/backup_site.php
-  *  M /trunk/etc/local.inc.example
-  *  M /trunk/nforge-install-2.php
-  *  M /trunk/plugins/cvstracker/etc/plugins/cvstracker/config.php
-  *  M /trunk/plugins/scmcvs/bin/aclcheck.php
-  *  M /trunk/plugins/scmcvs/common/CVSPlugin.class
-  *  M /trunk/plugins/scmcvs/cronjobs/cvs.php
-  *  M /trunk/plugins/scmcvs/cronjobs/cvscreate.sh
-  *  M /trunk/plugins/scmcvs/cronjobs/history_parse.php
-  *  M /trunk/plugins/scmcvs/cronjobs/homedirs.php
-  *  M /trunk/plugins/scmsvn/cronjobs/create_svn.php
-  *  M /trunk/plugins/svntracker/common/svntrackerPlugin.class
-  *  M /trunk/plugins/svntracker/etc/plugins/svntracker/config.php
-  *  M /trunk/www/scm/include/viewvc_utils.php
+* r159 semtlnori 2009-02-02 19:01:45
+**  M /trunk/www/themes/nforge-dev/Theme.class
 
- [#1172]SCM 접근 경로 정리 작업
+ [[#1288]] r158에서 전역변수를 잘못 선언해서 수정했습니다.
 
 
- * r161 rokmcseosu 2009-02-03 12:34:14
-  *  M /trunk/www/tabber/divtool.js
-  *  M /trunk/www/tracker/detail.php
-  *  M /trunk/www/tracker/download.php
-  *  M /trunk/www/tracker/mod.php
+* r160 rokmcseosu 2009-02-03 11:49:05
+**  M /trunk/cronjobs/backup_site.php
+**  M /trunk/etc/local.inc.example
+**  M /trunk/nforge-install-2.php
+**  M /trunk/plugins/cvstracker/etc/plugins/cvstracker/config.php
+**  M /trunk/plugins/scmcvs/bin/aclcheck.php
+**  M /trunk/plugins/scmcvs/common/CVSPlugin.class
+**  M /trunk/plugins/scmcvs/cronjobs/cvs.php
+**  M /trunk/plugins/scmcvs/cronjobs/cvscreate.sh
+**  M /trunk/plugins/scmcvs/cronjobs/history_parse.php
+**  M /trunk/plugins/scmcvs/cronjobs/homedirs.php
+**  M /trunk/plugins/scmsvn/cronjobs/create_svn.php
+**  M /trunk/plugins/svntracker/common/svntrackerPlugin.class
+**  M /trunk/plugins/svntracker/etc/plugins/svntracker/config.php
+**  M /trunk/www/scm/include/viewvc_utils.php
 
- [#1193]포럼/이슈에 그림 첨부시 그림 크기 만큼의 새창에서 직접 보이도록 수정
-
-
-
-
- * r163 utumdol 2009-02-04 10:12:09
-  *  M /trunk/www/project/admin/frs/editrelease.php
-
- [#787] 다운로드 수정 시 이전 내용이 반복적으로 나오는 현상 수정
-
-
- * r164 rokmcseosu 2009-02-04 13:52:28
-  *  M /trunk/www/include/languages/Base.tab
-  *  M /trunk/www/include/languages/Korean.tab
-  *  M /trunk/www/include/project_home.php
-
- [#1240]프로젝트 홈에 활동 내역 반영
+ [[#1172]]SCM 접근 경로 정리 작업
 
 
- * r165 utumdol 2009-02-04 15:47:56
-  *  M /trunk/jpgraph/jpg-config.inc.php
-  *  M /trunk/jpgraph/jpgraph_ttf.inc.php
-  *  A /trunk/share/fonts
-  *  A /trunk/share/fonts/truetype
-  *  A /trunk/share/fonts/truetype/nanum
-  *  A /trunk/share/fonts/truetype/nanum/NanumGothic.ttf
-  *  A /trunk/share/fonts/truetype/nanum/NanumGothicBold.ttf
-  *  A /trunk/share/fonts/truetype/nanum/NanumMyeongjo.ttf
-  *  A /trunk/share/fonts/truetype/nanum/NanumMyeongjoBold.ttf
+* r161 rokmcseosu 2009-02-03 12:34:14
+**  M /trunk/www/tabber/divtool.js
+**  M /trunk/www/tracker/detail.php
+**  M /trunk/www/tracker/download.php
+**  M /trunk/www/tracker/mod.php
 
- [#1322] 설치 시 통계를 위해 필요한 폰트 기본 설치되도록 수정
+ [[#1193]]포럼/이슈에 그림 첨부시 그림 크기 만큼의 새창에서 직접 보이도록 수정
 
 
- * r166 utumdol 2009-02-04 17:11:10
-  *  M /trunk/www/tracker/download.php
+
+
+* r163 utumdol 2009-02-04 10:12:09
+**  M /trunk/www/project/admin/frs/editrelease.php
+
+ [[#787]] 다운로드 수정 시 이전 내용이 반복적으로 나오는 현상 수정
+
+
+* r164 rokmcseosu 2009-02-04 13:52:28
+**  M /trunk/www/include/languages/Base.tab
+**  M /trunk/www/include/languages/Korean.tab
+**  M /trunk/www/include/project_home.php
+
+ [[#1240]]프로젝트 홈에 활동 내역 반영
+
+
+* r165 utumdol 2009-02-04 15:47:56
+**  M /trunk/jpgraph/jpg-config.inc.php
+**  M /trunk/jpgraph/jpgraph_ttf.inc.php
+**  A /trunk/share/fonts
+**  A /trunk/share/fonts/truetype
+**  A /trunk/share/fonts/truetype/nanum
+**  A /trunk/share/fonts/truetype/nanum/NanumGothic.ttf
+**  A /trunk/share/fonts/truetype/nanum/NanumGothicBold.ttf
+**  A /trunk/share/fonts/truetype/nanum/NanumMyeongjo.ttf
+**  A /trunk/share/fonts/truetype/nanum/NanumMyeongjoBold.ttf
+
+ [[#1322]] 설치 시 통계를 위해 필요한 폰트 기본 설치되도록 수정
+
+
+* r166 utumdol 2009-02-04 17:11:10
+**  M /trunk/www/tracker/download.php
 
  fix forum/issue download file name
 
 
- * r167 semtlnori 2009-02-04 18:05:45
-  *  M /trunk/www/tracker/mod.php
+* r167 semtlnori 2009-02-04 18:05:45
+**  M /trunk/www/tracker/mod.php
 
- [#1166] 이슈/포럼 제목 수정시, 텍스트박스의 위치가 잘못 표시되는 문제를 수정했습니다. r136에서 수정했었으나, 오타가 있었기에 재수정합니다.
-
-
- * r168 semtlnori 2009-02-05 10:58:21
-  *  M /trunk/www/include/languages/Base.tab
-  *  M /trunk/www/include/languages/Korean.tab
-
- [#1340] 프로젝트 등록이 승인되었을 때 보내지는 메일의 내용에 불필요하거나 잘못된 내용이 포함되어 있으므로 내용을 수정합니다.
+ [[#1166]] 이슈/포럼 제목 수정시, 텍스트박스의 위치가 잘못 표시되는 문제를 수정했습니다. r136에서 수정했었으나, 오타가 있었기에 재수정합니다.
 
 
- * r169 semtlnori 2009-02-05 11:28:09
-  *  M /trunk/www/index.php
+* r168 semtlnori 2009-02-05 10:58:21
+**  M /trunk/www/include/languages/Base.tab
+**  M /trunk/www/include/languages/Korean.tab
 
- [#1339] local.inc에서 를 true로 설정하여 프로젝트 등록을 제한한 경우, 메인 페이지의 프로젝트 등록 버튼을 보이지 않도록 합니다.
+ [[#1340]] 프로젝트 등록이 승인되었을 때 보내지는 메일의 내용에 불필요하거나 잘못된 내용이 포함되어 있으므로 내용을 수정합니다.
 
 
- * r170 utumdol 2009-02-05 18:22:40
-  *  M /trunk/www/frs/download.php
-  *  M /trunk/www/tracker/detail.php
-  *  M /trunk/www/tracker/download.php
+* r169 semtlnori 2009-02-05 11:28:09
+**  M /trunk/www/index.php
+
+ [[#1339]] local.inc에서 를 true로 설정하여 프로젝트 등록을 제한한 경우, 메인 페이지의 프로젝트 등록 버튼을 보이지 않도록 합니다.
+
+
+* r170 utumdol 2009-02-05 18:22:40
+**  M /trunk/www/frs/download.php
+**  M /trunk/www/tracker/detail.php
+**  M /trunk/www/tracker/download.php
 
  fix download filename error
 
 
- * r171 rokmcseosu 2009-02-05 18:30:47
-  *  M /trunk/common/include/RoleObserver.class
-  *  M /trunk/www/project/admin/editgroupinfo.php
-  *  M /trunk/www/project/admin/index.php
-  *  M /trunk/www/project/admin/roleedit.php
+* r171 rokmcseosu 2009-02-05 18:30:47
+**  M /trunk/common/include/RoleObserver.class
+**  M /trunk/www/project/admin/editgroupinfo.php
+**  M /trunk/www/project/admin/index.php
+**  M /trunk/www/project/admin/roleedit.php
 
- [#1272]익명 접근 권한 설정을 공개 정보로 이동
-
-
- * r172 rokmcseosu 2009-02-05 19:18:09
-  *  M /trunk/www/tabber/divtool.js
-  *  M /trunk/www/tracker/detail.php
-  *  M /trunk/www/tracker/mod.php
-
- [#1193]이미지 출력을 새창대신 div로 출력
+ [[#1272]]익명 접근 권한 설정을 공개 정보로 이동
 
 
- * r173 utumdol 2009-02-06 14:23:16
-  *  M /trunk/www/frs/index.php
+* r172 rokmcseosu 2009-02-05 19:18:09
+**  M /trunk/www/tabber/divtool.js
+**  M /trunk/www/tracker/detail.php
+**  M /trunk/www/tracker/mod.php
 
- [932]다운로드 목록 보기에서 로그인한 사람이 접근할 경우 Hidden 파일과 Public 파일을 구분함
+ [[#1193]]이미지 출력을 새창대신 div로 출력
 
 
- * r174 leecj4u 2009-02-06 17:39:04
-  *  M /trunk/www/admin/trove/trove_cat_add.php
-  *  M /trunk/www/include/languages/Base.tab
-  *  M /trunk/www/include/languages/Korean.tab
+* r173 utumdol 2009-02-06 14:23:16
+**  M /trunk/www/frs/index.php
 
- [#1151] 소프트웨어맵추가관련(db_query문수정) , openration오타수정
+ [[932]]다운로드 목록 보기에서 로그인한 사람이 접근할 경우 Hidden 파일과 Public 파일을 구분함
+
+
+* r174 leecj4u 2009-02-06 17:39:04
+**  M /trunk/www/admin/trove/trove_cat_add.php
+**  M /trunk/www/include/languages/Base.tab
+**  M /trunk/www/include/languages/Korean.tab
+
+ [[#1151]] 소프트웨어맵추가관련(db_query문수정) , openration오타수정
 

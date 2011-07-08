@@ -1,52 +1,52 @@
 #title VirtualBox Images for nFORGE
 
-[[TableOfContents]]
+[[[[TableOfContents]]]]
 
-'''테마는 아래 내용을 참고하여 변경하여 테스트 부탁드립니다!'''
+**테마는 아래 내용을 참고하여 변경하여 테스트 부탁드립니다!**
 
 == nFORGE 2.0 beta 2 on Ubuntu 9.10 ==
- * [http://dev.naver.com/projects/nforge/download/note/448 다운로드]
-||OS ||'''Ubuntu 9.10 Server''' ||
-||ID ||'''nforgeroot''' ||
-||PW ||'''nforgeroot''' ||
-||nforge host domain ||localhost.localdomain ||
-||apache user ||'''www-data''' ||
-||apache group ||'''www-data''' ||
-||DBMS ||'''MySQL''' ||
-||mysql db name ||nforge ||
-||mysql db user ||nforge ||
-||mysql db password ||nforge ||
-||nFORGE 시스템 이름 ||MyNForge ||
-||nFORGE 시스템 관리자 아이디 ||nforgeadmin ||
-||nFORGE 시스템 관리자 비밀번호 ||nforgeadmin  ||
-||nFORGE 설정 파일||/etc/nforge/local.inc ||
-||nFORGE 아파치 설정 파일||/etc/nforge/httpd.conf ||
-||nFORGE 설치 디렉토리||/opt/nforge ||
+* [[http://dev.naver.com/projects/nforge/download/note/448 다운로드]]
+|OS |**Ubuntu 9.10 Server** |
+|ID |**nforgeroot** |
+|PW |**nforgeroot** |
+|nforge host domain |localhost.localdomain |
+|apache user |**www-data** |
+|apache group |**www-data** |
+|DBMS |**MySQL** |
+|mysql db name |nforge |
+|mysql db user |nforge |
+|mysql db password |nforge |
+|nFORGE 시스템 이름 |MyNForge |
+|nFORGE 시스템 관리자 아이디 |nforgeadmin |
+|nFORGE 시스템 관리자 비밀번호 |nforgeadmin  |
+|nFORGE 설정 파일|/etc/nforge/local.inc |
+|nFORGE 아파치 설정 파일|/etc/nforge/httpd.conf |
+|nFORGE 설치 디렉토리|/opt/nforge |
 
 == nFORGE 2.0 beta 2 on CentOS 5.4 ==
- * [http://dev.naver.com/projects/nforge/download/note/447 다운로드]
-||OS ||'''CentOS 5.4''' ||
-||ID ||'''root''' ||
-||PW ||'''root''' ||
-||nforge host domain ||localhost.localdomain ||
-||apache user ||'''apache''' ||
-||apache group ||'''apache''' ||
-||DBMS ||'''[DevCenter:cubrid Cubrid]''' ||
-||cubrid db name ||nforge ||
-||cubrid db user ||nforge ||
-||cubrid db password ||nforge ||
-||nFORGE 시스템 이름 ||MyNForge ||
-||nFORGE 시스템 관리자 아이디 ||nforgeadmin ||
-||nFORGE 시스템 관리자 비밀번호 ||nforgeadmin  ||
-||nFORGE 설정 파일||/etc/nforge/local.inc ||
-||nFORGE 아파치 설정 파일||/etc/nforge/httpd.conf ||
-||nFORGE 설치 디렉토리||/opt/nforge ||
+* [[http://dev.naver.com/projects/nforge/download/note/447 다운로드]]
+|OS |**CentOS 5.4** |
+|ID |**root** |
+|PW |**root** |
+|nforge host domain |localhost.localdomain |
+|apache user |**apache** |
+|apache group |**apache** |
+|DBMS |**[[DevCenter:cubrid Cubrid]]** |
+|cubrid db name |nforge |
+|cubrid db user |nforge |
+|cubrid db password |nforge |
+|nFORGE 시스템 이름 |MyNForge |
+|nFORGE 시스템 관리자 아이디 |nforgeadmin |
+|nFORGE 시스템 관리자 비밀번호 |nforgeadmin  |
+|nFORGE 설정 파일|/etc/nforge/local.inc |
+|nFORGE 아파치 설정 파일|/etc/nforge/httpd.conf |
+|nFORGE 설치 디렉토리|/opt/nforge |
 
 == 사용법 안내 ==
- * 다운로드 받은 파일의 압축을 풀면, vdi파일이 나오는데, 이 파일을 VirtualBox를 통해 구동하시면 됩니다.
- * VirtualBox를 통해 구동중인 nFORGE에 접근하기 위해, VirtualBox에서 네트웍 장치를 추가하는 작업이 필요할 수 있습니다. 
-  * 예를 들어 host(VirtualBox를 설치한 시스템)에서만 접근하고자 한다면, "호스트 전용 어댑터"를 추가하신 뒤 guest(VirtualBox를 통해 구동중인 시스템)에 접속하셔서 dhclient를 실행하여 ip를 부여받으시면 됩니다.
- * 자세한 사항은 [http://download.virtualbox.org/virtualbox/3.0.12/UserManual.pdf Virtual Box 사용자 매뉴얼]을 참고하시기 바랍니다.
+* 다운로드 받은 파일의 압축을 풀면, vdi파일이 나오는데, 이 파일을 VirtualBox를 통해 구동하시면 됩니다.
+* VirtualBox를 통해 구동중인 nFORGE에 접근하기 위해, VirtualBox에서 네트웍 장치를 추가하는 작업이 필요할 수 있습니다. 
+** 예를 들어 host(VirtualBox를 설치한 시스템)에서만 접근하고자 한다면, "호스트 전용 어댑터"를 추가하신 뒤 guest(VirtualBox를 통해 구동중인 시스템)에 접속하셔서 dhclient를 실행하여 ip를 부여받으시면 됩니다.
+* 자세한 사항은 [[http://download.virtualbox.org/virtualbox/3.0.12/UserManual.pdf Virtual Box 사용자 매뉴얼]]을 참고하시기 바랍니다.
 
 == 2.0용 stony 테마 적용 ==
  1. 관리자로 nFORGE에 로그인 (nforgeadmin/nforgeadmin)
@@ -55,4 +55,4 @@
  1. 마이페이지 > 회원정보에서 테마를 stony로 변경
 
 == 다른 가상머신 이미지 ==
- * VMWareImages
+* VMWareImages

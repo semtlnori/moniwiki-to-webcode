@@ -18,4 +18,4 @@ See also TableOfContentsMacro
  ==== Level 4 ====
  ===== Level 5 =====
 ----
-[[Navigation(HelpOnEditing)]]
+[[[[Navigation(HelpOnEditing)]]]]

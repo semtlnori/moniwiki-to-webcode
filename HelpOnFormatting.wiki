@@ -1,8 +1,8 @@
 == Text Formatting Rules ==
 
-Leave blank lines between paragraphs. Use {{{[[BR]]}}} to insert linebreaks into paragraphs.
+Leave blank lines between paragraphs. Use {{{[[[[BR]]]]}}} to insert linebreaks into paragraphs.
 
-You can render text in ''italics'' or '''bold'''.
+You can render text in //italics// or **bold**.
 To write italics, enclose the text in double single quotes.
 To write bold, enclose the text in triple single quotes.
 __Underlined text__ needs a double underscore on each side.
@@ -36,26 +36,26 @@ A code display has them on different lines: {{{
 }}} 
 /!\ In the above example, we "escaped" the markers for source code sequences by inserting \ character before the curly braces.
 
-/!\ MoinMoin does not support escape "{''''''{{" markup in preblock.
+/!\ MoinMoin does not support escape "{****{{" markup in preblock.
 
 === Display ===
-__Mixing__ ''italics'' and '''bold''':
- * '''''Mix''' at the beginning''
-  * '' '''Mix''' at the beginning''
- * '''''Mix'' at the beginning'''
-  * ''' ''Mix'' at the beginning'''
- * '''Mix at the ''end'''''
-  * '''Mix at the ''end'' '''
- * ''Mix at the '''end'''''
-  * ''Mix at the '''end''' ''
+__Mixing__ //italics// and **bold**:
+* **//Mix** at the beginning//
+** // **Mix** at the beginning//
+* **//Mix// at the beginning**
+** ** //Mix// at the beginning**
+* **Mix at the //end**//
+** **Mix at the //end// **
+* //Mix at the **end**//
+** //Mix at the **end** //
 
-You might recall ''a''^2^ `+` ''b''^2^ `=` ''c''^2^ from your math lessons, unless your head is filled with H,,2,,O.
+You might recall //a//^2^ `+` //b//^2^ `=` //c//^2^ from your math lessons, unless your head is filled with H,,2,,O.
 
 An {{{inline code sequence}}} has the start and end markers on the same line. Or you use `backticks`.
 
 
 A code display has them on different lines: {{{
-'''No''' markup here!
+**No** markup here!
 }}}
 
 === ColorizedSourceCode ===
@@ -72,7 +72,7 @@ phpinfo();
 Wiki''''''Name vs Wiki``Name
 }}}
 
-Wiki''''''Name vs Wiki``Name
+Wiki****Name vs Wiki``Name
 == MoniWiki extensions ==
 To write --striked text--, enclose the text in double dashes.
 
@@ -80,14 +80,14 @@ Superscripted text also obtained by encloseing a string into double carets ^^lik
 
 /!\ MoinMoin does superscript texts contain space but, MoniWiki does not. You can superscript a string contains space by encloseing it into double carets.
 === coloring and sizing ===
- * {{{{{{#red Hello World}}}}}} is renderd as {{{#red Hello World}}}
- * {{{{{{#0000ff Hello World}}}}}} is renderd as {{{#0000ff Hello World}}}
- * {{{{{{+3 Hello World}}}}}} is rendered as {{{+3 Hello World}}}
- * {{{{{{-1 Hello World}}}}}} is rendered as {{{-2 Hello World}}}
+* {{{{{{#red Hello World}}}}}} is renderd as {{{#red Hello World}}}
+* {{{{{{#0000ff Hello World}}}}}} is renderd as {{{#0000ff Hello World}}}
+* {{{{{{+3 Hello World}}}}}} is rendered as {{{+3 Hello World}}}
+* {{{{{{-1 Hello World}}}}}} is rendered as {{{-2 Hello World}}}
 ----
-''escape font styling syntax''
- * {{{{{{<space>#red Hello World}}}}}} is rendered as {{{ #red Hello World}}}
+//escape font styling syntax//
+* {{{{{{<space>#red Hello World}}}}}} is rendered as {{{ #red Hello World}}}
 
 Please see also WikiSlide
 ----
-[[Navigation(HelpOnEditing)]]
+[[[[Navigation(HelpOnEditing)]]]]

@@ -1,22 +1,22 @@
 #title nFORGE LDAP 연동
-[[TableOfContents]]
+[[[[TableOfContents]]]]
 === 들어가는 말 ===
- * 사내 LDAP 시스템이 있는 경우 별도의 회원 가입 절차 없이 nFORGE를 사용하는 방법에 대해 알아보도록 하겠습니다.
+* 사내 LDAP 시스템이 있는 경우 별도의 회원 가입 절차 없이 nFORGE를 사용하는 방법에 대해 알아보도록 하겠습니다.
 === 필요 Plug In Download ===
- * ldap 연동을 위해서는 ldap 연동을 위한 gforge의 ldapextauth Plug In이 필요합니다. 아래와 같은 방식으로 ldapextauth 플러그인을 nforge Plug In 디렉토리에 설치합니다. 참고로 다운받은 revision은 6782입니다.
+* ldap 연동을 위해서는 ldap 연동을 위한 gforge의 ldapextauth Plug In이 필요합니다. 아래와 같은 방식으로 ldapextauth 플러그인을 nforge Plug In 디렉토리에 설치합니다. 참고로 다운받은 revision은 6782입니다.
 {{{
 cd /opt/nforge/plugins
 svn export --username anonymous https://svn.gforge.org/svn/gforge/trunk/gforge/plugins/ldapextauth
 }}}
 === ldapextauth Plug In 수정 ===
- * /opt/nforge/plugins/ldapextauth/etc/plugins/ldapextauth/config.php를 수정합니다.
+* /opt/nforge/plugins/ldapextauth/etc/plugins/ldapextauth/config.php를 수정합니다.
 {{{
 $base_dn = "dc=users,dc=example,dc=com" ; // 필요에 맞게 수정
 $ldap_server = "ldap.example.com" ; // 필요에 맞게 수정
 // ...
 $ldap_port=389;
 }}}
- * 필요에 따라 /opt/nforge/plugins/ldapextauth/etc/plugins/ldapextauth/mapping.php을 수정합니다. ldap 인증 및 사용자 정보를 nFORGE가 사용할 수 있도록 세팅하는 파일입니다.
+* 필요에 따라 /opt/nforge/plugins/ldapextauth/etc/plugins/ldapextauth/mapping.php을 수정합니다. ldap 인증 및 사용자 정보를 nFORGE가 사용할 수 있도록 세팅하는 파일입니다.
 {{{
 function plugin_ldapextauth_mapping ($entry) {
     global $Language;
@@ -44,25 +44,25 @@ function plugin_ldapextauth_getdn ($plugin, $username) {
 }
 
 }}}
- * /opt/nforge/plugins/ldapextauth/include/ldapextauth-init.php 수정
+* /opt/nforge/plugins/ldapextauth/include/ldapextauth-init.php 수정
 {{{
 global $gfplugins;
 $gfplugins='/opt/nforge/plugins/'; // 추가
 }}}
- * /opt/nforge/plugins/ldapextauth/include/LdapExtAuthPlugin.class.php 수정
+* /opt/nforge/plugins/ldapextauth/include/LdapExtAuthPlugin.class.php 수정
 {{{
 global $gfconfig;
 $gfconfig='/opt/nforge/plugins/ldapextauth/etc/'; // 추가
 }}}
- * /opt/nforge/plugins/ldapextauth/include/LdapExtAuthPlugin.class.php 수정
+* /opt/nforge/plugins/ldapextauth/include/LdapExtAuthPlugin.class.php 수정
 {{{
                 if (!$u->create ($unix_name,$firstname,$lastname,$password1,$password2,$email,
                         $mail_site,$mail_va,$homepage,$language_id, // ... $homepage 변수 추가
 }}}
 
 === ldapextauth Plug In 시작 ===
- * 기존의 admin 아이디로 로그인 한 후 어드민 페이지에서 사이트 관리 > 플러그인 관리자 > ldapextauth을 동작시킵니다.
- * 이 후로는 LDAP에 등록된 아이디로만 로그인이 가능하게 됩니다. 최초 로그인일 경우 필요한 정보를 LDAP 서버에서 가져와 DB에 저장하고 사용하게 됩니다.
+* 기존의 admin 아이디로 로그인 한 후 어드민 페이지에서 사이트 관리 > 플러그인 관리자 > ldapextauth을 동작시킵니다.
+* 이 후로는 LDAP에 등록된 아이디로만 로그인이 가능하게 됩니다. 최초 로그인일 경우 필요한 정보를 LDAP 서버에서 가져와 DB에 저장하고 사용하게 됩니다.
 
 === 참고 자료 ===
- * http://metrix.fcny.org/wiki/display/tips/Using+LDAP+for+User+Authentication+with+GForge
+* http://metrix.fcny.org/wiki/display/tips/Using+LDAP+for+User+Authentication+with+GForge

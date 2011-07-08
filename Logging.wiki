@@ -8,34 +8,34 @@ nforge_log() 함수로 로그를 남길 수 있습니다.
 
 === 에러 레벨 ===
 에러레벨은 PHP의 유저 에러 레벨에 따라 다음과 같이 결정됩니다.
-|| PHP 코드에서의 에러레벨 || 로그 포맷에서의 에러레벨 || 로그의 기록 || 비고 ||
-||LOG__INFO ||INFO||nFORGE 로그 || ||
-||LOG__NOTICE ||NOTICE||nFORGE 로그 || ||
-||LOG__WARNING ||WARNING||PHP 시스템 로그 및 nFORGE 로그 || ||
-||LOG__ERROR ||ERROR||PHP 시스템 로그 및 nFORGE 로그 || ||
-||LOG__FATAL ||FATAL||PHP 시스템 로그 및 nFORGE 로그 || ||
-||E_USER_NOTICE ||NOTICE||nFORGE 로그 || ||
-||E_USER_WARNING ||WARNING||PHP 시스템 로그 및 nFORGE 로그 || ||
-||E_USER_ERROR ||ERROR||PHP 시스템 로그 및 nFORGE 로그 || ||
+| PHP 코드에서의 에러레벨 | 로그 포맷에서의 에러레벨 | 로그의 기록 | 비고 |
+|LOG__INFO |INFO|nFORGE 로그 | |
+|LOG__NOTICE |NOTICE|nFORGE 로그 | |
+|LOG__WARNING |WARNING|PHP 시스템 로그 및 nFORGE 로그 | |
+|LOG__ERROR |ERROR|PHP 시스템 로그 및 nFORGE 로그 | |
+|LOG__FATAL |FATAL|PHP 시스템 로그 및 nFORGE 로그 | |
+|E_USER_NOTICE |NOTICE|nFORGE 로그 | |
+|E_USER_WARNING |WARNING|PHP 시스템 로그 및 nFORGE 로그 | |
+|E_USER_ERROR |ERROR|PHP 시스템 로그 및 nFORGE 로그 | |
 (PHP 시스템 로그로 기록되면, 일반적으로 웹서버의 에러로그에도 기록됩니다)
 
 에러 레벨별 의미는 아래와 같습니다.
-|| FATAL ||비정상적인 상황을 만남. 치명적이므로 작업을 중단함 ||
-|| ERROR ||비정상적인 상황을 만남. 치명적이지 않아 작업을 중단하지 않았으나, 부분적으로 오동작했을 가능성이 있음 ||
-|| WARNING ||비정상적인 상황을 만남. 복원 혹은 무시(오동작 유발 가능성이 적은 경우)하고 정상 진행함 ||
-|| NOTICE ||오동작이 유발될 가능성을 발견함 (assertion이 FALSE인 경우 등) ||
-|| INFO ||개발/운영에 도움을 주기 위한 정보 ||
+| FATAL |비정상적인 상황을 만남. 치명적이므로 작업을 중단함 |
+| ERROR |비정상적인 상황을 만남. 치명적이지 않아 작업을 중단하지 않았으나, 부분적으로 오동작했을 가능성이 있음 |
+| WARNING |비정상적인 상황을 만남. 복원 혹은 무시(오동작 유발 가능성이 적은 경우)하고 정상 진행함 |
+| NOTICE |오동작이 유발될 가능성을 발견함 (assertion이 FALSE인 경우 등) |
+| INFO |개발/운영에 도움을 주기 위한 정보 |
 === nFORGE 로그 파일 ===
 로그 파일은 아래의 우선순위에 의해 결정됩니다.
  1. $sys_log_file
  1. $sys_var_dir/log/error.log
 
 === 관련 이슈 ===
- * #7743: 로깅 기능 구현하기
+* #7743: 로깅 기능 구현하기
 
 === 관련 코드 ===
- * Trunk:nforge/common/include/utils.php
-  * nforge_log()
-  * error_handler()
- * Trunk:nforge/common/include/Error.class.php
-  * Error::setError()
+* Trunk:nforge/common/include/utils.php
+** nforge_log()
+** error_handler()
+* Trunk:nforge/common/include/Error.class.php
+** Error::setError()

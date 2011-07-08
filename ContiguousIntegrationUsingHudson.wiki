@@ -1,22 +1,22 @@
 허드슨을 통해 nFORGE 프로젝트를 Contiguous Integration(지속적인 통합)하는 방법을 설명합니다.
 
-2010년 nFORGE 프리랜서 개발자(커미터) 개굴펭[[BR]]
+2010년 nFORGE 프리랜서 개발자(커미터) 개굴펭[[[[BR]]]]
 froguin3_(at)_naver.com
 
-[[TableOfContents]]
+[[[[TableOfContents]]]]
 == Hudson의 설치 ==
 허드슨은 일반적으로 많이 쓰이는 플러그인 기반 CI 서버 솔루션입니다. Standalone으로 사용하거나 Tomcat에 올려 사용하는 방법이 있으나, 여기서는 Standalone 으로 설치하는 방법을 CentOS 5.x 기준으로 기술합니다.
 
-참고 URL : [http://blog.jepamedia.org/2009/10/28/continuous-integration-for-php-with-hudson/]
+참고 URL : [[http://blog.jepamedia.org/2009/10/28/continuous-integration-for-php-with-hudson/]]
 
 === 허드슨 패키지 설치 ===
-허드슨을 rpm 패키지로 설치합니다. rpm 패키지로 설치하면 yum으로 업데이트를 할 수 있어 관리하기에 편리합니다. ([http://hudson-ci.org/redhat/] 참고)
+허드슨을 rpm 패키지로 설치합니다. rpm 패키지로 설치하면 yum으로 업데이트를 할 수 있어 관리하기에 편리합니다. ([[http://hudson-ci.org/redhat/]] 참고)
 {{{
 sudo rpm --import http://hudson-ci.org/redhat/hudson-ci.org.key
 wget -O /tmp/hudson.rpm http://hudson-ci.org/latest/redhat/hudson.rpm
 sudo rpm --install /tmp/hudson.rpm
 }}}
-데비안이나 우분투의 경우는 [http://hudson-ci.org/debian/]를 확인하시면 되며, opensuse, freebsd 등은 허드슨 홈페이지의 내용을 참고하시면 됩니다.
+데비안이나 우분투의 경우는 [[http://hudson-ci.org/debian/]]를 확인하시면 되며, opensuse, freebsd 등은 허드슨 홈페이지의 내용을 참고하시면 됩니다.
 
 설치가 완료되면 hudson.war 파일을 찾아 실행을 합니다.
 {{{
@@ -31,38 +31,38 @@ java -jar /usr/lib/hudson/hudson.war
 http://address_of_hudson_server:8080
 }}}
 
-우측 상단의 '''자동 재실행 켜기'''를 해 두시면 서버가 재시작되어도 자동으로 허드슨을 실행합니다.
+우측 상단의 **자동 재실행 켜기**를 해 두시면 서버가 재시작되어도 자동으로 허드슨을 실행합니다.
 
 === 허드슨 기본 설정 ===
-좌측 메뉴에서 '''Hudson 관리 > Configure System''' 으로 들어갑니다. 해당 메뉴에서 허드슨의 기본적인 설정 및 보안 설정 등을 할 수 있습니다.
+좌측 메뉴에서 **Hudson 관리 > Configure System** 으로 들어갑니다. 해당 메뉴에서 허드슨의 기본적인 설정 및 보안 설정 등을 할 수 있습니다.
 
-Access Control 부분에서는 허드슨을 사용할 사용자를 조정할 수 있습니다. (조정하기 전 사용자를 먼저 만들어놓으면 좋습니다. 만드는 방법은 '''Hudson 관리 > Manage Users > 사용자 생성''' 에서 진행합니다) 여기서는 직관적으로 권한 설정을 할 수 있도록 `'''Hudson's own user database'''` 를 선택하고, `'''Matrix-based security'''` 를 선택합니다. `'''Allow users to sign up'''` 을 선택 해제함으로서 외부 접근자가 가입할 수 없도록 권한을 제한할 수 있습니다. 
-아래쪽 '''E-mail Notification''' 에서는 허드슨에 지정한 프로젝트의 상태가 변경되었을 경우 이메일을 받을 수 있도록 설정할 수 있습니다.
+Access Control 부분에서는 허드슨을 사용할 사용자를 조정할 수 있습니다. (조정하기 전 사용자를 먼저 만들어놓으면 좋습니다. 만드는 방법은 **Hudson 관리 > Manage Users > 사용자 생성** 에서 진행합니다) 여기서는 직관적으로 권한 설정을 할 수 있도록 `**Hudson's own user database**` 를 선택하고, `**Matrix-based security**` 를 선택합니다. `**Allow users to sign up**` 을 선택 해제함으로서 외부 접근자가 가입할 수 없도록 권한을 제한할 수 있습니다. 
+아래쪽 **E-mail Notification** 에서는 허드슨에 지정한 프로젝트의 상태가 변경되었을 경우 이메일을 받을 수 있도록 설정할 수 있습니다.
 
-'''Hudson 관리 > Manage Plugin''' 에서는 허드슨에서 사용할 플러그인을 관리할 수 있습니다. 아래 설치할 패키지들의 결과물을 표시하기 위한 플러그인들을 주로 설치하게 됩니다. 아래에서 사용할 플러그인은 다음과 같으며, 미리 설치하시고 허드슨을 재시작하면 플러그인이 적용됩니다.
+**Hudson 관리 > Manage Plugin** 에서는 허드슨에서 사용할 플러그인을 관리할 수 있습니다. 아래 설치할 패키지들의 결과물을 표시하기 위한 플러그인들을 주로 설치하게 됩니다. 아래에서 사용할 플러그인은 다음과 같으며, 미리 설치하시고 허드슨을 재시작하면 플러그인이 적용됩니다.
 
- * Checkstyle Plugin (PHP_CodeSniffer에서 사용)
- * Clover Plugin (PHPUnit 에서 사용)
- * xUnit Plugin (PHPUnit 에서 사용)
- * PMD Plugin (PHPmd 에서 사용)
- * NSIQ Collector Plugin (NSIQ Collector 에서 사용)
+* Checkstyle Plugin (PHP_CodeSniffer에서 사용)
+* Clover Plugin (PHPUnit 에서 사용)
+* xUnit Plugin (PHPUnit 에서 사용)
+* PMD Plugin (PHPmd 에서 사용)
+* NSIQ Collector Plugin (NSIQ Collector 에서 사용)
 
 기타 설정은 사용하시는 분의 입맛에 맞게 설정하시면 됩니다.
 
 === 새 작업 만들기 ===
-좌측 메뉴의 새 작업을 눌러 작업을 만들 수 있습니다. 작업명에는 테스트할 작업명(예: nFORGE-CI-Test)을 입력하고, '''Build a free-style software project''' 를 선택합니다.
+좌측 메뉴의 새 작업을 눌러 작업을 만들 수 있습니다. 작업명에는 테스트할 작업명(예: nFORGE-CI-Test)을 입력하고, **Build a free-style software project** 를 선택합니다.
 
-'''Source Code Management''' 의 '''Subversion''' 에서 NAVER 개발자센터의 저장소를 설정합니다. '''Repository URL''' 의 우측 '''?''' 부분을 클릭하면 아래 설명이 펼쳐지는데, 글상자의 '''this link''' 부분을 클릭하면 저장소의 사용자이름과 비밀번호를 설정할 수 있습니다. '''Use update''', '''Revert''' 를 선택하면 항시 저장소 기준으로 소스코드를 받아 빌드하게 됩니다.
+**Source Code Management** 의 **Subversion** 에서 NAVER 개발자센터의 저장소를 설정합니다. **Repository URL** 의 우측 **?** 부분을 클릭하면 아래 설명이 펼쳐지는데, 글상자의 **this link** 부분을 클릭하면 저장소의 사용자이름과 비밀번호를 설정할 수 있습니다. **Use update**, **Revert** 를 선택하면 항시 저장소 기준으로 소스코드를 받아 빌드하게 됩니다.
 
-'''Build Triggers''' 에서는 빌드할 주기를 설정합니다. '''Build periodically''' 에 설정을 해 두면 저장소에 달라진 점이 없어도 지정한 시간엔 무조건 빌드를 하게 되고, '''Poll SCM''' 에 설정을 해 두면 지정한 주기동안 저장소를 확인하여 변경사항이 있을 경우 바로 빌드합니다. 
+**Build Triggers** 에서는 빌드할 주기를 설정합니다. **Build periodically** 에 설정을 해 두면 저장소에 달라진 점이 없어도 지정한 시간엔 무조건 빌드를 하게 되고, **Poll SCM** 에 설정을 해 두면 지정한 주기동안 저장소를 확인하여 변경사항이 있을 경우 바로 빌드합니다. 
 {{{
 */1 * * * *
 }}}
 위와 같이 Poll SCM에 스케쥴을 지정하면 매 1분마다 저장소를 확인하여 빌드합니다. Build periodically 에도 이와 같이 cron 스타일로 지정하실 수 있으며, 일 빌드나 주간 빌드 등을 설정하시면 좋습니다.
 
-'''Build''' 에서는 설정한 명령을 위 트리거에서 지정한 주기에 수행하게 되며, shell 명령이나 ant 스크립트, mavin 스크립트, 윈도 배치 스크립트의 수행이 가능합니다. NSIQ 플러그인을 설치하였다면 NSIQ가 검사할 디렉토리를 여기서 지정할 수 있습니다.
+**Build** 에서는 설정한 명령을 위 트리거에서 지정한 주기에 수행하게 되며, shell 명령이나 ant 스크립트, mavin 스크립트, 윈도 배치 스크립트의 수행이 가능합니다. NSIQ 플러그인을 설치하였다면 NSIQ가 검사할 디렉토리를 여기서 지정할 수 있습니다.
 
-프로젝트 왼쪽 메뉴의 '''Build Now''' 를 눌러 설정한 빌드를 바로 수행할 수 있으며, 그렇지 않은 경우 설정한 트리거의 주기 대로 빌드가 진행됩니다. 수행 과정은 빌드되는 빌드 번호 내역에서 '''콘솔 출력'''을 누르면 됩니다.
+프로젝트 왼쪽 메뉴의 **Build Now** 를 눌러 설정한 빌드를 바로 수행할 수 있으며, 그렇지 않은 경우 설정한 트리거의 주기 대로 빌드가 진행됩니다. 수행 과정은 빌드되는 빌드 번호 내역에서 **콘솔 출력**을 누르면 됩니다.
 
 == PHP_CodeSniffer를 통한 코딩 컨벤션 확인 ==
 코딩 스타일을 점검하기 위해 PHP_CodeSniffer를 사용하고, 출력을 checkstyle 방식으로 하여 허드슨 플러그인인 Checkstyle plugin 에서 그래프를 출력해줍니다.
@@ -72,9 +72,9 @@ PHP_CodeSniffer 는 pear를 통해 설치할 수 있습니다. (여기서는 pea
 {{{
 pear install PHP_CodeSniffer-1.2.2
 }}}
-현재 PHP_CodeSniffer 의 최종 stable 릴리즈는 1.2.2이며, 1.3.0 RC1 베타가 존재하므로 사용자의 입맛에 맞게 설치하십시오. ([http://pear.php.net/package/PHP_CodeSniffer/download] 참고)
+현재 PHP_CodeSniffer 의 최종 stable 릴리즈는 1.2.2이며, 1.3.0 RC1 베타가 존재하므로 사용자의 입맛에 맞게 설치하십시오. ([[http://pear.php.net/package/PHP_CodeSniffer/download]] 참고)
 
-커맨드 라인에서 '''phpcs --help''' 를 실행했을 때 다음과 같은 메시지가 나오면 정상적으로 설치된 것입니다.
+커맨드 라인에서 **phpcs --help** 를 실행했을 때 다음과 같은 메시지가 나오면 정상적으로 설치된 것입니다.
 {{{
 Usage: phpcs [-nwlsavi] [--extensions=<extensions>] [--ignore=<patterns>]
     [--report=<report>] [--report-width=<reportWidth>] [--report-file=<reportfile>]
@@ -116,7 +116,7 @@ phpcs 를 실행하면 기본 standard output에 결과물을 출력해주며, -
 {{{
 phpcs -n --standard=Zend --report=checkstyle --report-file=build/logs/checkstyle.xml --extensions=php --ignore=nforge/share/,nforge/jpgraph/ nforge
 }}}
- * 참고로 현재 nFORGE 3.0 에서는 Zend 코딩 컨벤션에서 조금 변형된 룰셋으로 체크하고 있습니다. (["NForge3#s-4" NForge3 CodeConvention] 참고)
+* 참고로 현재 nFORGE 3.0 에서는 Zend 코딩 컨벤션에서 조금 변형된 룰셋으로 체크하고 있습니다. ([["NForge3#s-4" NForge3 CodeConvention]] 참고)
 
 === Checkstyle plugin 설정 ===
 허드슨에서 생성한 테스트 프로젝트 > Configure > Build 에서 Execute Shell의 Command 부분에 위의 명령어 또는 해당 프로젝트에 알맞은 옵션을 지정해 넣습니다.
@@ -129,7 +129,7 @@ phpcs -n --standard=Zend --report=checkstyle --report-file=build/logs/checkstyle
 PHPUnit을 통해 코드 커버리지를 확인할 수 있으며, 이를 그래프로 표시해줍니다.
 
 === phpunit 설치 ===
-역시 pear 를 통해 설치하면 됩니다. ([http://www.phpunit.de/manual/current/en/installation.html] 참고)
+역시 pear 를 통해 설치하면 됩니다. ([[http://www.phpunit.de/manual/current/en/installation.html]] 참고)
 {{{
 pear channel-discover pear.phpunit.de
 pear channel-discover components.ez.no
@@ -142,9 +142,9 @@ PHPUnit 3.5 이상은 PHP 5.2.7 이상을 필요로 합니다. 일반적인 Cent
 pear install phpunit/PHPUnit-3.4.15
 }}}
 
- * phpmd도 PHP 5.2.3 이상을 필요로 하므로 PHP 5.1 을 지원하는 CentOS 5.x 에서는 설치가 힘듭니다. 아래 phpmd 섹션에서 테스트 저장소를 이용해 CentOS 5.x 에서 PHP 5.2 이상을 사용하는 방법이 기술됩니다. ["ContiguousIntegrationUsingHudson#s-4.2" CentOS 5.x 에 PHP 5.2 버전 설치]
+* phpmd도 PHP 5.2.3 이상을 필요로 하므로 PHP 5.1 을 지원하는 CentOS 5.x 에서는 설치가 힘듭니다. 아래 phpmd 섹션에서 테스트 저장소를 이용해 CentOS 5.x 에서 PHP 5.2 이상을 사용하는 방법이 기술됩니다. [["ContiguousIntegrationUsingHudson#s-4.2" CentOS 5.x 에 PHP 5.2 버전 설치]]
 
-PHPUnit 의 설치 확인은 '''phpunit --help''' 로 하시면 되며, 아래와 같이 나오면 정상입니다.
+PHPUnit 의 설치 확인은 **phpunit --help** 로 하시면 되며, 아래와 같이 나오면 정상입니다.
 {{{
 PHPUnit 3.5.0 by Sebastian Bergmann.
 
@@ -204,16 +204,16 @@ Usage: phpunit [switches] UnitTest [UnitTest.php]
 === nFORGE 프로젝트의 유닛 테스트 소스와 적용방법 (phpunit 사용) ===
 nFORGE 저장소에서는 유닛 테스트를 위한 테스트 코드를 이미 배포하고 있습니다. 하지만 아직 모든 기능에 대한 테스트가 완벽히 작성되지는 않은 상태입니다. 지속적으로 커버리지를 늘리는 작업을 진행하고 있습니다.
 
-테스트 코드는 nforge/tests/func/ 디렉토리에 위치하며(각 브랜치도 동일), 해당 디렉토리의 AllTests.php 를 걸어주면 테스트를 진행합니다. '''단, 시스템에 설치가 완료된 소스에 대해서 유닛 테스트가 정상적으로 작동합니다.''' nFORGE가 설치된 경로(예:/opt/nforge/) 하위의 테스트 케이스(예:/opt/nforge/tests/func/)를 가지고 phpunit 을 실행시켜주면 됩니다.
+테스트 코드는 nforge/tests/func/ 디렉토리에 위치하며(각 브랜치도 동일), 해당 디렉토리의 AllTests.php 를 걸어주면 테스트를 진행합니다. **단, 시스템에 설치가 완료된 소스에 대해서 유닛 테스트가 정상적으로 작동합니다.** nFORGE가 설치된 경로(예:/opt/nforge/) 하위의 테스트 케이스(예:/opt/nforge/tests/func/)를 가지고 phpunit 을 실행시켜주면 됩니다.
 {{{
 cd /opt/nforge/tests/func/
 phpunit --stderr --log-junit HUDSON_DIR/jobs/JOBNAME/workspace/build/logs/junit.xml --coverage-clover HUDSON_DIR/jobs/JOBNAME/workspace/build/logs/clover.xml AllTests
 }}}
-설치된 nforge의 경로가 /opt/nforge/ 일 경우 phpunit 으로 junit 로그와 clover coverage 로그를 build/logs/ 디렉토리에 각각 junit.xml, clover.xml 파일명으로 저장하는 명령입니다. '''반드시 슈퍼유저 권한(root)으로 실행해야 합니다.''' 
+설치된 nforge의 경로가 /opt/nforge/ 일 경우 phpunit 으로 junit 로그와 clover coverage 로그를 build/logs/ 디렉토리에 각각 junit.xml, clover.xml 파일명으로 저장하는 명령입니다. **반드시 슈퍼유저 권한(root)으로 실행해야 합니다.** 
 HUDSON_DIR 과 JOBNAME 부분은 사용자의 환경에 맞게 변경하시면 됩니다. 일반적으로 HUDSON_DIR은 /var/lib/hudson 또는 /root/.hudson 이 될 것입니다.
 
 === xUnit, Clover Plugin 설정 ===
-역시 마찬가지로 위의 스크립트를 Execute Shell의 Command 에 넣고, Post-build Actions의 '''Publish testing tools result report''' 에서 PHPUnit-3.4(default)를 선택하고 junit.xml 의 경로를 넣어줍니다. (예: build/logs/junit.xml) 
+역시 마찬가지로 위의 스크립트를 Execute Shell의 Command 에 넣고, Post-build Actions의 **Publish testing tools result report** 에서 PHPUnit-3.4(default)를 선택하고 junit.xml 의 경로를 넣어줍니다. (예: build/logs/junit.xml) 
 
 Publish Clover Coverage Report에는 clover.xml 의 경로(예: build/logs)와 파일명(예: clover.xml), 그리고 Coverage Metric Targets에는 Methods, Conditionals, Statements의 기본값을 넣어줍니다. 저희는 70% Methods, 80% Conditionals, 80% Statements 이상이 되면 좋은 평가가 나오도록 설정했습니다.
 
@@ -221,14 +221,14 @@ Publish Clover Coverage Report에는 clover.xml 의 경로(예: build/logs)와 �
 phpmd 를 이용하여 사이클로매틱 복잡도(CyclomatricComplexity)를 확인하고, PMD Plugin으로 결과를 확인합니다.
 
 === phpmd 설치 ===
-pear를 통해 설치합니다. 필요에 따라 PHP_Depend(pdepend)도 같이 설치됩니다. ([http://phpmd.org/download/index.html] 참고)
+pear를 통해 설치합니다. 필요에 따라 PHP_Depend(pdepend)도 같이 설치됩니다. ([[http://phpmd.org/download/index.html]] 참고)
 {{{
 pear channel-discover pear.phpmd.org
 pear channel-discover pear.pdepend.org
 pear install --alldeps phpmd/PHP_PMD-alpha
 }}}
 
-확인은 '''phpmd''' 라고 치면 다음과 같은 결과를 받아야 정상입니다.
+확인은 **phpmd** 라고 치면 다음과 같은 결과를 받아야 정상입니다.
 {{{
 Mandatory arguments:
 1) A php source code filename or directory
@@ -266,7 +266,7 @@ includepkgs=php*
 yum update
 }}}
 
-참고 URL: [http://wiki.centos.org/HowTos/PHP_5.1_To_5.2]
+참고 URL: [[http://wiki.centos.org/HowTos/PHP_5.1_To_5.2]]
 
 === phpmd 사용 ===
 phpmd의 사용법은 다른 툴보다 간단합니다.
@@ -274,19 +274,19 @@ phpmd의 사용법은 다른 툴보다 간단합니다.
 phpmd nforge xml codesize --reportfile build/logs/pmd.xml
 }}}
 
-첫번째 '''nforge''' 부분은 workspace에서 검사할 로컬 저장소의 경로를 지정합니다.[[br]]
-두번째 '''xml''' 부분은 출력 포맷을 지정합니다.[[br]]
-세번째 '''codesize''' 부분은 룰셋 이름을 지정합니다. 여기서는 codesize 를 사용합니다.[[br]]
-마지막 '''--reportfile''' 부분은 출력할 파일 경로를 지정합니다. 지정하지 않으면 standard output으로 출력합니다.
+첫번째 **nforge** 부분은 workspace에서 검사할 로컬 저장소의 경로를 지정합니다.[[[[br]]]]
+두번째 **xml** 부분은 출력 포맷을 지정합니다.[[[[br]]]]
+세번째 **codesize** 부분은 룰셋 이름을 지정합니다. 여기서는 codesize 를 사용합니다.[[[[br]]]]
+마지막 **--reportfile** 부분은 출력할 파일 경로를 지정합니다. 지정하지 않으면 standard output으로 출력합니다.
 
 === PMD Plugin 설정 ===
-역시 마찬가지로 위의 스크립트를 Execute Shell의 Command 에 넣고, Post-build Actions 의 '''Publish PMD analysis result > PMD Results''' 부분에 받은 결과 파일의 경로(예: build/logs/pmd.xml)를 지정합니다.
+역시 마찬가지로 위의 스크립트를 Execute Shell의 Command 에 넣고, Post-build Actions 의 **Publish PMD analysis result > PMD Results** 부분에 받은 결과 파일의 경로(예: build/logs/pmd.xml)를 지정합니다.
 
 == NSIQ Collector 를 통한 LOC 측정 ==
 NHN에서 제작한 NSIQ Code Metric Collector 를 이용하여 LOC(Lines of Code)를 측정하는 방법을 기술합니다.
- * NSIQ Collector 에서도 사이클로매틱 복잡도를 구할 수 있으나, PHP에 대해선 동작하지 않으므로 PHP_Depend + PHP Mess Detector 조합을 사용하였습니다.
+* NSIQ Collector 에서도 사이클로매틱 복잡도를 구할 수 있으나, PHP에 대해선 동작하지 않으므로 PHP_Depend + PHP Mess Detector 조합을 사용하였습니다.
 
-프로젝트 URL : [http://dev.naver.com/projects/nsiqcollector]
+프로젝트 URL : [[http://dev.naver.com/projects/nsiqcollector]]
 
 === nsiqcollector 설치, 사용 ===
 프로젝트 홈의 다운로드에서 NSIQ Collector 파일을 다운받아 서버의 임의의 위치에 압축을 해제합니다.
@@ -311,10 +311,10 @@ nsiqcollector 의 경로를 PATH에 지정해 두면 편리하게 사용할 수 
 이 설정은 분석 대상 디렉토리를 모두 포함하되, share 와 jpgraph 라는 디렉토리는 분석 대상에서 제외됩니다.
 
 === nsiqcollector hudson plugin 설정 ===
-허드슨에서 nsiqcollector를 사용하려면 '''홈 > Hudson 관리 > Configure System''' 에서 nsiqcollector 실행파일의 경로를 잡아줘야 합니다.
+허드슨에서 nsiqcollector를 사용하려면 **홈 > Hudson 관리 > Configure System** 에서 nsiqcollector 실행파일의 경로를 잡아줘야 합니다.
 
 Configure N'SIQ Collector 에서 N'SIQ executable 칸에 nsiqcollector 의 경로를 지정해줍니다. (예:/usr/local/nsiqcollector/ 디렉토리에 풀어두었다면 /usr/local/nsiqcollector/nsiqcollector 라고 입력)
 
-'''만약 허드슨의 Update Center에서 NSIQ Collector plugin 을 설치하지 않은 경우는 이 부분이 나오지 않는 경우가 있으로 반드시 허드슨의 Update Center에서 설치하시기 바랍니다.'''
+**만약 허드슨의 Update Center에서 NSIQ Collector plugin 을 설치하지 않은 경우는 이 부분이 나오지 않는 경우가 있으로 반드시 허드슨의 Update Center에서 설치하시기 바랍니다.**
 
-개별 빌드 프로젝트의 Configure에서는 Build 섹션에서 '''Execute N'SIQ Collector''' 항목을 추가해 주면 실행을 하게 되며, Post-build Actions 에서 '''Publish N'SIQ Collector''' 부분의 Display LOC Graph 에 체크하면 빌드 후 해당 그래프가 확인됩니다.
+개별 빌드 프로젝트의 Configure에서는 Build 섹션에서 **Execute N'SIQ Collector** 항목을 추가해 주면 실행을 하게 되며, Post-build Actions 에서 **Publish N'SIQ Collector** 부분의 Display LOC Graph 에 체크하면 빌드 후 해당 그래프가 확인됩니다.

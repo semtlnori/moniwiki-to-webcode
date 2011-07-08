@@ -1,10 +1,10 @@
 List of valid InterWiki names this wiki knows of:
-  [[InterWiki]]
+  [[[[InterWiki]]]]
 
 Other Wikis:
-  * [http://panoptic.com/wiki/aolserver AOL Server Wiki]
-  * [http://seattlewireless.net/ SeattleWireless]
-  * [http://pikie.darktech.org/cgi/pikie.py PikiePikie]
+* [[http://panoptic.com/wiki/aolserver AOL Server Wiki]]
+* [[http://seattlewireless.net/ SeattleWireless]]
+* [[http://pikie.darktech.org/cgi/pikie.py PikiePikie]]
 
 InterWiki marks the links in a way that works for the MeatBall:ColourBlind and also is MeatBall:LynxFriendly by using a little icon with an ALT attribute. If you hover above the icon in a graphical browser, you'll see to which Wiki it refers.
 

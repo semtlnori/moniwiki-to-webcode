@@ -1,41 +1,41 @@
-=== [:DirectoryStructure 디렉토리 구조] ===
+=== [[:DirectoryStructure 디렉토리 구조]] ===
 설정을 변경하지 않았다면, nFORGE는 다음의 디렉토리에 설치됩니다.
- * /opt/nforge: 프로그램 및 데이터
- * /etc/nforge: 설정 파일
- * /etc/cron.d: nforgecron 이란 이름으로 nFORGE를 위한 크론 테이블이 생성됨.
+* /opt/nforge: 프로그램 및 데이터
+* /etc/nforge: 설정 파일
+* /etc/cron.d: nforgecron 이란 이름으로 nFORGE를 위한 크론 테이블이 생성됨.
 
 === 설치후 시스템에 일어나는 변화 ===
- * 시스템에 대한 HTTP 요청이 nFORGE로 보내집니다. 쉽게 말해, {{{ http://<설치한 시스템의 ip 혹은 도메인> }}} 으로 접속하시면 nFORGE가 뜹니다. (/etc/nforge/httpd.conf 의 설정에 따름)
- * 정기적으로 크론잡이 실행됩니다. (/etc/cron.d/nforgecron의 설정대로 동작)
- * 이슈에 대해 메일로 댓글 달기 기능 등을 위해, 특정 주소의 메일 수신시 nFORGE가 처리합니다. (/etc/aliases의 설정에 따름)
- * /home 에 nFORGE 사용자 디렉토리가 만들어집니다. 디렉토리명은 사용자의 unixname입니다.
- * /home/groups 에 nFORGE 프로젝트 디렉토리가 만들어집니다. 디렉토리명은 프로젝트의 unixname입니다.
+* 시스템에 대한 HTTP 요청이 nFORGE로 보내집니다. 쉽게 말해, {{{ http://<설치한 시스템의 ip 혹은 도메인> }}} 으로 접속하시면 nFORGE가 뜹니다. (/etc/nforge/httpd.conf 의 설정에 따름)
+* 정기적으로 크론잡이 실행됩니다. (/etc/cron.d/nforgecron의 설정대로 동작)
+* 이슈에 대해 메일로 댓글 달기 기능 등을 위해, 특정 주소의 메일 수신시 nFORGE가 처리합니다. (/etc/aliases의 설정에 따름)
+* /home 에 nFORGE 사용자 디렉토리가 만들어집니다. 디렉토리명은 사용자의 unixname입니다.
+* /home/groups 에 nFORGE 프로젝트 디렉토리가 만들어집니다. 디렉토리명은 프로젝트의 unixname입니다.
 
 === nFORGE가 사용자의 요청을 처리하는 흐름 ===
 RewriteRule에 정의된대로 몇몇 리소스에 대한 요청을 제외한 모든 HTTP Request는 www/nforge.php에서 처리됩니다. www/nforge.php는 HTTP Request를 다음과 같이 처리합니다.
- 1. 웹서버가 사용자의 요청을 [Router]에 보냄. [Router]는 요청을 해석하고, 어떤 모듈이 요청을 처리해야 하는지 판단.
- 1. [Router]가 해석한 결과에 따라 해석된 요청을 알맞은 모듈에 보냄.
+ 1. 웹서버가 사용자의 요청을 [[Router]]에 보냄. [[Router]]는 요청을 해석하고, 어떤 모듈이 요청을 처리해야 하는지 판단.
+ 1. [[Router]]가 해석한 결과에 따라 해석된 요청을 알맞은 모듈에 보냄.
  1. 모듈은 해석된 요청을 처리하고 결과를 HTML로 렌더링하여 사용자에게 응답(HTTP Response)
-  * 이 때 모듈은 HTML 페이지를 렌더링하기 위해 SmartyTemplate 엔진을 사용할 수 있음. 모듈이 컨텐츠를 생성하고 템플릿을 지정하면 SmartyTemplate 엔진이 HTML 페이지를 렌더링함.
+* 이 때 모듈은 HTML 페이지를 렌더링하기 위해 SmartyTemplate 엔진을 사용할 수 있음. 모듈이 컨텐츠를 생성하고 템플릿을 지정하면 SmartyTemplate 엔진이 HTML 페이지를 렌더링함.
 
-=== [Configuration] ===
+=== [[Configuration]] ===
 nFORGE의 설정은 다음의 장소에 저장됩니다.
- * /etc/nforge/local.inc 등 설정파일
- * nFORGE를 위한 아파치 설정: /etc/nforge/httpd.conf
-  * nFORGE는 설치과정에서 아파치 설정 파일을 수정하여 /etc/nforge/httpd.conf 를 아파치 설정에 포함시키도록 합니다
- * 각 플러그인의 설정파일
- * 데이터베이스의 system_setting 테이블
- * 크론 테이블: /etc/cron.d/nforgecron
+* /etc/nforge/local.inc 등 설정파일
+* nFORGE를 위한 아파치 설정: /etc/nforge/httpd.conf
+** nFORGE는 설치과정에서 아파치 설정 파일을 수정하여 /etc/nforge/httpd.conf 를 아파치 설정에 포함시키도록 합니다
+* 각 플러그인의 설정파일
+* 데이터베이스의 system_setting 테이블
+* 크론 테이블: /etc/cron.d/nforgecron
 
 그 외에 다음의 설정이 nFORGE에 영향을 줍니다.
- * 아파치 설정
- * PHP 설정
- * /etc/aliases
+* 아파치 설정
+* PHP 설정
+* /etc/aliases
 
-=== [Logging] ===
+=== [[Logging]] ===
 nforge_log() 함수로 로그를 남길 수 있습니다. 로그를 남기면 <nforge 설치 디렉토리>/var/log/error.txt 에 기록되며, WARNING 이상 레벨의 경우 아파치 로그에도 기록됩니다.
 
 처리하지 못한 예외가 발생한 경우에도 자동으로 로그가 기록됩니다.
 
 === 백업 ===
-backup_site.php [크론잡]에 의해 DB, SVN 저장소, CVS 저장소, 설정파일, 업로드 파일이 백업됩니다.
+backup_site.php [[크론잡]]에 의해 DB, SVN 저장소, CVS 저장소, 설정파일, 업로드 파일이 백업됩니다.

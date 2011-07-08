@@ -1,153 +1,153 @@
- * common/include/database-mysql.php, cronjobs/project_weekly_metric.php, cronjobs/site_stats.php, cronjobs/stats_projects.inc, nforge-install-3.php:
+* common/include/database-mysql.php, cronjobs/project_weekly_metric.php, cronjobs/site_stats.php, cronjobs/stats_projects.inc, nforge-install-3.php:
 
- [#1120]MySQL 관련 추가 변경 사항 적용
+ [[#1120]]MySQL 관련 추가 변경 사항 적용
 
- * etc/local.inc.example:
+* etc/local.inc.example:
 
  기본 timezone을 ROK로 설정합니다.
 
- * common/include/session.php, www/account/login.php:
+* common/include/session.php, www/account/login.php:
 
  LDAP 관련 인증 로직을 추가했습니다.
 
- * www/themes/nforge-dev/css/default.css, www/themes/nforge-dev/css/kbd_embeded.js:
+* www/themes/nforge-dev/css/default.css, www/themes/nforge-dev/css/kbd_embeded.js:
 
  위키에서 스페이스바 등 특정 키를 누르면 페이지를 다시 불러오게 되는 문제를 수정했습니다. 키 이벤트가 발생했을 때 항상 self.location을 갱신하도록 한 것이 문제였으므로, location이 새로 설정된 경우에 한해서만 갱신되도록 수정하였습니다.
 
- * common/include/User.class, common/include/account.php, common/include/database-cubrid.php, common/include/database-mysql.php, common/include/database-pgsql.php, common/include/forms.php, common/reporting/ReportSetup.class, common/search/SearchQuery.class, create_table.php, cronjobs/backup_site.php, cronjobs/db_create_xml.php, cronjobs/db_stats_agg.php, cronjobs/db_trove_maint.php, cronjobs/project_weekly_metric-backfill.php, cronjobs/project_weekly_metric.php, crontab.in, db/cubrid.sql, db/db_class/DBCubrid.class, db/db_class/DBMySQL.class, db/db_class/DBPostgresql.class, db/gforge.sql, db/mysql.sql, db/xml/artifact_monitor.xml, db/xml/artifact_query_fields.xml, db/xml/cron_history.xml, db/xml/filemodule_monitor.xml, db/xml/form_keys.xml, db/xml/group_cvs_history.xml, db/xml/project_weekly_metric.xml, db/xml/role_setting.xml, db/xml/trove_group_link.xml, db/xml/trove_treesums.xml, db/xml/user_group.xml, db/xml/user_plugin.xml, db/xml/users.xml, nforge-install-3.php, www/account/pending-resend.php, www/account/register.php, www/admin/languages/admintabfiles.php, www/admin/languages/loadtabfiles.php, www/admin/pluginman.php, www/export/trove_tree.php, www/include/database-mysql.php, www/include/features_boxes.php, www/include/html.php, www/include/install.php, www/include/languages/Base.tab, www/include/project_home.php, www/include/trove.php, www/index.php, www/new/index.php, www/project/stats/project_stats_utils.php, www/register/projectinfo.php, www/reporting/rebuild.php, www/softwaremap/trove_list.php, www/stats/site_stats_utils.php, www/stats/views_graph.php:
+* common/include/User.class, common/include/account.php, common/include/database-cubrid.php, common/include/database-mysql.php, common/include/database-pgsql.php, common/include/forms.php, common/reporting/ReportSetup.class, common/search/SearchQuery.class, create_table.php, cronjobs/backup_site.php, cronjobs/db_create_xml.php, cronjobs/db_stats_agg.php, cronjobs/db_trove_maint.php, cronjobs/project_weekly_metric-backfill.php, cronjobs/project_weekly_metric.php, crontab.in, db/cubrid.sql, db/db_class/DBCubrid.class, db/db_class/DBMySQL.class, db/db_class/DBPostgresql.class, db/gforge.sql, db/mysql.sql, db/xml/artifact_monitor.xml, db/xml/artifact_query_fields.xml, db/xml/cron_history.xml, db/xml/filemodule_monitor.xml, db/xml/form_keys.xml, db/xml/group_cvs_history.xml, db/xml/project_weekly_metric.xml, db/xml/role_setting.xml, db/xml/trove_group_link.xml, db/xml/trove_treesums.xml, db/xml/user_group.xml, db/xml/user_plugin.xml, db/xml/users.xml, nforge-install-3.php, www/account/pending-resend.php, www/account/register.php, www/admin/languages/admintabfiles.php, www/admin/languages/loadtabfiles.php, www/admin/pluginman.php, www/export/trove_tree.php, www/include/database-mysql.php, www/include/features_boxes.php, www/include/html.php, www/include/install.php, www/include/languages/Base.tab, www/include/project_home.php, www/include/trove.php, www/index.php, www/new/index.php, www/project/stats/project_stats_utils.php, www/register/projectinfo.php, www/reporting/rebuild.php, www/softwaremap/trove_list.php, www/stats/site_stats_utils.php, www/stats/views_graph.php:
 
- [#1120]MySQL을 지원 DBMS로 추가합니다
+ [[#1120]]MySQL을 지원 DBMS로 추가합니다
 
- * share/moniwiki/wiki.php:
+* share/moniwiki/wiki.php:
 
- [#1199] 위키의 config.php에 가 빈 값으로 지정되어 있더라도 위키가 정상적으로 동작할 수 있도록 합니다. 지금까지는 그러한 경우 에러가 발생했습니다.
+ [[#1199]] 위키의 config.php에 가 빈 값으로 지정되어 있더라도 위키가 정상적으로 동작할 수 있도록 합니다. 지금까지는 그러한 경우 에러가 발생했습니다.
 
- * www/search/include/renderers/FullProjectHtmlSearchRenderer.class:
+* www/search/include/renderers/FullProjectHtmlSearchRenderer.class:
 
  검색 결과에서, 언어 파일의 단어를 잘못 불러오려고 시도해서 생기는 warning을 제거하였습니다.
 
- * www/search/include/renderers/ArtifactHtmlSearchRenderer.class, www/search/include/renderers/FrsHtmlSearchRenderer.class, www/search/include/renderers/NewsHtmlSearchRenderer.class, www/search/include/renderers/TrackersHtmlSearchRenderer.class:
+* www/search/include/renderers/ArtifactHtmlSearchRenderer.class, www/search/include/renderers/FrsHtmlSearchRenderer.class, www/search/include/renderers/NewsHtmlSearchRenderer.class, www/search/include/renderers/TrackersHtmlSearchRenderer.class:
 
- [#1180] 검색 결과에서, 지나치게 긴 릴리즈 이름/이슈 제목/포럼 제목/뉴스 제목을 적절하게 줄입니다.
+ [[#1180]] 검색 결과에서, 지나치게 긴 릴리즈 이름/이슈 제목/포럼 제목/뉴스 제목을 적절하게 줄입니다.
 
- * www/project/admin/index.php, www/project/admin/project_admin_utils.php:
+* www/project/admin/index.php, www/project/admin/project_admin_utils.php:
 
- [#1199] 프로젝트 관리 페이지에서 위키 권한 편집시 생기는 문제점을 수정했습니다. 객체를 생성하지 못해서 에러가 발생하는 문제를 고쳤습니다. 권한 편집이 제대로 되지 않는 문제를 해결했습니다.
+ [[#1199]] 프로젝트 관리 페이지에서 위키 권한 편집시 생기는 문제점을 수정했습니다. 객체를 생성하지 못해서 에러가 발생하는 문제를 고쳤습니다. 권한 편집이 제대로 되지 않는 문제를 해결했습니다.
 
- * www/tracker/browse.php:
+* www/tracker/browse.php:
 
  이슈의 링크 URL 끝부분에 \'가 잘못 들어가 있어서 네이버에서 검색이 되지 않는 문제가 있으므로, \'를 제거하였습니다.
 
- * www/tracker/mod.php:
+* www/tracker/mod.php:
 
- [#1166] 이슈/포럼 제목 변경시 텍스트박스의 위치가 잘못되는 문제를 수정했습니다. 얼마전 풍선도움말 기능을 넣다가, ID를 빠뜨렸기 때문에 발생한 문제였습니다.
+ [[#1166]] 이슈/포럼 제목 변경시 텍스트박스의 위치가 잘못되는 문제를 수정했습니다. 얼마전 풍선도움말 기능을 넣다가, ID를 빠뜨렸기 때문에 발생한 문제였습니다.
 
- * plugins/svntracker/common/svntrackerPlugin.class, www/include/html.php, www/project/admin/news/news_admin_utils.php:
+* plugins/svntracker/common/svntrackerPlugin.class, www/include/html.php, www/project/admin/news/news_admin_utils.php:
 
- [#808] r134관련 수정사항입니다. 코드에 풍선도움말을 만들어주는 코드가 빠져서 추가합니다. 따옴표가 &#039;로 출력되는 문제를 수정했습니다. 뉴스 승인 페이지에서 문자열 절단 함수는 strcut_hard(여러줄 출력)보다 clipString이 적절하므로 변경하였습니다.
+ [[#808]] r134관련 수정사항입니다. 코드에 풍선도움말을 만들어주는 코드가 빠져서 추가합니다. 따옴표가 &#039;로 출력되는 문제를 수정했습니다. 뉴스 승인 페이지에서 문자열 절단 함수는 strcut_hard(여러줄 출력)보다 clipString이 적절하므로 변경하였습니다.
 
- * www/frs/index.php, www/frs/shownotes.php, www/include/html.php, www/include/project_home.php, www/include/tracker_util.php, www/include/user_home.php, www/my/index.php, www/news/detail.php, www/news/index.php, www/news/news_utils.php, www/project/admin/news/index.php, www/project/admin/news/news_admin_utils.php, www/project/admin/project_admin_utils.php, www/scm/viewvc/lib/viewvc.py, www/scm/viewvc/templates-ko/directory.ezt, www/softwaremap/trove_list.php, www/tracker/mod.php:
+* www/frs/index.php, www/frs/shownotes.php, www/include/html.php, www/include/project_home.php, www/include/tracker_util.php, www/include/user_home.php, www/my/index.php, www/news/detail.php, www/news/index.php, www/news/news_utils.php, www/project/admin/news/index.php, www/project/admin/news/news_admin_utils.php, www/project/admin/project_admin_utils.php, www/scm/viewvc/lib/viewvc.py, www/scm/viewvc/templates-ko/directory.ezt, www/softwaremap/trove_list.php, www/tracker/mod.php:
 
- [#808] r106에서 이슈/포럼에 한해 적용했던 풍선 도움말을, 이제 모든 곳에 적용하였습니다. 이슈/포럼/다운로드/코드/뉴스
+ [[#808]] r106에서 이슈/포럼에 한해 적용했던 풍선 도움말을, 이제 모든 곳에 적용하였습니다. 이슈/포럼/다운로드/코드/뉴스
 등에서 긴 메시지를 줄이게 되는 경우, 마우스를 가져가면 풍선 도움말로 전체 내용을 표시해줍니다. 길이가 길지 않아서
 줄이지 않은 경우에는 표시하지 않습니다.
 
- * www/include/languages/Base.tab, www/include/languages/Korean.tab:
+* www/include/languages/Base.tab, www/include/languages/Korean.tab:
 
  OFL 라이선스를 추가했습니다.
 
- * test/selenium/forum/nforge_forum_addndel.py, test/selenium/forum/nforge_forum_autoalim.py, test/selenium/forum/nforge_forum_menu.py, test/selenium/forum/nforge_forum_search1.py, test/selenium/forum/nforge_forum_search2.py, test/selenium/forum/nforge_forum_search3.py, test/selenium/forum/nforge_forum_search4.py, test/selenium/forum/nforge_forum_search5.py, test/selenium/forum/nforge_forum_search6.py, test/selenium/forum/nforge_forum_search7.py, test/selenium/mypage/nforge_mypage_autoalim.py, test/selenium/mypage/nforge_mypage_dashboard.py, test/selenium/mypage/nforge_mypage_info.py, test/selenium/mypage/nforge_mypage_pmake.py, test/selenium/pmain/nforge_pmain_innerlinkclick.py, test/selenium/pmain/nforge_pmain_main.py, test/selenium/pmain/nforge_pmain_newssubmit.py:
+* test/selenium/forum/nforge_forum_addndel.py, test/selenium/forum/nforge_forum_autoalim.py, test/selenium/forum/nforge_forum_menu.py, test/selenium/forum/nforge_forum_search1.py, test/selenium/forum/nforge_forum_search2.py, test/selenium/forum/nforge_forum_search3.py, test/selenium/forum/nforge_forum_search4.py, test/selenium/forum/nforge_forum_search5.py, test/selenium/forum/nforge_forum_search6.py, test/selenium/forum/nforge_forum_search7.py, test/selenium/mypage/nforge_mypage_autoalim.py, test/selenium/mypage/nforge_mypage_dashboard.py, test/selenium/mypage/nforge_mypage_info.py, test/selenium/mypage/nforge_mypage_pmake.py, test/selenium/pmain/nforge_pmain_innerlinkclick.py, test/selenium/pmain/nforge_pmain_main.py, test/selenium/pmain/nforge_pmain_newssubmit.py:
 
- [#770] 테스트 케이스 수정
+ [[#770]] 테스트 케이스 수정
 
- * common/tracker/Artifact.class:
+* common/tracker/Artifact.class:
 
- [#1059]포럼/이슈 자동 알림 메일의 덧글 변경 여부 마킹 버그 수정
+ [[#1059]]포럼/이슈 자동 알림 메일의 덧글 변경 여부 마킹 버그 수정
 
- * www/news/detail.php, www/tracker/detail.php, www/tracker/mod.php:
+* www/news/detail.php, www/tracker/detail.php, www/tracker/mod.php:
 
- [#1084]덧글 입력창 확대
+ [[#1084]]덧글 입력창 확대
 
- * www/include/project_home.php:
+* www/include/project_home.php:
 
- [#1063]프로젝트홈 개발자리스트 출력방식 변경
+ [[#1063]]프로젝트홈 개발자리스트 출력방식 변경
 
- * share/moniwiki/plugin/pagelist.php:
+* share/moniwiki/plugin/pagelist.php:
 
- [#994] 모니위키에 PageList 매크로를 추가합니다. 과거에 불필요하다가 생각되어 제거하였으나, 박원규님이 필요하다고 의견을 주셔서 다시 추가합니다.
+ [[#994]] 모니위키에 PageList 매크로를 추가합니다. 과거에 불필요하다가 생각되어 제거하였으나, 박원규님이 필요하다고 의견을 주셔서 다시 추가합니다.
 
- * test/selenium/forum/nforge_forum_addndel.py, test/selenium/forum/nforge_forum_autoalim.py, test/selenium/forum/nforge_forum_menu.py, test/selenium/forum/nforge_forum_search1.py, test/selenium/forum/nforge_forum_search2.py, test/selenium/forum/nforge_forum_search3.py, test/selenium/forum/nforge_forum_search4.py, test/selenium/forum/nforge_forum_search5.py, test/selenium/forum/nforge_forum_search6.py, test/selenium/forum/nforge_forum_search7.py, test/selenium/mypage, test/selenium/mypage/nforge_mypage_autoalim.py, test/selenium/mypage/nforge_mypage_dashboard.py, test/selenium/mypage/nforge_mypage_info.py, test/selenium/mypage/nforge_mypage_pmake.py, test/selenium/pmain, test/selenium/pmain/nforge_pmain_innerlinkclick.py, test/selenium/pmain/nforge_pmain_main.py, test/selenium/pmain/nforge_pmain_newssubmit.py:
+* test/selenium/forum/nforge_forum_addndel.py, test/selenium/forum/nforge_forum_autoalim.py, test/selenium/forum/nforge_forum_menu.py, test/selenium/forum/nforge_forum_search1.py, test/selenium/forum/nforge_forum_search2.py, test/selenium/forum/nforge_forum_search3.py, test/selenium/forum/nforge_forum_search4.py, test/selenium/forum/nforge_forum_search5.py, test/selenium/forum/nforge_forum_search6.py, test/selenium/forum/nforge_forum_search7.py, test/selenium/mypage, test/selenium/mypage/nforge_mypage_autoalim.py, test/selenium/mypage/nforge_mypage_dashboard.py, test/selenium/mypage/nforge_mypage_info.py, test/selenium/mypage/nforge_mypage_pmake.py, test/selenium/pmain, test/selenium/pmain/nforge_pmain_innerlinkclick.py, test/selenium/pmain/nforge_pmain_main.py, test/selenium/pmain/nforge_pmain_newssubmit.py:
 
- [#770] 테스트 케이스 추가
+ [[#770]] 테스트 케이스 추가
 
- * plugins/scmsvn/cronjobs/create_svn.php:
+* plugins/scmsvn/cronjobs/create_svn.php:
 
- [#1076]SVN 기본 폴더 생성 기능 추가
+ [[#1076]]SVN 기본 폴더 생성 기능 추가
 
- * www/include/install.php:
+* www/include/install.php:
 
- [#1091]웹설치 폼의 버그 수정
+ [[#1091]]웹설치 폼의 버그 수정
 
- * www/include/html.php, www/tracker/browse.php, www/tracker/detail.php, www/tracker/mod.php:
+* www/include/html.php, www/tracker/browse.php, www/tracker/detail.php, www/tracker/mod.php:
 
- [#1037] 긴 문자열 자르기 함수및 이슈/포럼의 제목 표시에 문제가 있어 수정했습니다. 긴 문자열을 자르고 ...을 붙이는 경우, 붙일 것인가 판단하는 기준이 현재는 문자열 길이인데 멀티바이트 문자에서는 정확하게 동작하지 않으므로 실제로 문자열이 같은지 다른지 직접 비교하도록 했습니다. 포럼/이슈 본문에서의 제목의 경우, 제목이 길어서 잘렸을 때 뜨는 풍선 도움말이, 해당 글에 대한 편집 권한이 없는 경우 나타나지 않고 있어 수정하였습니다. 기호가 들어있는 긴 문자열을 자를 때 잘못된 결과를 출력하는 문제를 수정하였습니다.
+ [[#1037]] 긴 문자열 자르기 함수및 이슈/포럼의 제목 표시에 문제가 있어 수정했습니다. 긴 문자열을 자르고 ...을 붙이는 경우, 붙일 것인가 판단하는 기준이 현재는 문자열 길이인데 멀티바이트 문자에서는 정확하게 동작하지 않으므로 실제로 문자열이 같은지 다른지 직접 비교하도록 했습니다. 포럼/이슈 본문에서의 제목의 경우, 제목이 길어서 잘렸을 때 뜨는 풍선 도움말이, 해당 글에 대한 편집 권한이 없는 경우 나타나지 않고 있어 수정하였습니다. 기호가 들어있는 긴 문자열을 자를 때 잘못된 결과를 출력하는 문제를 수정하였습니다.
 
- * test, test/selenium, test/selenium/code, test/selenium/code/nforge_code_1.py, test/selenium/download, test/selenium/download/nforge_download_1.py, test/selenium/forum, test/selenium/forum/nforge_forum_regndel.py, test/selenium/issue, test/selenium/issue/nforge_issue_1.py, test/selenium/nforge-test-fill.sh, test/selenium/nforge-test.sh:
+* test, test/selenium, test/selenium/code, test/selenium/code/nforge_code_1.py, test/selenium/download, test/selenium/download/nforge_download_1.py, test/selenium/forum, test/selenium/forum/nforge_forum_regndel.py, test/selenium/issue, test/selenium/issue/nforge_issue_1.py, test/selenium/nforge-test-fill.sh, test/selenium/nforge-test.sh:
 
- [#770]자동 일괄 테스트 기능 추가
+ [[#770]]자동 일괄 테스트 기능 추가
 
- * common/include/session.php, common/tracker/Artifact.class, common/tracker/ArtifactType.class, db/cubrid.sql, db/gforge.sql, db/migrate, db/migrate/001.sql, db/xml/artifact.xml, db/xml/artifact_group_list.xml, db/xml/news_bytes.xml, www/include/languages/Base.tab, www/include/languages/Korean.tab, www/news/detail.php, www/news/index.php, www/news/news_utils.php, www/news/submit.php, www/project/admin/news/index.php, www/tracker/browse.php, www/tracker/detail.php, www/tracker/mod.php, www/tracker/tracker.php:
+* common/include/session.php, common/tracker/Artifact.class, common/tracker/ArtifactType.class, db/cubrid.sql, db/gforge.sql, db/migrate, db/migrate/001.sql, db/xml/artifact.xml, db/xml/artifact_group_list.xml, db/xml/news_bytes.xml, www/include/languages/Base.tab, www/include/languages/Korean.tab, www/news/detail.php, www/news/index.php, www/news/news_utils.php, www/news/submit.php, www/project/admin/news/index.php, www/tracker/browse.php, www/tracker/detail.php, www/tracker/mod.php, www/tracker/tracker.php:
 
- [#917][#918]뉴스/이슈/포럼에 읽기 카운트, 공지사항 설정 기능 추가
+ [[#917]][[#918]]뉴스/이슈/포럼에 읽기 카운트, 공지사항 설정 기능 추가
 
- * www/admin/groupdelete.php:
+* www/admin/groupdelete.php:
 
- [#1040]사이트관리자 프로젝트 삭제 관련 버그 수정
+ [[#1040]]사이트관리자 프로젝트 삭제 관련 버그 수정
 
- * www/tracker/tracker.php:
+* www/tracker/tracker.php:
 
- [#1045]CAPTCHA 인증 오류시 form의 재시도 입력이 가능하도록 수정
+ [[#1045]]CAPTCHA 인증 오류시 form의 재시도 입력이 가능하도록 수정
 
- * common/include/utils.php:
+* common/include/utils.php:
 
- [#995] nFORGE에서 위키페이지에 대한 링크를 걸 때, 인터위키도 사용할 수 있도록 합니다. 이슈의 본문 등에서 WikiPedia:Naver] 와 같은 형식으로 링크를 걸면 됩니다.
+ [[#995]] nFORGE에서 위키페이지에 대한 링크를 걸 때, 인터위키도 사용할 수 있도록 합니다. 이슈의 본문 등에서 WikiPedia:Naver]] 와 같은 형식으로 링크를 걸면 됩니다.
 
- * www/index.php:
+* www/index.php:
 
- [#1007] 개발자 센터용 nFORGE에서, 자신이 참가한 프로젝트가 있는 경우 사이트 메인 페이지의 로그인 상자에 참가 프로젝트의 목록을 보고 선택할 수 있도록 합니다. 없는 경우에는 비워둡니다.
+ [[#1007]] 개발자 센터용 nFORGE에서, 자신이 참가한 프로젝트가 있는 경우 사이트 메인 페이지의 로그인 상자에 참가 프로젝트의 목록을 보고 선택할 수 있도록 합니다. 없는 경우에는 비워둡니다.
 
- * www/account/first.php, www/account/register.php, www/account/verify.php:
+* www/account/first.php, www/account/register.php, www/account/verify.php:
 
- [#1024] 새로운 사용자 등록 과정에서, 레이아웃이 깨지거나 경고가 발생하는 부분을 수정했습니다. 사용자 등록 페이지에서 불필요하게 을 확인하는 코드를 제거했습니다. 사용자 등록 후, 메일을 통해 확인하는 페이지에서 top_kind가 빠져있으므로 수정했습니다. 또 같은 페이지에서 error_msg 인덱스가 없어서 발생하는 경고도 제거했습니다. 사용자 등록 환영 페이지에서 top_kind가 main_sub로 잘못되어 있어서 project_sub로수정했습니다.
+ [[#1024]] 새로운 사용자 등록 과정에서, 레이아웃이 깨지거나 경고가 발생하는 부분을 수정했습니다. 사용자 등록 페이지에서 불필요하게 을 확인하는 코드를 제거했습니다. 사용자 등록 후, 메일을 통해 확인하는 페이지에서 top_kind가 빠져있으므로 수정했습니다. 또 같은 페이지에서 error_msg 인덱스가 없어서 발생하는 경고도 제거했습니다. 사용자 등록 환영 페이지에서 top_kind가 main_sub로 잘못되어 있어서 project_sub로수정했습니다.
 
- * www/tracker/browse.php, www/tracker/query.php:
+* www/tracker/browse.php, www/tracker/query.php:
 
  불필요한 makeDefault 메소드 제거
 
- * common/tracker/ArtifactQuery.class:
+* common/tracker/ArtifactQuery.class:
 
- [#801] 고급검색에서 검색패턴 삭제시 에러메시지가 나타나던 문제를 해결했습니다. 원인은 user_preferences 테이블의 row 삭제 실패였습니다. 불필요한 작업이므로 수행하지 않도록 수정했으며, row를 추가하는 작업 역시 불필요하므로 마찬가지로 수행하지 않도록 했습니다.
+ [[#801]] 고급검색에서 검색패턴 삭제시 에러메시지가 나타나던 문제를 해결했습니다. 원인은 user_preferences 테이블의 row 삭제 실패였습니다. 불필요한 작업이므로 수행하지 않도록 수정했으며, row를 추가하는 작업 역시 불필요하므로 마찬가지로 수행하지 않도록 했습니다.
 
- * www/tracker/add.php, www/tracker/detail.php, www/tracker/tracker.php:
+* www/tracker/add.php, www/tracker/detail.php, www/tracker/tracker.php:
 
- [#993]방문자 글쓰기에 로봇에 의한 자동 글쓰기 방지 CAPTCHA추가
+ [[#993]]방문자 글쓰기에 로봇에 의한 자동 글쓰기 방지 CAPTCHA추가
 
- * www/frs/index.php, www/include/html.php, www/include/languages/Base.tab, www/include/languages/Korean.tab, www/scm/index.php, www/tracker/detail.php, www/tracker/mod.php:
+* www/frs/index.php, www/include/html.php, www/include/languages/Base.tab, www/include/languages/Korean.tab, www/scm/index.php, www/tracker/detail.php, www/tracker/mod.php:
 
- [#811] 자동알림 링크에, 자동알림이 무엇을 하는 것인지 간단히 알려주는 풍선도움말을 추가합니다. 자동알림을 켜지는 링크인 경우 \'클릭하시면 메일로 변경사항을 알려드립니다.\' 꺼지는 링크인 경우 \'클릭하시면 더 이상 메일로 변경사항을 알려드리지 않습니다.\'라고 나타납니다.
+ [[#811]] 자동알림 링크에, 자동알림이 무엇을 하는 것인지 간단히 알려주는 풍선도움말을 추가합니다. 자동알림을 켜지는 링크인 경우 \'클릭하시면 메일로 변경사항을 알려드립니다.\' 꺼지는 링크인 경우 \'클릭하시면 더 이상 메일로 변경사항을 알려드리지 않습니다.\'라고 나타납니다.
 
- * www/include/html.php, www/tracker/browse.php, www/tracker/mod.php:
+* www/include/html.php, www/tracker/browse.php, www/tracker/mod.php:
 
- [#808] 이슈/포럼에서 제목이 너무 길어서 줄여 표시되는 경우, 마우스 커서를 제목에 가져가면 풍선 도움말로 제목 전체가 표시되도록 합니다. 이 때 일관된 처리를 위해서 HtmlTag클래스를 적용하여 처리합니다. 
+ [[#808]] 이슈/포럼에서 제목이 너무 길어서 줄여 표시되는 경우, 마우스 커서를 제목에 가져가면 풍선 도움말로 제목 전체가 표시되도록 합니다. 이 때 일관된 처리를 위해서 HtmlTag클래스를 적용하여 처리합니다. 
 
- * share/moniwiki/theme/embeded/css/default.css:
+* share/moniwiki/theme/embeded/css/default.css:
 
  위키에서 === 제목 === 이런 형식으로 소제목을 표시할 때, 만들어지는 제목에 밑줄이 빠져 있으므로 제대로 나오도록 수정했습니다. 
 
- * www/tracker/browse.php:
+* www/tracker/browse.php:
 
- [#804] 이슈 고급검색에서 초기화 버튼을 눌렀을 때, 자바스크립트 에러가 발생하는 문제를 수정하였습니다. 테이블을 비우는 자바스크립트 함수에 form의 id를 잘못 넘겨주고 있길래, 아예 그 호출을 제거하였습니다.
+ [[#804]] 이슈 고급검색에서 초기화 버튼을 눌렀을 때, 자바스크립트 에러가 발생하는 문제를 수정하였습니다. 테이블을 비우는 자바스크립트 함수에 form의 id를 잘못 넘겨주고 있길래, 아예 그 호출을 제거하였습니다.
 
- * www/include/languages/Base.tab, www/include/languages/Korean.tab, www/scm/viewvc.php:
+* www/include/languages/Base.tab, www/include/languages/Korean.tab, www/scm/viewvc.php:
 
- [#804] 코드트리보기 페이지의 검색창에서 검색어를 입력했을 때 에러메시지가 나타나는 문제를 수정했습니다. group_id가 빠져서 발생한 문제였습니다. 더불어 warning을 제거하기 위해 언어파일에 단어를 추가했습니다.
+ [[#804]] 코드트리보기 페이지의 검색창에서 검색어를 입력했을 때 에러메시지가 나타나는 문제를 수정했습니다. group_id가 빠져서 발생한 문제였습니다. 더불어 warning을 제거하기 위해 언어파일에 단어를 추가했습니다.

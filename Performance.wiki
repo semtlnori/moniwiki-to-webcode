@@ -2,8 +2,8 @@
 http://ci.dev.naver.com:8080/static/ea79ddd8/images/nforge-burndown-3.0.1.png
 
 nFORGE 3.0의 성능을 개선합니다. 
- * ACL 성능 최적화 
- * 패치파일 렌더링 등에 Ajax 적용 
- * 컨텐츠가 많은 페이지들에 대해 페이징 적용하기
+* ACL 성능 최적화 
+* 패치파일 렌더링 등에 Ajax 적용 
+* 컨텐츠가 많은 페이지들에 대해 페이징 적용하기
 
-관련 이슈 목록: http://dev.naver.com/projects/nforge/issue?extra_fields[125]=98884
+관련 이슈 목록: http://dev.naver.com/projects/nforge/issue?extra_fields[[125]]=98884

@@ -1,158 +1,158 @@
 2009-05-07  utumdol
 
-	* [r551] nforge-install-1.php: debian 계열(ubuntu)에서 postgresql 패키지가
+ [[r551]] nforge-install-1.php: debian 계열(ubuntu)에서 postgresql 패키지가
 	  설치되지 않았던 문제 수정
-	* [r550] nforge-install-1.php: $dbms 변수가 RedHat 계열에서만 세팅되었던 문제 수정
-	* [r549] nforge-install-1.php: 패키지 설치 오류 수정
+ [[r550]] nforge-install-1.php: $dbms 변수가 RedHat 계열에서만 세팅되었던 문제 수정
+ [[r549]] nforge-install-1.php: 패키지 설치 오류 수정
 
 2009-05-07  bird1909
 
-	* [r548] cronjobs/scheduler.php: r448의 일부 되돌림
-	* [r547] common/include/cron_utils.php: oops! fixed r535 bug
+ [[r548]] cronjobs/scheduler.php: r448의 일부 되돌림
+ [[r547]] common/include/cron_utils.php: oops! fixed r535 bug
 
 2009-05-07  utumdol
 
-	* [r546] etc/local.inc.nforge, www/index.php: nFORGE 사이트 뉴스 공유 전체
+ [[r546]] etc/local.inc.nforge, www/index.php: nFORGE 사이트 뉴스 공유 전체
 	  보기를 위한 링크 생성
 
 2009-05-07  bird1909
 
-	* [r545] install.php: fixed notice warnig
+ [[r545]] install.php: fixed notice warnig
 
 2009-05-07  semtlnori
 
-	* [r544] common/include/session.php: [#2133] 플러그인 hook인
+ [[r544]] common/include/session.php: [[#2133]] 플러그인 hook인
 	  session_check를 session_loggedin으로 이름을 바꿈
 
 2009-05-07  utumdol
 
-	* [r543] www/news/news_utils.php: 구 버전의 php5에서 뉴스 제목 출력 시 스트링이 아닌
+ [[r543]] www/news/news_utils.php: 구 버전의 php5에서 뉴스 제목 출력 시 스트링이 아닌
 	  Object Id로 출력되는 현상 수정.
 
 2009-05-07  bird1909
 
-	* [r542] db/nss-sql.sql, install.php, install_util.php,
-	  nforge-install-1.php, utils, utils/install-nss-sql.sh: [#2251]
+ [[r542]] db/nss-sql.sql, install.php, install_util.php,
+	  nforge-install-1.php, utils, utils/install-nss-sql.sh: [[#2251]]
 	  nss-pgsql / nss-mysql 지원 (Fedora, Ubuntu)
-	  * nss-mysql의 경우 libnss-mysql, libnss-mysql-bg 모두 지원.
-	  * 설치 스크립트에서 nss-*sql 선택여부 설정
-	  * 사용자 정보 DB에 대한 View를 제공하는 것이므로 쉽게 설치/제거 가능.
-	* [r541] bin, bin/cr_upload: move cr_upload to bin/ dir
+* nss-mysql의 경우 libnss-mysql, libnss-mysql-bg 모두 지원.
+* 설치 스크립트에서 nss-*sql 선택여부 설정
+* 사용자 정보 DB에 대한 View를 제공하는 것이므로 쉽게 설치/제거 가능.
+ [[r541]] bin, bin/cr_upload: move cr_upload to bin/ dir
 
 2009-05-07  semtlnori
 
-	* [r540] etc/local.inc.nforge: [#2258] sys_project_apporved_auto 값이
+ [[r540]] etc/local.inc.nforge: [[#2258]] sys_project_apporved_auto 값이
 	  기본적으로 false로 설정되도록 합니다.
-	* [r539] common/include/Group.class, www/admin/admin_utils.php,
+ [[r539]] common/include/Group.class, www/admin/admin_utils.php,
 	  www/admin/approve-pending.php, www/register/projectinfo.php:
-	  [#2258] 프로젝트 등록 후, 승인 절차를 거치지 않고 바로 프로젝트가 등록되는 기능을 추가합니다. 이 기능을
+	  [[#2258]] 프로젝트 등록 후, 승인 절차를 거치지 않고 바로 프로젝트가 등록되는 기능을 추가합니다. 이 기능을
 	  사용할지의 여부는 sys_project_approved_auto의 값에 의해 결정됩니다.
-	* [r538] load_setting.inc: [#2266] 불필요한 트랜잭션 처리 제거
-	* [r537] www/scm/cr_upload: [#2178] cr_upload로 코드리뷰를 업로드 할 때, 소스파일의
+ [[r538]] load_setting.inc: [[#2266]] 불필요한 트랜잭션 처리 제거
+ [[r537]] www/scm/cr_upload: [[#2178]] cr_upload로 코드리뷰를 업로드 할 때, 소스파일의
 	  경로에 공백이 포함되어 있는 경우에도 문제 없이 업로드되도록 수정합니다. 이를 위해 코드리뷰 할 소스파일들의 경로를
 	  큰따옴표로 quote 처리했고, 코드리뷰 파일을 생성하는 과정에서 디렉토리를 만들 때 사용하는
 	  confirm_folder()을 문제점이 수정되고 간소화된 mkdir_recursive()로 대체하였습니다.
-	  [#2262] 코드리뷰 파일을 올릴 때, 어떤 이유로 코드리뷰 저장소에 code_review.cr 파일이 남아있으면
+	  [[#2262]] 코드리뷰 파일을 올릴 때, 어떤 이유로 코드리뷰 저장소에 code_review.cr 파일이 남아있으면
 	  실패하게 됩니다. 따라서 코드리뷰 파일을 올리기 전에, code_reivew.cr을 저장소에서 삭제하는 코드를
 	  추가하였습니다.
 
 2009-05-07  bird1909
 
-	* [r536] common/include/Tracker.class,
+ [[r536]] common/include/Tracker.class,
 	  plugins/ggit/common/GgitPlugin.class,
 	  plugins/ggit/cronjobs/create_git.php,
-	  plugins/ggit/cronjobs/git-stats.php: * [#2228] r534의 고침 개선
-	  * 전체 커밋 개수가 제대로 안나오던 점 수정.
-	  * git cronjob의 pre-receive 후커 설정
-	* [r535] common/include/cron_utils.php, common/include/utils.php,
+	  plugins/ggit/cronjobs/git-stats.php: * [[#2228]] r534의 고침 개선
+* 전체 커밋 개수가 제대로 안나오던 점 수정.
+* git cronjob의 pre-receive 후커 설정
+ [[r535]] common/include/cron_utils.php, common/include/utils.php,
 	  www/admin/cronjobs.php, www/include/languages/Base.tab,
 	  www/include/languages/Korean.tab,
-	  www/themes/nforge-dev/css/dev_style.css: * [#2263] 크론 설정에서 항목별
+	  www/themes/nforge-dev/css/dev_style.css: * [[#2263]] 크론 설정에서 항목별
 	  활성화/비활성화 가능
-	  * [#2150] cronjobs 매니져가 너무 느린점 고침.
-	  * crontab 관련된 설정이 제대로 저장 안되던 점 고침
-	  * r532 개선
+* [[#2150]] cronjobs 매니져가 너무 느린점 고침.
+* crontab 관련된 설정이 제대로 저장 안되던 점 고침
+* r532 개선
 
 2009-05-06  bird1909
 
-	* [r534] common/include/Tracker.class,
+ [[r534]] common/include/Tracker.class,
 	  plugins/ggit/cronjobs/git-stats.php,
 	  plugins/gittracker/bin/check-push.php,
-	  plugins/gittracker/common/gittrackerPlugin.class: [#2228] 커밋 통계
+	  plugins/gittracker/common/gittrackerPlugin.class: [[#2228]] 커밋 통계
 	  지원.
-	  * svn-stats.php를 참고하여 다시 작성.
-	  * git과 관련 없는 일반적인 코드를 모아 플러그인을 상속받은 Tracker.class 만듦
-	  * git의 경우 push하는 사람의 이메일주소자체를 커밋로그에 사용하므로
+* svn-stats.php를 참고하여 다시 작성.
+* git과 관련 없는 일반적인 코드를 모아 플러그인을 상속받은 Tracker.class 만듦
+* git의 경우 push하는 사람의 이메일주소자체를 커밋로그에 사용하므로
 	  이메일을 반드시 nFORGE 사이트에 등록된 경우에 대해만 push허용 (check-push.php 후크)
-	  * cleanup
-	* [r533] plugins/ggit/common/GgitPlugin.class: [#2107] 커밋 현황 보여주는
+* cleanup
+ [[r533]] plugins/ggit/common/GgitPlugin.class: [[#2107]] 커밋 현황 보여주는
 	  코드 추가 (scmsvn의것 그대로 가져옴)
-	* [r532] common/include/cron_utils.php, crontab.php: [#2263]
+ [[r532]] common/include/cron_utils.php, crontab.php: [[#2263]]
 	  crontab에서 임의의 항목을 쉽게 비활성화 시킬 수 있게함.
-	  * crontab.php -c config.cache -f /etc/cron.d/nforgecron -k
+* crontab.php -c config.cache -f /etc/cron.d/nforgecron -k
 	  usergroup.php -k project_cleanup.php
-	  * DB에서 crontab 갱신시 오류가 나는 버그 잡음
+* DB에서 crontab 갱신시 오류가 나는 버그 잡음
 
 2009-05-06  semtlnori
 
-	* [r531] common/include/Group.class, common/include/license.php,
+ [[r531]] common/include/Group.class, common/include/license.php,
 	  www/admin/approve-pending.php, www/admin/cronedit.php,
 	  www/admin/groupdelete.php, www/admin/groupedit.php,
 	  www/admin/grouplist.php, www/include/languages/Base.tab,
 	  www/include/languages/Korean.tab, www/register/projectinfo.php:
-	  [#2144] 프로젝트 등록시 라이센스 및 프로젝트 목적 설정을 제거하고, 프로젝트 추가 정보를 설정할 수 있도록
+	  [[#2144]] 프로젝트 등록시 라이센스 및 프로젝트 목적 설정을 제거하고, 프로젝트 추가 정보를 설정할 수 있도록
 	  추가하였습니다. 프로젝트 추가 정보는 관리자가 프로젝트 승인시 참고하기 위한 것으로, 사이트 관리 -> 그룹 목록
 	  보기/편집하기 메뉴에서 프로젝트를 선택하여 확인할 수 있습니다. 혹은 사이트 관리 -> 새로운 프로젝트 승인하기 ->
 	  프로젝트 세부사항 편집 에서도 확인할 수 있습니다.
 
 2009-05-06  utumdol
 
-	* [r530] nforge-install-1.php: add zip package for code review
+ [[r530]] nforge-install-1.php: add zip package for code review
 
 2009-05-06  semtlnori
 
-	* [r529] plugins/scmsvn/common/SVNPlugin.class: [#2261] 코드리뷰 메시지의
+ [[r529]] plugins/scmsvn/common/SVNPlugin.class: [[#2261]] 코드리뷰 메시지의
 	  특수문자를 바르게 표시하는 r528의 수정을, 코드리뷰 목록 페이지에도 적용합니다.
-	* [r528] common/scm/CodeReview.class: [#2261] 코드리뷰 메시지의 특수문자가 제대로
+ [[r528]] common/scm/CodeReview.class: [[#2261]] 코드리뷰 메시지의 특수문자가 제대로
 	  표시될 수 있도록 수정
 
 2009-05-06  utumdol
 
-	* [r527] nforge-install-1.php: ubuntu-mysql 기반 설치 시 mysql-server 및
+ [[r527]] nforge-install-1.php: ubuntu-mysql 기반 설치 시 mysql-server 및
 	  mysql-client 설치 되지 않았던 문제 수정
 
 2009-05-06  semtlnori
 
-	* [r526] www/scm/cr_upload: [#2261] cr_upload에서 메시지에 "를 사용할 수 있도록
+ [[r526]] www/scm/cr_upload: [[#2261]] cr_upload에서 메시지에 "를 사용할 수 있도록
 	  수정
 
 2009-05-06  bird1909
 
-	* [r525] install.php: revert r496: sudo를 쓰게 고쳤던 것을 su로 원상복귀시킴
+ [[r525]] install.php: revert r496: sudo를 쓰게 고쳤던 것을 su로 원상복귀시킴
 
 2009-05-06  utumdol
 
-	* [r524] www/admin/news_share.php, www/include/languages/Base.tab,
+ [[r524]] www/admin/news_share.php, www/include/languages/Base.tab,
 	  www/include/languages/Korean.tab, www/index.php,
-	  www/news/news_utils.php: [#2233] nFORGE 뉴스 공유 관련 메시지 및 출력 양식 변경
+	  www/news/news_utils.php: [[#2233]] nFORGE 뉴스 공유 관련 메시지 및 출력 양식 변경
 
 2009-05-05  bird1909
 
-	* [r523] common/include/license.php: fixed r451 bug
-	* [r522] plugins/ggit/common/GgitPlugin.class,
+ [[r523]] common/include/license.php: fixed r451 bug
+ [[r522]] plugins/ggit/common/GgitPlugin.class,
 	  plugins/ggit/common/languages/Base.tab,
 	  plugins/ggit/common/languages/Korean.tab,
-	  plugins/moniwiki/common/MoniWikiPlugin.class: [#2107] ggit의 stat
+	  plugins/moniwiki/common/MoniWikiPlugin.class: [[#2107]] ggit의 stat
 	  hook 추가, moniwiki 플러그인 warning 제거
-	* [r521] db/xml/plugin_gittracker_data_master.xml: [#2228] add a
+ [[r521]] db/xml/plugin_gittracker_data_master.xml: [[#2228]] add a
 	  missing file
 
 2009-05-04  bird1909
 
-	* [r520] install.php, setting.php: [#2231] r517 pgsql 설정 고침.
+ [[r520]] install.php, setting.php: [[#2231]] r517 pgsql 설정 고침.
 	  setting.php의 작은 고침
-	* [r519] install.php, install_util.php: [#2221] 설치 스크립트 화면 개선 :>
-	* [r518] share/moniwiki/data/text/AnchorMacro,
+ [[r519]] install.php, install_util.php: [[#2221]] 설치 스크립트 화면 개선 :>
+ [[r518]] share/moniwiki/data/text/AnchorMacro,
 	  share/moniwiki/data/text/BabelFishMacro,
 	  share/moniwiki/data/text/BlogArchivesMacro,
 	  share/moniwiki/data/text/BlogCategoriesMacro,
@@ -188,210 +188,210 @@
 	  share/moniwiki/data/text/TrackBackMacro,
 	  share/moniwiki/data/text/WikiKeyword,
 	  share/moniwiki/data/text/WikiSandBox,
-	  share/moniwiki/data/text/WikiWyg: [#2207] 기본페이지에서 낡은 페이지 혹은 사용하지
+	  share/moniwiki/data/text/WikiWyg: [[#2207]] 기본페이지에서 낡은 페이지 혹은 사용하지
 	  않는 매크로 페이지를 지웁니다.
 
 2009-05-04  semtlnori
 
-	* [r517] www/account/change_email.php: [#2241] 마이페이지 > 회원정보 >
+ [[r517]] www/account/change_email.php: [[#2241]] 마이페이지 > 회원정보 >
 	  이메일정보변경 페이지에서 글자가 테이블을 벗어나는 문제 수정
 
 2009-05-04  bird1909
 
-	* [r516] plugins/moniwiki/common/MoniWikiPlugin.class: [#2240]
+ [[r516]] plugins/moniwiki/common/MoniWikiPlugin.class: [[#2240]]
 	  php5.1 fix: use __toString()
 
 2009-05-04  utumdol
 
-	* [r515] www/admin/news_share.php: [#2233] nFORGE 설치 사이트 간 뉴스 공유 기능
+ [[r515]] www/admin/news_share.php: [[#2233]] nFORGE 설치 사이트 간 뉴스 공유 기능
 	  개발 중 네트워크 장애 발생 시 관련 처리 추가
 
 2009-05-04  semtlnori
 
-	* [r514] www/themes/nforge-dev/Theme.class: [#2239] 페이지 하단 POWERD
+ [[r514]] www/themes/nforge-dev/Theme.class: [[#2239]] 페이지 하단 POWERD
 	  by nFORGE 문구에 개발자센터 nFORGE 프로젝트로의 링크를 겁니다.
-	* [r513] www/themes/nforge-dev/css/dev_wiki.css: [#2234] 상단 공백을 줄이는
+ [[r513]] www/themes/nforge-dev/css/dev_wiki.css: [[#2234]] 상단 공백을 줄이는
 	  r510을 위키용 css에도 적용합니다.
 
 2009-05-04  bird1909
 
-	* [r512] nforge-install-1.php: [#2231] fix for debian
-	* [r511] share/moniwiki/wikilib.php: [#1753] r497의 문제점 수정 미등록 사용자의
+ [[r512]] nforge-install-1.php: [[#2231]] fix for debian
+ [[r511]] share/moniwiki/wikilib.php: [[#1753]] r497의 문제점 수정 미등록 사용자의
 	  경우 segfault나던 문제 수정.
 
 2009-05-04  semtlnori
 
-	* [r510] www/themes/nforge-dev/css/dev_style.css: [#2234] 프로젝트 페이지의
+ [[r510]] www/themes/nforge-dev/css/dev_style.css: [[#2234]] 프로젝트 페이지의
 	  잘못된 상단 공백 제거
 
 2009-05-04  utumdol
 
-	* [r509] common/include/SystemSetting.class,
+ [[r509]] common/include/SystemSetting.class,
 	  common/include/utils.php, etc/local.inc.nforge,
 	  www/admin/index.php, www/admin/news_share.php,
 	  www/admin/nforge_upgrade.php, www/include/languages/Base.tab,
 	  www/include/languages/Korean.tab, www/include/pre.php,
 	  www/index.php, www/news/news_utils.php,
-	  www/themes/nforge-dev/Theme.class: [#2233] nFORGE 설치 사이트 간 뉴스 공유
+	  www/themes/nforge-dev/Theme.class: [[#2233]] nFORGE 설치 사이트 간 뉴스 공유
 	  기능 개발
 
 2009-05-04  bird1909
 
-	* [r508] jpgraph/jpg-config.inc.php: [#2194] jpgraph의 캐싱 기능을
+ [[r508]] jpgraph/jpg-config.inc.php: [[#2194]] jpgraph의 캐싱 기능을
 	  활성화시킵니다.
-	* [r507] install.php, nforge-install-1.php, setting.php: [#2231]
+ [[r507]] install.php, nforge-install-1.php, setting.php: [[#2231]]
 	  DBMS관련 추가 패키지 설치
-	  * nforge-install-1.php platform dbms 와 같이 두번째 dbms type 인자 들어감.
-	  * pgsql / mysql 선택적 지원 일부 적용
-	  * pgsql에서 su대신 sudo 사용 및 pg_hba.conf 관련 수정.
-	  * service의 /sbin 패스 지정.
+* nforge-install-1.php platform dbms 와 같이 두번째 dbms type 인자 들어감.
+* pgsql / mysql 선택적 지원 일부 적용
+* pgsql에서 su대신 sudo 사용 및 pg_hba.conf 관련 수정.
+* service의 /sbin 패스 지정.
 
 2009-05-04  semtlnori
 
-	* [r506] common/include/database-cubrid.php,
+ [[r506]] common/include/database-cubrid.php,
 	  common/include/database-mysql.php,
-	  common/include/database-pgsql.php: [#2183] r481이 정상 동작하려면,
+	  common/include/database-pgsql.php: [[#2183]] r481이 정상 동작하려면,
 	  db_connect()가 성공시 true를 리턴하도록 해야 하므로 수정합니다.
 
 2009-05-04  mstorm83
 
-	* [r505] www/news/index.php: [#1753] 뉴스 목록에서 별명으로 출력 되도록 수정
+ [[r505]] www/news/index.php: [[#1753]] 뉴스 목록에서 별명으로 출력 되도록 수정
 
 2009-05-03  bird1909
 
-	* [r504] install.php, nforge-install-1.php, nforge-install-2.php,
-	  setting.php: [#2230] FreeBSD support fix
+ [[r504]] install.php, nforge-install-1.php, nforge-install-2.php,
+	  setting.php: [[#2230]] FreeBSD support fix
 
 2009-05-02  bird1909
 
-	* [r503] plugins/cvstracker/bin/post.php,
+ [[r503]] plugins/cvstracker/bin/post.php,
 	  plugins/cvstracker/common/cvstrackerPlugin.class,
-	  plugins/svntracker/bin/post.php: [#2066] 고침의 일부 수정으로 warning 없앰
-	  * svn/cvs tracker에서 이슈 id가 중복되는 경우 중복으로 tracker entry가 생성되는 문제 고침
-	* [r502] plugins/ggit/bin/create_git_repo_ssh.sh,
+	  plugins/svntracker/bin/post.php: [[#2066]] 고침의 일부 수정으로 warning 없앰
+* svn/cvs tracker에서 이슈 id가 중복되는 경우 중복으로 tracker entry가 생성되는 문제 고침
+ [[r502]] plugins/ggit/bin/create_git_repo_ssh.sh,
 	  plugins/ggit/common/GgitPlugin.class,
 	  plugins/ggit/cronjobs/create_git.php,
-	  plugins/ggit/www/gitweb.php: [#2228] gittracker 관련 고침
-	  [#2107] git 플러그인 추가 수정
-	  * git repo.를 최초 생성하고 master branch 만들때 root로 하지 않고 관리자 id로 생성
-	  * gitweb.cgi를 fopen() 대신에 fsockopen()으로 처리. snapshot기능 제대로 되게끔 함.
-	  * create_git.php에서 user도 체크함 (sudo로 master branch 만들기 위해)
-	* [r501] plugins/gittracker/common/gittrackerPlugin.class: oops!
+	  plugins/ggit/www/gitweb.php: [[#2228]] gittracker 관련 고침
+	  [[#2107]] git 플러그인 추가 수정
+* git repo.를 최초 생성하고 master branch 만들때 root로 하지 않고 관리자 id로 생성
+* gitweb.cgi를 fopen() 대신에 fsockopen()으로 처리. snapshot기능 제대로 되게끔 함.
+* create_git.php에서 user도 체크함 (sudo로 master branch 만들기 위해)
+ [[r501]] plugins/gittracker/common/gittrackerPlugin.class: oops!
 	  fixed single quote.
-	* [r500] plugins/gittracker/bin/gitlog.php,
+ [[r500]] plugins/gittracker/bin/gitlog.php,
 	  plugins/gittracker/common/gittrackerPlugin.class,
 	  plugins/gittracker/db, plugins/gittracker/db/gittracker-init.xml,
 	  plugins/gittracker/etc/plugins/gittracker/config.php,
-	  plugins/gittracker/www/newcommit.php: [#2228] gittracker에서 빠진 기능을
+	  plugins/gittracker/www/newcommit.php: [[#2228]] gittracker에서 빠진 기능을
 	  추가로 넣습니다.
-	  * newcommit.php를 추가해서 이메일기능을 지원
-	  * newcommit.php에서 git의 push기록 남김.
-	  * 이슈와 커밋간의 연결을 위해 필요한 gittracker 후크 추가.
-	  * gittracker지원을 위한 xml schema추가.
-	  * 몇몇 php Notice warning 고침
-	* [r499] install.php: [#2224] 입력되는 $dbuser와 상관 없이 nforge 유저를 항상
+* newcommit.php를 추가해서 이메일기능을 지원
+* newcommit.php에서 git의 push기록 남김.
+* 이슈와 커밋간의 연결을 위해 필요한 gittracker 후크 추가.
+* gittracker지원을 위한 xml schema추가.
+* 몇몇 php Notice warning 고침
+ [[r499]] install.php: [[#2224]] 입력되는 $dbuser와 상관 없이 nforge 유저를 항상
 	  등록하도록 고침.
-	* [r498] plugins/moniwiki/common/MoniWikiPlugin.class,
+ [[r498]] plugins/moniwiki/common/MoniWikiPlugin.class,
 	  plugins/moniwiki/etc/plugins/moniwiki/config.php.nforge,
 	  plugins/moniwiki/www/index.php, share/moniwiki/plugin/Info.php,
 	  share/moniwiki/plugin/RecentChanges.php, share/moniwiki/wiki.php,
-	  share/moniwiki/wikilib.php: [#1753] 모니위키에서 별명지원 기능 켬 및 코드고침.
-	  * RecentChanges, Info 플러그인 별명지원 코드 고침.
-	  [#2226] 모니위키 플러그인: $user_dir을 $data_dir로부터 분리
-	  * *.ttf파일등의 일부 중복되게 복사됨 방지.
+	  share/moniwiki/wikilib.php: [[#1753]] 모니위키에서 별명지원 기능 켬 및 코드고침.
+* RecentChanges, Info 플러그인 별명지원 코드 고침.
+	  [[#2226]] 모니위키 플러그인: $user_dir을 $data_dir로부터 분리
+* *.ttf파일등의 일부 중복되게 복사됨 방지.
 
 2009-05-01  bird1909
 
-	* [r497] plugins/moniwiki/common/MoniWikiPlugin.class,
-	  share/moniwiki/wikilib.php: [#1753] 모니위키/모니위키 모듈 별명지원 추가.
-	  * 프로젝트 홈에서 위키변경사항에 별명지원.
-	  * 별명을 모니위키 사용자정보에 저장하도록 고침
-	* [r496] install.php, nforge-install-2.php: [#2223] 일부 되돌림.
+ [[r497]] plugins/moniwiki/common/MoniWikiPlugin.class,
+	  share/moniwiki/wikilib.php: [[#1753]] 모니위키/모니위키 모듈 별명지원 추가.
+* 프로젝트 홈에서 위키변경사항에 별명지원.
+* 별명을 모니위키 사용자정보에 저장하도록 고침
+ [[r496]] install.php, nforge-install-2.php: [[#2223]] 일부 되돌림.
 	  unix_uid는 자동으로 설정되도록 그대로 둠.
-	  [#2224] 최초 설치시 (DB import시) nforge사용자를 유닉스계정에 추가.
-	  [#2143] $sys_root 소유자가 root:apache이던 것을 root:root로 바꿈.
-	* [r495] install.php: [#2223] 최초 설치시 등록되는 사용자의 unix_uid, unix_gid가
+	  [[#2224]] 최초 설치시 (DB import시) nforge사용자를 유닉스계정에 추가.
+	  [[#2143]] $sys_root 소유자가 root:apache이던 것을 root:root로 바꿈.
+ [[r495]] install.php: [[#2223]] 최초 설치시 등록되는 사용자의 unix_uid, unix_gid가
 	  0 잘못세팅되었던 것을
 	  20001로 고칩니다.
-	* [r494] setting.php: [#2217] 마지막 수정 고침. 주석 추가.
+ [[r494]] setting.php: [[#2217]] 마지막 수정 고침. 주석 추가.
 
 2009-04-30  bird1909
 
-	* [r493] setting.php: [#2217] 마지막 수정 고침;;
-	* [r492] install.php, setting.php: [#2217] 마지막 고침 수정.
-	* [r491] plugins/scmcvs/etc/plugins/scmcvs/config.php,
+ [[r493]] setting.php: [[#2217]] 마지막 수정 고침;;
+ [[r492]] install.php, setting.php: [[#2217]] 마지막 고침 수정.
+ [[r491]] plugins/scmcvs/etc/plugins/scmcvs/config.php,
 	  plugins/scmsvn/etc/plugins/scmsvn/config.php,
-	  www/include/BaseLanguage.class: [#2217] /var/cache/nforge같은 디렉토리를
+	  www/include/BaseLanguage.class: [[#2217]] /var/cache/nforge같은 디렉토리를
 	  캐시디렉토리로 따로 지정할 경우
 	  BaseLanguage에서 자동으로 캐시 디렉토리 생성하도록 고침.
 	  기타 작은 패치.
-	* [r490] cronjobs/exporter_pilot.php, etc/local.inc.nforge,
+ [[r490]] cronjobs/exporter_pilot.php, etc/local.inc.nforge,
 	  install.php, nforge-install-2.php, nforge-upgrade-1.php,
-	  setting.php: [#2217] $sys_chroot 문제 일부 제거
-	  * nforge-install-2.php: 첫번째 인자로 config.cache를 받을 경우 이를 사용해
+	  setting.php: [[#2217]] $sys_chroot 문제 일부 제거
+* nforge-install-2.php: 첫번째 인자로 config.cache를 받을 경우 이를 사용해
 	  설치할 수 있게 함.
-	  * $sys_var_dir, $sys_cache_dir 도입. 이것이 정의되어 있는 경우는 각각을 디렉토리 생성
+* $sys_var_dir, $sys_cache_dir 도입. 이것이 정의되어 있는 경우는 각각을 디렉토리 생성
 	  하여 각각 따로 둘 수 있음. 하위호환을 위해 심볼릭링크
-	  * chroot를 완전히 분리할 수 있게 함.
-	  * var과 cache를 분리. cache는 지워도 무방한 것을 저장.
-	  * etc/local.inc.nforge 정리 및 $sys_var_dir, $sys_cache_dir 도입.
-	  * 현재 기본은 $sys_var_dir == $sys_chroot == $sys_cache_dir
-	  * $sys_wiki_dir 도입. $sys_root사용하지 않고 $sys_wiki_dir사용. 하위호환유지.
-	* [r489] plugins/moniwiki/common/MoniWikiPlugin.class,
-	  plugins/moniwiki/www/index.php: [#2167] r488에서 고친 부분 반영하고, 일부
+* chroot를 완전히 분리할 수 있게 함.
+* var과 cache를 분리. cache는 지워도 무방한 것을 저장.
+* etc/local.inc.nforge 정리 및 $sys_var_dir, $sys_cache_dir 도입.
+* 현재 기본은 $sys_var_dir == $sys_chroot == $sys_cache_dir
+* $sys_wiki_dir 도입. $sys_root사용하지 않고 $sys_wiki_dir사용. 하위호환유지.
+ [[r489]] plugins/moniwiki/common/MoniWikiPlugin.class,
+	  plugins/moniwiki/www/index.php: [[#2167]] r488에서 고친 부분 반영하고, 일부
 	  shortcut link가 제대로 작동하지 않던 부분을 모두 고칩니다.
-	* [r488] www/projects: [#2167] svn/cvs는 viewvc를 쓰지만 git은 gitweb을
+ [[r488]] www/projects: [[#2167]] svn/cvs는 viewvc를 쓰지만 git은 gitweb을
 	  쓰므로
 	  SimpleURL을 우선 지원하게 합니다. /projects/foobar/rev/12 식으로 연결
 
 2009-04-30  semtlnori
 
-	* [r487] common/include/session.php: [#2191] IP로 접속하더라도 정상적으로 로그인할
+ [[r487]] common/include/session.php: [[#2191]] IP로 접속하더라도 정상적으로 로그인할
 	  수 있도록 수정합니다.
 
 2009-04-30  bird1909
 
-	* [r486] share/moniwiki/data/text/EditTextForm: [#2207]
+ [[r486]] share/moniwiki/data/text/EditTextForm: [[#2207]]
 	  EditToolbar를 기본으로 사용하도록 EditTextForm페이지를 첨가합니다.
-	* [r485] plugins/ggit/cronjobs/create_git.php: [#2215] group 생성전에
+ [[r485]] plugins/ggit/cronjobs/create_git.php: [[#2215]] group 생성전에
 	  create_git.php 실행시 문제 해결.
 	  group이 유효한지 검사함.
-	* [r484] install_util.php: [#2212] 마지막 고침의 작은 버그 제거
+ [[r484]] install_util.php: [[#2212]] 마지막 고침의 작은 버그 제거
 
 2009-04-30  semtlnori
 
-	* [r483] www/themes/nforge-dev/css/dev_wiki.css: [#2214] 위키 탭을 선택했을
+ [[r483]] www/themes/nforge-dev/css/dev_wiki.css: [[#2214]] 위키 탭을 선택했을
 	  때, 프로젝트 이름과 상단 메뉴의 모양이 다른 탭을 선택했을 때와 글꼴이 다르게 나오므로 통일될 수 있도록
 	  수정했습니다.
 
 2009-04-30  bird1909
 
-	* [r482] cronjobs/export_setting.php, etc/local.inc.nforge,
+ [[r482]] cronjobs/export_setting.php, etc/local.inc.nforge,
 	  install_util.php, load_setting.inc, setting.php,
-	  www/tracker/browse.php: [#2212] setting.php의 문제를 고쳤습니다.
-	  * setting.php: etc/local.inc.nforge를 DB에 반영하지 않던점 고침
-	  * install_util.php : 초기 인스톨만 사용할 수 있던부분을 변수별 갱신/비활성화/추가 가능.
-	  * load_setting.inc : 변수 type을 NULL로 하면 읽지 않게 고침
-	  * export_setting에 ';' 안붙이던 문제 및, type 판별
-	  * etc/local.inc.nforge에서 $sys_root 추가 및 대응 변수 치환
-	  [#2189] browse.php의 최근 고친 부분의 Notice warning 고침
+	  www/tracker/browse.php: [[#2212]] setting.php의 문제를 고쳤습니다.
+* setting.php: etc/local.inc.nforge를 DB에 반영하지 않던점 고침
+* install_util.php : 초기 인스톨만 사용할 수 있던부분을 변수별 갱신/비활성화/추가 가능.
+* load_setting.inc : 변수 type을 NULL로 하면 읽지 않게 고침
+* export_setting에 ';' 안붙이던 문제 및, type 판별
+* etc/local.inc.nforge에서 $sys_root 추가 및 대응 변수 치환
+	  [[#2189]] browse.php의 최근 고친 부분의 Notice warning 고침
 
 2009-04-30  semtlnori
 
-	* [r481] install.php: [#2183] 설치시 MySQL 관리자 비밀번호를 잘못 입력했을 때 설치가 바로
+ [[r481]] install.php: [[#2183]] 설치시 MySQL 관리자 비밀번호를 잘못 입력했을 때 설치가 바로
 	  중단되도록 합니다.
-	* [r480] install_util.php: [#2211] 설치시, system_setting 설정 중 DB접속
+ [[r480]] install_util.php: [[#2211]] 설치시, system_setting 설정 중 DB접속
 	  실패한 경우 에러메시지를 출력하고 종료하게 합니다.
 
 2009-04-30  bird1909
 
-	* [r479] share/moniwiki/locale/fr/LC_MESSAGES/moniwiki.mo,
+ [[r479]] share/moniwiki/locale/fr/LC_MESSAGES/moniwiki.mo,
 	  share/moniwiki/locale/fr/LC_MESSAGES/moniwiki.php,
 	  share/moniwiki/locale/ko/LC_MESSAGES/moniwiki.mo,
 	  share/moniwiki/locale/ko/LC_MESSAGES/moniwiki.php,
 	  share/moniwiki/locale/po/fr.po, share/moniwiki/locale/po/ko.po,
-	  share/moniwiki/locale/po/moniwiki.pot: [#2205] 위키 메시지 갱신 및 추가
-	* [r478]
+	  share/moniwiki/locale/po/moniwiki.pot: [[#2205]] 위키 메시지 갱신 및 추가
+ [[r478]]
 	  www/themes/nforge-dev/images/wiki/plugin/EditToolbar/moniwiki/button_bold.png,
 	  www/themes/nforge-dev/images/wiki/plugin/EditToolbar/moniwiki/button_extlink.png,
 	  www/themes/nforge-dev/images/wiki/plugin/EditToolbar/moniwiki/button_headline.png,
@@ -407,8 +407,8 @@
 	  www/themes/nforge-dev/images/wiki/plugin/EditToolbar/moniwiki/itoolbg.png,
 	  www/themes/nforge-dev/images/wiki/plugin/EditToolbar/moniwiki/toolbar.css,
 	  www/themes/nforge-dev/images/wiki/plugin/EditToolbar/moniwiki/toolbg.png:
-	  [#2206]대응 nforge-dev 테마의 wiki디렉토리 업데이트
-	* [r477]
+	  [[#2206]]대응 nforge-dev 테마의 wiki디렉토리 업데이트
+ [[r477]]
 	  share/moniwiki/imgs/plugin/EditToolbar/moniwiki/button_bold.png,
 	  share/moniwiki/imgs/plugin/EditToolbar/moniwiki/button_extlink.png,
 	  share/moniwiki/imgs/plugin/EditToolbar/moniwiki/button_headline.png,
@@ -426,165 +426,165 @@
 	  share/moniwiki/imgs/plugin/EditToolbar/moniwiki/toolbg.png,
 	  share/moniwiki/local/js/swfobject.js,
 	  share/moniwiki/local/wikibits.js,
-	  share/moniwiki/plugin/EditToolbar.php: [#2206] EditToolbar를 위한
+	  share/moniwiki/plugin/EditToolbar.php: [[#2206]] EditToolbar를 위한
 	  여러가지 업데이트
-	  * EditToolbar는 간단한 위키태그용 툴바입니다.
-	  * wikibits.js를 모니위키로부터 업데이트
-	  * swfobject.js 업데이트. (Media/Play 플러그인에서 사용)
-	  * EditToolbar용 아이콘 업데이트 (모니위키로부터)
-	* [r476] share/moniwiki/plugin/ISBN.php,
+* EditToolbar는 간단한 위키태그용 툴바입니다.
+* wikibits.js를 모니위키로부터 업데이트
+* swfobject.js 업데이트. (Media/Play 플러그인에서 사용)
+* EditToolbar용 아이콘 업데이트 (모니위키로부터)
+ [[r476]] share/moniwiki/plugin/ISBN.php,
 	  share/moniwiki/plugin/Media.php, share/moniwiki/plugin/Play.php,
 	  share/moniwiki/plugin/SlideShow.php,
-	  share/moniwiki/plugin/UploadForm.php: [#2206] mp3,flv등등의 일부
+	  share/moniwiki/plugin/UploadForm.php: [[#2206]] mp3,flv등등의 일부
 	  embed를 시킬 수 있는 Media플러그인 추가
-	  * Media(껍데기)+Play(본체) 매크로 추가
-	  * UploadForm.php 위키의 기본 업로드 폼 대체용 javascript버전.
-	  * SlideShow플러그인은 위키페이지를 슬라이드 보여주듯 도와줌.
-	  * 최근 몇몇 링크가 바뀌어 ISBN을 제대로 쓸 수 없음. 최신버전에서 업뎃.
-	* [r475] share/moniwiki/plugin/DueDate.php,
+* Media(껍데기)+Play(본체) 매크로 추가
+* UploadForm.php 위키의 기본 업로드 폼 대체용 javascript버전.
+* SlideShow플러그인은 위키페이지를 슬라이드 보여주듯 도와줌.
+* 최근 몇몇 링크가 바뀌어 ISBN을 제대로 쓸 수 없음. 최신버전에서 업뎃.
+ [[r475]] share/moniwiki/plugin/DueDate.php,
 	  share/moniwiki/plugin/UrlMapping.php,
 	  share/moniwiki/plugin/bookmark.php,
 	  share/moniwiki/plugin/home.php, share/moniwiki/plugin/new.php,
 	  share/moniwiki/plugin/print.php,
 	  share/moniwiki/plugin/rename.php,
 	  share/moniwiki/plugin/revert.php,
-	  share/moniwiki/plugin/ticket.php: [#2206] 위키관리에 필수적이거나 없으면 불편한
+	  share/moniwiki/plugin/ticket.php: [[#2206]] 위키관리에 필수적이거나 없으면 불편한
 	  rename,revert 위키 플러그인 추가
-	  * new,print,home,bookmark,DueDate같은 보안과 관련 없는 플러그인 추가
-	  * wiki core에서 필요로 하는 UrlMapping매크로 추가
-	  * 위키내장 captcha지원 ticket 플러그인 추가.
-	* [r474] plugins/moniwiki/common/MoniWikiPlugin.class: [#2208]
+* new,print,home,bookmark,DueDate같은 보안과 관련 없는 플러그인 추가
+* wiki core에서 필요로 하는 UrlMapping매크로 추가
+* 위키내장 captcha지원 ticket 플러그인 추가.
+ [[r474]] plugins/moniwiki/common/MoniWikiPlugin.class: [[#2208]]
 	  /wiki/projectname/index.php => /projects/projectname/wiki/로 변경
-	  * 위키의 link_url()을 이용.
-	  * diff_url을 앞 부분에 사용하도록 함
+* 위키의 link_url()을 이용.
+* diff_url을 앞 부분에 사용하도록 함
 
 2009-04-29  rokmcseosu
 
-	* [r473] cronjobs/analyze_db_schema.php,
+ [[r473]] cronjobs/analyze_db_schema.php,
 	  cronjobs/exporter_pilot.php, cronjobs/importer_pilot.php,
 	  cronjobs/schema_trade.inc: 프로젝트 export/import 파일럿
 
 2009-04-29  bird1909
 
-	* [r472] etc/nforge-httpd.conf.example, nforge-install-2.php:
-	  [#2202] cronjob 스크립트 퍼미션 조정 및 플러그인별 httpd.conf 넣기
-	* [r471] nforge-install-2.php: [#2107] /gitroot를 심볼릭링크로 생성
-	* [r470] etc/nforge-httpd.conf.example: [#2107] git repo. anonymous
+ [[r472]] etc/nforge-httpd.conf.example, nforge-install-2.php:
+	  [[#2202]] cronjob 스크립트 퍼미션 조정 및 플러그인별 httpd.conf 넣기
+ [[r471]] nforge-install-2.php: [[#2107]] /gitroot를 심볼릭링크로 생성
+ [[r470]] etc/nforge-httpd.conf.example: [[#2107]] git repo. anonymous
 	  접근을 위한 설정첨가
-	* [r469] plugins/ggit/bin/create_git_repo_ssh.sh: [#2107] set
+ [[r469]] plugins/ggit/bin/create_git_repo_ssh.sh: [[#2107]] set
 	  executable bit
-	* [r468] share/moniwiki/plugin/Attachment.php,
+ [[r468]] share/moniwiki/plugin/Attachment.php,
 	  share/moniwiki/plugin/UploadedFiles.php,
 	  share/moniwiki/plugin/security/nforge.php,
-	  share/moniwiki/wiki.php: [#2167] SimpleURL 지원을 위한 변경에 대응
-	* [r467] plugins/moniwiki/common/MoniWikiPlugin.class,
+	  share/moniwiki/wiki.php: [[#2167]] SimpleURL 지원을 위한 변경에 대응
+ [[r467]] plugins/moniwiki/common/MoniWikiPlugin.class,
 	  plugins/moniwiki/etc/plugins/moniwiki/config.php.nforge,
-	  plugins/moniwiki/www/index.php: [#2167] [#2201]
+	  plugins/moniwiki/www/index.php: [[#2167]] [[#2201]]
 	  projects/foobar/wiki/FrontPage (SimpleURL)지원 관련 발생한 버그
-	  * 프로젝트별 config.php를 제대로 못 읽던 버그 : $sys_chroot를 global로
-	  * path 관련 자동 변수설정 추가.
-	  * 등록사용자일 경우는 Info에서 IP주소 안보이게끔 use_hostname=0
+* 프로젝트별 config.php를 제대로 못 읽던 버그 : $sys_chroot를 global로
+* path 관련 자동 변수설정 추가.
+* 등록사용자일 경우는 Info에서 IP주소 안보이게끔 use_hostname=0
 
 2009-04-29  darjeel
 
-	* [r466] common/include/MailParser.class: [#2052] need some test
+ [[r466]] common/include/MailParser.class: [[#2052]] need some test
 	  for mail decode functions
-	* [r465] common/include/MailParser.class: #2052 MailParser.class
+ [[r465]] common/include/MailParser.class: #2052 MailParser.class
 	  function mime_header_one_word_decode updated from pear's
 	  Mail/mimeDecode class
 
 2009-04-29  bird1909
 
-	* [r464] plugins/moniwiki/common/MoniWikiPlugin.class: [#2116]
+ [[r464]] plugins/moniwiki/common/MoniWikiPlugin.class: [[#2116]]
 	  nFORGE에서 사용자 등록시 위키페이지 히스토리에 id가 나오는 것이
 	  맞을 것이므로 $use_hostname 옵션을 기본적으로 0으로 처리
-	* [r463] share/moniwiki/plugin/Info.php: [#2116] Info에서 등록사용자의 경우
+ [[r463]] share/moniwiki/plugin/Info.php: [[#2116]] Info에서 등록사용자의 경우
 	  IP주소 안나오도록
-	* [r462] nforge-install-1.php, nforge-install-2.php: [#2107] git
+ [[r462]] nforge-install-1.php, nforge-install-2.php: [[#2107]] git
 	  플러그인을 위한 git / git-core 패키지 더하기
-	  [#1984] svn으로 직접 받았을 경우 / .svn을 tar을 이용해 그대로 복사 및 현재 dir 점검
+	  [[#1984]] svn으로 직접 받았을 경우 / .svn을 tar을 이용해 그대로 복사 및 현재 dir 점검
 
 2009-04-29  semtlnori
 
-	* [r461] plugins/moniwiki/common/MoniWikiPlugin.class: [#2186]
+ [[r461]] plugins/moniwiki/common/MoniWikiPlugin.class: [[#2186]]
 	  프로젝트가 승인된 직후 해당 프로젝트의 모니위키가 초기화되도록 합니다.
 
 2009-04-29  bird1909
 
-	* [r460] plugins/moniwiki/common/MoniWikiPlugin.class: [#2186] 위키가
+ [[r460]] plugins/moniwiki/common/MoniWikiPlugin.class: [[#2186]] 위키가
 	  설정되지 않았을경우 메뉴에서 안보이도록 합니다.
 
 2009-04-29  semtlnori
 
-	* [r459] www/index.php, www/softwaremap/trove_list.php: [#2200]
+ [[r459]] www/index.php, www/softwaremap/trove_list.php: [[#2200]]
 	  소프트웨어맵에서 항목별 갯수가 빈칸으로 나오게 되는 경우가 있는데, 그런 경우 0으로 나오도록 수정
-	* [r458] install.php: [#2183] 설치중 MySQL 관리자 비밀번호 입력시 Enter MySQL
+ [[r458]] install.php: [[#2183]] 설치중 MySQL 관리자 비밀번호 입력시 Enter MySQL
 	  root Password 라고 출력하도록 메시지 수정
 
 2009-04-29  bird1909
 
-	* [r457] www/themes/nforge-dev/css/dev_style.css,
-	  www/themes/nforge-dev/images/ic/file16.png: [#2136] 코드리뷰 css 적용
+ [[r457]] www/themes/nforge-dev/css/dev_style.css,
+	  www/themes/nforge-dev/images/ic/file16.png: [[#2136]] 코드리뷰 css 적용
 
 2009-04-29  semtlnori
 
-	* [r456] db/cubrid.sql, db/gforge.sql, db/mysql.sql: [#2186] 기본적으로
+ [[r456]] db/cubrid.sql, db/gforge.sql, db/mysql.sql: [[#2186]] 기본적으로
 	  위키를 사용하는 것으로 설정되도록, 설치시 sys_use_wiki를 true로 설정합니다.
 
 2009-04-29  bird1909
 
-	* [r455] plugins/scmcvs/etc/xinet.d,
+ [[r455]] plugins/scmcvs/etc/xinet.d,
 	  plugins/scmcvs/etc/xinet.d/cvs-pserver,
-	  plugins/scmcvs/sbin/cvs-pserver: [#2038] 일반 및 chroot 환경하 모두에서
+	  plugins/scmcvs/sbin/cvs-pserver: [[#2038]] 일반 및 chroot 환경하 모두에서
 	  작동함을 확인하였습니다.
-	  * redhat계열의 xinetd를 쓰는 경우에 대한 설정파일 추가
+* redhat계열의 xinetd를 쓰는 경우에 대한 설정파일 추가
 
 2009-04-29  semtlnori
 
-	* [r454] install.php: [#2142] 설치시 crontab.php가 생성하는 cron 파일의 경로가
+ [[r454]] install.php: [[#2142]] 설치시 crontab.php가 생성하는 cron 파일의 경로가
 	  잘못되어 있어 수정
 
 2009-04-29  bird1909
 
-	* [r453] crontab.php: [#2142]에서 빠진 crontab.php를 추가합니다;;
+ [[r453]] crontab.php: [[#2142]]에서 빠진 crontab.php를 추가합니다;;
 
 2009-04-29  semtlnori
 
-	* [r452] install.php: [#2183] MySQL 관리자 비밀번호를 입력하도록 하기 전에, 어떤 명령을
+ [[r452]] install.php: [[#2183]] MySQL 관리자 비밀번호를 입력하도록 하기 전에, 어떤 명령을
 	  수행하기때문에 비밀번호가 필요한건지 알려줌
 
 2009-04-29  bird1909
 
-	* [r451] common/include/Group.class, common/include/license.php,
+ [[r451]] common/include/Group.class, common/include/license.php,
 	  common/tracker/ArtifactTypes.class, plugins/scmsvn/README,
 	  www/include/logger.php, www/project/admin/editgroupinfo.php,
 	  www/project/admin/group_trove.php, www/scm/index.php,
-	  www/themes/nforge-dev/Theme.class, www/tracker/index.php: [#2195]
-	  * scmsvn/README 경로 수정
-	  * nforge-dev/Theme.class의 wiki tab에 CSS 설정으로 Warning 없앰
-	  * 프로젝트 등록후 나오는 화면의 이미지 깨짐 방지 패치
-	  * editgroupinfo.php의 hook 리턴값 세팅.
-	  * 일부 Notice warning 없앰.
-	* [r450] common/scm/CodeReview.class: [#2138] 추가로 codereview icon도
+	  www/themes/nforge-dev/Theme.class, www/tracker/index.php: [[#2195]]
+* scmsvn/README 경로 수정
+* nforge-dev/Theme.class의 wiki tab에 CSS 설정으로 Warning 없앰
+* 프로젝트 등록후 나오는 화면의 이미지 깨짐 방지 패치
+* editgroupinfo.php의 hook 리턴값 세팅.
+* 일부 Notice warning 없앰.
+ [[r450]] common/scm/CodeReview.class: [[#2138]] 추가로 codereview icon도
 	  css적용 및 html_image() 사용
-	* [r449] www/admin/cronman.php: [#2142]에서 빠졌던 부분을 추가합니다.
-	* [r448] common/include/cron_utils.php, cronjobs/scheduler.php,
-	  install.php, install_util.php, www/admin/cronedit.php: [#2147]
+ [[r449]] www/admin/cronman.php: [[#2142]]에서 빠졌던 부분을 추가합니다.
+ [[r448]] common/include/cron_utils.php, cronjobs/scheduler.php,
+	  install.php, install_util.php, www/admin/cronedit.php: [[#2147]]
 	  crontab.php를 install.php로부터 분리합니다.
-	  * 생성되는 crontab(nforgecron)은 crontab.in로부터 만들어지고
-	  * 모든 코멘트를 보존하여 수동편집도 용이하게 하며
-	  * 일부 cron변수를 자동으로 세팅. cron변수를 그대로 사용
-	  * $NFORGE, $PHP, $GFORGE 등의 변수 세팅 및 crontab의 변수 사용.
-	  * schedular 및 cronedit 모두에 적용.
+* 생성되는 crontab(nforgecron)은 crontab.in로부터 만들어지고
+* 모든 코멘트를 보존하여 수동편집도 용이하게 하며
+* 일부 cron변수를 자동으로 세팅. cron변수를 그대로 사용
+* $NFORGE, $PHP, $GFORGE 등의 변수 세팅 및 crontab의 변수 사용.
+* schedular 및 cronedit 모두에 적용.
 
 2009-04-29  semtlnori
 
-	* [r447] install.php: [#2183] MySQL 환경에서 설치시 root 비밀번호가 설정되어 있는 경우
+ [[r447]] install.php: [[#2183]] MySQL 환경에서 설치시 root 비밀번호가 설정되어 있는 경우
 	  에러가 발생하는 문제를 수정하였습니다.
 
 2009-04-29  bird1909
 
-	* [r446] www/themes/nforge-dev/css/dev_style.css,
+ [[r446]] www/themes/nforge-dev/css/dev_style.css,
 	  www/themes/nforge-dev/images/Thumbs.db,
 	  www/themes/nforge-dev/images/h3_group_trove.gif,
 	  www/themes/nforge-dev/images/ico_solve.gif,
@@ -594,60 +594,60 @@
 	  www/themes/nforge-dev/images/status-unsolved.gif,
 	  www/themes/nforge-dev/images/uclient.err,
 	  www/themes/nforge-dev/images/wiki/moniwiki-logo.png,
-	  www/tracker/browse.php: [#2189] 기본테마 해결/미해결 아이콘을 css 스타일화
-	  * 해결/미해결 아이콘을 css스타일 적용
-	  * images 디렉토리 정리 (Thumbs.db uclient.err제거)
-	  * 빠져있던 h3_group_trove.gif 넣음 [#2025]
-	  * 모니위키 setup프로프로그램에서 사용하는 로고이미지 넣음
+	  www/tracker/browse.php: [[#2189]] 기본테마 해결/미해결 아이콘을 css 스타일화
+* 해결/미해결 아이콘을 css스타일 적용
+* images 디렉토리 정리 (Thumbs.db uclient.err제거)
+* 빠져있던 h3_group_trove.gif 넣음 [[#2025]]
+* 모니위키 setup프로프로그램에서 사용하는 로고이미지 넣음
 
 2009-04-29  semtlnori
 
-	* [r445] install.php: [#2184] 설치시 디폴트 관리자 메일 주소는 거의 사용할 수 없는 것이라
-	  의미가 없으므로, 디폴트 값 없이 메일 주소를 입력하도록 수정합니다. [#2193] 메일 주소를 잘못 입력할 수
+ [[r445]] install.php: [[#2184]] 설치시 디폴트 관리자 메일 주소는 거의 사용할 수 없는 것이라
+	  의미가 없으므로, 디폴트 값 없이 메일 주소를 입력하도록 수정합니다. [[#2193]] 메일 주소를 잘못 입력할 수
 	  있으므로 validation 체크를 합니다.
 
 2009-04-28  bird1909
 
-	* [r444] www/js/utils.js, www/themes/nforge-dev/css/dev_style.css,
+ [[r444]] www/js/utils.js, www/themes/nforge-dev/css/dev_style.css,
 	  www/tracker/detail.php, www/tracker/mod.php,
-	  www/tracker/tracker.php: [#2138] 첨부파일 UI수정 css 최종 적용 및 빠졌던 부분 수정
-	  * [#2185] semtlnori님의 제안으로 삭제 선택된 파일에 대해 취소선 적용
-	  * file input form 리셋은 휴지통 아이콘 대신에 x 아이콘으로 대체
-	* [r443] www/register/projectinfo.php: [#2188]
-	  * Other / Proprietary 라이센스 선택시만 폼 보이게
-	  * $sys_default_scm='ggit';과 같이 하면 초기 프로젝트 만들기 할 때 ggit이 선택됨.
-	* [r442] www/404.php: [#2167] 기존에 group_name을 사용하는 부분을
+	  www/tracker/tracker.php: [[#2138]] 첨부파일 UI수정 css 최종 적용 및 빠졌던 부분 수정
+* [[#2185]] semtlnori님의 제안으로 삭제 선택된 파일에 대해 취소선 적용
+* file input form 리셋은 휴지통 아이콘 대신에 x 아이콘으로 대체
+ [[r443]] www/register/projectinfo.php: [[#2188]]
+* Other / Proprietary 라이센스 선택시만 폼 보이게
+* $sys_default_scm='ggit';과 같이 하면 초기 프로젝트 만들기 할 때 ggit이 선택됨.
+ [[r442]] www/404.php: [[#2167]] 기존에 group_name을 사용하는 부분을
 	  unix_group_name을 사용하도록 고침.
-	* [r441] plugins/moniwiki/common/MoniWikiPlugin.class,
+ [[r441]] plugins/moniwiki/common/MoniWikiPlugin.class,
 	  plugins/moniwiki/common/languages/Base.tab,
 	  plugins/moniwiki/common/languages/Korean.tab,
 	  plugins/moniwiki/common/moniwiki-init.php,
 	  plugins/moniwiki/etc/plugins/moniwiki/config.php,
 	  plugins/moniwiki/etc/plugins/moniwiki/config.php.nforge,
-	  plugins/moniwiki/www/index.php: [#2186] 최초 설치시 위키를 기본으로 하도록 고침
-	  * 최초 설치시 기본으로 설치되도록 함.
-	  * 사용자가 원할경우는 개별설정 할 수 있도록 고침
-	  * monisetup.php가 없이 설치될 수 있도록 디렉토리 생성 등등을 처리
-	  * 위키 seed 페이지가 data/text에 없고 그 대신에 wikiseed/ 디렉토리에 있는 경우는
+	  plugins/moniwiki/www/index.php: [[#2186]] 최초 설치시 위키를 기본으로 하도록 고침
+* 최초 설치시 기본으로 설치되도록 함.
+* 사용자가 원할경우는 개별설정 할 수 있도록 고침
+* monisetup.php가 없이 설치될 수 있도록 디렉토리 생성 등등을 처리
+* 위키 seed 페이지가 data/text에 없고 그 대신에 wikiseed/ 디렉토리에 있는 경우는
 	  plugin/config.php에서 $seed_pages를 설정하여 그 파일만 최소로 복사되게끔 함.
 	  (모니위키를 nFORGE 기본으로 제공되는 것 말고 모니위키 사이트의 설치본일 경우)
-	* [r440] share/moniwiki/data/intermap.txt,
+ [[r440]] share/moniwiki/data/intermap.txt,
 	  share/moniwiki/data/text/InterMap,
 	  share/moniwiki/plugin/security/nforge.php,
-	  share/moniwiki/wiki.php, share/moniwiki/wikilib.php: [#2187] 문제
+	  share/moniwiki/wiki.php, share/moniwiki/wikilib.php: [[#2187]] 문제
 	  수정 외.
-	  * nforge security_class를 개선 관리자일 경우 비밀번호 없이 쓸수 있게함.
-	  * wiki.php에서 plugin을 잘못 replace하는 부분 수정
-	  * 모니위키 현 사이트에 대한 InterMap 수정.
+* nforge security_class를 개선 관리자일 경우 비밀번호 없이 쓸수 있게함.
+* wiki.php에서 plugin을 잘못 replace하는 부분 수정
+* 모니위키 현 사이트에 대한 InterMap 수정.
 
 2009-04-28  mstorm83
 
-	* [r439] cronjobs/db_trove_maint.php: [#1672] 소프트웨어맵 전체 프로젝트 cron
+ [[r439]] cronjobs/db_trove_maint.php: [[#1672]] 소프트웨어맵 전체 프로젝트 cron
 	  작업 쿼리 cubrid 호환 패치
 
 2009-04-28  bird1909
 
-	* [r438] common/frs/FRSFile.class, common/frs/FRSRelease.class,
+ [[r438]] common/frs/FRSFile.class, common/frs/FRSRelease.class,
 	  common/include/Group.class, common/include/Permission.class,
 	  common/include/User.class, common/include/account.php,
 	  common/include/constants.php, common/include/cron_utils.php,
@@ -681,199 +681,199 @@
 	  www/admin/languages/loadtabfiles.php,
 	  www/include/BaseLanguage.class, www/include/Layout.class,
 	  www/include/canned_responses.php, www/include/features_boxes.php,
-	  www/include/trove.php: [#2159] local.inc를 직접 include하지 않게 고침
+	  www/include/trove.php: [[#2159]] local.inc를 직접 include하지 않게 고침
 
 2009-04-28  mstorm83
 
-	* [r437] cronjobs/db_trove_maint.php: [#1672] 소프트웨어맵 전체 프로젝트 cron
+ [[r437]] cronjobs/db_trove_maint.php: [[#1672]] 소프트웨어맵 전체 프로젝트 cron
 	  작업 쿼리 오류 수정
 
 2009-04-28  bird1909
 
-	* [r436] www/404.php, www/include/logger.php, www/scm/index.php,
-	  www/tracker/index.php, www/tracker/tracker.php: [#2167] c91
+ [[r436]] www/404.php, www/include/logger.php, www/scm/index.php,
+	  www/tracker/index.php, www/tracker/tracker.php: [[#2167]] c91
 	  SimpleURL을 적용했습니다.
-	  * /project/foobar/issue/16 방식 연결 지원
-	  * /foobar/issue/16 방식 연결 지원
-	  * /foobar/code/20 방식 연결 지원
-	* [r435] plugins/ggit/bin/create_git_repo_ssh.sh,
+* /project/foobar/issue/16 방식 연결 지원
+* /foobar/issue/16 방식 연결 지원
+* /foobar/code/20 방식 연결 지원
+ [[r435]] plugins/ggit/bin/create_git_repo_ssh.sh,
 	  plugins/ggit/common/GgitPlugin.class,
 	  plugins/ggit/cronjobs/create_git.php,
 	  plugins/ggit/cronjobs/snapshots.sh,
 	  plugins/ggit/cronjobs/tarballs.php, plugins/ggit/www/gitweb.php:
-	  [#2107]에서 잘못된 부분을 수정하고, tarballs.php와 snapshots을 git에 맞게 수정합니다.
+	  [[#2107]]에서 잘못된 부분을 수정하고, tarballs.php와 snapshots을 git에 맞게 수정합니다.
 
 2009-04-28  semtlnori
 
-	* [r434] www/snippet/browse.php, www/snippet/index.php,
-	  www/snippet/snippet_utils.php: [#2175] Code Snippet의 '설명' 내용에서
+ [[r434]] www/snippet/browse.php, www/snippet/index.php,
+	  www/snippet/snippet_utils.php: [[#2175]] Code Snippet의 '설명' 내용에서
 	  따옴표 등에 역슬래시가 붙지 않도록 수정합니다.
 
 2009-04-28  mstorm83
 
-	* [r433] cronjobs/db_trove_maint.php,
+ [[r433]] cronjobs/db_trove_maint.php,
 	  www/include/languages/Base.tab, www/include/languages/Korean.tab,
-	  www/index.php, www/softwaremap/trove_list.php: [#1672] 소프트웨어맵에서
+	  www/index.php, www/softwaremap/trove_list.php: [[#1672]] 소프트웨어맵에서
 	  전체 프로젝트를 조회 가능하도록 합니다.
 
 2009-04-28  utumdol
 
-	* [r432] www/export/rss20_news.php: [#2160] 쿼리 오류 수정
+ [[r432]] www/export/rss20_news.php: [[#2160]] 쿼리 오류 수정
 
 2009-04-28  bird1909
 
-	* [r431] www/include/languages/Base.tab,
+ [[r431]] www/include/languages/Base.tab,
 	  www/include/languages/Korean.tab,
-	  www/project/admin/editgroupinfo.php: [#2168] bmp,jpg,gif만 체크하는
+	  www/project/admin/editgroupinfo.php: [[#2168]] bmp,jpg,gif만 체크하는
 	  부분에 png를 추가. 메시지 변경.
 
 2009-04-27  bird1909
 
-	* [r430] www/projects: [#2106] r429를 반영하기 위해 projects를 고쳤습니다.
+ [[r430]] www/projects: [[#2106]] r429를 반영하기 위해 projects를 고쳤습니다.
 	  /projects/foobar/wiki/FrontPage방식의 접근을 지원합니다.
-	* [r429] plugins/moniwiki/common/MoniWikiPlugin.class,
-	  share/moniwiki/wiki.php: [#2106] [#2116] 모니위키 플러그인에서 wiki_main
+ [[r429]] plugins/moniwiki/common/MoniWikiPlugin.class,
+	  share/moniwiki/wiki.php: [[#2106]] [[#2116]] 모니위키 플러그인에서 wiki_main
 	  후크를 지원합니다.
 	  /projects/foobar/wiki/FrontPage와 같은 접근을 지원합니다.
-	* [r428] plugins/moniwiki/common/MoniWikiPlugin.class,
-	  www/include/project_home.php: [#2106]를 위해 기존의 코드를 걷어내고 플러그인으로
+ [[r428]] plugins/moniwiki/common/MoniWikiPlugin.class,
+	  www/include/project_home.php: [[#2106]]를 위해 기존의 코드를 걷어내고 플러그인으로
 	  집어넣었습니다.
-	  * project_home의 코드를 플러그인으로 집어넣고 wiki_recentchanges 후크 사용
-	* [r427] db/cubrid.sql, db/gforge.sql, db/mysql.sql,
-	  nforge-install-2.php: [#2149] ggit, gittracker 및 moniwiki 플러그인을
+* project_home의 코드를 플러그인으로 집어넣고 wiki_recentchanges 후크 사용
+ [[r427]] db/cubrid.sql, db/gforge.sql, db/mysql.sql,
+	  nforge-install-2.php: [[#2149]] ggit, gittracker 및 moniwiki 플러그인을
 	  기본으로 활성화.
-	  * db/*sql에 ggit, gittracker를 첨가합니다.
-	  * 플러그인에 관련되어 제거되었던 코드를 gforge를 참고해서 플러그인 config.php를 읽도록 합니다.
-	  * [#2129]: 관련된 설정을 admin페이지에서 제대로 할 수 있도록 아파치 퍼미션을 줍니다.
+* db/*sql에 ggit, gittracker를 첨가합니다.
+* 플러그인에 관련되어 제거되었던 코드를 gforge를 참고해서 플러그인 config.php를 읽도록 합니다.
+* [[#2129]]: 관련된 설정을 admin페이지에서 제대로 할 수 있도록 아파치 퍼미션을 줍니다.
 	  (www/plugins, etc/nforge/plugins)
-	* [r426] www/include/pre.php, www/include/squal_pre.php: [#2156]
+ [[r426]] www/include/pre.php, www/include/squal_pre.php: [[#2156]]
 	  constants.php를 require_once 사용
-	* [r425] nforge-install-3.php: [#2155] gforge 소스로부터 copyright문구를
+ [[r425]] nforge-install-3.php: [[#2155]] gforge 소스로부터 copyright문구를
 	  반영합니다.
 
 2009-04-27  mstorm83
 
-	* [r424] www/include/languages/Base.tab,
-	  www/include/languages/Korean.tab: [#2087] 메일주소 변경 메일에 대한 <> 제거
+ [[r424]] www/include/languages/Base.tab,
+	  www/include/languages/Korean.tab: [[#2087]] 메일주소 변경 메일에 대한 <> 제거
 
 2009-04-26  bird1909
 
-	* [r423] crontab.in, install.php, nforge-install-2.php,
+ [[r423]] crontab.in, install.php, nforge-install-2.php,
 	  plugins/ggit/cronjobs/create_git.php,
-	  plugins/moniwiki/www/index.php: [#2148] 설치시 발견한 자잘한 문제점 수정.
-	  * $sys_root/wiki는 없어졌더군요. $sys_chroot/wiki로 수정합니다.
-	  * $sys_chroot/gitroot 디렉토리 없을 때 이를 자동으로 생성하도록 스크립트를 고쳤습니다.
-	  * install.php에서 answer == y 여야 하는 부분이 != y로 되어있었습니다.
-	  * crontab을 갱신합니다. ggit와 빠져있던 scheduler를 넣었습니다.
-	  * git을 설치하는 경우는 ggit/bin/cvssh.pl을 써야 git과 cvs를 같이 사용할 수 있습니다.
+	  plugins/moniwiki/www/index.php: [[#2148]] 설치시 발견한 자잘한 문제점 수정.
+* $sys_root/wiki는 없어졌더군요. $sys_chroot/wiki로 수정합니다.
+* $sys_chroot/gitroot 디렉토리 없을 때 이를 자동으로 생성하도록 스크립트를 고쳤습니다.
+* install.php에서 answer == y 여야 하는 부분이 != y로 되어있었습니다.
+* crontab을 갱신합니다. ggit와 빠져있던 scheduler를 넣었습니다.
+* git을 설치하는 경우는 ggit/bin/cvssh.pl을 써야 git과 cvs를 같이 사용할 수 있습니다.
 	  ggit의 cvssh.pl을 사용하더록 했습니다.
-	  * 이미 /cvsroot 링크가 있을 경우에 (chroot 지원시) 심볼릭 링크를 생성하지 않습니다.
-	* [r422] plugins/ggit/bin/cvssh.pl: [#2107] 빠진파일을 올립니다. scmcvs의
+* 이미 /cvsroot 링크가 있을 경우에 (chroot 지원시) 심볼릭 링크를 생성하지 않습니다.
+ [[r422]] plugins/ggit/bin/cvssh.pl: [[#2107]] 빠진파일을 올립니다. scmcvs의
 	  cvssh.pl을 조금 바꾸어 cvs및 git을 모두 지원합니다.
 
 2009-04-25  bird1909
 
-	* [r421] setting.php: [#2128] local.inc파일이 잘못 들어갔던 것을 고칩니다.
-	* [r420] www/themes/nforge-dev/css/dev_wiki.css: [#2140] 기본 테마에서
+ [[r421]] setting.php: [[#2128]] local.inc파일이 잘못 들어갔던 것을 고칩니다.
+ [[r420]] www/themes/nforge-dev/css/dev_wiki.css: [[#2140]] 기본 테마에서
 	  위키의 경우 footer스타일이 다른 문제 수정.
-	* [r419] www/tracker/tracker.php: [#2138] 아이콘을 label을 붙이고 span을 달아서
+ [[r419]] www/tracker/tracker.php: [[#2138]] 아이콘을 label을 붙이고 span을 달아서
 	  css상에서 수정가능하도록 고침
-	  * 아이콘 이름을 file_down 대신에 attach로 고침
-	* [r418] www/themes/nforge-dev/css/dev_style.css: [#2138]에서 필수적인
+* 아이콘 이름을 file_down 대신에 attach로 고침
+ [[r418]] www/themes/nforge-dev/css/dev_style.css: [[#2138]]에서 필수적인
 	  css를 추가. 나머지는 토론후에 추가.
-	* [r417] plugins/moniwiki/common/MoniWikiPlugin.class,
-	  share/moniwiki/monisetup.php: [#2106]셋업 php링크 수정
-	  [#2116] basename()을 써서 보완
-	* [r416] plugins/moniwiki/etc/plugins/moniwiki/config.php.nforge,
-	  plugins/moniwiki/www/index.php: [#2106] [#2116]에서 고친 부분을 모니위키
+ [[r417]] plugins/moniwiki/common/MoniWikiPlugin.class,
+	  share/moniwiki/monisetup.php: [[#2106]]셋업 php링크 수정
+	  [[#2116]] basename()을 써서 보완
+ [[r416]] plugins/moniwiki/etc/plugins/moniwiki/config.php.nforge,
+	  plugins/moniwiki/www/index.php: [[#2106]] [[#2116]]에서 고친 부분을 모니위키
 	  플러그인에 반영
-	  * wikiwyg 사용안함을 기본으로 바꿈
-	* [r415] www/themes/nforge-dev/css/dev_style.css: [#2026] r414에서 고친
+* wikiwyg 사용안함을 기본으로 바꿈
+ [[r415]] www/themes/nforge-dev/css/dev_style.css: [[#2026]] r414에서 고친
 	  css 추가;;
-	* [r414] common/scm/CodeReview.class: [#2026] 코드리뷰의 일부 css 스타일 속성이
+ [[r414]] common/scm/CodeReview.class: [[#2026]] 코드리뷰의 일부 css 스타일 속성이
 	  IE에서 제대로 안되는 문제
-	  * selected 클래스 이름을 marked로 바꿈.
-	* [r413] www/themes/nforge-dev/images/ic/trash-full.png,
+* selected 클래스 이름을 marked로 바꿈.
+ [[r413]] www/themes/nforge-dev/images/ic/trash-full.png,
 	  www/themes/nforge-dev/images/ic/trash-inactive.png,
-	  www/themes/nforge-dev/images/ic/trash.png: [#2138]에 사용될 두개의 이미지를
+	  www/themes/nforge-dev/images/ic/trash.png: [[#2138]]에 사용될 두개의 이미지를
 	  더하고, 하나의 휴지통 이미지를 업데이트
-	* [r412] www/js/utils.js, www/tracker/mod.php,
-	  www/tracker/tracker.php: [#2138]첨부파일 관련 UI에 css를 입혔습니다.
-	  * 일부 이미지 이름을 수정합니다. file_down대신에 attach로
-	  * 체크박스를 이미지로 적용할 수 있도록 css를 적용
-	  * 체크박스를 이미지로 적용하기 위한 간단한 자바스크립트 첨가
-	  * 파일 사이즈 정보도 추가하여 css로 제어가능하도록 수정
-	* [r411] www/tabber/divtool.js, www/tracker/detail.php,
+ [[r412]] www/js/utils.js, www/tracker/mod.php,
+	  www/tracker/tracker.php: [[#2138]]첨부파일 관련 UI에 css를 입혔습니다.
+* 일부 이미지 이름을 수정합니다. file_down대신에 attach로
+* 체크박스를 이미지로 적용할 수 있도록 css를 적용
+* 체크박스를 이미지로 적용하기 위한 간단한 자바스크립트 첨가
+* 파일 사이즈 정보도 추가하여 css로 제어가능하도록 수정
+ [[r411]] www/tabber/divtool.js, www/tracker/detail.php,
 	  www/tracker/include/ArtifactHtml.class, www/tracker/mod.php:
-	  [#2112] 사파리/크롬 등에서 첨부파일 이미지를 볼 수 없었던 문제를 수정
-	  * view_image() 자바스크립트 단순화
-	  * href 대신에 onclick속성으로 자바스크립트 넣음. 자바스크립트 지원 안할때는 일반적방식그대로
+	  [[#2112]] 사파리/크롬 등에서 첨부파일 이미지를 볼 수 없었던 문제를 수정
+* view_image() 자바스크립트 단순화
+* href 대신에 onclick속성으로 자바스크립트 넣음. 자바스크립트 지원 안할때는 일반적방식그대로
 
 2009-04-24  bird1909
 
-	* [r410] plugins/moniwiki/common/MoniWikiPlugin.class,
+ [[r410]] plugins/moniwiki/common/MoniWikiPlugin.class,
 	  plugins/moniwiki/common/languages/Base.tab,
-	  plugins/moniwiki/common/languages/Korean.tab: [#2106] 프로젝트
+	  plugins/moniwiki/common/languages/Korean.tab: [[#2106]] 프로젝트
 	  admin_page에서 좀 더 설정하기 쉽도록 고침
-	  * 프로젝트 admin 페이지에서 monisetup.php를 지우거나 되살릴 수 있게함
-	  * 프로젝트 admin 페이지에서 모든 위키 설정를 reset할 수 있게 함
-	  * 한글 메시지 추가
-	  * wikiwyg를 기본으로 꺼놓음 (구버전 모니위키에서 작동보장 못함)
-	  * rXX cXX #XX에 css 스타일 추가 적용
-	* [r409] share/moniwiki/wiki.php: [#2116] 마지막 수정에서 kbd_handler() 호출
+* 프로젝트 admin 페이지에서 monisetup.php를 지우거나 되살릴 수 있게함
+* 프로젝트 admin 페이지에서 모든 위키 설정를 reset할 수 있게 함
+* 한글 메시지 추가
+* wikiwyg를 기본으로 꺼놓음 (구버전 모니위키에서 작동보장 못함)
+* rXX cXX #XX에 css 스타일 추가 적용
+ [[r409]] share/moniwiki/wiki.php: [[#2116]] 마지막 수정에서 kbd_handler() 호출
 	  순서 고침.
-	* [r408] share/moniwiki/theme/embeded/footer.php,
+ [[r408]] share/moniwiki/theme/embeded/footer.php,
 	  share/moniwiki/theme/embeded/header.php, share/moniwiki/wiki.php:
-	  [#2116] 최신 모니위키의 일부 적용 및 기존 보완
-	  * embed 테마 nodoctype적용
-	  * #redirect가 안되던점 되돌림 수정
-	  * nodoctype를 쓰는 대신 기존의 위키 헤더를 되돌림 수정
-	  * 위키의 javascript가 제대로 안되던 점 되돌림 수정
-	* [r407] share/moniwiki/locale/Makefile,
+	  [[#2116]] 최신 모니위키의 일부 적용 및 기존 보완
+* embed 테마 nodoctype적용
+* #redirect가 안되던점 되돌림 수정
+* nodoctype를 쓰는 대신 기존의 위키 헤더를 되돌림 수정
+* 위키의 javascript가 제대로 안되던 점 되돌림 수정
+ [[r407]] share/moniwiki/locale/Makefile,
 	  share/moniwiki/locale/Makefile.in,
 	  share/moniwiki/locale/ko_KR.UTF-8,
 	  share/moniwiki/locale/make-php-trans.awk,
 	  share/moniwiki/locale/po/fr.po, share/moniwiki/locale/po/ko.po,
 	  share/moniwiki/locale/po/moniwiki.pot,
 	  share/moniwiki/locale/update-makefile.sh,
-	  share/moniwiki/locale/utf8rules: [#2116] monisetup.php의 메시지를
+	  share/moniwiki/locale/utf8rules: [[#2116]] monisetup.php의 메시지를
 	  반영했습니다. 일부 스크립트를 제거합니다.
 
 2009-04-24  semtlnori
 
-	* [r406] plugins/moniwiki/common/MoniWikiPlugin.class: [#2106] 모니위키
+ [[r406]] plugins/moniwiki/common/MoniWikiPlugin.class: [[#2106]] 모니위키
 	  플러그인의 CallHook()에서 sys_use_wiki를 못 읽는 문제를 수정했습니다.
-	* [r405] common/include/session.php: [#2133] 로그인 관련 하드코딩을 제거하고,
+ [[r405]] common/include/session.php: [[#2133]] 로그인 관련 하드코딩을 제거하고,
 	  plugin_hook으로 대체합니다.
 
 2009-04-24  bird1909
 
-	* [r404] www/include/project_home.php: [#1992] project-image.jpg가
+ [[r404]] www/include/project_home.php: [[#1992]] project-image.jpg가
 	  없기때문에 이미지가 깨지는 문제
 	  일단 blank.png로 대치하여 깨지는 현상을 없앴습니다.
-	* [r403] common/include/conf_utils.php, etc/local.inc.example,
+ [[r403]] common/include/conf_utils.php, etc/local.inc.example,
 	  etc/local.inc.nforge, install.php, install_util.php, setting.php:
-	  [#2128] 스마트 설치 코드에서 config 설정 관련 코드를 재사용하기 위해 뺐습니다.
-	  * install.php에서 setting.php 분리
-	  * setting.php -c config.cache처럼 쓸 수 있음
-	  * local.inc.nforge로 예전의 local.inc.example을 살리고
-	  * $sys_use_wiki와 같은 몇몇 설정 더함.
-	  * $sys_session_key 설치시 자동 설정. local.inc.example에서 직접 고칠 수 있게 함.
-	  * local.inc.example에서 php 실행코드를 제외하고 setting.php에서 자동으로 실행코드 삽입
-	* [r402] common/scm/CodeReview.class: [#2026]에서 빠졌던 css지정 추가.
-	* [r401] plugins/moniwiki/common/languages/Base.tab,
-	  plugins/moniwiki/common/languages/Korean.tab: [#2106] 빠진 메시지 넣음
-	* [r400] plugins/moniwiki/common/MoniWikiPlugin.class: [#2106] 일부
+	  [[#2128]] 스마트 설치 코드에서 config 설정 관련 코드를 재사용하기 위해 뺐습니다.
+* install.php에서 setting.php 분리
+* setting.php -c config.cache처럼 쓸 수 있음
+* local.inc.nforge로 예전의 local.inc.example을 살리고
+* $sys_use_wiki와 같은 몇몇 설정 더함.
+* $sys_session_key 설치시 자동 설정. local.inc.example에서 직접 고칠 수 있게 함.
+* local.inc.example에서 php 실행코드를 제외하고 setting.php에서 자동으로 실행코드 삽입
+ [[r402]] common/scm/CodeReview.class: [[#2026]]에서 빠졌던 css지정 추가.
+ [[r401]] plugins/moniwiki/common/languages/Base.tab,
+	  plugins/moniwiki/common/languages/Korean.tab: [[#2106]] 빠진 메시지 넣음
+ [[r400]] plugins/moniwiki/common/MoniWikiPlugin.class: [[#2106]] 일부
 	  빠진 부분을 수정합니다.
-	  * #2106과 같은 문법에 대해 class 적용
-	  * 위키설정을 강제로 초기화 할 수 있게끔
-	  * 하위 호환성을 위하 config.php.nforge를 제대로 읽게끔 고침
-	* [r399] plugins/ggit/bin/create_git_repo_ssh.sh: [#2107]의 빠진 파일
+* #2106과 같은 문법에 대해 class 적용
+* 위키설정을 강제로 초기화 할 수 있게끔
+* 하위 호환성을 위하 config.php.nforge를 제대로 읽게끔 고침
+ [[r399]] plugins/ggit/bin/create_git_repo_ssh.sh: [[#2107]]의 빠진 파일
 	  추가합니다. git 저장소를 생성하는 스크립트입니다.
-	* [r398] www/admin/pluginman.php: [#2129] r254에서 수정된 사항 revert. 새롭게
+ [[r398]] www/admin/pluginman.php: [[#2129]] r254에서 수정된 사항 revert. 새롭게
 	  플러그인을 추가해야 하는 경우
 	  local config 읽는 부분이 필요하고 /etc/nforge/plugins에 링크해야한다.
-	* [r397] plugins/gittracker, plugins/gittracker/AUTHORS,
+ [[r397]] plugins/gittracker, plugins/gittracker/AUTHORS,
 	  plugins/gittracker/COPYING, plugins/gittracker/README.cvstracker,
 	  plugins/gittracker/bin, plugins/gittracker/bin/gitlog.php,
 	  plugins/gittracker/common,
@@ -887,13 +887,13 @@
 	  plugins/gittracker/etc, plugins/gittracker/etc/plugins,
 	  plugins/gittracker/etc/plugins/gittracker,
 	  plugins/gittracker/etc/plugins/gittracker/config.php,
-	  plugins/gittracker/httpd.conf, plugins/gittracker/www: [#2107]
+	  plugins/gittracker/httpd.conf, plugins/gittracker/www: [[#2107]]
 	  간단한 gittracker를 더합니다.
-	  * 간단한 로깅을 통한 gitracker를 지원합니다.
-	  * /gitroot/.gitlog/foobar.git.log에 기록이 남음
-	  * gitweb.cgi의 일부기능을 가져와, git 외부명령을 통한 간단한 로그보기 지원
-	  * TODO: 남겨진 로그를 통한 가짜 revision 지원.
-	* [r396] plugins/ggit/bin/create_git_repo.sh,
+* 간단한 로깅을 통한 gitracker를 지원합니다.
+* /gitroot/.gitlog/foobar.git.log에 기록이 남음
+* gitweb.cgi의 일부기능을 가져와, git 외부명령을 통한 간단한 로그보기 지원
+* TODO: 남겨진 로그를 통한 가짜 revision 지원.
+ [[r396]] plugins/ggit/bin/create_git_repo.sh,
 	  plugins/ggit/common/GgitPlugin.class,
 	  plugins/ggit/common/languages/Base.tab,
 	  plugins/ggit/common/languages/Korean.tab,
@@ -903,14 +903,14 @@
 	  plugins/ggit/www/css/gitweb.css, plugins/ggit/www/css/nforge.css,
 	  plugins/ggit/www/gitweb.cgi, plugins/ggit/www/gitweb.php,
 	  plugins/ggit/www/images, plugins/ggit/www/images/git-favicon.png,
-	  plugins/ggit/www/images/git-logo.png: [#2107] git 플러그인의 변경된점을
+	  plugins/ggit/www/images/git-logo.png: [[#2107]] git 플러그인의 변경된점을
 	  더합니다.
-	  * CodeReview를 지원
-	  * ssh를 통한 개발자 접근(cvssh.pl수정) / webdav를 통한 anonymous 접근
-	  * 간단한 gittracker지원
-	  * gitweb을 간단한 방식으로 내장시킴
-	  * cronjobs/create_git.php을 cron으로 등록시켜야함.
-	* [r395] plugins/ggit, plugins/ggit/AUTHORS,
+* CodeReview를 지원
+* ssh를 통한 개발자 접근(cvssh.pl수정) / webdav를 통한 anonymous 접근
+* 간단한 gittracker지원
+* gitweb을 간단한 방식으로 내장시킴
+* cronjobs/create_git.php을 cron으로 등록시켜야함.
+ [[r395]] plugins/ggit, plugins/ggit/AUTHORS,
 	  plugins/ggit/COPYRIGHT, plugins/ggit/INSTALL,
 	  plugins/ggit/LICENSE, plugins/ggit/README, plugins/ggit/TODO,
 	  plugins/ggit/bin, plugins/ggit/bin/create_git_repo.sh,
@@ -925,56 +925,56 @@
 	  plugins/ggit/cronjobs/create_git.php, plugins/ggit/etc,
 	  plugins/ggit/etc/plugins, plugins/ggit/etc/plugins/ggit,
 	  plugins/ggit/etc/plugins/ggit/config.php, plugins/ggit/www:
-	  [#2107] Git플러그인 ggit의 원본을 올립니다.
+	  [[#2107]] Git플러그인 ggit의 원본을 올립니다.
 
 2009-04-23  bird1909
 
-	* [r394] common/include/utils.php, www/js/utils.js,
+ [[r394]] common/include/utils.php, www/js/utils.js,
 	  www/themes/nforge-dev/css/dev_style.css,
 	  www/themes/nforge-dev/images/btn_edit.png,
 	  www/themes/nforge-dev/images/btn_reply.png,
 	  www/themes/nforge-dev/images/btn_trash.png,
 	  www/themes/nforge-dev/images/ico_attach.png,
 	  www/tracker/detail.php, www/tracker/include/ArtifactHtml.class,
-	  www/tracker/mod.php: [#2110] 댓글 UI 수정
-	  * 작은 png 이미지 추가 및 css변경
-	  * reply기능 기본으로 활성화
-	  * 기타 접근성을 높이는 anchor 추가
-	* [r393] www/themes/nforge-dev/css/kbd.js,
+	  www/tracker/mod.php: [[#2110]] 댓글 UI 수정
+* 작은 png 이미지 추가 및 css변경
+* reply기능 기본으로 활성화
+* 기타 접근성을 높이는 anchor 추가
+ [[r393]] www/themes/nforge-dev/css/kbd.js,
 	  www/themes/nforge-dev/css/kbd_embeded.js,
-	  www/themes/nforge-dev/css/kbds.js: [#2116]과 관련있는 모니위키용 kbd.js
+	  www/themes/nforge-dev/css/kbds.js: [[#2116]]과 관련있는 모니위키용 kbd.js
 	  스크립트 업데이트 및 필요없는 파일 지움
-	* [r392] common/tracker/ArtifactFile.class: [#2102]에서 누락된 부분 더함.
+ [[r392]] common/tracker/ArtifactFile.class: [[#2102]]에서 누락된 부분 더함.
 	  artifactfile_get_object_by_artfact_id_filename() 함수가 추가되었습니다.
 	  artifact_id와 filename으로 artifactfile을 찾아줍니다. 처음 발견된 파일을 리턴합니다.
-	* [r391] share/moniwiki/Makefile, share/moniwiki/config.php,
+ [[r391]] share/moniwiki/Makefile, share/moniwiki/config.php,
 	  share/moniwiki/config.php.default, share/moniwiki/css/kbd.js,
 	  share/moniwiki/css/kbd_embeded.js, share/moniwiki/index.php,
 	  share/moniwiki/moni-install, share/moniwiki/moni-install.in,
 	  share/moniwiki/monisetup.php,
 	  share/moniwiki/theme/embeded/css/default.css,
 	  share/moniwiki/wiki.php, share/moniwiki/wikilib.php,
-	  share/moniwiki/wikilib_embeded.php: [#2116] [#2106]에서 모니위키 플러그인으로
+	  share/moniwiki/wikilib_embeded.php: [[#2116]] [[#2106]]에서 모니위키 플러그인으로
 	  적용한 부분을 현 모니위키 소스로도 쓸 수 있게 반영
-	  * wikilib_embed.php를 wikilib.php으로 옮김
-	  * monisetup.php 최신 반영
-	  * wiki.php 일부기능 최신 반영
-	  * moni-install.in moni-install 반영 및 수정
-	  * kbd_embed.js 제거 및 반영하고 kbd.js 최신으로 대치
-	  * config.php.default 최신 반영 및 config.php.nforge 추가
-	  * index.php 제거: 모니위키 플러그인에 반영됨.
-	  * config.php 제거: 사용자 설치에 의해 설정됨.
-	* [r390] common/include/Group.class, www/admin/approve-pending.php,
+* wikilib_embed.php를 wikilib.php으로 옮김
+* monisetup.php 최신 반영
+* wiki.php 일부기능 최신 반영
+* moni-install.in moni-install 반영 및 수정
+* kbd_embed.js 제거 및 반영하고 kbd.js 최신으로 대치
+* config.php.default 최신 반영 및 config.php.nforge 추가
+* index.php 제거: 모니위키 플러그인에 반영됨.
+* config.php 제거: 사용자 설치에 의해 설정됨.
+ [[r390]] common/include/Group.class, www/admin/approve-pending.php,
 	  www/project/admin/editgroupinfo.php, www/project/admin/index.php,
-	  www/project/admin/project_admin_utils.php: [#2106] 모니위키 플러그인을
+	  www/project/admin/project_admin_utils.php: [[#2106]] 모니위키 플러그인을
 	  사용하기 위해 기존 monwiki관련된 부분을 모니위키 플러그인으로 옮긴 부분을
 	  빼고 위키플러그인의 hook를 사용하도록 대치시켰습니다.
-	* [r389] plugins/scmcvs/common/CVSPlugin.class: [#2064]
+ [[r389]] plugins/scmcvs/common/CVSPlugin.class: [[#2064]]
 	  read_config_vars()를 이용하여 local.inc와 플러그인 config.php의 네임스페이스 충돌을
 	  방지
-	* [r388] www/themes/nforge-dev/Theme.class: [#2106] 모니위키 플러그인에 맞게,
+ [[r388]] www/themes/nforge-dev/Theme.class: [[#2106]] 모니위키 플러그인에 맞게,
 	  위키플러그인이 활성화 안된 프로젝트의 경우는 메뉴에 위키가 안나오게끔 함
-	* [r387] common/include/conf_utils.php, plugins/moniwiki,
+ [[r387]] common/include/conf_utils.php, plugins/moniwiki,
 	  plugins/moniwiki/common,
 	  plugins/moniwiki/common/MoniWikiPlugin.class,
 	  plugins/moniwiki/common/languages,
@@ -985,60 +985,60 @@
 	  plugins/moniwiki/etc/plugins/moniwiki,
 	  plugins/moniwiki/etc/plugins/moniwiki/config.php,
 	  plugins/moniwiki/etc/plugins/moniwiki/config.php.nforge,
-	  plugins/moniwiki/www, plugins/moniwiki/www/index.php: [#2085]
-	  [#2106] 모니위키 최신 cvs에 대응하는 모니위키 플러그인을 더합니다.
-	  * [#700] [#779] 모니위키 코드 정리 및 모니위키 cvs에 반영
-	  * [#771] 단축키를 적용가능 하도록 바꿈. kbd_embeded.js 불필요
-	  * [#1388] 모니위키 자체 captcha 적용.t
-	  * [#2085] 위키의 경우 사용자가 직접 설치절차를 거칩니다.
-	* [r386] www/tracker/download.php: [#2102] 이슈트래커의 첨부파일에 대한
+	  plugins/moniwiki/www, plugins/moniwiki/www/index.php: [[#2085]]
+	  [[#2106]] 모니위키 최신 cvs에 대응하는 모니위키 플러그인을 더합니다.
+* [[#700]] [[#779]] 모니위키 코드 정리 및 모니위키 cvs에 반영
+* [[#771]] 단축키를 적용가능 하도록 바꿈. kbd_embeded.js 불필요
+* [[#1388]] 모니위키 자체 captcha 적용.t
+* [[#2085]] 위키의 경우 사용자가 직접 설치절차를 거칩니다.
+ [[r386]] www/tracker/download.php: [[#2102]] 이슈트래커의 첨부파일에 대한
 	  download.php 링크의 접근성을 높였습니다.
 
 2009-04-23  semtlnori
 
-	* [r385] www/tracker/include/ArtifactHtml.class: [#2111] 이슈의 덧글은
+ [[r385]] www/tracker/include/ArtifactHtml.class: [[#2111]] 이슈의 덧글은
 	  작성자도 삭제할 수 없고 관리자만 삭제할 수 있도록 변경합니다.
 
 2009-04-22  bird1909
 
-	* [r384] www/frs/shownotes.php, www/news/detail.php,
+ [[r384]] www/frs/shownotes.php, www/news/detail.php,
 	  www/news/news_utils.php, www/tracker/detail.php,
 	  www/tracker/include/ArtifactHtml.class, www/tracker/mod.php:
-	  [#2100] nl2br을 쓰지 않고 util_wiki_tracker_revision() 함수의 N옵션을 사용하도록
+	  [[#2100]] nl2br을 쓰지 않고 util_wiki_tracker_revision() 함수의 N옵션을 사용하도록
 	  고침
 
 2009-04-22  semtlnori
 
-	* [r383] share/moniwiki/plugin/download.php: [#2053] 모니위키의 이미지 첨부
+ [[r383]] share/moniwiki/plugin/download.php: [[#2053]] 모니위키의 이미지 첨부
 	  기능을 정상적으로 동작시키기 위해, download.php 모니위키 플러그인을 추가합니다.
 
 2009-04-22  bird1909
 
-	* [r382] www/tracker/include/ArtifactHtml.class: [#2079] r376에서 잘못
+ [[r382]] www/tracker/include/ArtifactHtml.class: [[#2079]] r376에서 잘못
 	  된 부분 인덱스 수정
-	* [r381] nforge-install-2.php, plugins/scmcvs/bin/aclcheck.php,
+ [[r381]] nforge-install-2.php, plugins/scmcvs/bin/aclcheck.php,
 	  plugins/scmcvs/cronjobs/cvs.php,
-	  plugins/scmcvs/cronjobs/history_parse.php: [#2038] chroot지원환경 미지원
+	  plugins/scmcvs/cronjobs/history_parse.php: [[#2038]] chroot지원환경 미지원
 	  환경 동시지원을 위한 수정
-	* [r380] plugins/cvstracker/common/languages/Korean.tab,
+ [[r380]] plugins/cvstracker/common/languages/Korean.tab,
 	  plugins/scmcvs/common/languages/Base.tab,
 	  plugins/scmsvn/common/languages/Base.tab,
 	  www/include/languages/Base.tab, www/include/languages/Korean.tab:
-	  [#2093] 누락된 메시지 추가 및 영문 메시지 일부 수정
-	* [r379] www/index.php, www/scm/viewvc.php: [#1918] www/index.php
+	  [[#2093]] 누락된 메시지 추가 및 영문 메시지 일부 수정
+ [[r379]] www/index.php, www/scm/viewvc.php: [[#1918]] www/index.php
 	  잘못 들어간 em 태그 삭제
-	  [#2094] www/scm/viewvc.php의 theme디렉토리 잘못지정 수정
+	  [[#2094]] www/scm/viewvc.php의 theme디렉토리 잘못지정 수정
 
 2009-04-22  rokmcseosu
 
-	* [r378] cronjobs/analyze_db_schema.php,
+ [[r378]] cronjobs/analyze_db_schema.php,
 	  cronjobs/db_check_constraint_status.php: 외래키 검증에 값이 0인것을 감안하도록
 	  처리하고 관련 정보 추가. 분석 도구에 Export시 테이블 연관성을 기준으로 작업 순서와 대상 테이블 리스팅 기능
-	  추가 [#1985]
+	  추가 [[#1985]]
 
 2009-04-21  bird1909
 
-	* [r377] plugins/lightbox2, plugins/lightbox2/common,
+ [[r377]] plugins/lightbox2, plugins/lightbox2/common,
 	  plugins/lightbox2/common/LightBox2Plugin.class,
 	  plugins/lightbox2/common/lightbox2-init.php,
 	  plugins/lightbox2/etc, plugins/lightbox2/etc/plugins,
@@ -1054,93 +1054,93 @@
 	  plugins/lightbox2/www/images/nextlabel.gif,
 	  plugins/lightbox2/www/images/prevlabel.gif,
 	  plugins/lightbox2/www/js, plugins/lightbox2/www/js/lightbox.js,
-	  www/js/lightbox2: [#2079] c67 lightbox2 plugin을 더합니다.
-	* [r376] www/tracker/detail.php,
+	  www/js/lightbox2: [[#2079]] c67 lightbox2 plugin을 더합니다.
+ [[r376]] www/tracker/detail.php,
 	  www/tracker/include/ArtifactHtml.class, www/tracker/mod.php:
-	  [#2079] c66 c68 lightbox2를 플러그인형태로 돌리고, 원래 view_image()방식을
+	  [[#2079]] c66 c68 lightbox2를 플러그인형태로 돌리고, 원래 view_image()방식을
 	  lightbox2를 사용하지 않을경우 쓰이게끔 고쳤습니다.
 
 2009-04-21  semtlnori
 
-	* [r375] www/project/admin/project_admin_utils.php,
-	  www/project/admin/roleedit.php: [#2086] 프로젝트별 등급의 순서를 role_id 순으로
+ [[r375]] www/project/admin/project_admin_utils.php,
+	  www/project/admin/roleedit.php: [[#2086]] 프로젝트별 등급의 순서를 role_id 순으로
 	  정렬합니다.
 
 2009-04-20  bird1909
 
-	* [r374] www/tracker/download.php: [#2082]에서 거론된 [SimpleURL] 관련
+ [[r374]] www/tracker/download.php: [[#2082]]에서 거론된 [[SimpleURL]] 관련
 	  패치로서 download.php 링크에 대해
 	  download.php/nforge/issue/issue-id/file-id 방식의 링크를 지원합니다
-	* [r373] www/themes/nforge-dev/Theme.class: [#2079] plugin_hook()를
+ [[r373]] www/themes/nforge-dev/Theme.class: [[#2079]] plugin_hook()를
 	  사용하여 javascript, cssfile을 쓰도록 고쳤습니다
 
 2009-04-20  utumdol
 
-	* [r372] www/export/rss20_download.php: [#2069] download rss feed
+ [[r372]] www/export/rss20_download.php: [[#2069]] download rss feed
 	  정렬순서 변경
 
 2009-04-20  bird1909
 
-	* [r371] www/tracker/include/ArtifactHtml.class: [#1922] 라이트박스 패치
+ [[r371]] www/tracker/include/ArtifactHtml.class: [[#1922]] 라이트박스 패치
 	  빠진부분 추가
 
 2009-04-18  bird1909
 
-	* [r370] share/moniwiki/data/text/RCS, share/moniwiki/pds,
-	  share/moniwiki/plugin/cache: [#738] 지워지지 않은 파일 및 디렉토리를 마져 제거합니다.
+ [[r370]] share/moniwiki/data/text/RCS, share/moniwiki/pds,
+	  share/moniwiki/plugin/cache: [[#738]] 지워지지 않은 파일 및 디렉토리를 마져 제거합니다.
 
 2009-04-17  bird1909
 
-	* [r369] common/scm/CodeReview.class,
+ [[r369]] common/scm/CodeReview.class,
 	  plugins/scmcvs/common/CVSPlugin.class,
 	  plugins/scmsvn/common/SVNPlugin.class, www/scm/index.php,
 	  www/themes/nforge-dev/images/comment-draft.png,
 	  www/themes/nforge-dev/images/comment-ghost.png,
 	  www/themes/nforge-dev/images/comment.png,
 	  www/tracker/include/ArtifactHtml.class, www/tracker/tracker.php:
-	  [#2026] CodeReview.class 리팩토링 및 CVS 코드리뷰를 지원합니다
-	  * SVNPlugin에 있던 코드의 대부분을 CodeReview.class로 옮기고
-	  * CVSPlugin SVNPlugin 모두 CodeReview를 쓸 수 있도록 함
-	  * r368 [#1998]에 있던 버그 수정
-	  * 리뷰노트에 대한 indicator 아이콘 넣음.
-	* [r368] common/scm/CodeReview.class,
+	  [[#2026]] CodeReview.class 리팩토링 및 CVS 코드리뷰를 지원합니다
+* SVNPlugin에 있던 코드의 대부분을 CodeReview.class로 옮기고
+* CVSPlugin SVNPlugin 모두 CodeReview를 쓸 수 있도록 함
+* r368 [[#1998]]에 있던 버그 수정
+* 리뷰노트에 대한 indicator 아이콘 넣음.
+ [[r368]] common/scm/CodeReview.class,
 	  plugins/scmsvn/common/SVNPlugin.class,
 	  share/moniwiki/lib/difflib.php,
-	  www/themes/nforge-dev/css/dev_style.css: [#1998] 패치파일에 대한 코드리뷰를 좀
+	  www/themes/nforge-dev/css/dev_style.css: [[#1998]] 패치파일에 대한 코드리뷰를 좀
 	  더 예쁘게 보이게 해주며, 패치파일만 있고 원본파일이 없는경우에 대해서도 원본이 있는 경우와 거의 동등한 리뷰 노트
 	  등등을 모두 지원합니다
-	* [r367] install.php: [#2065] jpgraph 경로 고침
-	* [r366] plugins/cvstracker/bin/post.php,
-	  plugins/cvstracker/common/cvstrackerPlugin.class: [#2066]
+ [[r367]] install.php: [[#2065]] jpgraph 경로 고침
+ [[r366]] plugins/cvstracker/bin/post.php,
+	  plugins/cvstracker/common/cvstrackerPlugin.class: [[#2066]]
 	  cvstracker가 최초 cvs import시 파일정보 잘못 처리하는 부분 수정
 
 2009-04-17  semtlnori
 
-	* [r365] www/scm/viewvc/lib/viewvc.py: [#955] 코드 트리의 커밋 메시지에도 이슈에
+ [[r365]] www/scm/viewvc/lib/viewvc.py: [[#955]] 코드 트리의 커밋 메시지에도 이슈에
 	  대한 링크가 걸리도록 수정하였습니다. 커밋 메시지가 길어서 잘리는 경우, 자칫 이슈 번호가 잘려서 링크가 잘못 걸릴
 	  수 있으므로 그런 가능성이 있는 경우에는 링크를 걸지 않도록 했습니다.
 
 2009-04-16  semtlnori
 
-	* [r364] cronjobs/export_setting.php, etc/local.inc.example:
-	  [#1979] DB에 들어있는 설정을 파일로 만들어주는 툴을 작성하였습니다. 설정을 파일로 사용하려면, 만들어진 설정
+ [[r364]] cronjobs/export_setting.php, etc/local.inc.example:
+	  [[#1979]] DB에 들어있는 설정을 파일로 만들어주는 툴을 작성하였습니다. 설정을 파일로 사용하려면, 만들어진 설정
 	  파일을 local.inc가 include하게 하고, do_not_load_settings_from_db를 true로
 	  설정하면 됩니다.
 
 2009-04-16  bird1909
 
-	* [r363] plugins/scmcvs/cronjobs/cvscreate.sh: [#2042] cvscreate에서
+ [[r363]] plugins/scmcvs/cronjobs/cvscreate.sh: [[#2042]] cvscreate에서
 	  lock파일 경로를 잘못 설정하는 문제 수정
 
 2009-04-16  rokmcseosu
 
-	* [r362] cronjobs/analyze_db_schema.php:
-	  [#1985]analyze_db_schema.php는 정보 보완을 위한 도구로 포함했습니다. 말씀하신 내용 반영했고
+ [[r362]] cronjobs/analyze_db_schema.php:
+	  [[#1985]]analyze_db_schema.php는 정보 보완을 위한 도구로 포함했습니다. 말씀하신 내용 반영했고
 	  기타 추가한 내용도(ERD그리기, INSERT구문사용 코드 추출등) 포함했습니다.
 
 2009-04-15  bird1909
 
-	* [r361] www/js/lightbox2, www/js/lightbox2/css,
+ [[r361]] www/js/lightbox2, www/js/lightbox2/css,
 	  www/js/lightbox2/css/lightbox.css, www/js/lightbox2/images,
 	  www/js/lightbox2/images/bullet.gif,
 	  www/js/lightbox2/images/close.gif,
@@ -1151,21 +1151,21 @@
 	  www/js/lightbox2/images/nextlabel.gif,
 	  www/js/lightbox2/images/prevlabel.gif,
 	  www/js/lightbox2/lightbox.js, www/tracker/detail.php,
-	  www/tracker/download.php, www/tracker/mod.php: [#1922] lightbox2
+	  www/tracker/download.php, www/tracker/mod.php: [[#1922]] lightbox2
 	  패치
-	* [r360] www/themes/nforge-dev/css/dev_common.css: [#2020] r359에서
+ [[r360]] www/themes/nforge-dev/css/dev_common.css: [[#2020]] r359에서
 	  테스트중이던 css가 잘못 들어간 부분 제거;;
-	* [r359] www/themes/nforge-dev/css/dev_common.css,
+ [[r359]] www/themes/nforge-dev/css/dev_common.css,
 	  www/themes/nforge-dev/css/dev_style.css,
-	  www/themes/nforge-dev/css/dev_wiki.css: [#2020] 테마의 css에 있는 일부
+	  www/themes/nforge-dev/css/dev_wiki.css: [[#2020]] 테마의 css에 있는 일부
 	  배경이미지 경로를 상대경로로 수정
 
 2009-04-14  bird1909
 
-	* [r358] www/project/admin/editgroupinfo.php: [#2029] 자바스크립트 코드를
+ [[r358]] www/project/admin/editgroupinfo.php: [[#2029]] 자바스크립트 코드를
 	  올바르게 wrap. 프로젝트 속성 설정시 제대로 안보이던 문제 수정
 
 2009-04-13  utumdol
 
-	* [r357] upgrade/info/version.txt: release nforge-0.9.0.356
+ [[r357]] upgrade/info/version.txt: release nforge-0.9.0.356
 

@@ -1,8 +1,8 @@
 nFORGE에는 다음의 파일에 유틸리티 함수들이 정의되어있습니다.
 
-|| 파일명 || 내용 ||
-||common/include/utils.php ||일반 유틸리티 함수 ||
-||common/include/escapingUtils.php ||HTTP Request에서 값을 얻어내는 함수 ||
-||www/include/html.php ||HTML 관련 유틸리티 함수 ||
+| 파일명 | 내용 |
+|common/include/utils.php |일반 유틸리티 함수 |
+|common/include/escapingUtils.php |HTTP Request에서 값을 얻어내는 함수 |
+|www/include/html.php |HTML 관련 유틸리티 함수 |
 
 새로운 유틸리티 함수를 구현할 때는 기존에 겹치는 것이 없는지 확인해보는 것이 좋습니다.

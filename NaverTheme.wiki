@@ -1,40 +1,40 @@
 naver 테마는 nFORGE 2.0부터 기본으로 탑재된 디폴트 테마입니다.
 === 템플릿 파일 목록 ===
-|| 이름 || 설명 ||
-||Layout.tpl ||전체 레이아웃 ||
-||header.tpl ||헤더 ||
-||footer.tpl ||푸터 ||
-||index.tpl ||사이트 메인 ||
-||trove_list.tpl ||소프트웨어맵 ||
-||search_project.tpl ||소프트웨어맵의 프로젝트 검색 결과 ||
-||news_list.tpl ||프로젝트 홈 > 새소식(더보기) ||
-||news_post.tpl ||프로젝트 홈 > 새소식(더보기) > 새소식 제출하기 ||
-||news_read.tpl ||프로젝트 홈 > 새소식(더보기) 에서 새소식 읽기 ||
-||toplist.tpl ||통계자료 > 최다 다운로드 ||
-||mostactive.tpl ||통계자료 > 주간 베스트 프로젝트 ||
-||recent.tpl ||통계자료 > 최근 생성 프로젝트 ||
-||register.tpl ||사용자 등록 ||
-||login.tpl ||로그인 ||
-||lostpw.tpl ||비밀번호 분실 ||
-||pending_resend.tpl ||사용자 등록 메일 재발송 ||
-||first.tpl ||첫 방문 환영 페이지 ||
-||tracker.tpl ||트래커 ||
-||tracker_post.tpl ||트래커에 게시물 등록 ||
-||tracker_read.tpl ||트래커의 게시물 읽기 ||
-||notification.tpl ||메시지 영역 ||
-||project_control_history.tpl ||프로젝트 활동 내역 ||
-||project_control_admin.tpl ||프로젝트 관리 ||
-||project_control_member.tpl ||프로젝트 관리 > 멤버등록 ||
-||project_control_roleedit.tpl ||프로젝트 관리 > 등급관리 ||
-||project_control_tracker.tpl ||프로젝트 관리 > 게시판관리 ||
-||project_control_tracker_report.tpl ||프로젝트 관리 > 프로젝트 활동 내역 ||
-||project_control_trove.tpl ||프로젝트 관리 > 분류 관리 ||
-||search.tpl ||프로젝트 내 검색결과 항목 하나 ||
-||search_more.tpl ||프로젝트 내 검색결과 더 보기 링크 ||
-||user_link.tpl ||사용자에 대한 링크 ||
-||_tracker_member_selector.tpl ||트래커의 멤버 선택 ||
-||_tracker_date.tpl ||트래커의 날짜 선택 폼 ||
-||_tracker_dialog.tpl ||트래커의 다이얼로그 박스 ||
-||_tracker_fields.tpl ||트래커에의 기본/세부항목 선택 폼 ||
-||display_toggle_button.tpl ||보이기/숨기기 버튼 ||
-||paginate.tpl ||paginate ||
+| 이름 | 설명 |
+|Layout.tpl |전체 레이아웃 |
+|header.tpl |헤더 |
+|footer.tpl |푸터 |
+|index.tpl |사이트 메인 |
+|trove_list.tpl |소프트웨어맵 |
+|search_project.tpl |소프트웨어맵의 프로젝트 검색 결과 |
+|news_list.tpl |프로젝트 홈 > 새소식(더보기) |
+|news_post.tpl |프로젝트 홈 > 새소식(더보기) > 새소식 제출하기 |
+|news_read.tpl |프로젝트 홈 > 새소식(더보기) 에서 새소식 읽기 |
+|toplist.tpl |통계자료 > 최다 다운로드 |
+|mostactive.tpl |통계자료 > 주간 베스트 프로젝트 |
+|recent.tpl |통계자료 > 최근 생성 프로젝트 |
+|register.tpl |사용자 등록 |
+|login.tpl |로그인 |
+|lostpw.tpl |비밀번호 분실 |
+|pending_resend.tpl |사용자 등록 메일 재발송 |
+|first.tpl |첫 방문 환영 페이지 |
+|tracker.tpl |트래커 |
+|tracker_post.tpl |트래커에 게시물 등록 |
+|tracker_read.tpl |트래커의 게시물 읽기 |
+|notification.tpl |메시지 영역 |
+|project_control_history.tpl |프로젝트 활동 내역 |
+|project_control_admin.tpl |프로젝트 관리 |
+|project_control_member.tpl |프로젝트 관리 > 멤버등록 |
+|project_control_roleedit.tpl |프로젝트 관리 > 등급관리 |
+|project_control_tracker.tpl |프로젝트 관리 > 게시판관리 |
+|project_control_tracker_report.tpl |프로젝트 관리 > 프로젝트 활동 내역 |
+|project_control_trove.tpl |프로젝트 관리 > 분류 관리 |
+|search.tpl |프로젝트 내 검색결과 항목 하나 |
+|search_more.tpl |프로젝트 내 검색결과 더 보기 링크 |
+|user_link.tpl |사용자에 대한 링크 |
+|_tracker_member_selector.tpl |트래커의 멤버 선택 |
+|_tracker_date.tpl |트래커의 날짜 선택 폼 |
+|_tracker_dialog.tpl |트래커의 다이얼로그 박스 |
+|_tracker_fields.tpl |트래커에의 기본/세부항목 선택 폼 |
+|display_toggle_button.tpl |보이기/숨기기 버튼 |
+|paginate.tpl |paginate |

@@ -38,24 +38,24 @@ gforge.sql을 새롭게 갱신하는 경우에는 각각 mysql과 cubrid에서 �
 그 부분도 이제 생각해봐야 하겠습니다.
 == 각 DBMS별 차이점 ==
 === cubrid ===
- * {{{!=}}} 연산자를 알지 못한다. {{{<>}}} 연산자를 쓴다.
- * {{{USING}}}을 알지 못한다. {{{ON}}} 구문을 사용한다.
- * 부울이 없고 정수로 0, 1이다.
- * IF문이 없다. CASE를 쓴다.
- * `SELECT (count(*)=0)` 와 같은 구문 지원 안됨. CASE문으로 고쳐줘야 함. 예를 들어 `SELECT (CASE WHEN count(*)=0 THEN 1 ELSE 0 END)` ...
+* {{{!=}}} 연산자를 알지 못한다. {{{<>}}} 연산자를 쓴다.
+* {{{USING}}}을 알지 못한다. {{{ON}}} 구문을 사용한다.
+* 부울이 없고 정수로 0, 1이다.
+* IF문이 없다. CASE를 쓴다.
+* `SELECT (count(*)=0)` 와 같은 구문 지원 안됨. CASE문으로 고쳐줘야 함. 예를 들어 `SELECT (CASE WHEN count(*)=0 THEN 1 ELSE 0 END)` ...
 === mysql ===
- * 키워드에 대한 quote처리를 {{{`}}}(역 홋따옴표)로 한다. pgsql / cubrid는 {{{"}}}를 쓴다.
- * 부울이 없고 정수로 0, 1이다.
- * CASE IF 모두 지원.
+* 키워드에 대한 quote처리를 {{{`}}}(역 홋따옴표)로 한다. pgsql / cubrid는 {{{"}}}를 쓴다.
+* 부울이 없고 정수로 0, 1이다.
+* CASE IF 모두 지원.
 === pgsql ===
- * {{{::text}}} {{{::integer}}}와 같은 타입 지정자가 있다. 이러한 지정자는 mysql / cubrid에 대해 적용할 때에는 간단히 제거된다.
- * 세개의 DBMS중 가장 유연하다 할 수 있다. {{{psql}}}도 매우 편리하다.
- * 부울 타입이 있다. 따라서 cast int를 해줘야 한다.
- * CASE / IF 모두 지원.
- * AS를 써야한다. mysql / cubrid는 AS가 없어도 인식하는 경우가 있으므로 주의해야 한다. <!> [#7163]
+* {{{::text}}} {{{::integer}}}와 같은 타입 지정자가 있다. 이러한 지정자는 mysql / cubrid에 대해 적용할 때에는 간단히 제거된다.
+* 세개의 DBMS중 가장 유연하다 할 수 있다. {{{psql}}}도 매우 편리하다.
+* 부울 타입이 있다. 따라서 cast int를 해줘야 한다.
+* CASE / IF 모두 지원.
+* AS를 써야한다. mysql / cubrid는 AS가 없어도 인식하는 경우가 있으므로 주의해야 한다. <!> [[#7163]]
 == 각 DBMS별 공통 키워드 ==
- * TODO
+* TODO
 == 각 DBMS별 지원 타입 및 상호 호환 가능 타입 ==
-|| postgresql || mysql || cubrid || 비고 ||
-|| int4 || unsigned || integer || unsigned와 int4는 분명히 다르다. 주의를 요함 ||
-|| varchar || char 외 || varchar || cubrid에서 varchar은 length를 지정하지 않아도 된다고 함||
+| postgresql | mysql | cubrid | 비고 |
+| int4 | unsigned | integer | unsigned와 int4는 분명히 다르다. 주의를 요함 |
+| varchar | char 외 | varchar | cubrid에서 varchar은 length를 지정하지 않아도 된다고 함|

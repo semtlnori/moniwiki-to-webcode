@@ -7,11 +7,11 @@
 업로드 파일 또는 scm repository를 저장하는 데이타 디렉토리를 삭제합니다.
 해당 디렉토리는 nFORGE 버전별 또는 사용자 설정 별로 다를 수 있습니다.
 
- * 구버전일 경우
+* 구버전일 경우
 {{{
 $ sudo rm -rf /var/lib/nforge
 }}}
- * 신버전일 경우 - 2.0 이 후
+* 신버전일 경우 - 2.0 이 후
 {{{
 $ sudo rm -rf /opt/nforge/var
 }}}
@@ -48,14 +48,14 @@ $ sudo groupdel nforge
 nforge에 가입할 경우 cvs나 git를 위해 unix 계정이 생성되므로 생성된 계정 중 불필요한 계정도 삭제해야 합니다.
 
 === DB 삭제 ===
- * CUBRID의 경우
+* CUBRID의 경우
 
 {{{
 $ cubird server stop nforge
 $ cubrid deletedb nforge
 }}}
 
- * MySQL의 경우
+* MySQL의 경우
 {{{
 mysql> DROP DATABASE nforge
 mysql> DELETE FROM mysql.db WHERE db = 'nforge'

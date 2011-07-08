@@ -1,37 +1,37 @@
 == 필수 매크로 ==
- * PageListMacro
- * DownloadPlugin ({{{?action=download}}} '''attachment:'''에서 선택적으로 사용.
- * UrlMapping.php : $url_mapping용
- * markup.php : WikiWyg (GUI)
- * Anchor.php
- * bookmark.php
- * ticket.php : Captcha
+* PageListMacro
+* DownloadPlugin ({{{?action=download}}} **attachment:**에서 선택적으로 사용.
+* UrlMapping.php : $url_mapping용
+* markup.php : WikiWyg (GUI)
+* Anchor.php
+* bookmark.php
+* ticket.php : Captcha
 
 == 관리자 비번을 지원하는 매크로 ==
- * rename.php, revert.php
+* rename.php, revert.php
 
 == 보안과 무관한 작은 매크로 ==
- * print.php, home.php, new.php
- * DueDate.php 지난 시간, 남은 시간 표시
+* print.php, home.php, new.php
+* DueDate.php 지난 시간, 남은 시간 표시
 == 편리한 매크로 ==
- * TextToolbar : 미디어위키식 편집 툴바 지원
- * UploadForm.php : 자바스크립트를 이용한 보다 편리한 업로드 폼
- * SWFUpload.php : 모니위키 1.1.3부터 지원하는 다중 업로드용 폼
- * AutoGoto.php : $auto_search로 지정하는 매크로. 검색폼을 통해 입력되는 정보 혹은 {{{wiki.php/페이지이름}}}에서 {{{[페이지이름]}}} 페이지가 없을때 적용되는 액션 매크로.
- * NavigationMacro : 총알 리스트 목록을 이용해, 페이지 최하단에 다음 페이지로 가는 편리한 링크를 만들어줌.
- * SlideShowMacro : 슬라이드쇼로 보여주기
- * SWFUpload.php (다중파일 업로드)
+* TextToolbar : 미디어위키식 편집 툴바 지원
+* UploadForm.php : 자바스크립트를 이용한 보다 편리한 업로드 폼
+* SWFUpload.php : 모니위키 1.1.3부터 지원하는 다중 업로드용 폼
+* AutoGoto.php : $auto_search로 지정하는 매크로. 검색폼을 통해 입력되는 정보 혹은 {{{wiki.php/페이지이름}}}에서 {{{[[페이지이름]]}}} 페이지가 없을때 적용되는 액션 매크로.
+* NavigationMacro : 총알 리스트 목록을 이용해, 페이지 최하단에 다음 페이지로 가는 편리한 링크를 만들어줌.
+* SlideShowMacro : 슬라이드쇼로 보여주기
+* SWFUpload.php (다중파일 업로드)
 == 업로드 관련 ==
- * ClipPlugin (png 그림 붙여넣기 지원 애플릿)
- * DrawPlugin (gif 그림 그리기 지원 애플릿)
- * Play.php, Media.php (mp3, flv, wmv, mpg 등등 첨부)
+* ClipPlugin (png 그림 붙여넣기 지원 애플릿)
+* DrawPlugin (gif 그림 그리기 지원 애플릿)
+* Play.php, Media.php (mp3, flv, wmv, mpg 등등 첨부)
 == 태깅지원 ==
- * KeywordsPlugin
- * TourPlugin
- * dot
- * 
+* KeywordsPlugin
+* TourPlugin
+* dot
+* 
 == 간단한 피드백 ==
- * CommentMacro
+* CommentMacro
 
 == 장난감 ==
- * OekakiMacro
+* OekakiMacro

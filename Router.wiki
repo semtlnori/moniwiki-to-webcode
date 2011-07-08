@@ -1,6 +1,6 @@
-'''''nFORGE 3.0 이상에서만 동작합니다.'''''
+**//nFORGE 3.0 이상에서만 동작합니다.**//
 
-[[TableOfContents]]
+[[[[TableOfContents]]]]
 
 == Router ==
 Router는 <nFORGE 설치 디렉토리>/common/include/Router.php 에 구현되어 있습니다.
@@ -24,8 +24,8 @@ static private $routes = array(
 );
 }}}
 === 종류 ===
- * 기본 Routing Rule: nFORGE에 기본적으로 정의된 Routing Rule 입니다. <nFORGE 설치 디렉토리>/common/include/Router.php의 Router::$routes에 정의되어 있습니다. 
- * 플러그인 Routingn Rule: 플러그인에서 정의한 Routing Rule 입니다. 플러그인 개발자는, 자신의 플러그인이 URL Routing을 필요로 하는 경우, <해당 플러그인 디렉토리>/common/<플러그인 이름>-routes.php 에서 Router::addRoutes() 메소드를 호출하여 Router에 Routing Rule을 추가하는 코드를 작성해야 합니다.
+* 기본 Routing Rule: nFORGE에 기본적으로 정의된 Routing Rule 입니다. <nFORGE 설치 디렉토리>/common/include/Router.php의 Router::$routes에 정의되어 있습니다. 
+* 플러그인 Routingn Rule: 플러그인에서 정의한 Routing Rule 입니다. 플러그인 개발자는, 자신의 플러그인이 URL Routing을 필요로 하는 경우, <해당 플러그인 디렉토리>/common/<플러그인 이름>-routes.php 에서 Router::addRoutes() 메소드를 호출하여 Router에 Routing Rule을 추가하는 코드를 작성해야 합니다.
 === 우선순위 ===
  1. plugin에서 정의한 Routing Rule이 Router에서 정의한 Routing Rule 보다 높은 우선순위를 갖습니다.
  1. array 상 순서가 앞선 Rule이 높은 우선순위를 갖습니다.
@@ -127,6 +127,6 @@ array(
 }}}
 
 == 주의사항 ==
- * 일반적으로 Router에는 HTML 코드에서 직접 참조하는 리소스 파일들에 대한 라우팅 룰이 포함되지 않습니다. 이미지 파일, 자바스크립트 파일, CSS 파일 등에 대한 요청이 Router로 보내지지 않도록 웹서버의 Rewrite Rule을 적절히 설정해야 합니다.
+* 일반적으로 Router에는 HTML 코드에서 직접 참조하는 리소스 파일들에 대한 라우팅 룰이 포함되지 않습니다. 이미지 파일, 자바스크립트 파일, CSS 파일 등에 대한 요청이 Router로 보내지지 않도록 웹서버의 Rewrite Rule을 적절히 설정해야 합니다.
 
 == 개선할 점 ==
