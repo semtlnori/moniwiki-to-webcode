@@ -1,4 +1,4 @@
-[[[[TableOfContents]]]]
+<<TableOfContents>>
 == Error Handling 가이드 ==
 === 에러 전파 ===
 에러를 직접 처리할 수 없는 경우에는 caller에게 전파합니다.

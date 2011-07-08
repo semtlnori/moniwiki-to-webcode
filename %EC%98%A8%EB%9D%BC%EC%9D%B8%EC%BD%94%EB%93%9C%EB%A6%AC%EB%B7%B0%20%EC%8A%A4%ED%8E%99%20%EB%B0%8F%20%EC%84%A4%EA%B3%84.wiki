@@ -1,7 +1,7 @@
 #title 온라인코드리뷰 스펙 및 설계
 **//Obsolete: nFORGE 2.0 이상 버전에서는 동작하지 않습니다.**//
 
-[[[[TableOfContents]]]]
+<<TableOfContents>>
 == 리뷰 파일의 생성과 등록 ==
 * 리눅스 플랫폼을 주요 대상으로 한다
 * Subversion을 대상으로 한다

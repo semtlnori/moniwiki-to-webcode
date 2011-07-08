@@ -1,4 +1,4 @@
-[[[[TableOfContents]]]]
+<<TableOfContents>>
 === 스펙/설계 ===
 ==== 설치 ====
 * 사용자는 nFORGE 패키지의 압축을 풀고, 인스톨러를 한번 실행하는 것으로 nFORGE를 설치할 수 있다.

@@ -2,11 +2,11 @@
 개발을 위한 스펙 정의나 설계를 모아 둡니다.
 
 * [["온라인코드리뷰 스펙 및 설계"]]
-* [[:SmartInstall 스마트 인스톨]]
-* [[:WikiModule 위키 모듈]]
-* [[:NforgeUpdate 자동 업데이트]]
-* [[:NforgeSiteInformationShare 뉴스 정보공유]]
+* [[SmartInstall|스마트 인스톨]]
+* [[WikiModule|위키 모듈]]
+* [[NforgeUpdate|자동 업데이트]]
+* [[NforgeSiteInformationShare|뉴스 정보공유]]
 * [["참조무결성분석"]]
-* [[:project_exporter_importer 프로젝트 Exporter / Importer]]
-* [[:MilestoneManagement Milestone 관리]]
-* [[:Search 검색]]
+* [[project_exporter_importer|프로젝트 Exporter / Importer]]
+* [[MilestoneManagement|Milestone 관리]]
+* [[Search|검색]]

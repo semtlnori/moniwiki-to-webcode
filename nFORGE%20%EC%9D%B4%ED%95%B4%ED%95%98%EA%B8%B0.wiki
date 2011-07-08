@@ -1,6 +1,6 @@
 #title nFORGE 이해하기
 
-[[[[TableOfContents]]]]
+<<TableOfContents>>
 == [["nFORGE 이해하기"]]가 다루는 내용 ==
 본 문서에서는 
 * nFORGE라는 협업 개발 도구가 무엇인지?

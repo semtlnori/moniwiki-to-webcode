@@ -1,4 +1,4 @@
-=== [[:DirectoryStructure 디렉토리 구조]] ===
+=== [[DirectoryStructure|디렉토리 구조]] ===
 설정을 변경하지 않았다면, nFORGE는 다음의 디렉토리에 설치됩니다.
 * /opt/nforge: 프로그램 및 데이터
 * /etc/nforge: 설정 파일

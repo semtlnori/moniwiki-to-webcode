@@ -31,4 +31,4 @@ To //escape// a WikiName, i.e. if you want to write the word Wiki****Name withou
 
 To learn more about wiki markup, see HelpOnEditing.
 ----
-[[[[Navigation(HelpContents)]]]]
+<<Navigation(HelpContents)>>

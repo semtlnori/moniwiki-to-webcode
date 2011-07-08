@@ -1,5 +1,5 @@
 #title Admin nForge
-[[[[TableOfContents]]]]
+<<TableOfContents>>
 === 주요 파일 위치 ===
 * /var/lib/nforge : SCM 자료 등 주요 작업 자료 보관.
 ** /var/lib/nforge/cvsroot : CVS 저장소 root 디렉터리.(/cvsroot에서 이 경로를 심볼릭 링크로 참조함.)

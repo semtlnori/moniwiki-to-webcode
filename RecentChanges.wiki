@@ -1,12 +1,12 @@
 #keywords bookmark,wiki
 #notwins
 #nocomment
-Total [[[[PageCount]]]] pages
+Total <<PageCount>> pages
 
-[[[[RecentChanges(table,comment,timesago,item=20)]]]]
+<<RecentChanges(table,comment,timesago,item=20)>>
 
-||<tablealign="center"> [[[[Icon(diff)]]]] |marks older pages that have at least one backup version stored (click for an author diff)|
-|| [[[[Icon(updated)]]]] |marks pages edited since you set your bookmark (click for a bookmark diff)|
-|| [[[[Icon(new)]]]] |marks pages created since you set your bookmark, and were not edited after creation|
+||<tablealign="center"> <<Icon(diff)>> |marks older pages that have at least one backup version stored (click for an author diff)|
+|| <<Icon(updated)>> |marks pages edited since you set your bookmark (click for a bookmark diff)|
+|| <<Icon(new)>> |marks pages created since you set your bookmark, and were not edited after creation|
 
 See also HelpOnNavigation

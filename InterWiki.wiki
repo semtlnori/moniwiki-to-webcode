@@ -1,5 +1,5 @@
 List of valid InterWiki names this wiki knows of:
-  [[[[InterWiki]]]]
+  <<InterWiki>>
 
 Other Wikis:
 * [[http://panoptic.com/wiki/aolserver AOL Server Wiki]]

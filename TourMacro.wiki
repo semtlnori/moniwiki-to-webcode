@@ -3,6 +3,6 @@
 ----
 MoinMoin MoniWiki HelpContents
 ----
-[[[[Tour(arena=backlinks,HelpContents)]]]]
+<<Tour(arena=backlinks,HelpContents)>>
 ----
-[[[[Tour(arena=keylinks,GPL)]]]]
+<<Tour(arena=keylinks,GPL)>>

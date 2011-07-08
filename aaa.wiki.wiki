@@ -20,7 +20,7 @@
 
 = The First Steps =
 
- Help with problems or questions: HelpContents ([[[[[[[[Icon(help)]]]]]]]]) and HelpMiscellaneous/FrequentlyAskedQuestions
+ Help with problems or questions: HelpContents (<<<<Icon(help)>>>>) and HelpMiscellaneous/FrequentlyAskedQuestions
  UserPreferences
 * Name (appears on RecentChanges)
 * Email address for subscribing to page change emails and retrieving a lost login/password
@@ -47,9 +47,9 @@ Good places to start your Wiki exploration:
  WordIndex: A list of all words in page titles (i.e. a list of keywords/concepts in the Wiki)
 = Using the Editor =
 
-To edit a page, just click on [[[[[[[[Icon(edit)]]]]]]]] or on the link "`EditText`" at the end of the page. A form will appear enabling you to change text and save it again. A backup copy of the previous page's content is made each time.
+To edit a page, just click on <<<<Icon(edit)>>>> or on the link "`EditText`" at the end of the page. A form will appear enabling you to change text and save it again. A backup copy of the previous page's content is made each time.
 
-You can check the appearance of the page without saving it by using the preview function - //without// creating an entry on RecentChanges; additionally there will be an intermediate save of the page content, if you have created a homepage ([[[[[[[[Icon(home)]]]]]]]] is visible).
+You can check the appearance of the page without saving it by using the preview function - //without// creating an entry on RecentChanges; additionally there will be an intermediate save of the page content, if you have created a homepage (<<<<Icon(home)>>>> is visible).
 
 <!> After editing pages, please leave the edit form by "`Save Changes`" since otherwise your edits will be lost!
 = Tips on the Editor =
@@ -65,7 +65,7 @@ Within the editor, the usual hotkeys work:
 
 (!) In UserPreferences, you can set up the editor to open when you double click a page.
 
-(!) You can subscribe to pages to get a mail on every change of that page. Just click on the envelope [[[[[[[[Icon(subscribe)]]]]]]]] at top right of the page.
+(!) You can subscribe to pages to get a mail on every change of that page. Just click on the envelope <<<<Icon(subscribe)>>>> at top right of the page.
 = Text Markup and Links =
 
 To add special formatting to text, just enclose it within markup. There are special notations which are automatically recognized as internal or external links or as embedded pictures.
@@ -85,7 +85,7 @@ To add special formatting to text, just enclose it within markup. There are spec
 For details see HelpOnFormatting, HelpOnLinking and HelpOnSmileys.
 = Headlines and Paragraphs =
 
-Headlines are placed on a line of their own and surrounded by one to five equal signs denoting the level of the headline. The headline is in between the equal signs, separated by a space. Example: [[[[[[[[BR]]]]]]]] `== Second Level ==`
+Headlines are placed on a line of their own and surrounded by one to five equal signs denoting the level of the headline. The headline is in between the equal signs, separated by a space. Example: <<<<BR>>>> `== Second Level ==`
 
  (!) A common error is to insert an additional blank after the ending equal signs!
 
@@ -139,12 +139,12 @@ For details see HelpOnTables.
 = Macros =
 
  Macros allow dynamic (computed) content to be inserted into pages.
- A macro is called by "`[[[[[[[[MacroName(parameters)]]]]]]]]`".
+ A macro is called by "`<<<<MacroName(parameters)>>>>`".
  The parameters are optional, depending on the macro.
  The most important macros:
 * `TableOfContents` - show a local table of contents
 * `Anchor` - defines a link target line
-* `FootNote` - generates a footnote[[[[[[[[FootNote(Footnotes look like this.)]]]]]]]]
+* `FootNote` - generates a footnote<<<<FootNote(Footnotes look like this.)>>>>
 * `PageList` - generates lists of pages with titles matching a pattern
 ----
 For details see HelpOnMacros.

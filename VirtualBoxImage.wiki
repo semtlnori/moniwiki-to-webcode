@@ -1,6 +1,6 @@
 #title VirtualBox Images for nFORGE
 
-[[[[TableOfContents]]]]
+<<TableOfContents>>
 
 **테마는 아래 내용을 참고하여 변경하여 테스트 부탁드립니다!**
 

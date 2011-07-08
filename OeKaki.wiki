@@ -1,13 +1,13 @@
-[[[[OeKaki(1)]]]]
+<<OeKaki(1)>>
 
-[[[[OeKaki(test)]]]]
+<<OeKaki(test)>>
 
-[[[[OeKaki(test2)]]]]
+<<OeKaki(test2)>>
 
-[[[[OeKaKi(signature)]]]]
+<<OeKaKi(signature)>>
 
-[[[[OeKaKi(test3)]]]]
-[[[[OeKaKi(heya)]]]]
+<<OeKaKi(test3)>>
+<<OeKaKi(heya)>>
 
 == 사용법 ==
 {{{[[OeKaki(파일이름)]]}}}을 추가하면, `OeKaki_파일이름.png`그림이 만들어집니다.

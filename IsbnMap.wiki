@@ -5,10 +5,10 @@ AladdinMusic http://www.aladdin.co.kr/music/catalog/music.asp?ISBN= http://image
 IMDB http://us.imdb.com/title/tt$ISBN/ http://ia.imdb.com/media/imdb/$ISBN @/imdb/([^.]+m\.jpg)@
 }}}
 
-[[[[ISBN(0735700788,Tmecca)]]]]
+<<ISBN(0735700788,Tmecca)>>
 
-[[[[ISBN(9049741495,AladdinMusic)]]]]
+<<ISBN(9049741495,AladdinMusic)>>
 
-[[[[ISBN(8946020423,K)]]]] 
-[[[[ISBN(0671872346)]]]]
-[[[[ISBN(0348150,IMDB)]]]]
+<<ISBN(8946020423,K)>> 
+<<ISBN(0671872346)>>
+<<ISBN(0348150,IMDB)>>

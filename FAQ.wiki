@@ -2,7 +2,7 @@
 
 nFORGE에 관련된 빈번한 질문과 답변
 
-[[[[TableOfContents]]]]
+<<TableOfContents>>
 
 == 로그인 ==
 === 동일한 아이디를 가지고 여러대의 PC에서 동시에 사용할 수 있나요? ===

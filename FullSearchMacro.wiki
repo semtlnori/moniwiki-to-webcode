@@ -1,1 +1,1 @@
-[[[[FullSearch()]]]]
+<<FullSearch()>>

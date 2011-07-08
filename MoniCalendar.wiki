@@ -1,6 +1,6 @@
-[[[[MoniCalendar(column,oneweek,공휴일,시간표)]]]]
+<<MoniCalendar(column,oneweek,공휴일,시간표)>>
 ----
-[[[[MoniCalendar(oneweek)]]]]
+<<MoniCalendar(oneweek)>>
 ----
 * 9/9 (!) 6:00am 좋은날
 * 9/10 /!\ 생일
@@ -13,7 +13,7 @@
 * 9/7 {*} Happy Happy :( ;)
 * 9/12-9/17 gray 어쩌구 :( 저쩌구 어쩌구...
 ----
-[[[[MoniCalendar(공휴일,시간표)]]]]
+<<MoniCalendar(공휴일,시간표)>>
 
 == 메모 ==
 * MozillaFirefox에 "overflow:hidden"이 버그가 있어서, colorbar (기간 막대기)의 hover가 제대로 작동하지 않음

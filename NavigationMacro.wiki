@@ -3,5 +3,5 @@
 * HelpOnEditing
 * MoniWikiFeatures
 ----
-[[[[Navigation(NavigationMacro,action)]]]]
+<<Navigation(NavigationMacro,action)>>
 

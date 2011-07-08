@@ -4992,7 +4992,7 @@
  www/include/html.php, www/index-new.php,
 	  www/themes/nforge-dev/Theme.class,
 	  www/themes/nforge-new/Layout.tpl: [[#2634]] trove list 가 일부 밖에 출력되지
-	  않던 버그를 수정]]
+	  않던 버그를 수정]
  www/index-new.php, www/index.php,
 	  www/themes/nforge-new/Theme.class,
 	  www/themes/nforge-new/index.tpl: [[#2634]] nforge 시작 페이지에 대한

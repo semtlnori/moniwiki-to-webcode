@@ -1,18 +1,18 @@
 **//nFORGE 3.0 이상에서 적용됩니다.**//
 
-[[[[TableOfContents]]]]
+<<TableOfContents>>
 
 == 권한 정의 ==
 
 === 이슈 ===
-| 권한명(한글) | 권한명(영문) | 권한없음(-1)[[[[FootNote(이슈 비공개시 아무 권한 없음)]]]] | 쓰기(0) | 기본관리(1) | 관리(2) | 익명[[[[FootNote(이슈 비공개시 아무 권한 없음)]]]] | 비멤버[[[[FootNote(이슈 비공개시 아무 권한 없음)]]]] |
+| 권한명(한글) | 권한명(영문) | 권한없음(-1)<<FootNote(이슈 비공개시 아무 권한 없음)>> | 쓰기(0) | 기본관리(1) | 관리(2) | 익명<<FootNote(이슈 비공개시 아무 권한 없음)>> | 비멤버<<FootNote(이슈 비공개시 아무 권한 없음)>> |
 | 읽기(목록조회, 내용읽기) | tracker_read | O | O | O | O | O | O |
-| 이슈 등록[[[[FootNote(이슈 등록시에는 누구나 세부항목 설정 가능)]]]] | tracker_write | O | O | O | O | O[[[[FootNote(익명 글쓰기를 허용한 경우에만)]]]] | O |
-| 댓글 쓰기 | tracker_write_comment | O | O | O | O | O[[[[FootNote(익명 글쓰기를 허용한 경우에만)]]]] | O |
+| 이슈 등록<<FootNote(이슈 등록시에는 누구나 세부항목 설정 가능)>> | tracker_write | O | O | O | O | O<<FootNote(익명 글쓰기를 허용한 경우에만)>> | O |
+| 댓글 쓰기 | tracker_write_comment | O | O | O | O | O<<FootNote(익명 글쓰기를 허용한 경우에만)>> | O |
 | 세부항목 편짐 | tracker_edit_field | X | O | O | O | X | X |
 | 이슈상태 편집 | tracker_edit_state | X | O | O | O | X | X |
-| 제목 수정[[[[FootNote(본인이 작성한 게시물에 대해서는 제목 수정 가능)]]]] | tracker_edit_title | X | X | X | O | X | X |
-| 본문 수정[[[[FootNote(드래프트 모드에서는 본인이 작성한 게시물의 본문 수정 가능)]]]] | tracker_edit_body | X | X | X | X | X | X |
+| 제목 수정<<FootNote(본인이 작성한 게시물에 대해서는 제목 수정 가능)>> | tracker_edit_title | X | X | X | O | X | X |
+| 본문 수정<<FootNote(드래프트 모드에서는 본인이 작성한 게시물의 본문 수정 가능)>> | tracker_edit_body | X | X | X | X | X | X |
 | 담당자 편집 | tracker_edit_assignee | X | X | X | O | X | X |
 | 중요도 편집 | tracker_edit_priority | X | X | X | O | X | X |
 | 마일스톤 편집 | tracker_edit_milestone | X | X | X | O | X | X |
@@ -22,10 +22,10 @@
 | 댓글 삭제 | tracker_delete_comment | X | X | X | O | X | X |
 
 === 게시판 ===
-| 권한명(한글) | 권한명(영문) | 권한없음(-1)[[[[FootNote(게시판 비공개시 아무 권한 없음)]]]] | 쓰기(0) | 관리(2) | 익명[[[[FootNote(게시판 비공개시 아무 권한 없음)]]]] | 비멤버[[[[FootNote(게시판 비공개시 아무 권한 없음)]]]] |
+| 권한명(한글) | 권한명(영문) | 권한없음(-1)<<FootNote(게시판 비공개시 아무 권한 없음)>> | 쓰기(0) | 관리(2) | 익명<<FootNote(게시판 비공개시 아무 권한 없음)>> | 비멤버<<FootNote(게시판 비공개시 아무 권한 없음)>> |
 | 읽기(목록조회, 내용읽기) | tracker_read | O | O | O | O | O |
-| 게시물 등록 | tracker_write | O | O | O | O[[[[FootNote(익명 글쓰기를 허용한 경우에만)]]]] | O |
-| 댓글 쓰기 | tracker_write_comment | O | O | O | O[[[[FootNote(익명 글쓰기를 허용한 경우에만)]]]] | O |
+| 게시물 등록 | tracker_write | O | O | O | O<<FootNote(익명 글쓰기를 허용한 경우에만)>> | O |
+| 댓글 쓰기 | tracker_write_comment | O | O | O | O<<FootNote(익명 글쓰기를 허용한 경우에만)>> | O |
 | 제목 수정 | tracker_edit_title | X | X | O | X | X |
 | 본문 수정 | tracker_edit_body | X | X | O | X | X |
 | 분류 편집 | tracker_edit_category | X | X | O | X | X |

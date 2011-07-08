@@ -2,7 +2,7 @@
 
 기존에 GForge를 기반으로 운영 중인 사이트를 nFORGE로 이전하기 위한 가이드를 제시한다.
 
-[[[[TableOfContents]]]]
+<<TableOfContents>>
 
 === GForge to nFORGE Migration 개요 ===
 

@@ -27,6 +27,6 @@ MoniWiki use xsltproc.php by default.
 }}} 
 
 === Display ===
-[[[[Include(XsltVersion)]]]]
+<<Include(XsltVersion)>>
 ----
-[[[[Navigation(HelpOnEditing)]]]]
+<<Navigation(HelpOnEditing)>>

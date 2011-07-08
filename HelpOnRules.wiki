@@ -30,4 +30,4 @@ For more information on the possible markup, see HelpOnEditing.
 
 /!\ MoniWiki does not set the thickness by default. Please set `$hr_type="fancy"`; to control the thickness of hr (since v1.0.9).
 ----
-[[[[Navigation(HelpOnEditing)]]]]
+<<Navigation(HelpOnEditing)>>

@@ -18,13 +18,13 @@ http://dev.naver.com/projects/nforge/issue/8952/6300/codereview.ogv
 * 패치의 내용은 패치 대상이 되는 각 파일별로 나타나게 되는데, 각 파일별로도 마찬가지로 +/- 버튼이 표시되며 내용을 숨기거나 표시할 수 있습니다.
 === 요구사항 ===
 * 해당 프로젝트에 codereview 플러그인이 켜져 있는 상태여야 합니다.
-* 패치의 포맷은 unified diff format[[[[FootNote(http://en.wikipedia.org/wiki/Diff#Unified_format)]]]]이어야 합니다. 그렇지 않다면 파싱에 실패합니다.
+* 패치의 포맷은 unified diff format<<FootNote(http://en.wikipedia.org/wiki/Diff#Unified_format)>>이어야 합니다. 그렇지 않다면 파싱에 실패합니다.
 * 패치파일의 확장자는 diff 혹은 patch 이어야 합니다. 그렇지 않다면 패치파일이 아닌 것으로 간주합니다.
 === 예외 처리 ===
 | 예외 상황 | 처리 방법 | 메시지 |
-|패치의 크기가 허용된 크기보다 큼[[[[FootNote(이때 아파치 에러로그에 다음과 같은 식의 로그가 기록될 수 있습니다. sh: line 1:  3362 Killed svnlook diff -r123 /var/lib/nforge/svnroot/test)]]]] |에러 메시지 출력 |패치의 크기가 <$sys_codereview_size_limit> 를 넘기 때문에 보여드릴 수 없습니다. |
+|패치의 크기가 허용된 크기보다 큼<<FootNote(이때 아파치 에러로그에 다음과 같은 식의 로그가 기록될 수 있습니다. sh: line 1:  3362 Killed svnlook diff -r123 /var/lib/nforge/svnroot/test)>> |에러 메시지 출력 |패치의 크기가 <$sys_codereview_size_limit> 를 넘기 때문에 보여드릴 수 없습니다. |
 |출력할 수 있는 패치가 전혀 없는 경우(패치의 크기가 0이거나 패치의 파싱에 실패) |에러 메시지 출력 |패치를 불러오는데 실패했습니다. |
-|서버에서 SVN[[[[FootNote(SVN 외의 다른 버전관리 도구의 경우 처리 허용시간 제한이 없습니다.)]]]] 저장소의 커밋에 대한 diff를 얻어오는 중 처리 허용 시간을 초과한 경우[[[[FootNote($svn_get_diff_timeout보다 큰 시간이 걸린 경우. 디폴트값은 1초.)]]]]|처리를 중단하고 에러 메시지 출력 |패치를 불러오는데 실패했습니다. |
+|서버에서 SVN<<FootNote(SVN 외의 다른 버전관리 도구의 경우 처리 허용시간 제한이 없습니다.)>> 저장소의 커밋에 대한 diff를 얻어오는 중 처리 허용 시간을 초과한 경우<<FootNote($svn_get_diff_timeout보다 큰 시간이 걸린 경우. 디폴트값은 1초.)>>|처리를 중단하고 에러 메시지 출력 |패치를 불러오는데 실패했습니다. |
 |TCP 혹은 HTTP Error 발생 |에러 메시지 출력 |패치를 불러오는데 실패했습니다. |
 
 메시지의 예)

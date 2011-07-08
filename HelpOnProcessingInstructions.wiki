@@ -22,7 +22,7 @@ All !PIs must appear at the very start of a page. An exception are comment !PIs,
 * {{{#notwins}}}: disable some TwinPages feature
 ----
 Since v1.1.1
-* {{{#nocomment}}}: disable auto added ![[[[Comment]]]] macro
+* {{{#nocomment}}}: disable auto added !<<Comment>> macro
 * {{{#camelcase}}}: enable WikiName syntax
 * {{{ #camelcase 0}}} or {{{#nocamelcase}}}: disable WikiName syntax
 * {{{#language}}} //ko|en//
@@ -31,4 +31,4 @@ Since v1.1.1
 ----
 For more information on the possible markup, see HelpOnEditing.
 ----
-[[[[Navigation(HelpOnEditing)]]]]
+<<Navigation(HelpOnEditing)>>

@@ -1,5 +1,5 @@
 #title nFORGE 설치하기 - Ubuntu + MySQL 기반
-[[[[TableOfContents]]]]
+<<TableOfContents>>
 === 들어가는 말 ===
 * 설치 환경
 ** Ubuntu 9.04 Server

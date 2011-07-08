@@ -1,5 +1,5 @@
 #title nFORGE on VMWare
-[[[[TableOfContents]]]]
+<<TableOfContents>>
 == MySQL DBMS 기반 nFORGE ==
 === 설치 정보 ===
 MySQL DBMS 기반의 가상머신에 설치된 OS와 nFORGE 관련 정보는 아래와 같습니다.

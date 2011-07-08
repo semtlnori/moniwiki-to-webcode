@@ -1,5 +1,5 @@
 #title nFORGE 테스트
-[[[[TableOfContents]]]]
+<<TableOfContents>>
 === 들어가는 말 ===
 Selenium을 이용해 nFORGE를 테스트하는 방법을 소개합니다.
 아직 시작에 불과하고 여러가지 해결해야 할 문제들이 있지만 Selenium을 이용한 Test 방식이 안정화된다면 QA를 위한 리소스를 절약할 수 있고 자동화를 통해 릴리즈 주기를 단축할 수 있으리라 예상됩니다.

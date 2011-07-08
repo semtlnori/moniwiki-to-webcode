@@ -7,21 +7,21 @@ nFORGE를 통해서 소프트웨어 개발자들이 개발 효율도 높이고 �
 
 nFORGE는 GNU GPL v2로 배포되는 오픈소스입니다.
 
-* [[:FeatureList 주요 기능 및 특징 설명]]
+* [[FeatureList|주요 기능 및 특징 설명]]
 
 == 사용자 문서 ==
 * nFORGE 설치하기
-** [[:VirtualBoxImage nFORGE on VirtualBox]] - 복잡한 설치과정 없이 VirtualBox에서 간편하게
-** [[:InstallnFORGE Install nFORGE on CentOS 5]] - CentOS 5 기반 설치 방법
-** [[:InstallnFORGEOnUbuntu Install nFORGE on Ubuntu]] - Ubuntu + MySQL 기반 설치 방법
-* [[:UsingnFORGE nFORGE 사용법]]
+** [[VirtualBoxImage|nFORGE on VirtualBox]] - 복잡한 설치과정 없이 VirtualBox에서 간편하게
+** [[InstallnFORGE|Install nFORGE on CentOS 5]] - CentOS 5 기반 설치 방법
+** [[InstallnFORGEOnUbuntu|Install nFORGE on Ubuntu]] - Ubuntu + MySQL 기반 설치 방법
+* [[UsingnFORGE|nFORGE 사용법]]
 * [[FAQ]]
-* [[:UserDocuments 그외 설치 및 관리 관련 문서들]]
+* [[UserDocuments|그외 설치 및 관리 관련 문서들]]
 * [[Configuration]]
 
 == 개발자 문서 ==
-* [[:HowToContribute 기여 또는 참여 방법]]
-* [[:DevelopersGuide 개발자 가이드]]
+* [[HowToContribute|기여 또는 참여 방법]]
+* [[DevelopersGuide|개발자 가이드]]
 * nFORGE CI 서버: http://ci.dev.naver.com:8080/job/nForge-CI/
 
 nFORGE는 [[http://gforge.org GForge]]를 기반으로 만들었으며 [[http://moniwiki.kldp.net 모니위키]], [[http://www.viewvc.org/ ViewVC]] 등 다양한 오픈소스 프로그램들의 도움을 받아 동작합니다. 모든 오픈소스 개발자 여러분들께 진심으로 감사드립니다.

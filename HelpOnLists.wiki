@@ -89,4 +89,4 @@ Variations of numbered lists:
  another term:: and its definition
 
 ----
-[[[[Navigation(HelpOnEditing)]]]]
+<<Navigation(HelpOnEditing)>>

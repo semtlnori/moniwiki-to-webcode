@@ -1,9 +1,9 @@
-attachment:test2_1.txt [[[[TableOfContents]]]]
+attachment:test2_1.txt <<TableOfContents>>
 
 * Level1 레벨 1
 * Level2 레벨 2
 ** Level3 레벨 3
-* Level1. 레벨1 [[[[FootNote(주석달기 테스트)]]]]
+* Level1. 레벨1 <<FootNote(주석달기 테스트)>>
 
 test
 

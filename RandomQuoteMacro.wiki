@@ -9,9 +9,9 @@
  - Hello World !
 }}}
 ----
-[[[[RandomQuote(@^\{\{\{#.+\n(.*)\n\}\}\}@Us,RandomQuoteMacro)]]]]
+<<RandomQuote(@^\{\{\{#.+\n(.*)\n\}\}\}@Us,RandomQuoteMacro)>>
 ----
-[[[[RandomQuote(@^\{\{\{(#.*)\n\}\}\}@Us,RandomQuoteMacro)]]]]
+<<RandomQuote(@^\{\{\{(#.*)\n\}\}\}@Us,RandomQuoteMacro)>>
 ----
 ###!randomquote 
 * 현재 [[삼차노스모크이전]] 안정화중입니다.
@@ -19,8 +19,8 @@
 * 문제점이 있으면 [[삼차노스모크이전/문제점]] 혹은 [[사랑방]]에 글을 남겨주세요. :)
 ##
 ----
-[[[[RandomQuote(@^###.+\n(.*)\n##@Us,RandomQuoteMacro)]]]]
+<<RandomQuote(@^###.+\n(.*)\n##@Us,RandomQuoteMacro)>>
 ----
-알려요: [[[[RandomQuote(@^##(#.+)\n##@Us,공지)]]]]
+알려요: <<RandomQuote(@^##(#.+)\n##@Us,공지)>>
 ----
 CategoryMacro

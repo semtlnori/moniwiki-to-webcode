@@ -1,6 +1,6 @@
 == Text Formatting Rules ==
 
-Leave blank lines between paragraphs. Use {{{[[[[BR]]]]}}} to insert linebreaks into paragraphs.
+Leave blank lines between paragraphs. Use {{{<<BR>>}}} to insert linebreaks into paragraphs.
 
 You can render text in //italics// or **bold**.
 To write italics, enclose the text in double single quotes.
@@ -90,4 +90,4 @@ Superscripted text also obtained by encloseing a string into double carets ^^lik
 
 Please see also WikiSlide
 ----
-[[[[Navigation(HelpOnEditing)]]]]
+<<Navigation(HelpOnEditing)>>

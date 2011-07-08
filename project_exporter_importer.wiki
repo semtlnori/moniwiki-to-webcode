@@ -1,6 +1,6 @@
 #title 프로젝트 Exporter / Importer
 
-[[[[TableOfContents]]]]
+<<TableOfContents>>
  
 == 사용자 시나리오 ==
 * Gforge로 운용하고 있는 프로젝트들을 nFORGE 기반 시스템으로 자연스럽게 이전하고 싶다

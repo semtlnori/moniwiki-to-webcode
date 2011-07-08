@@ -10,4 +10,4 @@ http://github.com/defunkt/github-issues/issues
 
 //동영상//
 
-[[[[HTML(<embed src="http://blip.tv/play/AfqxMpXxcg" type="application/x-shockwave-flash" width="720" height="480" allowscriptaccess="always" allowfullscreen="true"></embed>)]]]]
+<<HTML(<embed src="http://blip.tv/play/AfqxMpXxcg" type="application/x-shockwave-flash" width="720" height="480" allowscriptaccess="always" allowfullscreen="true"></embed>)>>

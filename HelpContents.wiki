@@ -12,10 +12,10 @@ Here is a tour of the most important help pages:
 * MoniWiki:HelpForDevelopers - how to add your own features by changing the MoniWiki code
 
 == Wiki SlideShow ==
-[[[[SlideShow(WikiSlide,dep=1)]]]] go !!
+<<SlideShow(WikiSlide,dep=1)>> go !!
 ----
 An automatically generated index of all help pages is on HelpIndex
 
 See also MoniWiki:MoniWikiFaq
 ----
-[[[[Navigation(HelpContents)]]]]
+<<Navigation(HelpContents)>>

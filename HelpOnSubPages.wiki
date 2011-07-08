@@ -30,4 +30,4 @@ Links to sibling pages start with "`../`", for example ../SubPages (a link to th
 === MoniWiki Extensions ===
 * MoniWiki support "./SubPages" syntax.
 ----
-[[[[Navigation(HelpOnEditing)]]]]
+<<Navigation(HelpOnEditing)>>

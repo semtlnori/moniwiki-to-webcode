@@ -20,5 +20,5 @@ nFORGE를 설치하고 잘 운영하고 계신가요? 외부에 충분히 공개
 
 개발과 관련해서는 다음 문서들을 참고하십시오.
 
-* [[:DevelopersGuide 개발자 가이드]]
-* [[:DevelopersReference 개발자 레퍼런스]]
+* [[DevelopersGuide|개발자 가이드]]
+* [[DevelopersReference|개발자 레퍼런스]]

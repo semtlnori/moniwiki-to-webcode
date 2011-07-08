@@ -1,7 +1,7 @@
-[[[[UserPreferences]]]]
+<<UserPreferences>>
 ----
-[[[[Css]]]]
-[[[[Theme]]]]
+<<Css>>
+<<Theme>>
 
 If you are coming to this page for the first time, you'll see form into which you can enter your username and some other settings (crypted password and e-mail are stored). If you click on **Create Profile**, a user profile will be created for you. With the response, a HTTP cookie will be sent that contains your user ID, which enables the system to recognize you. 
 

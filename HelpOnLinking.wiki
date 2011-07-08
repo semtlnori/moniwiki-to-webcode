@@ -2,7 +2,7 @@
 If you enclose a sequence of characters in square brackets and double quotes {{{[["like this"]]}}}, that makes it a page name. That can be used for specific uses of MoinMoin (like organizing a list of items, e.g. your CD collection, by their "natural" name), or if you want to create a wiki with a non-western character encoding.
 
 == URLs and Inline Images ==
-There are several way to insert external references[[[[FootNote(The opposite of external references are the internal, automatic WikiName links.)]]]] into the text:
+There are several way to insert external references<<FootNote(The opposite of external references are the internal, automatic WikiName links.)>> into the text:
 * direct URL insertion; if the URL ends in an image extension ("{{{.gif}}}", "{{{.jpg}}}" or "{{{.png}}}"), the URL is converted to an image tag.
 * bracketed URLs.
 * InterWiki links.
@@ -26,7 +26,7 @@ You can surpress WikiName linking by putting an exclamation mark (//bang//) befo
 
 For more information on the possible markup, see HelpOnEditing.
 
-[[[[FootNote]]]]
+<<FootNote>>
 
 === Example ===
 {{{
@@ -100,4 +100,4 @@ See also:
 * [[http://moniwiki.sourceforge.net/ http://moniwiki.sourceforge.net/imgs/moniwiki-logo.gif]]
 
 ----
-[[[[Navigation(HelpOnEditing)]]]]
+<<Navigation(HelpOnEditing)>>

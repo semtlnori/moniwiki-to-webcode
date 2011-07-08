@@ -1,5 +1,5 @@
 #title 참조 무결성 분석 작업
-[[[[TableOfContents]]]]
+<<TableOfContents>>
  
 == 배경 ==
 * nFORGE의 각 테이블에는 외래키를 활용한 참조 무결성 제약 조건을 이런 저런 이유로 사용하지 않고(DBMS간 호환성, 성능 기타의 이유...) 각 기능별로 참조하는 테이블을 적절히 삭제하여 외래키의 DELETE CASCADE를 대치했습니다. 그리고, 혹시 응용에서 삭제 처리를 처리하지 못해서 참조 무결성을 위반하는 사례가 있는 경우는 sh cronjobs/db_check_constraint.sh를 통해서 해당하는 내역이 있는지 추출하여 응용 수정 및 자료 정비(DELETE)에 사용할 수 있도록 했습니다

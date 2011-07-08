@@ -1,1 +1,1 @@
-[[[[Draw(hello3)]]]]
+<<Draw(hello3)>>

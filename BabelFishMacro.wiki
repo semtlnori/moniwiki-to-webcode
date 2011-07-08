@@ -1,3 +1,3 @@
-[[[[BabelFish]]]]
+<<BabelFish>>
 ----
-[[[[BabelFish(ko,en)]]]]
+<<BabelFish(ko,en)>>

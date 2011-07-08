@@ -2,23 +2,23 @@
 [[PageList(Help.*,date)]]
 }}}
 
-[[[[PageList(Help.*,date)]]]]
+<<PageList(Help.*,date)>>
 ----
 {{{[[PageList(Macro)]]
 }}}
 
-[[[[PageList(Macro)]]]]
+<<PageList(Macro)>>
 ----
 {{{[[PageList(Help.*,m)]]
 }}}
 
-[[[[PageList(Help.*,m)]]]]
+<<PageList(Help.*,m)>>
 ----
 {{{[[PageList(^MX.*)]]
 }}}
 
-[[[[PageList(^MX.*)]]]]
+<<PageList(^MX.*)>>
 ----
-[[[[PageList(date)]]]]
+<<PageList(date)>>
 ----
 CategoryMacro

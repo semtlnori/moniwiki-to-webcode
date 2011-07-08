@@ -2,10 +2,10 @@
 
 nFORGE에서 지원하는 API
 
-[[[[TableOfContents]]]]
+<<TableOfContents>>
 
 == 시작하기 전에 ==
-[[[[API]]]] 기능을 사용하려면 우선 사이트 관리자가 설정파일(/etc/nforge/local.inc)에서 $sys_use_api 를 다음과 같이 true로 설정해 주어야 합니다.
+<<API>> 기능을 사용하려면 우선 사이트 관리자가 설정파일(/etc/nforge/local.inc)에서 $sys_use_api 를 다음과 같이 true로 설정해 주어야 합니다.
 {{{
 $sys_use_api = true;
 }}}

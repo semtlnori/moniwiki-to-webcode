@@ -1,7 +1,7 @@
 #title nFORGE 배포용 테마 개발 가이드
 nFORGE의 테마를 개발할 때의 방법 및 가이드를 제시한다.
 
-[[[[TableOfContents]]]]
+<<TableOfContents>>
 
 === 기본적인 테마 작업 개요 ===
 

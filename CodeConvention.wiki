@@ -1,11 +1,11 @@
 nFORGE를 위한 CodeConvention
 
 [[http://framework.zend.com/manual/en/coding-standard.html ZendFramework의 Coding Standard]]를 따르되, 다음의 예외를 둔다.
-* 함수 이름은 기존대로 K&R 스타일을 따른다.[[[[FootNote(PHP의 Coding Standard를 따른 것입니다. See http://svn.php.net/viewvc/php/php-src/trunk/CODING_STANDARDS?view=markup)]]]]
+* 함수 이름은 기존대로 K&R 스타일을 따른다.<<FootNote(PHP의 Coding Standard를 따른 것입니다. See http://svn.php.net/viewvc/php/php-src/trunk/CODING_STANDARDS?view=markup)>>
 * get/set 접두사를 강제하지 않는다.
 * 패턴을 사용하더라도 메소드 이름에 패턴 이름이 항상 포함되어야 하는 것은 아니다.
-* 멤버가 아닌 변수 이름만 2.0의 CodingConvetion 대로 K&R 스타일을 따른다. [[[[FootNote(ZendFramework 에서 이에 대해 명시하지 않았지만, 실제 ZendFramework 에서도 대부분 이 형식으로 변수를 명명하고 있습니다.)]]]]
-* array 정의시 element는 다음과 같이 정렬하는 것을 권장한다. [[[[FootNote(array의 가독성을 향상시키고 동시에 최소한의 라인 변화로 element를 추가 삭제할 수 있게 하기 위함입니다.)]]]]
+* 멤버가 아닌 변수 이름만 2.0의 CodingConvetion 대로 K&R 스타일을 따른다. <<FootNote(ZendFramework 에서 이에 대해 명시하지 않았지만, 실제 ZendFramework 에서도 대부분 이 형식으로 변수를 명명하고 있습니다.)>>
+* array 정의시 element는 다음과 같이 정렬하는 것을 권장한다. <<FootNote(array의 가독성을 향상시키고 동시에 최소한의 라인 변화로 element를 추가 삭제할 수 있게 하기 위함입니다.)>>
 ** 줄바꿈하여 작성하고 시작부분은 =에 맞춘다.
 ** 한 줄에 한 개의 element
 ** 마지막 element 끝에도 ,를 붙인다.

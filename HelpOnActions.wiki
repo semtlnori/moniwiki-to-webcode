@@ -29,4 +29,4 @@ The following is a list of //internal// actions that are used to implement the v
 
 for more information about actions See MoniWiki:MoniWikiActions
 ----
-[[[[Navigation(HelpContents)]]]]
+<<Navigation(HelpContents)>>

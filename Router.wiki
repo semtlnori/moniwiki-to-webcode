@@ -1,6 +1,6 @@
 **//nFORGE 3.0 이상에서만 동작합니다.**//
 
-[[[[TableOfContents]]]]
+<<TableOfContents>>
 
 == Router ==
 Router는 <nFORGE 설치 디렉토리>/common/include/Router.php 에 구현되어 있습니다.
