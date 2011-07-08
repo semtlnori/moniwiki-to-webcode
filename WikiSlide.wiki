@@ -94,7 +94,7 @@ those lines
 which //directly// follow each other
 belong to //one// paragraph.
 
-Preformatted text (e.g. a copy of an email) should be placed inside three curly braces `{{{ ... }}}`:
+Preformatted text (e.g. a copy of an email) should be placed inside three curly braces ~{~{~{ ... ~}~}~}:
 {{{
 First Line
 ...
