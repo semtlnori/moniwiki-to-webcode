@@ -1,0 +1,19 @@
+[[FullSearch()]] 
+== HotDraw Usage ==
+{{{[[Draw(Picture name)]]}}}
+
+/!\ HotDraw does not work correctly with java_1.3.1_09 :(
+----
+[[Draw(stadia)]]
+
+[[Draw(test2)]]
+
+[[Draw(test)]]
+----
+[[Draw(hello)]]
+----
+[[Draw(hello2)]]
+----
+[[Draw(hanadulset)]]
+----
+[[Draw(aaa)]]

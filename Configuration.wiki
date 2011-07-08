@@ -1,0 +1,136 @@
+nFORGE는 환경설정값을 다음의 두 군데에 저장합니다. 
+ * 설정파일: /etc/nforge/local.inc
+ * 데이터베이스: system_setting 테이블
+설정파일과 데이터베이스에 저장된 환경설정값이 다른 경우, nFORGE는 데이터베이스에 저장된 값을 사용하게 됩니다.
+
+따라서 nFORGE의 환경설정값은 다음의 방법 중 하나로 편집이 가능합니다. 
+ * /etc/nforge/local.inc 편집
+ * 사이트 관리 > 설정 관리자에서 수정
+
+== 설정값 목록 ==
+||이름||타입||설명||값의 예||
+||svn_bin||string||SVN 클라이언트의 path||/usr/bin/svn||
+||svn_root||string||?||svn||
+||use_ssl||boolean||false||SSL을 사용하는지의 여부||
+||use_dav||boolean||DAV를 사용하는지의 여부||1||
+||use_ssh||boolean||SSH를 사용하는지의 여부||false||
+||default_svn_server||string||SVN 서버의 도메인 ''Not tested''||test.dev.naver.com||
+||default_cvs_server||string||CVS 서버의 도메인 ''Not tested''||test.dev.naver.com||
+||svn_tracker_debug_file||string||SVN-Tracker 플러그인이 사용할 로그파일의 경로||/var/tmp/svntracker_logfile||
+||svn_tracker_debug||boolean||SVN-Tracker 플러그인이 디버그 모드로 동작할지의 여부||false||
+||sys_svnroot_path||string||svnroot의 경로||/opt/nforge/var/svnroot||
+||cvs_tracker_debug||boolean||CVS-Tracker 플러그인이 디버그 모드로 동작할지의 여부||false||
+||cvs_binary_version||string||CVS 클라이언트의 버전||1.11||
+||sys_cvsroot_path||string||cvsroot의 경로||/opt/nforge/var/cvsroot||
+||upgrade_info_url||string||업그레이드를 위해, 최신 버전의 nFORGE에 대한 정보를 받아올 URL||http://dev.naver.com/export/upgrade-info.php||
+||sys_db_version||string||현재 nFORGE Database의 version||11||
+||sys_platform||string||현재 nFORGE가 설치된 시스템의 OS||CENTOS||
+||sys_project_approved_auto||boolean||프로젝트 개설 신청시, 프로젝트 승인이 자동으로 이루어 질 것인지의 여부.||false||
+||nforge_news_page||string||사이트 뉴스 공유 전체 보기를 위한 링크 ''Deprecated''||http://dev.naver.com/news/nforge_news.php||
+||nforge_register_url||string||nFORGE 네트워크의 등록을 위한 URL||http://dev.naver.com/export/nforge_site.php||
+||nforge_project_url||string||nFORGE 프로젝트의 뉴스를 가져올 URL||http://dev.naver.com/export/rss20_news.php?group_id=26||
+||nforge_news_url||string||nFORGE 네트워크 뉴스를 가져올 URL||http://dev.naver.com/export/rss20_nforge_news||
+||sys_wiki_dir||string||위키 데이터가 기록될 디렉토리||/opt/nforge/var/wiki||
+||sys_wiki_path||string||위키가 설치되어 있는 디렉토리||/opt/nforge/share/moniwiki/||
+||sys_plugins_path||string||플러그인들이 설치되어 있는 디렉토리||/opt/nforge/plugins/||
+||sys_localization_cache_path||string||Localization cache가 기록될 디렉토리||/opt/nforge/var/localizationcache/||
+||sys_custom_path||string||? ''Not tested''||/opt/nforge/etc/custom||
+||sys_path_to_smarty||string||Smarty Templates가 설치되어 있는 디렉토리||/opt/nforge/share/smarty||
+||sys_path_to_jpgraph||string||jpgraph가 설치되어 있는 디렉토리||/opt/nforge/jpgraph||
+||sys_default_timezone||string||기본 Timezone||ROK||
+||sys_lang||string||기본 언어||Korean||
+||sys_themeroot||string||테마들이 설치되어 있는 디렉토리||/opt/nforge/www/themes/||
+||sys_name||string||사이트 이름||devcenter||
+||sys_urlroot||string||Document Root로 사용하고 있는 디렉토리||/opt/nforge/www/||
+||sys_apache_group||string||아파치 그룹||apache||
+||sys_apache_user||string||아파치 유저||apache||
+||sys_ftp_upload_dir||string||FTP로 업로드한 파일들이 저장될 디렉토리||/opt/nforge/var/ftpupload||
+||sys_upload_dir||string||사용자가 업로드한 파일들이 저장될 디렉토리||/opt/nforge/var/uploads/||
+||gitdir_prefix||string||Git 저장소 경로를 위한 prefix||/gitroot||
+||sys_user_reg_noverify||boolean||사용자 등록시, 이메일을 통해 본인을 확인하지 않고 바로 계정을 활성화함. #2421||false||
+||sys_use_ftpuploads||boolean||FTP 업로드를 지원할지의 여부 ''Not tested''||false||
+||sys_use_ssh||boolean||SSH를 지원할지의 여부 ''Not tested''||false||
+||sys_admin_email||string||사이트 관리자의 email||naverdev@naver.com||
+||sys_scm_snapshots_path||string||?||/opt/nforge/var/scmsnapshots||
+||sys_scm_tarballs_path||string||프로젝트의 저장소를 tarball로 묶어서 저장해 둘 디렉토리?||/opt/nforge/var/scmtarballs||
+||sys_viewvc_timeout||integer||viewvc.cgi가 실행될 수 있는 최대시간(초). 이 시간을 넘기면 ulimit에 의해 강제로 종료됨.||180||
+||sys_chroot||string||?||/opt/nforge/var||
+||sys_cache_dir||string||각종 캐시가 기록될 디렉토리||/opt/nforge/var||
+||sys_var_path||string||각종 데이터가 기록될 디렉토리 ''Deprecated''||/opt/nforge/var||
+||sys_opt_path||string||? ''Deprecated''||/opt/nforge||
+||sys_etc_path||string||설정 파일이 담긴 디렉토리 ''Deprecated''||/etc/nforge||
+||sys_etc_dir||string||설정 파일이 담긴 디렉토리||/etc/nforge||
+||sys_var_dir||string||각종 데이터가 기록될 디렉토리||/opt/nforge/var||
+||sys_root||string||nFORGE가 설치된 디렉토리||/opt/nforge||
+||sys_use_wiki||boolean||wiki를 사용할지의 여부||1||
+||sys_use_snippet||boolean||Code Snippet 기능을 사용할지의 여부||false||
+||sys_news_approved_auto||boolean||뉴스가 사이트 관리자를 거치지 않고 자동으로 승인될지의 여부||true||
+||sys_localization_enable_timestamp_checking||boolean||timestamp를 이용해 localization cache가 expired 되었는지 검사할지에 대한 여부||1||
+||sys_localization_enable_caching||boolean||localization cache를 사용할지의 여부||1||
+||sys_force_login||integer||로그인을 해야만 nFORGE를 이용할 수 있게 할 것인지의 여부||0||
+||default_trove_cat||integer||소프트웨어맵의 기본 카테고리의 ID||18||
+||sys_template_group||integer||Template Project의 ID||5||
+||sys_stats_group||integer||?||2||
+||sys_news_group||integer||?||3||
+||sys_default_country_code||string||기본 국가 코드||KR||
+||sys_theme||string||기본 테마||naver||
+||sys_require_unique_email||integer||같은 메일주소로 두 개 이상의 아이디를 만들 수 없도록 할 것인지의 여부||0||
+||sys_session_expire||integer||session이 expire되는 시간. 쿠키의 expire 값으로 설정됨. 이 값이 0인 경우, expire는 현재 시간으로 설정됨.||604800||
+||svndir_prefix||string||프로젝트별 SVN 저장소의 경로를 얻기 위해 사용될 prefix||/svnroot||
+||cvsdir_prefix||string||프로젝트별 CVS 저장소의 경로를 얻기 위해 사용될 prefix||/cvsroot||
+||groupdir_prefix||string||?||/home/groups||
+||homedir_prefix||string||사용자 디렉토리를 만들 경로||/home||
+||sys_user_reg_restricted||boolean||값이 2인 경우, 사용자 등록을 사이트 관리자만 할 수 있음 ''Bug?? 타입이 boolean인데 검사는 2인지 검사함'||false||
+||sys_project_reg_restricted||boolean||true인 경우, 사이트 관리자가 아닌 사용자는 프로젝트 등록을 할 수 없음||false||
+||sys_use_project_multimedia||boolean||''Deprecated''||1||
+||sys_use_gateways||boolean||이 트래커에 대한 메일 수신에 대해 gateway를 사용하는지의 여부. true면 트래커 관련 메일 발송시, 메일의 발송자가 트래커이름@도메인 이 됨 ''Not tested''||1||
+||sys_use_shell||boolean||사용자가 Shell을 통해 nFORGE에 접근할 수 있도록 할 것인지에 대한 여부? ''Not tested''||1||
+||sys_use_ssl||boolean||SSL을 사용할지에 대한 여부 (use_ssl과의 차이점이 불명?) ''Not tested''||false||
+||sys_use_trove||boolean||소프트웨어맵을 사용할지에 대한 여부 ''Not tested''||1||
+||sys_use_ftp||boolean||FTP를 사용할지에 대한 여부 ''Not tested''||1||
+||sys_use_frs||boolean||파일 릴리즈 기능을 사용할지에 대한 여부 ''Not tested''||1||
+||sys_use_news||boolean||뉴스 기능을 사용할지에 대한 여부 ''Not tested''||1||
+||sys_use_tracker||boolean||트래커를 사용할지에 대한 여부 ''Not tested''||1||
+||sys_use_scm||boolean||SCM을 사용할지에 대한 여부 ''Not tested''||1||
+||sys_jabber_user||string||jabber(XMPP) 프로토콜을 통해 nFORGE가 메시지를 전달하기 위해 사용할 사용자명 ''Not tested''||noreply||
+||sys_jabber_port||string||jabber(XMPP) 프로토콜을 통해 nFORGE가 메시지를 전달하기 위해 사용할 포트 번호 ''Not tested''||5222||
+||sys_jabber_server||string||jabber(XMPP) 프로토콜을 통해 nFORGE가 메시지를 전달하기 위해 사용할 서버의 도메인 ''Not tested''||jabber.test.dev.naver.com||
+||sys_use_jabber||integer||jabber(XMPP) 프로토콜을 통한 메시지 전달 기능을 사용할지의 여부 ''Not tested''||0||
+||sys_ldap_admin_dn||string||? ''Not tested''||cn=admin,dc=nforge,dc=company,dc=com||
+||sys_ldap_bind_dn||string||? ''Not tested''||cn=SF_robot,dc=nforge,dc=company,dc=com||
+||sys_ldap_base_dn||string||? ''Not tested''||dc=nforge,dc=company,dc=com||
+||sys_ldap_version||integer||? ''Not tested''||3||
+||sys_ldap_port||integer||? ''Not tested''||389||
+||sys_ldap_host||string||? ''Not tested''||test.dev.naver.com||
+||unix_cipher||string||사용자 비밀번호를 저장할 때 사용할 hash 혹은 decryption 알고리즘. DES, MD5, Blowfish 중 하나를 사용할 수 있음. ''Not tested''||MD5||
+||sys_sendmail_path||string||메일 발송시 사용할 MTA||/usr/sbin/sendmail||
+||sys_account_manager_type||string||사용자 계정에 대한 관리를 어떤 방식으로 할 지에 대한 설정. UNIX, LDAP 중 하나를 사용할 수 있음. ''Not tested''||UNIX||
+||sys_path_to_scmweb||string||? ''Deprecated''||/etc/nforge/||
+||sys_scm_single_host||integer||외부 SCM을 사용하지 않는지에 대한 여부||1||
+||sys_cvs_host||string||CVS 서버의 도메인 ''Not tested''||test.dev.naver.com||
+||sys_scm_host||string||SVN 서버의 도메인 ''Not tested''||test.dev.naver.com||
+||sys_lists_host||string||? ''Deprecated''||test.dev.naver.com||
+||sys_users_host||string||? ''Not tested''||test.dev.naver.com||
+||sys_shell_host||string||Shell 서버의 도메인 ''Not tested''||test.dev.naver.com||
+||sys_download_host||string||다운로드 서버의 도메인 ''Not tested''||test.dev.naver.com||
+||sys_forum_return_domain||string||? ''Deprecated''||test.dev.naver.com||
+||sys_default_domain||string||기본 도메인||test.dev.naver.com||
+||sys_use_homepage_as_userpage||boolean||사용자 페이지에 접근을 시도한 경우, 사용자 홈페이지로 redirect 할 것인지의 여부||false||
+||sys_dbconv_msg||string||DBMS가 출력하는 메세지의 인코딩. 내부적으로 iconv 입력값의 charset으로 사용됨.||EUC-KR||
+||sys_dbuser||string||Database 사용자 아이디||nforge||
+||sys_dbname||string||Database 이름||nforge||
+||sys_dbpasswd||string||Database 비밀번호||nforge||
+||sys_dbhost||string||Database 서버의 도메인||localhost||
+||sys_server||string||DBMS 종류||mysql||
+||sys_dbport||string||Database 서버 포트번호||3306||
+||sys_session_key||string||세션 유지를 위해 쿠키에 저장될 session serial을 생성할 때 사용될 key||LS959ij6USwAkJOtsalTGIWBbPPyX4u112xeULGTsfaACZYz77uIH6eCckZkTELmn55w9oVonRiHjxLZ||
+||sys_use_experimental||string||nFORGE에 새로 추가된 실험적인 기능들을 사용할지의 여부||false||
+||sys_draft_timeout||int||등록된 이슈가 드래프트 상태를 유지하는 시간(단위: 초). 값이 설정되지 않았거나 86400보다 큰 경우 1800초로 적용됨. 시간보다 자세한 것은 [TrackerPermission] 페이지 참고||1800||
+||sys_community_project||string||커뮤니티로 사용할 프로젝트의 unixname||community||
+
+''Deprecated'' 혹은 ''Not tested''로 표시된 값들은, 설치시 설정된 값에서 변경하지 않을 것을 권장합니다. 변경한 경우 의도대로 동작하지않을 가능성이 있습니다.
+
+== 설치시 설정값이 초기화되는 과정 ==
+nFORGE 인스톨러는 설치 과정에서 setting.php를 실행하여 데이터베이스의 system_setting 테이블 및 설정파일에 환경설정값을 설정합니다.
+ * 설정파일은 etc/nforge-httpd.conf.example 를 기반으로 만들어집니다.
+ * 데이터베이스의 system_setting 테이블은 db/cubrid.sql, db/gforge.sql, db/mysql.sql 에 의해 값이 채워집니다.

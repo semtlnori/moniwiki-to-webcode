@@ -1,0 +1,140 @@
+#title Upgrade nFORGE
+
+== nFORGE 업그레이드 하기 ==
+
+ * 아래 내용은 nFORGE 1.0 버전 이후부터 적용 가능한 내용입니다.
+ * 100%의 완벽한 업그레이드를 보장해 줄 수 없으므로 수행 전 백업이 반드시 필요합니다.
+ * 테스트 환경
+||OS||DBMS||nFORGE||Result||
+||Ubuntu 9.04 Server||MySQL 5.0.75||1.0.1 => 2.0-beta-2||성공||
+||CentOS 5.2 Final||MySQL 5.0.77-3.el5||1.0.1 => 2.0-beta-2||성공||
+||Ubuntu 9.04 Desktop||CUBRID 8.2.0.1150||1.0.4 => 2.0-beta-2||DB 스키마 업그레이드 실패||
+
+/!\ 업그레이드 스크립트 작성을 원하는 개발자의 경우에는 NewUpgrade 페이지를 참조하세요.
+
+=== 현재 적용된 nFORGE 버전 확인 ===
+ * 현재 사이트에 적용된 nFORGE 버전은 아래 페이지에서 확인하실 수 있습니다.
+  * 설치된 nFORGE의 사이트 어드민 > 업그레이드 메뉴
+
+=== nFORGE 최신 버전 확인 및 다운로드 ===
+ * nFORGE의 최신 버전 확인 및 다운로드는 아래 페이지에서 하실 수 있습니다.
+  * nFORGE 프로젝트 사이트에서 확인: http://dev.naver.com/projects/nforge/download
+ * 설치하고자 하는 nFORGE를 임의의 디렉토리(/tmp)에 다운 받은 후 압축을 풉니다.
+
+=== 기존 nFORGE 백업 ===
+ * 업그레이드 시 발생할 수 있는 오류에 대비해 미리 기존 소스 및 DB를 백업하도록 합니다.
+ * BackUpNforge 문서를 참고하도록 합니다.
+
+=== 업그레이드 ===
+ * 순차적으로 아래의 스크립트들을 실행시키게 됩니다.
+||스크립트||용도||
+||nforge-install-1.php||추가 패키지 설치 스크립트||
+||nforge-install-2.php||최신 소스 설치 스크립트||
+||nforge-upgrade-db.php||DB 스키마 업그레이드 스크립트||
+
+=== 패키지 추가 및 업그레이드하기 ===
+ * 다운받고 압축을 푼 nFORGE 디렉토리로 이동합니다.
+ * 새 버전에서 추가되었거나 업그레이드된 패키지가 있을 경우 nforge-install-1.php를 실행하면 필요한 패키지들이 설치됩니다.
+ * 적절한 옵션을 주어 실행시킵니다(php nforge-install-1.php만 실행시키면 옵션들에 대한 정보를 얻을 수 있습니다).
+{{{
+# php nforge-install-1.php DEBIAN mysql
+...
+(중략)
+...
+N개 업그레이드, X개 새로 설치, Y개 지우기 및 Z개 업그레이드 안 함.
+}}}
+
+=== 소스 업그레이드 하기 ===
+ * 이미 설치된 nFORGE의 설치 경로가 /opt/nforge라면 아래와 같이 실행하시면 됩니다.
+ * 적절한 옵션을 주어 실행시킵니다(php nforge-install-2.php만 실행시키면 옵션들에 대한 정보를 얻을 수 있습니다).
+{{{
+# php nforge-install-2.php local.dev.naver.com www-data www-data /opt/nforge DEBIAN
+...
+(중략)
+...
+Creating sys root '/opt/nforge'  OK
+Creating chroot '/opt/nforge/var'  OK
+ * Setting nFORGE Include For Apache ...OK
+}}}
+
+=== DB 정보 세팅 ===
+ * nforge-install-2.php를 실행시킨다면 /etc/nforge/local.inc가 새로 생성되게 됩니다. local.inc의 값을 환경에 맞추어 변경하도록 합니다.
+{{{
+$sys_dbpasswd='DBPASSWD';
+...
+$sys_dbserver='mysql';
+$sys_dbport='3306';
+...
+}}}
+
+=== DB 스키마 업그레이드 하기 ===
+ * DB 스키마 업그레이드를 위해 아래와 같이 실행합니다.
+{{{
+# php nforge-upgrade-2.php (또는 php-nforge-upgrade-db.php)
+...
+(중략)
+...
+DONE
+}}}
+ * 별다른 에러 메시지가 노출되지 않는다면 성공입니다.
+
+=== 포럼/이슈의 name을 영문으로 변경 ===
+ * 다중 포럼 및 이슈를 지원하게 됨에 따라 포럼 및 이슈의 name을 영문으로 표시해야 합니다. DBMS에서 직접 수정하도록 합니다.
+{{{
+update artifact_group_list set name = 'issue' where name = '이슈';
+update artifact_group_list set name = 'forum' where name = '포럼';
+}}}
+
+=== 테마 업그레이드 ===
+ * 2.0 정식 부터 기본 테마가 naver 테마로 변경되었습니다. 아래와 같이 수정이 필요합니다. naver 테마를 사용하기 위해서는 아래와 같은 작업이 필요합니다.
+ * 먼저 시스템 전체의 기본 테마를 naver로 변경합니다.
+{{{
+update system_setting set setting_value='naver' where setting_name = 'sys_theme';
+}}}
+ * 다음으로 사용자 전체의 기본 테마를 naver로 변경합니다.
+{{{
+update themes set dirname = 'naver' where theme_id = 1;
+}}}
+
+=== 기타 ===
+ * 브라우저로 접속할 경우 메시지 중 일부가 영어로 나타나는 경우가 있습니다. 언어 캐시 파일 때문인데 아래와 같이 기존의 언어 캐시 파일을 삭제합니다.
+{{{
+# rm /opt/nforge/var/localizationcache/*
+}}}
+ * 소스를 복사하는 과정 중에 권한이 잘못 설정되어 에러 메시지가 나타날 수도 있으므로 일부 캐시 파일들도 역시 삭제하도록 합니다.
+{{{
+# rm -rf /opt/nforge/var/_cache_*
+}}}
+ * 새로운 테마가 나타나지 않을 수도 있으므로 테마 관련 Smarty 캐시도 삭제하도록 합니다.
+{{{
+# rm -rf /opt/nforge/var/smarty_cache*
+}}}
+ * smarty/Smarty.class.php가 없다는 에러가 뜰 경우 /etc/nforge/http.conf의 include_path에 /opt/nforge/share를 추가하고 웹서버를 리스타트 하도록 합니다.
+
+=== 코드리뷰 마이그레이션 ===
+ * nFORGE 2.0에서는 기존의 코드리뷰가 트래커(버그)와 통합되었습니다.
+ * 아래 내용은 기존의 코드 리뷰 보존하기 위해 코드리뷰 데이타를 트래커로 옮기길 원하는 분만 참고하시기 바랍니다.
+
+ 1. 코드리뷰를 위한 새 게시판을 만듭니다. (프로젝트 관리 > 게시판 관리)
+ 1. nFORGE DB의 code_review 테이블의 내용을 새 게시판으로 옮겨줍니다.
+  * 코드리뷰 파일은 게시판의 첨부파일로 옮깁니다. nforge설치디렉토리/var/review/프로젝트이름/r리뷰번호/code_review.patch 를 nforge설치디렉토리/var/uploads/프로젝트이름/a_게시판아이디/게시물아이디/파일아이디 로 옮깁니다.
+ 예)
+ {{{
+mv /opt/nforge/var/review/myproject/r10/codereview.patch /opt/nforge/var/uploads/myproject/a_102/141/1
+}}}
+  * 게시판아이디는 artifact_group_list 테이블에서, 게시물아이디는 artifact 테이블에서 확인할 수 있습니다.
+  * 이 코드리뷰 게시물에 다른 파일은 없을 것이므로 파일아이디는 1로 합니다.
+ 1. artifact_file 테이블에 방금 추가한 패치파일에 대한 정보가 담긴 tuple을 추가합니다.
+ 1. 코드리뷰의 덧글을 게시물로 옮깁니다.
+ 예)
+ {{{#!vim sql
+insert into artifact_message (artifact_id, submitted_by, from_email, adddate,body)
+select artifact.artifact_id, code_review_message.submitted_by, users.email, code_review_message.adddate, code_review_message.msgbody
+from code_review_message, artifact, users
+where artifact.cr_id=code_review_message.code_review_id
+and users.user_id=code_review_message.submitted_by
+}}}
+ 1. 덧글의 앞쪽에 불필요한 prefix가 있는데 제거해줍니다.
+
+
+

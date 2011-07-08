@@ -1,0 +1,28 @@
+#title nFORGE 백업
+
+=== 파일 또는 디렉토리 백업 ===
+
+백업 대상이 되는 파일 및 디렉토리는 아래와 같습니다.  
+
+|| 백업대상 || 분류 || 용도 ||
+|| /var/lib/nforge or /opt/nforge/var || 디렉토리 || 업로드 파일, SCM repository 등의 데이타가 저장된 디렉토리 ||
+|| /opt/nforge || 디렉토리 || nFORGE 소스 코드 ||
+|| /etc/nforge || 디렉토리 || nFORGE 설정 코드 ||
+|| /etc/cron.d/nforgecron || 파일 || cron 파일 ||
+
+아래 명령으로 한 방에 백업하도록 합니다.
+
+{{{
+$ tar zcvf nforge.backup.tar.gz /var/lib/nforge /opt/nforge /etc/nforge /etc/cron.d/nforgecron
+}}}
+
+=== DB 백업 ===
+ * CUBRID
+{{{
+$ cubrid backupdb -D . nforge
+}}}
+
+ * MySQL
+{{{
+$ mysqldump -uroot -p nforge > nforge.dump
+}}}

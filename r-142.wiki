@@ -1,0 +1,88 @@
+#title nFORGE on VMWare
+[[TableOfContents]]
+== MySQL DBMS 기반 nFORGE ==
+=== 설치 정보 ===
+MySQL DBMS 기반의 가상머신에 설치된 OS와 nFORGE 관련 정보는 아래와 같습니다.
+
+ * OS - CentOS 5.2 Final
+ * ID - root
+ * PW - nforge
+ * nforge svn checkout path - /root/newnforge
+ * nforge host domain - nforge.magichost
+ * apache user - apache
+ * apache group - apache
+ * cubrid db name - nforge
+ * cubrid db user - nforge
+ * cubrid db password - nforge
+ * nFORGE 시스템 이름 - nforge
+ * DBMS - mysql
+ * nFORGE 시스템 관리자 아이디 - nforge
+ * nFORGE 시스템 관리자 비밀번호 - nforge
+ * nFORGE 일반 사용자 아이디 - nforgeuser
+ * nFORGE 일반 사용자 아이디 - nforgeuser
+
+=== 수정 필요 파일 ===
+아래 파일의 hostname과 servername, 그리고 IP 주소를 필요에 따라 수정합니다.
+단순한 확인이라면 수정할 필요는 없습니다.
+
+ * /etc/nforge/httpd.conf
+ * /etc/nforge/local.inc
+ * /etc/nforge/plugins/scmcvs/config.php
+ * /etc/nforge/plugins/cvstracker/config.php
+ * /etc/nforge/plugins/svntracker/config.php
+ * /etc/hosts
+
+=== 확인 방법 ===
+ * vmware player로 다운받은 가상머신을 실행합니다.
+ * 아래와 같이 서버를 가동합니다.
+{{{/etc/init.d/mysqld start
+}}}
+
+ * DHCP로 세팅되어 있으므로 ifconfig 명렁어로 ip 주소를 확인합니다.
+ * 브라우저를 실행시켜 eth0에 지정되어 있는 ip 주소로 접속합니다. nFORGE 화면이 제대로 뜬다면 성공입니다.
+   (되도록 vmware player를 수행한 로컬 컴퓨터에서 hosts파일에 nforge.magichost를 등록하고 수행하세요)
+
+== 큐브리드 DBMS 기반 nFORGE ==
+=== 설치 정보 ===
+가상머신에 설치된 OS와 nFORGE 관련 정보는 아래와 같습니다.
+
+ * OS - CentOS 5.2 Final
+ * ID - root
+ * PW - nforge
+ * cubrid path - /root/CUBRID
+ * nforge svn checkout path - /root/newnforge
+ * nforge host domain - nforge.host.domain
+ * apache user - apache
+ * apache group - apache
+ * cubrid db name - nforge
+ * cubrid db user - nforge
+ * cubrid db password - nforge
+ * nFORGE 시스템 이름 - nforge
+ * DBMS - cubrid
+ * nFORGE 시스템 관리자 아이디 - nforge
+ * nFORGE 시스템 관리자 비밀번호 - nforge
+ * nFORGE 일반 사용자 아이디 - nforgeuser
+ * nFORGE 일반 사용자 아이디 - nforgeuser
+
+=== 수정 필요 파일 ===
+아래 파일의 hostname과 servername, 그리고 IP 주소를 필요에 따라 수정합니다.
+단순한 확인이라면 수정할 필요는 없습니다.
+
+ * /etc/nforge/httpd.conf
+ * /etc/nforge/local.inc
+ * /etc/nforge/plugins/scmcvs/config.php
+ * /etc/nforge/plugins/cvstracker/config.php
+ * /etc/nforge/plugins/svntracker/config.php
+ * /etc/hosts
+
+=== 확인 방법 ===
+ * vmware player로 다운받은 가상머신을 실행합니다.
+ * CUBRID를 아래와 같이 실행합니다.
+{{{
+cubrid service start
+cubrid broker start
+cubrid server start nforge
+}}}
+ * DHCP로 세팅되어 있으므로 ifconfig 명렁어로 ip 주소를 확인합니다.
+ * 브라우저를 실행시켜 eth0에 지정되어 있는 ip 주소로 접속합니다. nFORGE 화면이 제대로 뜬다면 성공입니다.
+

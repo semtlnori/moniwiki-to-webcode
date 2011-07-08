@@ -1,0 +1,91 @@
+'''Obsoleted by CodeConvention'''
+
+nFORGE 2.x 까지 쓰였던 CodeConvention 입니다.
+
+=== 들여쓰기 ===
+ * 필수: 들여쓰기는 반드시 탭을 사용하며 화이트스페이스로 대체하지 않습니다.
+ * 권장: 사용하는 편집기에서는 탭을 4칸으로 사용하는 것을 기본으로 합니다.
+
+=== 명명규칙 ===
+ * 함수, 변수: 소문자문자열_소문자문자열_...
+ {{{
+$return_var = foo_func();
+}}}
+ * 메소드: mixedCase
+ {{{
+$u->getFirstName();
+}}}
+ * 클래스: CamelCaps
+ {{{
+class MyClass {
+	/* code */
+}
+}}}
+ * 상수: 대문자문자열_대문자문자열_...
+ {{{
+SYS_DB_STATS;
+}}}
+
+=== 띄어쓰기 ===
+ * 단항 연산자: 피연산자와 연산자를 붙여 씁니다.
+ {{{
+$count++;
+}}}
+ * 이항 연산자: 피연산자와 연산자를 띄어 씁니다.
+ {{{
+$fnidx = "fn" . $idx;
+}}}
+ * 괄호는 다음과 같이 사용합니다.
+ {{{
+$a = 7 * (2 + 4);
+}}}
+
+=== 함수 ===
+ * 정의
+ {{{
+function name_of_function($a, $b) {
+	/* code */
+}
+}}}
+ * 호출
+ {{{
+name_of_function($a, $b);
+}}}
+
+=== for 절 ===
+{{{
+for ($i = 0; $i < count($list); $i++) {
+	/* code */
+}
+}}}
+
+=== if 절 ===
+{{{
+if ($a > $b) {
+	/* code */
+} elseif ($c > $d) {
+	/* code */
+} else {
+	/* code */
+}
+}}}
+
+=== switch 절 ===
+{{{
+switch (condition) {
+    case 1: {
+        action1;
+        break;
+    }
+    case 2: {
+        action2;
+        break;
+    }
+    default: {
+        defaultaction;
+        break;
+    }
+}
+}}}
+
+SeeAlso [http://gforge.org/docman/view.php/1/2/coding-standards.html GForge Code Standard]

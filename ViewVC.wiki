@@ -1,0 +1,14 @@
+nFORGE에서는 Subversion/CVS 코드 저장소를 웹에서 살펴볼 수 있는 기능을 사용자에게 제공하기 위해 ViewVC를 이용합니다.
+
+=== nFORGE가 ViewVC를 실행하는 과정 ===
+nFORGE는 CGI를 이용해 ViewVC를 실행합니다.
+1. www/scm/viewvc.php에서 www/include/viewvc_utils.php의 viewcvs_execute()를 호출
+1. viewcvs_execute()가 $viewcvs_path/bin/cgi/viewvc.cgi 를 실행 ($viewcvs_path 는 일반적으로 www/scm/viewvc 로 정의됨)
+1. viewvc.cgi에서 사용자 요청에 맞게 코드 저장소에 대한 웹페이지를 렌더링
+
+=== 관련 파일/디렉토리 ===
+ * www/scm/include/viewvc_utils.php
+ * www/scm/viewvc
+
+=== 참고 ===
+ * http://www.viewvc.org/

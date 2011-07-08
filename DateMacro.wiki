@@ -1,0 +1,16 @@
+#keywords macro
+
+use `@DATE``@` or `@TIME``@` or `@SIG``@` to timestamp current date
+
+{{{[[Date(2006-03-04T15:14:25)]]}}} {{{[[DateTime(2006-03-04T15:14:25)]]}}}
+
+[[Date(2006-03-04T15:13:53)]] [[DateTime(2006-03-04T15:13:53)]]
+
+[[DateTime(2002-11-12T17:44:10)]]
+
+[[Date(2002-11-12T17:44:10)]]
+
+[[Date(2003-05-26T20:12:10)]]
+
+[[DateTime(2003-05-26T20:12:10)]]
+

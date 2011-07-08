@@ -1,0 +1,53 @@
+=== Table Markup ===
+To create a table, you start and end a line using the table marker "`||`". Between those start and end markers, you can create any number of cells by separating them with "`||`". To get a cell that spans several columns, you start that cell with more than one cell marker. Adjacent lines of the same indent level containing table markup are combined into one table.
+
+For more information on the possible markup, see HelpOnEditing. 
+
+=== Table Attributes ===
+Apart from the option to repeat cell markers to get columns spanning several other columns, you can directly set many HTML table attributes. Any attributes have to be placed between angle brackets {{{<...>}}} directly after the cell marker.
+
+The wiki-like markup has the following options:
+ * {{{<|2>}}}: rowspan
+ * {{{<#XXXXXX>}}}: background color
+
+In addition to these, you can add some of the traditional, more long-winded HTML attributes (note that only certain HTML attributes are allowed). By specifying attributes this way, it is also possible to set properties of the table rows and of the table itself, especially you can set the table width using {{{||<tablewidth="100%">...||}}} in the very first row of your table, and the color of a full row by {{{||<rowbgcolor="#FFFFE0">...||}}} in the first cell of a row. As you can see, you have to prefix the name of the HTML attribute with {{{table}}} or {{{row}}}.
+
+/!\ rowbgcolor are not supported by the MoniWiki.
+
+=== Example ===
+{{{
+||||||<tablewidth="50%" align="center">'''Heading'''||
+||cell 1||cell2||cell 3||
+||cell 1||||spanning 2 columns||
+}}} 
+
+=== Display ===
+||||||<tablewidth="50%" align="center">'''Heading'''||
+||cell 1||cell2||cell 3||
+||cell 1||||spanning 2 columns||
+----
+||<tablealign="right"><width="100px" bgcolor="#cc0000">cell 1||cell2||cell 3||
+||<align="right">cell 1||||spanning 2 columns||
+
+||||'''Hybrid table'''||
+||<|2> 1 || 1-1 ||
+|| 1-2 ||
+=== MoniWiki extension ===
+MoniWiki support simple alignment feature like as the PmWiki
+{{{
+    ||cell 1       || cell 2   ||        cell 3||
+    ||left-aligned || centered || right-aligned||
+}}}
+more cleaner representation is following: "space" character has special meaning.
+{{{
+    ||cell 1       || cell 2   ||        cell 3||
+    ||left-aligned<space>||<space>centered<space>||<space>right-aligned||
+}}}
+    ||cell 1       ||  cell 2   ||        cell 3||
+    ||left-aligned || centered || right-aligned||
+==== Caption ====
+|'''Table caption'''|||||'''Table with a caption'''||
+||<|2> 1 || 1-1 || 1-2 ||
+|| 1-3 || 1-4 ||
+----
+[[Navigation(HelpOnEditing)]]

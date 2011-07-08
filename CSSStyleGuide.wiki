@@ -1,0 +1,114 @@
+== CSS 파일 ==
+FIXME 잘못된 부분을 고쳐주세요.
+ * dev_style.css : 모든 사이트에 걸쳐 나타납니다.
+ * dev_wiki.css : 위키의 경우 dev_style.css를 대체합니다.
+ * dev_common.css : 위키이외의 공통된 부분입니다.
+== CSS class/id 이름 규칙 ==
+class와 id에 대한 느슨한 규칙을 만듭니다. 가급적으로 semantic에 기초한 이름을 짓습니다.
+
+<!> 최초 class이름을 적용한 분들은 이곳에 메모를 남겨주시기 바랍니다.
+ * http://woork.blogspot.com/2008/11/css-coding-semantic-approach-in-naming.html
+=== 세부 이름 규칙 ===
+
+다음과 같은 느슨한 규칙을 가집니다.
+ 1. 페이지 내에서 고유한 영역은 id로 : foobar_foobar_foobar (소문자 + "_"(underline) 조합)
+ 1. 페이지 내에서 여러번 나타날 수 있는 영역은 class로 : foobar-hello-world (소문자 + "-"(dash) 문자 조합)
+ 1. 코드에 들어가게 될 css class/id는 규칙을 보다 엄밀하게, 코드에 들어가지 않고 template에만 들어가는 class/id 이름은 느슨한 이름의 규칙을.
+ 1. 모양에 대한 styling은 최소한으로, 가급적으로 semantic에 기초한 이름으로 합니다.
+
+'''참고'''
+ * http://woork.blogspot.com/2008/11/css-coding-semantic-approach-in-naming.html
+=== 첨부 파일 ===
+ * {{{.attachments dd}}} : 첨부 전체
+ * {{{dl.attachments dd}}} : 각 첨부 항목
+ * {{{dl.attachments dl.file}}} : 첨부파일 이름
+ 
+ * `.trash-checkbox` 첨부 지우기 휴지통 체크박스
+ * `dl.file .file.checked` : 첨부파일 휴지통 체크박스가 선택되었을때 빨강 strike를 넣기 위함.
+
+=== 코드리뷰 (CodeReview) 및 패치파일 ===
+==== 코드리뷰 ====
+ * review-diff (패치의 pre 블럭 감쌈)
+ *
+==== 패치 파일 ====
+ * `span.patch-link` : 각 파일 항목을 diff파일 anchor로 연결. 
+ * `span.src-line` : 패치 커맨트의 diff파일/소스파일 줄로 연결.
+ * `.review-comment span.agree-icon` : 리뷰 코멘트의 동의 아이콘 (현재 없음)
+ * `.txt.agree`: 동의 항목에 대한 텍스트 (현재 배경색일 지정되어 있음)
+==== 패치파일의 패치리스트 정보 ====
+ * dl.patchfiles dd 패치 파일의 전체 리스트 감쌈.
+==== 패치 노트 ====
+리뷰의 diff 소스에 달리는 포스트잇 노트
+
+
+==== diff ====
+ * `.patch-diff`
+ * .diff-sep :
+ * .diff-added, tr.diff-added
+ * div.patch-diff span.num : 줄번호.
+ * .commentflag : 리뷰노트가 달릴때 붙는 청색 마커
+ * .commentflag.draft : 리뷰노트를 달때 붙은 녹색 마커
+=== 이슈 트래커 (IssueTracker) ===
+댓글
+ * `.comment-id .marker` : 댓글 마커(#) - 현재 hidden
+ * `.comment-id .num` : 댓글 번호
+ * `comment-icon` : 댓글 아이콘 - 현재 없음
+ * `.date .timesago` : 댓글 시간지남 - 현재 hidden
+ * `.del-icon` : 댓글 지우기 아이콘
+ * 
+
+ * {{{issue-}}}라는 prefix를 붙입니다.
+{{{
+/* issue icon (wkpark 추가) */
+
+/* 이슈 미해결: */
+.issue-status.unsolved span, .issue-status.solved span {
+  visibility:hidden; /* 미해결일 경우는 기본 미해결 아이콘을 아래에서 대체함. */
+}
+
+/* 이슈 해결 */
+.issue-status.solved {
+  float:left;
+  background:url("../images/ico_solved.gif") no-repeat;
+}
+
+.issue-status.unsolved {
+  float:left;
+  background:url("../images/status-unsolved.gif") no-repeat;
+}
+
+.issue-status.unsolved.prior-1 {
+  background-position:left top;
+}
+.issue-status.unsolved.prior-2 {
+  background-position:left -16px;
+}
+.issue-status.unsolved.prior-3 {
+  background-position:left -33px;
+}
+.issue-status.unsolved.prior-4 {
+  background-position:left -50px;
+}
+.issue-status.unsolved.prior-5 {
+  background-position:left -68px;
+}
+
+.issue-status.solved {
+  background-position:left top;
+}
+
+.summary-solved {
+  /* text-decoration: line-through; /* 해결된 이슈의 경우 제목에 줄긋기도 가능 */
+}
+}}}
+=== 포럼 ===
+
+
+
+=== 크론 매니져 ===
+ * `.disabled-job` : 비활성화된 cron 항목.
+----
+See also:
+ * ThemeGuide (deprecated)
+ * http://vertexwerks.com/tests/sidebox/ 라운딩 박스
+ * http://spiffybox.com/index.php

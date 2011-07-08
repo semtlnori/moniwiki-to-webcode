@@ -1,0 +1,100 @@
+#title nFORGE 1.0 릴리즈 파뤼!
+
+nFORGE는 웹기반 소프트웨어 개발 플랫폼으로서 위키, 포럼, 이슈 트래커, 소스코드 관리 등 소프트웨어 개발에 필요한 거의 모든 기능을 갖추고 있습니다. 코드리뷰나 분산 소스코드 버전 관리툴인 git도 지원합니다. 
+
+nFORGE의 1.0 릴리즈를 5월 7일이나 8일에 내놓을 예정인데 이를 기념하는 자리를 아래와 같이 가질 예정입니다. nFORGE의 개발자들과 직접 만나서 이야기해볼 수 있는 자리이니 부디 관심있는 분들의 많은 참여 부탁드립니다~~
+
+= 행사 정보 =
+== 개요 ==
+ * 일시: 2009년 5월 9일(토) 16:00 ~ 22:00
+ * 장소: 토즈 강남대로점(강남점이 아닙니다!) http://www.toz.co.kr
+ * 무선랜이 제공됩니다.
+
+ * 참석하시는 모든 분들께 NHN에서 마련한 선물을 드립니다~ ^^
+ * NHN 백팩, 한게임 USB 메모리, 네이버 명함집 등등 다양한 경품도 아울러 준비되어 있습니다~
+
+== 프로그램 ==
+|| 16:00 ~ 16:10 || 인사말 || 행사 준비 및 시작 인사말 ||
+|| 16:10 ~ 16:40 || [http://dev.naver.com/projects/nforge/download/shownote?release_id=317 nFORGE 소개 및 활용 방법] (kss) || nFORGE 기능 설명 및 이를 활용한 SW 개발 방법 ||
+|| 16:40 ~ 17:00 || [http://dev.naver.com/projects/nforge/download/shownote?release_id=317 nFORGE 설치 시연] (utumdol) || 설치 데모 ||
+|| 17:00 ~ 17:30 || [http://dev.naver.com/projects/nforge/download/shownote?release_id=317 nFORGE 플러그인 개발 방법] (nori) || 원하는 기능을 추가할 수 있는 플러그인 구조 소개 및 데모 ||
+|| 17:30 ~ 18:00 || nFORGE 향후 개발 계획 || 템플릿 엔진, 마이그레이션 도구 등등 이후 개발할 내용에 대한 소개 ||
+|| 18:00 ~ 18:30 || 저녁 식사 || 휴식을 겸한 저녁 식사 시간~ (식사 제공) ||
+|| 18:30 ~ 22:00 || 질문/답변 및 자유 토론 || 개발자/사용자간 자유로운 토의 ||
+
+= nFORGE 1.0 릴리즈 파티의 홍보를 도와주세요. =
+좀더 많은 분들이 참석하실 수 있도록 여러분의 홈페이지나 블로그 등에 본 행사에 대해서 이야기해 주시고 행사 페이지를 링크해 주세요. 그러면 더 많은 분들이 참여하실 수 있겠지요? 이곳 릴리즈 파티 페이지를 링크하시거나 릴리즈 파티에 대한 안내를 올려 주신 홈페이지/블로그는 아래에 기록하여 주세요.
+
+ 1. http://dev.naver.com
+ 1. http://ritzstyle.tistory.com/35
+
+= 참석자 =
+
+누구나 참여하실 수 있으나 장소가 한정되어 있으므로 참여자는 선착순 50명으로 한정하며 50명이 넘어가면 대기자 명단으로 갑니다. (남자 40명, 여자 10명) 아래에 '1. 이름(혹은 닉네임), 소속, 관심사, 블로그 혹은 홈페이지 URL' 형식으로 적어 주십시오. 
+
+ 1. 임종선, 프리, 개발, http://blog.wowpc.net
+ 1. 오호라, 회사원, 컴퓨터, 무
+ 1. 박성철, OSP, 즐거운 개발, http://gyumee.egloos.com
+ 1. 백인철, 프리, 웹표준, http://bigenius.tistory.com
+ 1. 김도환, 학생, 컴퓨터의 다양한 활용, http://barami.org
+ 1. 정정훈, 회사원, 행복, http://artchannel.co.kr
+ 1. 정진일, 무직, 오픈소스/개발, 무
+ 1. 김경호,무직,프로그래밍,무
+ 1. 김도현,대학생,웹개발,무
+ 1. uzooro, 회사원, 오픈(소스,API),-
+ 1. 설동혁, 회사원, 개발자
+ 1. 조준희, 대학원, 개발, http://www.asmlove.co.kr
+ 1. 심효섭, 회사원, 자연어처리;정보검색, http://me2day.net/flourscent/
+ 1. 김우승, 무직, 개발, 없음.
+ 1. 이창민, 회사원, 놀고먹는거, http://xss.pe.kr or http://lastlog.com or http://koreasecurity.org 
+ 1. 산사랑, 회사원, 오픈소스 비즈니스, http://www.jopenbusiness.com/
+ 1. THEPAPER™ + 이도훈, 더페이퍼, 통합 개발 환경, http://www.thepaper.co.kr
+ 1. 정태호, 회사원, 개발, http://www.hoho0443.co.kr 
+ 1. 이정화, 회사원, 개발, http://blog.naver.com/ljk2491
+ 1. 배진익, 회사원, CMS, http://solidev.tistory.com/
+ 1. 김승겸, 대학생, 개발, http://antlab.tistory.com/ or http://blog.naver.com/antksk
+ 1. 이남준, 회사원, 개발, http://www.moojirang.pe.kr
+ 1. 김형진, 회사원, 개발, http://www.hind.pe.kr
+ 1. 김수혁, 회사원, 자동화, http://monovision.org
+ 1. 김효영, 회사원, 오픈소스/가상화, -
+ 1. 김경남, 회사원, 개발, http://ritzstyle.tistory.com
+ 1. 고종길, 회사원, 웹퍼블리싱, http://rhplus.kr
+ 1. 강석윤, 회사원, 개발, http://uniksy1106.tistory.com
+ 1. 김호범, 회사원, 개발, http://www.neowine.com
+ 1. 천관우, 회사원, 오픈소스, 없음
+ 1. 백현명, 무직, 개발, 없음
+ 1. 유효근, Skimmer, 개발, 없음
+ 1. 윤광진, 무직, 개발, 없음
+ 1. 김민수, 없음, 오픈소스개발, -
+ 1. 이호훈, 회사원, 개발, http://siva6.pe.kr
+ 1. 랜덤여신, 삽질, http://barosl.com/
+ 1. 유원곤, 아직없음, http://devui.tistory.com
+ 1. 임채윤, 회사원, 아트+프로그램
+ 1. 황지훈, 회사원, 협업/CMS, http://me2day.net/attic
+
+== 대기자 ==
+
+
+ 1. 천정환, 대학생, 개발, http://elifea.net/
+ 1. 추헌진, 회사원, 개발(웹)+프로젝트관리
+ 1. 컴포지트, 안드로메다, 프로그래머, http://title.pe.kr/portfolio
+ 1. 김대현, 회사원, 돈많이벌기, 없음
+ 1. 김익한, 회사원, 엔지니어, http://www.sulinux.pe.kr
+ 1. 최광훈, 프리, 개발, 없음
+ 1. 박진만, 프리, 디자인, 없음
+ 1. 김동민, 백수, 없음, 없음
+ 1. 이현도, 대학생, 개발, http://gnei.tistory.com
+ 1. 김용욱, 대학원생, 세상, http://blog.cnrocks.net
+
+== 여성 참가자 ==
+여성분들은 별도로 참가신청을 받습니다.
+
+ 1. 송인경, 회사원, 프로그래밍, http://me2day.net/paranbaram/
+ 1. 류성희(dazzilove), 회사원, 개발, http://www.dazzilove.pe.kr
+ 1. 김민선, 회사원, 개발, -
+ 1. 임수진,회사원,개발, http://srue.net
+ 1. 김수진, 무직, 개발, 없음
+ 1. 박은희, 회사원, 개발, http://blog.naver.com/ehnadia
+ 1. 김혜영, 프리렌서, 개발, 없음
+ 1. 김희민,회사원,개발,없음
+ 1. 구본정,회사원,개발,없음

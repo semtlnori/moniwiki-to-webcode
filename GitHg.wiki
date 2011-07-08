@@ -1,0 +1,65 @@
+Git/Mercurial 플러그인을 동작시키기 위해서는 아래와 같은 설정이 필요합니다.
+(기본 설정으로 설치한 경우를 가정함)
+
+=== Git/Mercurial 플러그인 사용법 === 
+* /etc/nforge/httpd.conf의 설정을 다음과 같이 수정합니다. (mod_auth_anon 모듈이 사용가능한 상태여야 함)
+{{{
+<VirtualHost _default_:80>
+        ...
+
+        ScriptAlias /git /opt/nforge/plugins/ggit/bin/http-backend.sh
+        ScriptAlias /hg /opt/nforge/plugins/scmhg/bin/http-backend.sh
+        ScriptAlias / /opt/nforge/www
+
+        SetEnv NFORGE_ROOT /opt/nforge 
+        SetEnv GIT_PROJECT_ROOT /opt/nforge/var/gitroot
+        SetEnv GIT_HTTP_BACKEND /usr/lib/git-core/git-http-backend 
+
+        # rewrite rule에서 git, hg를 제외시킴        
+        <IfModule mod_rewrite.c> 
+                RewriteEngine on 
+                RewriteRule !^/((themes|js|plugins|wiki|jscook|tabber)/.*\.(js|ico|gif|jpg|png|css|html)$|git|hg) /nforge.php 
+                RewriteCond %{REQUEST_METHOD} ^TRACE 
+                RewriteRule .* - [F] 
+        </IfModule> 
+        
+        <Location "/git"> 
+                AuthType Basic 
+                AuthName "Git repositories" 
+                AuthBasicProvider file anon 
+                AuthUserFile /opt/nforge/var/gitroot-authfile 
+
+                Anonymous_NoUserID On 
+                Anonymous_MustGiveEmail off 
+                Anonymous nobody 
+
+                Require valid-user 
+        </Location> 
+
+        <Location "/hg"> 
+                AuthType Basic 
+                AuthName "Hg repositories" 
+                AuthBasicProvider file anon 
+                AuthUserFile /var/lib/nforge/hgroot-authfile 
+
+                Anonymous_NoUserID On 
+                Anonymous_MustGiveEmail off 
+                Anonymous nobody 
+
+                Require valid-user 
+        </Location>
+
+        ...
+</VirtualHost> 
+}}}
+
+=== hg plugin 설치 ===
+{{{
+$ svn export https://dev.naver.com/svn/nforge/trunk/plugins/scmhg /opt/nforge/plugins/scmhg 
+$ svn export https://dev.naver.com/svn/nforge/trunk/plugins/hgtracker /opt/nforge/plugins/hgtracker 
+}}}
+
+=== /etc/cron.d/nforgecron 에 아래 추가함 ===
+{{{
+23,38,53,08 * * * * root $PHP $NFORGE/plugins/scmhg/cronjobs/create_hg.php 
+}}}

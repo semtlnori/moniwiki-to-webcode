@@ -1,0 +1,352 @@
+'''현재 개발단계이므로, 아래의 내용은 언제든지 변경될 수 있습니다.'''
+
+nFORGE에서 지원하는 API
+
+[[TableOfContents]]
+
+== 시작하기 전에 ==
+[[API]] 기능을 사용하려면 우선 사이트 관리자가 설정파일(/etc/nforge/local.inc)에서 $sys_use_api 를 다음과 같이 true로 설정해 주어야 합니다.
+{{{
+$sys_use_api = true;
+}}}
+
+== 인증 ==
+두 가지 방법의 인증이 가능합니다.
+ 1. 쿠키
+  * 웹브라우저에서 사용하는 그 쿠키입니다.
+ 1. API키
+  * 마이페이지 > 회원정보에서 발급받을 수 있습니다.
+  * 읽기 전용 혹은 읽기/쓰기 용으로 선택해서 발급받을 수 있습니다.
+  * API로 요청시 _key={발급받은 api키} 파라메터를 추가하면 됩니다.
+
+== 트래커/게시판 ==
+=== 게시물 목록 ===
+ * 요청 URL: /projects/{프로젝트이름}/{게시판이름}.xml
+ * method: GET
+ * 파라메터
+ || 이름 || 설명 || 비고 ||
+ ||simple_search || 검색어로 검색할지 여부 || 1이면 검색어로 검색 ||
+ ||start || || ||
+ ||_status || || ||
+ ||_sort_col || || ||
+ ||_sort_ord || || ||
+ ||extra_fields || || ||
+ ||_assigned_to || 담당자 ID || ||
+ ||query_name || || ||
+ ||_moddaterange || || ||
+ ||_opendaterange || || ||
+ ||_closedaterange || || ||
+ ||simple_text || 검색어 || ||
+ ||start || start 번째 게시물부터 가져옴 || limit 파라메터가 지정되지 않으면 동작하지 않음 ||
+ ||limit || 가져올 게시물의 최대 갯수(상한선) || ||
+
+=== 게시물 보기 ===
+ * 요청 URL: /projects/{프로젝트이름}/{게시판이름}/{게시물번호}.xml
+ * method: GET
+ * 반환값
+ {{{
+<?xml version="1.0" encoding="UTF-8"?>
+<artifact>
+<artifact_id>{게시물번호}</artifact_id>
+<priority>{우선순위}</priority>
+<open_date>{열린 날짜}</open_date>
+<close_date>{닫힌 날짜}</close_date>
+<summary>{제목}</summary><details>{본문}</details>
+<assigned_unixname>{담당자}</assigned_unixname>
+<submitted_unixname>{등록자}</submitted_unixname>
+<last_modified_date>{최근 수정된 날짜}</last_modified_date>
+<view_hit>{조회수}</view_hit>
+<attachments>
+<item><name>{첨부파일명}</name><uri>{첨부파일 경로}</uri></item>
+... 
+</attachments>
+<extra_fields>
+<item><value>{세부내역 값}</value><field_name>{세부내역 이름}</field_name></item>
+...
+</extra_fields>
+<comments>
+<item><user_name>{덧글 단 사람}</user_name><body>{덧글 내용}</body><attachments><id>{첨부파일 id}</id><uri>{첨부파일 경로}</uri></attachments><adddate>{덧글 단 날짜}</adddate></item>
+...
+</comments>
+</artifact>
+}}}
+
+=== 게시물 등록 ===
+ * 요청 URL: /projects/{프로젝트이름}/{게시판이름}.xml
+ * method: POST
+ * 파라메터
+ || 이름 || 설명 || 비고 ||
+ ||priority || 중요도 || ||
+ ||assigned_to || 담당자 ID || 선택사항. 안보낼 경우 Nobody로 지정 ||
+ ||summary || 제목 || ||
+ ||details || 본문 || ||
+ ||extra_fields || 세부 정보 || 아직 지원하지 않음 ||
+
+=== 게시물 편집 ===
+ * 요청 URL: /projects/{프로젝트이름}/{게시판이름}/{게시물번호}.xml
+ * method: PUT
+ * 파라메터
+ || 이름 || 설명 || 비고 ||
+ ||priority || 중요도 || ||
+ ||status_id ||  상태 || ||
+ ||assigned_to || 담당자 ID || ||
+ ||summary || 제목 || ||
+ ||details || 덧글 내용 || ||
+ ||pin_id || 공지사항인지 여부 || 1이면 공지사항 ||
+ ||new_artifact_type_id || 분류(게시판) 변경 || 아직 지원하지 않음 ||
+ ||extra_fields || 세부 정보 || 아직 지원하지 않음 ||
+
+=== 게시물 삭제 ===
+ * 요청 URL: /projects/{프로젝트이름}/{게시판이름}/{게시물번호}.xml
+ * method: DELETE
+ * 파라메터
+ || 이름 || 설명 || 비고 ||
+ ||confirm_delete || 정말로 삭제할지의 여부 || 값이 설정되어 있지 않으면 삭제하지 않음 ||
+
+== 릴리즈 ==
+=== 릴리즈 목록 ===
+ * 요청 URL: /projects/{프로젝트이름}/releases.xml
+ * method: GET
+ * 반환값
+ {{{
+<releases>
+        <release>
+                <release_id>{릴리즈 아이디}</release_id>
+                <name>{릴리즈 이름}</name>
+                <description>{릴리즈 노트}</description>
+                <release_date>{릴리즈한 시간}</release_date>
+                <released_by>{릴리즈한 사용자 아이디}</released_by>
+                <status_id>{릴리즈 상태 아이디}</status_id>
+                <is_public>{공개 릴리즈인지 여부}</is_public>
+                <is_representative>{대표 릴리즈인지 여부}</is_representative>
+                <link>{릴리즈에 대한 링크}</link>
+        </release>
+        ...
+</releases>
+}}}
+=== 릴리즈 ===
+ * 요청 URL: /projects/{프로젝트 이름}/releases/{릴리즈 아이디}.xml
+ * method: GET
+ * 반환값
+ {{{
+<release>
+        <name>{릴리즈 이름}</name>
+        <description>{릴리즈 노트}</description>
+        <release_date>{릴리즈한 일시}</release_date>
+        <released_by>{릴리즈한 사용자 아이디}</released_by>
+        <is_public>{공개 릴리즈인지 여부}</is_public>
+        <status_id>{릴리즈 상태 아이디}</status_id>
+        <is_representative>{대표 릴리즈인지 여부}</is_representative>
+        <files>
+                <file>
+                        <id>{파일 아이디}</id>
+                        <name>{파일 이름}</name>
+                        <size>{파일 크기}</size>
+                        <release_date>{업로드한 일시}</release_date>
+                        <download_count>{다운로드 횟수}</download_count>
+                        <link>{파일에 대한 링크}</link>
+                </file>
+                ...
+        </files>
+</release>
+}}}
+=== 릴리즈 올리기 ===
+ * 요청 URL: /projects/{프로젝트이름}/releases.xml
+ * method: POST
+ * 파라메터
+ || 이름 || 설명 || 비고 ||
+ ||release_name || 릴리즈 이름 ||  ||
+ ||release_notes || 릴리즈 노트 || ||
+ ||userfile || 올릴 파일 이름 || 앞에 @을 붙임. 예) userfile=@test.txt ||
+ * 예
+ {{{
+curl "http://company.nforge.com/projects/foo-project/releases.xml" -X POST -F "_key=abcd1234" -F "release_name=foo" -F "release_notes=bar" -F "userfile=@helloworld.txt"
+}}}
+=== 릴리즈 삭제 ===
+ * 요청 URL: /projects/{프로젝트이름}/release/{릴리즈아이디}.xml
+ * method: DELETE
+=== 릴리즈에 파일 추가 ===
+ * 요청 URL: /projects/{프로젝트이름}/release/{릴리즈아이디}.xml
+ * method: POST
+ * 파라메터
+ || 이름 || 설명 || 비고 ||
+ ||userfile || 올릴 파일 이름 || 앞에 @을 붙임. 예) userfile=@test.txt ||
+ ||status_id || 릴리즈 상태 || 1:active, 3:hidden ||
+ * 예
+ {{{
+curl "http://company.nforge.com/projects/foo-project/releases/9.xml" -X POST -F "_key=abcd1234" -F "userfile=@helloworld.txt"
+}}}
+=== 릴리즈 파일 삭제 ===
+ * 요청 URL: /projects/{프로젝트이름}/releases/{릴리즈아이디}/{파일아이디}.xml
+ * method: DELETE
+ * 예
+ {{{
+curl "http://company.nforge.com/projects/foo-project/releases/9/25.xml" -X DELETE -d "_key=abcd1234"
+}}}
+=== 릴리즈 내용 수정 ===
+ * 요청 URL: /projects/{프로젝트이름}/releases/{릴리즈아이디}.xml
+ * method: PUT
+ || 이름 || 설명 || 비고 ||
+ ||release_name || 릴리즈 이름 ||  ||
+ ||release_notes || 릴리즈 노트 || ||
+ * 예
+ {{{
+curl "http://company.nforge.com/projects/foo-project/releases/9.xml" -X POST -d "_key=abcd1234" -d "release_name=new release name"
+}}}
+
+== 커밋로그 ==
+'''현재 동작하지 않고 있습니다'''
+=== 커밋로그 목록(검색) ===
+ * 요청 URL: /projects/{프로젝트이름}/code/log.xml
+ * method: GET
+ * 검색 파라메터
+ || 이름 || 설명 || 비고 ||
+ ||author || 작성자 ||  ||
+ ||datefrom || datefrom일부터 dateto일까지의 커밋을 검색 || ||
+ ||dateto || || ||
+ ||message || 메시지 || like 검색. 일부분만 일치해도 검색됨 ||
+ * 반환값
+ {{{
+<logs>
+        <log>
+                <revision>{리비전}</revision>
+                <date>{커밋한 일시}</date>
+                <message>{로그 메시지}</message>
+                <author>{커밋한 사람}</author>
+        </log>
+        ...
+</logs>
+}}}
+=== 커밋로그 ===
+ * 요청 URL: /projects/{프로젝트이름}/code/log/{리비전}.xml
+ * method: GET
+ * 반환값
+ {{{
+<log>
+        <revision>{리비전}</revision>
+        <date>{커밋한 일시}</date>
+        <message>{로그 메시지}</message>
+        <author>{커밋한 사람}</author>
+</log>
+}}}
+
+== 프로젝트 ==
+=== 일반정보 ===
+ * 요청 URL: /projects/{프로젝트이름}.xml
+ * method: GET
+ * 반환값
+ {{{
+<project>         
+        <group_id>{프로젝트 아이디}</group_id>
+        <group_name>{프로젝트 이름}</group_name>
+        <is_public>{공개된 프로젝트인지 여부}</is_public>
+        <status>{프로젝트 상태}</status>
+        <unix_group_name>{프로젝트 유닉스 이름}</unix_group_name>
+        <short_description>{프로젝트 설명}</short_description>
+        <register_purpose>{프로젝트 추가정보}</register_purpose>
+        <register_time>{프로젝트 등록 시각}</register_time>
+        <use_scm>{scm 사용 여부}</use_scm>
+        <use_wiki>{위키 사용 여부}</use_wiki>
+        <use_news>{뉴스 사용 여부}</use_news>
+        <use_tracker>{게시물 기능 사용 여부}</use_tracker>
+        <use_frs>{다운로드 기능 사용 여부}</use_frs>
+        <use_stats>{통계 기능 사용 여부}</use_stats>
+        <frs_public>{다운로드가 공개되어 있는지 여부}</frs_public>
+        <enable_anonscm>{익명으로 SCM을 사용할 수 있는지 여부}</enable_anonscm>
+        <license>{라이센스 아이디}</license>
+        <top_image_id>{프로젝트 이미지 아이디}</top_image_id>
+        <trove>
+                <item>
+                        <category>{세부항목 필드 이름}</category>
+                        <name>{세부항목 값}</name>
+                </item>
+                ...
+        </trove>
+        <trackers>
+                <tracker>
+                        <name>{게시판 이름(식별용)}</name>
+                        <link>{게시판 링크}</link}
+                        <title>{게시판 제목}</title>
+                        <type>{게시판 종류}</type>
+                        <artifacts_count>{게시물 갯수}</artifacts_count>
+                <tracker>
+                ...
+        </trackers>
+</project>
+}}}
+=== 활동내역 ===
+ * 요청 URL: /projects/{프로젝트이름}/activity.xml
+ * method: GET
+ * 반환값
+ {{{
+<activity>
+        <item>
+                <section>{활동 종류}</section>
+                <user_id>{활동한 사용자 아이디}</user_id>
+                <realname>{활동한 사용자 별명}</realname>
+                <date>{활동 날짜}</date>
+                <description>{활동 내용}</description>
+                <link>{활동에 대한 링크}</link>
+        </item>
+        ...     
+</activity>
+}}}
+
+== 사용자 정보 ==
+ * 요청 URL: /users/{사용자 아이디}.xml
+ * method: GET
+ * 반환값
+ {{{
+<user>
+        <firstname>{별명}</firstname>
+        <user_id>{사용자 아이디}</user_id>
+        <add_date>{아이디 생성일}</add_date>
+        <projects>
+                <project>
+                        <unix_name>{활동중인 프로젝트의 유닉스 이름}</unix_name>
+                        <link>{프로젝트 정보에 대한 링크}</link>
+                </project>
+                ...
+        </projects>
+        <activity>
+                <item>
+                        <project_id>{활동한 프로젝트의 아이디}</project_id>
+                        <section>{활동 종류}</section>
+                        <date>{활동 날짜}</date>
+                        <description>{활동 내용}</description>
+                        <link>{활동에 대한 링크}</link>
+                </item>
+                ...     
+        </activity>
+</user> 
+}}}
+
+== 작업예정 ==
+ * 게시물 검색: 검색기능이 진행되어가면서 함께 반영
+  * 고급 검색을 살리기로 했으므로, 게시물 고급검색 API는 그대로 유지해도 될 듯
+ * 마일스톤: 읽기만 구현
+ * 게시물의 커멘트 등록 API 개선: POST 메소드를 이용하도록
+
+== 고려가 필요한 사항 ==
+ * 응답 결과의 XML Element에 필요에 따라 attribute를 설정할 것인가, 전혀 설정하지 않을 것인가.
+  * attribute를 설정하면 datatype등을 표현할 수 있지만, JSON으로 포맷을 변경하는 경우 attribute를 유지하면 복잡해지는 단점이 생김
+ * 참고할만한 포맷
+  * 게시물/릴리즈/활동내역: RSS, ATOM
+  * 마일스톤: xCAL, hCalendar
+  * 사용자 정보: hCARD, XFN
+ * 너무 많은 게시물에 대한 요청을 했을때 처리방법
+  * 한번에 보내줄 수 있는 게시물의 최대갯수를 정의해두고, 그 갯수를 넘었다면 206 Partial Content 를 반환하는 방법이 있음.
+  * 이 경우 얼마나 보내주었는지 알려줘야 하므로 응답 헤더의 Accept-Ranges는 'issue-id'로 content-range에는 이슈범위를 넣어주어야 함.
+  * 또한 클라이언트에서 요청헤더에 If-Range를 정의한 경우 이에 어떻게 대응할지도 생각해야 함.
+
+== 참고 ==
+|| 사이트 || 프로토콜 || 데이터 포맷 || 인증 ||
+||[http://lighthouseapp.com/api Lighthouse API] ||REST ||XML ||HTTP basic, API Key ||
+||[http://github.com/guides/the-github-api GitHub API] ||REST ||JSON, XML ||API Key ||
+||[http://www.google.co.kr/url?sa=t&source=web&ct=res&cd=3&url=http%3A%2F%2Fgforge.com%2Fgf%2Fdownload%2Fdocmanfileversion%2F266%2F2954%2FGFAS-SOAP-API-Reference.doc&ei=PI8LStbxFpiZkQWXqOCjBA&usg=AFQjCNEVI_ZGBIwLa1W3f9BuEOcGtBAS3Q&sig2=Bc3LhtfLqYxv4984LDG6Ew GForge SOAP API Reference (DOC 문서)] ||SOAP ||XML || ||
+||[https://www.ohloh.net/api/getting_started Ohloh API] ||REST ||XML ||API Key, OAuth ||
+ * LightHouse API의 검색 쿼리:http://lighthouseapp.com/help/ticket-searching
+
+기타 다른 서비스들의 API에 대해서는 http://www.programmableweb.com/ 에서 찾으실 수 있습니다.
+
+SeeAlso SimpleURL

@@ -1,0 +1,65 @@
+#title nFORGE Upgrade Guide For Developer
+
+/!\ 계속 추가중입니다. 이상한 부분 의견 주세요.
+== 개발자를 위한 메모 ==
+=== 새로운 변경 추가하기 ===
+ 1. db/upgrade/ 디렉토리에 20090510-foobar, 8/, 2.1-patch/, git-tracker/ 등등과 같은 식의 디렉토리를 만든다.
+  * 8/ 혹은 7-patch, 0.1.3-patch (이 이름은 어떤 식이든 상관 없이 되었다)
+ 2. 새롭게 등록될 DB schema *.xml 파일을 복사.
+ 3. 변경된 DB schema에 대한 xml 파일도 추가로 넣어준다.
+ 4. php upgrade_utils.php orig/xml/ db/upgrade/2.1-patch > all.sql 하면 변경된 xml schema에 대해 통합된 sql을 만들어준다. (./) 진행중.
+  * 얻어진 통합 sql문을 필요에 따라 순서에 맞게 분리한다 (00-pre.sql 01-alter.sql / 02-view.sql / 03-index.sql / 04-post.sql 등등)
+  * 분리된 sql문의 이름은 상관 없다. 정렬이 될 수 있도록 숫자 prefix를 붙여준다.
+ 5. 필요하면 php 스크립트도 넣어준다.
+  * 00-migrate-old-cronjob.php 01-remove-old-git-tracker.php
+ 6. 계속 개발중일 경우는 일반 사용자가 사용하지 못하도록 {{{20090510-plugin-foobar/.testing}}} 파일을 넣어둔다.
+ 7. 새로운 DB schema 추가 및 변경이 완료되면, .testing 파일을 지우고, version.txt 파일을 넣는다.
+ 8. DB의 버전번호를 메겨준다. {{{8/version.txt}}} 파일을 만들어 다음과 같은 식으로 넣는다.
+  * 개발자가 이해하는 DB 버전은 8 혹은 8-patch 와 같다.
+  * 일반 사용자에게 드러내는 이름이 7, 8, 9 식이면 사용자에게 혼란을 줄 수 있다. 노출시키는 버전 번호는 "1.0.4"와 같은 식으로 한다.
+  * {{{
+1.0.4
+@date(탭)2009-06-13
+(빈줄)
+[#1234] 어쩌고 고침 by hello (r1234 참조)
+}}}
+  * 릴리스 되기 이전까지 혹은 큰 변경이 아니면 계속 여기에 집어넣는다.
+
+=== nforge-upgrade-db.php 사용법 ===
+ * {{{php nforge-upgrade-db.php}}}라고만 하면 예전에 사용하던 DB 버전을 판독하고, 사용가능한 DB리스트를 보여준다.
+ * {{{php nforge-upgrade-db.php --apply 7-patch}}} 라고 하면 db/upgrade/7-patch 내용만 적용시킨다.
+ * {{{php nforge-upgrade-db.php --from 8}}} 라고 하면 '''8과 함께''' 그 이후의 모든 변경을 적용시킨다.
+ * {{{php nforge-upgrade-db.php 8}}} 이라고 하면 '''8을 제외한''' 그 이후의 모든 변경을 적용시킨다.
+ * {{{php nforge-upgrade-db.php to_dir/my.sql,xml}}} 이라고 하면 sql/xml 개별 파일을 바로 적용시킨다.
+ * {{{php nforge-upgrade-db.php to_dir/migration/gforge4.6 }}} 이라고 하면 gforge4.6 migrateion에 필요한 sql/xml/php가 적용된다. (TODO)
+
+== 릴리스 후에 문제가 발생한 경우 ==
+ 1. 심각한 문제가 릴리스 후에 발견되면 임시적으로 {{{8/.broken}}} 파일을 넣어 한시적으로 재배포.
+ 2. 릴리스 후에 추가적인 변경이 필요한 경우는
+  1. 디렉토리를 분리해서 버전 8에 대핸 패치는 8-patch라는 디렉토리를 만들고 이곳에 내용을 집어넣음.
+  * 다른 버전과 패치가 충돌이 날 수 있는 경우는 conflict로 등록 / dependency도 필요하면 등록시킨다. TODO
+  * 00-patch-foobar.php / 00-patch-hello.sql 과 같은 식으로 새로운 패치 이름으로 등록시킨다.
+  * nforge-upgrade-db.php 스크립트에는 패치가 다른 버전과 dependency가 있는지, 다른 패치나 버전과 충돌이 날 수 있는지를 기록해둔다.
+
+== 메모 ==
+ * nforge-upgrade-db.php 스크립트는 모든 sql / xml / php 등등의 적용된 파일을 database_chages 테이블에 기록으로 남기게 된다.
+== xml만으로 자동 alter/drop/add SQL 문을 만드는 원리 ==
+ * orig.xml new.xml을 각각 simplexml_load_*()문으로 읽음.
+ * 테이블 컬럼의 모든 필드 정보 orig와 new를 비교
+  * 속성이 완전히 같은 경우는 무시
+  * 속성이 달라진 경우는 alter
+   * 단순히 달라진 경우는 간단한 alter
+   * type 속성이 비슷한것끼리 달라진 경우(text => varchar) add => alter => update(`change`문) => drop
+   * type 속성이 전혀 다르게 달라진 경우는 add => alter => update (`cast`문 사용) => drop 
+  * 컬럼이 없어진 경우는 drop (무조건 drop하지 않고 개발자가 확인 필요)
+  * 컬럼이 새로 만들어진경우는 add
+  * /!\ 컬럼의 이름이 바뀌는 경우는 간단히 detect 할 방법이 없다. 이 경우는 개발자가 수동으로 변경해주어야 한다.
+  * primary키의 리스트가 달라진 경우는 예전것 맨 앞에서 drop 새로운 것을 맨 뒤에서 add
+  * 인덱스가 달라지면 앞단에서 drop => 컬럼이 모두 추가 완료 후에 add
+=== TODO ===
+ 1. xml 파일과 현재 DB schema를 xml로 export한 내용을 비교 - (./) MySQL에 대해서만 적용.
+ 2. DB schema가 바뀐 부분을 자동으로 ALTER 문으로 만들어줌 - (./) 모든 DMBS에 대해 적용 완료 (테스트필요)
+ 3. 얻어진 sql문을 실제로 이것을 사용하도록 만듦. (이론적으로 대부분의 *.sql 스크립트 모두 제거 가능하나, 이 방법을 개발 단계에만 활용한다.)
+ 4. 패치 / dependency 및 conflict 정보.
+ 5. 각각의 xml, sql, php 스크립트를 md5sum 체크 => 그냥 한번 릴리스 된 DB 스크립트/패치 파일은 절대로 고치지 않으면 됨.
+ 6. alias: 사용자가 DB의 버전을 알아야 할 필요는 없다. 릴리스 번호와 연관지어서 쉽게 이해할 수 있도록 alias를 따로 둔다.

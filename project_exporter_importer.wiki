@@ -1,0 +1,435 @@
+#title 프로젝트 Exporter / Importer
+
+[[TableOfContents]]
+ 
+== 사용자 시나리오 ==
+ * Gforge로 운용하고 있는 프로젝트들을 nFORGE 기반 시스템으로 자연스럽게 이전하고 싶다
+ * nFORGE로 운용하는 A 사이트의 프로젝트를 B사이트로 이전하고 싶다.
+ * 구버전 제로보드 기반의 홈페이지를 nFORGE 프로젝트로 이전하고 싶다.
+
+== 시스템 아키텍처 ==
+attachment:UploadedFiles/프로젝트_exporter_impoter.png
+
+== 기본키 맵퍼(Primary key mapper) ==
+ * users, group와 같은 nFORGE의 핵심 테이블의 Primary Key는 통상 Auto increment 속성에 따라 키값을 자동으로 붙여주는데 Export/Import 과정에서 동일한 주요키 값을 새롭게 생성할 것인지 아니면 Import 시점에 특정 키를 검색해서 해당 키값으로 맵핑할 것인지를 설정 파일로 통제한다.
+ * 참조 대상인 Primary key를 갖는 테이블은 모두 맵퍼의 대상이 될 수 있다
+ * 테이블간 참조 연관성에 따라 맵핑의 순위를 결정한다.
+
+== 대상 테이블 및 정보 ==
+ * 프로젝트와 연관성을 가진 테이블만을 대상으로 한다.
+ * 보고서 및 통계 작업 등에 의해 가공 과정에서 생성하는 정보는 제외한다.(보고서/통계 재작업등의 재가공 작업으로 생성)
+ * 주기적으로 삭하는 로그성 테이블은 제외한다.
+ * 위키, 첨부 파일, 코드 등은 파일 형태로 패키징한다.
+ * 테이블 삽입 소스 코드 정보 : 각 테이블에 대해서 INSERT 구문을 수행하는 소스코드 리스트
+{{{
+ * artifact_message
+  /opt/nforge/common/tracker/ArtifactMessage.class
+  /opt/nforge/common/tracker/Artifact.class
+ * artifact
+  /opt/nforge/common/tracker/Artifact.class
+ * artifact_monitor
+  /opt/nforge/common/tracker/Artifact.class
+ * artifact_history
+  /opt/nforge/common/tracker/Artifact.class
+ * artifact_extra_field_data
+  /opt/nforge/common/tracker/Artifact.class
+  /opt/nforge/common/tracker/ArtifactExtraField.class
+ * artifact_file
+  /opt/nforge/common/tracker/ArtifactFile.class
+ * artifact_group_list
+  /opt/nforge/common/tracker/ArtifactType.class
+ * artifact_counts_agg
+  /opt/nforge/common/tracker/ArtifactType.class
+  /opt/nforge/cronjobs/db_project_sums.php
+ * artifact_type_monitor
+  /opt/nforge/common/tracker/ArtifactType.class
+ * artifact_perm
+  /opt/nforge/common/tracker/ArtifactType.class
+  /opt/nforge/common/include/Group.class
+ * artifact_query
+  /opt/nforge/common/tracker/ArtifactQuery.class
+ * artifact_query_fields
+  /opt/nforge/common/tracker/ArtifactQuery.class
+ * artifact_extra_field_elements
+  /opt/nforge/common/tracker/ArtifactExtraFieldElement.class
+ * artifact_extra_field_list
+  /opt/nforge/common/tracker/ArtifactExtraField.class
+ * frs_release
+  /opt/nforge/common/frs/FRSRelease.class
+ * frs_file
+  /opt/nforge/common/frs/FRSFile.class
+ * frs_dlstats_filetotal_agg
+  /opt/nforge/common/frs/FRSFile.class
+ * code_review
+  /opt/nforge/common/scm/CodeReview.class
+ * code_review_tracker
+  /opt/nforge/common/scm/CodeReview.class
+ * code_review_message
+  /opt/nforge/common/scm/CodeReview.class
+ * rep_users_added_daily
+  /opt/nforge/common/reporting/ReportSetup.class
+ * rep_groups_added_daily
+  /opt/nforge/common/reporting/ReportSetup.class
+ * rep_users_added_weekly
+  /opt/nforge/common/reporting/ReportSetup.class
+ * rep_groups_added_weekly
+  /opt/nforge/common/reporting/ReportSetup.class
+ * rep_users_added_monthly
+  /opt/nforge/common/reporting/ReportSetup.class
+ * rep_groups_added_monthly
+  /opt/nforge/common/reporting/ReportSetup.class
+ * rep_users_cum_daily
+  /opt/nforge/common/reporting/ReportSetup.class
+ * rep_groups_cum_daily
+  /opt/nforge/common/reporting/ReportSetup.class
+ * rep_users_cum_weekly
+  /opt/nforge/common/reporting/ReportSetup.class
+ * rep_groups_cum_weekly
+  /opt/nforge/common/reporting/ReportSetup.class
+ * rep_users_cum_monthly
+  /opt/nforge/common/reporting/ReportSetup.class
+ * rep_groups_cum_monthly
+  /opt/nforge/common/reporting/ReportSetup.class
+ * rep_user_act_daily
+  /opt/nforge/common/reporting/ReportSetup.class
+ * rep_user_act_weekly
+  /opt/nforge/common/reporting/ReportSetup.class
+ * rep_user_act_monthly
+  /opt/nforge/common/reporting/ReportSetup.class
+ * rep_group_act_daily
+  /opt/nforge/common/reporting/ReportSetup.class
+ * rep_group_act_weekly
+  /opt/nforge/common/reporting/ReportSetup.class
+ * rep_group_act_monthly
+  /opt/nforge/common/reporting/ReportSetup.class
+ * bword_master
+  /opt/nforge/common/include/spam_filter.php
+ * role
+  /opt/nforge/common/include/Role.class
+ * role_setting
+  /opt/nforge/common/include/Role.class
+ * users
+  /opt/nforge/common/include/User.class
+  /opt/nforge/www/include/install.php
+  /opt/nforge/install.php
+ * user_preferences
+  /opt/nforge/common/include/User.class
+ * user_plugin
+  /opt/nforge/common/include/User.class
+ * form_keys
+  /opt/nforge/common/include/forms.php
+ * cron_history
+  /opt/nforge/common/include/cron_utils.php
+ * user_session
+  /opt/nforge/common/include/session.php
+ * groups
+  /opt/nforge/common/include/Group.class
+ * user_group
+  /opt/nforge/common/include/Group.class
+  /opt/nforge/www/include/install.php
+  /opt/nforge/install.php
+ * group_plugin
+  /opt/nforge/common/include/Group.class
+ * deleted_groups
+  /opt/nforge/common/include/Group.class
+ * group_history
+  /opt/nforge/common/include/Group.class
+ * filemodule_monitor
+  /opt/nforge/common/include/Group.class
+ * group_activity_monitor
+  /opt/nforge/common/include/Group.class
+ * licenses
+  /opt/nforge/common/include/license.php
+ * system_setting
+  /opt/nforge/install_util.php
+ * crontab
+  /opt/nforge/install_util.php
+ * statement
+  /opt/nforge/cronjobs/analyze_db_schema.php
+ * stats_project
+  /opt/nforge/cronjobs/stats_projects.inc
+ * stats_project_months
+  /opt/nforge/cronjobs/db_stats_agg.php
+ * stats_site_pages_by_month
+  /opt/nforge/cronjobs/db_stats_agg.php
+ * stats_site_months
+  /opt/nforge/cronjobs/db_stats_agg.php
+ * stats_site
+  /opt/nforge/cronjobs/stats_site.inc
+ * stats_site_pages_by_day
+  /opt/nforge/cronjobs/site_stats.php
+ * stats_project_developers
+  /opt/nforge/cronjobs/site_stats.php
+ * project_counts_weekly_tmp
+  /opt/nforge/cronjobs/project_weekly_metric.php
+  /opt/nforge/cronjobs/project_weekly_metric-backfill.php
+ * project_metric_weekly_tmp1
+  /opt/nforge/cronjobs/project_weekly_metric.php
+  /opt/nforge/cronjobs/project_weekly_metric-backfill.php
+ * project_weekly_metric
+  /opt/nforge/cronjobs/project_weekly_metric.php
+  /opt/nforge/cronjobs/project_weekly_metric-backfill.php
+ * stats_project_metric
+  /opt/nforge/cronjobs/project_weekly_metric.php
+  /opt/nforge/cronjobs/project_weekly_metric-backfill.php
+ * trove_agg
+  /opt/nforge/cronjobs/db_trove_maint.php
+ * trove_treesums
+  /opt/nforge/cronjobs/db_trove_maint.php
+ * massmail_queue
+  /opt/nforge/www/admin/massmail.php
+ * plugins
+  /opt/nforge/www/admin/pluginman.php
+ * tmp_lang
+  /opt/nforge/www/admin/languages/loadtabfiles.php
+ * trove_cat
+  /opt/nforge/www/admin/trove/trove_cat_add.php
+ * frs_message
+  /opt/nforge/www/frs/shownotes.php
+ * frs_dlstats_file
+  /opt/nforge/www/frs/download.php
+ * db_images
+  /opt/nforge/www/project/admin/index.php
+ * news_message
+  /opt/nforge/www/news/detail.php
+ * news_bytes
+  /opt/nforge/www/news/submit.php
+ * plugin_cvstracker_data_master
+  /opt/nforge/www/plugins/cvstracker/newcommit.php
+  /opt/nforge/plugins/cvstracker/www/newcommit.php
+ * plugin_svntracker_data_master
+  /opt/nforge/www/plugins/svntracker/newcommit.php
+  /opt/nforge/plugins/svntracker/common/svntrackerPlugin.class
+  /opt/nforge/plugins/svntracker/www/newcommit.php
+ * snippet_package_item
+  /opt/nforge/www/snippet/add_snippet_to_package.php
+ * snippet_package
+  /opt/nforge/www/snippet/package.php
+ * snippet_package_version
+  /opt/nforge/www/snippet/package.php
+  /opt/nforge/www/snippet/addversion.php
+ * snippet_version
+  /opt/nforge/www/snippet/addversion.php
+  /opt/nforge/www/snippet/submit.php
+ * snippet
+  /opt/nforge/www/snippet/submit.php
+ * activity_log
+  /opt/nforge/www/include/logger.php
+ * canned_responses
+  /opt/nforge/www/include/canned_responses.php
+ * trove_group_link
+  /opt/nforge/www/include/trove.php
+ * stats_cvs_group
+  /opt/nforge/plugins/scmsvn/cronjobs/svn-stats.php
+  /opt/nforge/plugins/scmcvs/cronjobs/history_parse.php
+ * stats_cvs_user
+  /opt/nforge/plugins/scmsvn/cronjobs/svn-stats.php
+  /opt/nforge/plugins/scmcvs/cronjobs/history_parse.php
+}}}
+
+ * 변환 제외 테이블 리스트 : CRON으로 생성하거나, 보고서 관련, 로깅 및 시스템 정보 테이블을 제외. 사용하지 않는 테이블과 사이트 관리용 테이블을 제외
+  * activity_log 
+  * artifact_canned_responses 
+  * artifact_counts_agg 
+  * bword_master 
+  * canned_responses 
+  * cron_history 
+  * crontab 
+  * deleted_groups 
+  * form_keys 
+  * frs_filetype 
+  * frs_processor 
+  * frs_status 
+  * group_cvs_history 
+  * massmail_queue 
+  * project_weekly_metric 
+  * rep_group_act_daily 
+  * rep_group_act_monthly 
+  * rep_group_act_weekly 
+  * rep_groups_added_daily 
+  * rep_groups_added_monthly 
+  * rep_groups_added_weekly 
+  * rep_groups_cum_daily 
+  * rep_groups_cum_monthly 
+  * rep_groups_cum_weekly 
+  * rep_user_act_daily 
+  * rep_user_act_monthly 
+  * rep_user_act_weekly 
+  * rep_users_added_daily 
+  * rep_users_added_monthly 
+  * rep_users_added_weekly 
+  * rep_users_cum_daily 
+  * rep_users_cum_monthly 
+  * rep_users_cum_weekly 
+  * snippet 
+  * snippet_version 
+  * stats_cvs_group 
+  * stats_cvs_user 
+  * stats_project 
+  * stats_project_developers 
+  * stats_project_metric 
+  * stats_project_months 
+  * stats_site 
+  * stats_site_months 
+  * stats_site_pages_by_day 
+  * stats_site_pages_by_month 
+  * stats_subd_pages 
+  * system_setting 
+  * trove_agg 
+  * trove_treesums 
+  * user_metric 
+  * user_metric_history 
+  * user_preferences 
+  * user_session
+
+ * 변환 대상 테이블과 변환 우선 순위 : Level이 낮은 테이블의 자료를 먼저 준비해야 이를 참조하는 테이블의 자료를 생성할 수 있다. Level이 동일한 경우에는 앞쪽 테이블을 먼저 준비한다.
+  * Level 0:
+   country_code, trove_cat, themes, plugins, supported_languages, licenses
+  * Level 1:
+   users, trove_group_link, group_plugin, groups
+  * Level 2:
+   artifact_type_monitor, group_activity_monitor, user_group, artifact_perm, artifact, news_message, release, user_plugin, code_review, filemodule_monitor, artifact_query, news_bytes, group_history, role, artifact_group_list, db_images
+  * Level 3:
+   artifact_monitor, artifact_history, artifact_file, artifact_message, artifact_extra_field_data, code_review_tracker, plugin_svntracker_data_master, plugin_cvstracker_data_master, frs_file, frs_message, code_review_message, artifact_query_fields, role_setting, artifact_extra_field_list
+  * Level 4:
+   frs_dlstats_file, frs_dlstats_filetotal_agg, artifact_extra_field_elements
+
+== nFORGE project package의 구조 ==
+=== DB Tables ===
+ * nFORGE Importer가 인식하는 스키마를 기반으로 작성한 테이블 단위의 XML 파일
+ * 테이블의 컬럼 정보와 데이터를 XML 형태로 저장한다. XML은 table아이템에 columns와 data아이템을 포함하는 형태이다. 대상 테이블 중에서 groups 보다 연관성 상위에 있는 users등의 테이블들은 전체 로우를 덤프하고 groups와 나머지 테이블들은 group_id를 기준으로 조인하는 형태로 검색하여 덤프한다. 다음은 그 예제 파일이다. {{{
+<?xml version="1.0" encoding="utf-8"?>
+<table name="groups" index="7">
+  <columns>
+    <c0>group_id</c0>
+    <c1>group_name</c1>
+    <c2>homepage</c2>
+    <c3>is_public</c3>
+    <c4>status</c4>
+    <c5>unix_group_name</c5>
+    <c6>unix_box</c6>
+    <c7>http_domain</c7>
+    <c8>short_description</c8>
+    <c9>register_purpose</c9>
+    <c10>license_other</c10>
+    <c11>register_time</c11>
+    <c12>rand_hash</c12>
+    <c13>use_mail</c13>
+    <c14>use_survey</c14>
+    <c15>use_forum</c15>
+    <c16>use_pm</c16>
+    <c17>use_scm</c17>
+    <c18>use_wiki</c18>
+    <c19>use_news</c19>
+    <c20>type_id</c20>
+    <c21>use_docman</c21>
+    <c22>new_doc_address</c22>
+    <c23>send_all_docs</c23>
+    <c24>use_pm_depend_box</c24>
+    <c25>use_ftp</c25>
+    <c26>use_tracker</c26>
+    <c27>use_frs</c27>
+    <c28>use_stats</c28>
+    <c29>frs_public</c29>
+    <c30>enable_pserver</c30>
+    <c31>enable_anonscm</c31>
+    <c32>license</c32>
+    <c33>scm_box</c33>
+    <c34>top_image_id</c34>
+  </columns>
+  <types>
+    <c0>number</c0>
+    <c1>varchar</c1>
+    <c2>varchar</c2>
+    <c3>number</c3>
+    <c4>char</c4>
+    <c5>varchar</c5>
+    <c6>varchar</c6>
+    <c7>varchar</c7>
+    <c8>varchar</c8>
+    <c9>text</c9>
+    <c10>text</c10>
+    <c11>number</c11>
+    <c12>text</c12>
+    <c13>number</c13>
+    <c14>number</c14>
+    <c15>number</c15>
+    <c16>number</c16>
+    <c17>number</c17>
+    <c18>number</c18>
+    <c19>number</c19>
+    <c20>number</c20>
+    <c21>number</c21>
+    <c22>text</c22>
+    <c23>number</c23>
+    <c24>number</c24>
+    <c25>number</c25>
+    <c26>number</c26>
+    <c27>number</c27>
+    <c28>number</c28>
+    <c29>number</c29>
+    <c30>number</c30>
+    <c31>number</c31>
+    <c32>number</c32>
+    <c33>text</c33>
+    <c34>number</c34>
+  </types>
+  <data>
+    <row0>
+      <c0>8</c0>
+      <c1>bmV3bXlwcmo=</c1>
+      <c2></c2>
+      <c3>1</c3>
+      <c4>QQ==</c4>
+      <c5>bmV3bXlwcmo=</c5>
+      <c6>c2hlbGwx</c6>
+      <c7>bmV3bXlwcmoubmZvcmdlLm1hZ2ljaG9zdA==</c7>
+      <c8>7IOI66Gt6rKMIO2UhOuhnOygne2KuCDthYzsiqTtirjrpbwg7IiY7ZaJ7ZWp64uI64ukLjI=</c8>
+      <c9>7IOI66Gt6rKMIO2UhOuhnOygne2KuCDthYzsiqTtirjrpbwg7IiY7ZaJ7ZWp64uI64ukLg==</c9>
+      <c10></c10>
+      <c11>1235713614</c11>
+      <c12>YmJhMmExZmI0MTBlYTY5MmQzYjQyNDRhMGY3OTdjZDI=</c12>
+      <c13>0</c13>
+      <c14>0</c14>
+      <c15>0</c15>
+      <c16>0</c16>
+      <c17>1</c17>
+      <c18>1</c18>
+      <c19>1</c19>
+      <c20>1</c20>
+      <c21>0</c21>
+      <c22></c22>
+      <c23>0</c23>
+      <c24>1</c24>
+      <c25>0</c25>
+      <c26>1</c26>
+      <c27>1</c27>
+      <c28>1</c28>
+      <c29>1</c29>
+      <c30>1</c30>
+      <c31>1</c31>
+      <c32>101</c32>
+      <c33>bmZvcmdlLm1hZ2ljaG9zdA==</c33>
+      <c34>5</c34>
+    </row0>
+  </data>
+</table>
+}}}
+ * XML 파일에서 columns정보와 data정보는 컬럼 단위로 동일한 순서를 갖는다. 테이블 속성에 있는 index는 연관성 순위를 나타낸다.
+ * 컬럼 타입이 문자열인 경우에는 base64_encode 형태로 저장한다.
+
+=== 위키 정보 ===
+ * _wiki 폴더 아래에 저장
+ * nFORGE 위키면 데이터 폴더와 config만 복사해두면 될지...
+ * 사용자/프로젝트 변경 방안 필요
+ * Moniwiki의 다른 파일의 Importing 기능을 활용한다면...
+
+=== 첨부 파일 정보 ===
+ * _upload 폴더 아래에 저장
+ * DB 자료와의 연관성 보장 방법을 감안해야
+
+=== 코드 정보 ===
+ * _codes 폴더 아래에 저장
+ * 그냥 svnroot 아래를 복사하면 될지
+ * SVN fstype등의 변환은 어떻게?
+ * 리뷰 정보는 어떻게 변환할지

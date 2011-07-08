@@ -1,0 +1,9 @@
+#title nFORGE DB ER 다이어그램
+
+nforge-2.6.0소스를 기반으로 한 nFORGE DB ER 다이어그램입니다.
+(Mysql WorkBench로 작성하였으며, PDF파일로도 공유합니다.)
+
+ * [http://dev.naver.com/scm/viewvc.php/*checkout*/trunk/docs/nForgeERD.mwb?root=nforge nForgeERD.mwb]
+ * [http://dev.naver.com/scm/viewvc.php/*checkout*/trunk/docs/nForgeERD.pdf?root=nforge nForgeERD.pdf]
+
+

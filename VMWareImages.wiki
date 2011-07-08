@@ -1,0 +1,67 @@
+#title VMware Images for nFORGE
+
+== nFORGE 버전 1.0.0.561 ==
+
+ * [/Fedora10]
+ * [/Ubuntu9.04]
+
+== nFORGE 버전 r142 ==
+ * [/r-142] : mysql /cubrid 지원
+
+== 기본 사항 ==
+=== 설치 정보 ===
+가상머신에 설치된 nFORGE 관련 기본 정보는 아래와 같습니다.
+
+ * 시스템 root 비번 : nforge
+ * nforge svn checkout path - /root/newnforge 혹은 /root/nforge-work
+ * nforge host domain - nforge.magichost
+ * apache user - apache
+ * apache group - apache
+ * db name - nforge
+ * db user - nforge
+ * db password - nforge
+
+ * nFORGE 사이트 시스템 관리자 아이디 - nforgeadmin
+ * nFORGE 시스템 관리자 비밀번호 - nforgeadmin
+ * nFORGE 일반 사용자 아이디 - nforgeuser 혹은 없음
+ * nFORGE 일반 사용자 비번 - nforgeuser
+
+=== 수정 필요 파일 ===
+아래 파일의 hostname과 servername, 그리고 IP 주소를 필요에 따라 수정합니다.
+단순한 확인이라면 수정할 필요는 없습니다.
+
+ * /etc/nforge/httpd.conf
+ * /etc/nforge/local.inc
+ * /etc/hosts
+=== 플러그인 ===
+ * /etc/nforge/plugins/scmsvn/config.php
+ * /etc/nforge/plugins/scmcvs/config.php
+ * /etc/nforge/plugins/ggit/config.php
+ * /etc/nforge/plugins/cvstracker/config.php
+ * /etc/nforge/plugins/svntracker/config.php
+ * /etc/nforge/plugins/gittracker/config.php
+
+=== 확인 방법 ===
+ * VMware player로 다운받은 가상머신을 실행합니다.
+ * DHCP로 세팅되어 있으므로 ifconfig 명렁어로 ip 주소를 확인합니다.
+ * 브라우저를 실행시켜 eth0에 지정되어 있는 ip 주소로 접속합니다. nFORGE 화면이 제대로 뜬다면 성공입니다.
+   (되도록 VMware player를 수행한 로컬 컴퓨터에서 hosts파일에 nforge.magichost를 등록하고 수행하세요)
+
+== DMBS별 다른 점 ==
+=== 큐브리드 ===
+ * VMwarePlayer로 다운받은 가상머신을 실행합니다.
+ * CUBRID를 아래와 같이 실행합니다.
+{{{
+cubrid service start
+cubrid broker start
+cubrid server start nforge
+}}}
+ * DHCP로 세팅되어 있으므로 ifconfig 명렁어로 ip 주소를 확인합니다.
+ * 브라우저를 실행시켜 eth0에 지정되어 있는 ip 주소로 접속합니다. nFORGE 화면이 제대로 뜬다면 성공입니다.
+
+== Virtual Box에서 실행 ==
+VMWare 이미지 *.vmdk를 가상디스크 이미지로 등록하시면 VirtualBox에서도 사용하실 수 있습니다.
+
+ * <!> VirtualBox로 부팅하는 경우 네트웍이 제대로 작동하지 않을 수 있습니다. 이럴때 {{{sudo dhclient}}}를 실행하시면 네트웍을 잡아줍니다.
+ * 네트웍이 잡힌 후에 IP주소를 확인하려면 {{{ifconfig}}}명령을 내려보세요. {{{10.0.2.xx}}}와 같은 형식의 IP주소가 잡힌 것을 확인하실 수 있습니다. 이 경우 네트워크 어댑터 기본 설정값이 '''NAT'''입니다.
+ * 호스트 PC에서 가상머신으로 접속하려면 네트워크 어댑터를 '''브릿지 어댑터'''로 변경해야 합니다. 브릿지 어댑터로 변경한 후에 네트워크 설정을 적용하려면 {{{sudo dhclient}}} 명령을 내려줍니다. {{{ifconfig}}}로 IP주소를 확인해보면 {{{192.168.xx.xxx}}}로 설정되어 있음을 확인할 수 있고, 호스트 PC에서 이 주소를 이용해 웹브라우져로 접속할 수 있게 됩니다.

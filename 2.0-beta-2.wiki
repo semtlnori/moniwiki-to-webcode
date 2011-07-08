@@ -1,0 +1,145 @@
+2009-11-12  imma2007
+
+	* www/tracker/browse.php, www/tracker/tracker.php: [#5242] 포럼에서 글을
+	  보고 있을 때는 새글 등록 버튼의 링크가 동작하지 않는 현상을 수정합니다.
+
+2009-11-10  utumdol
+
+	* plugins/svntracker/www/newcommit.php: [#5233] 이슈 번호가 0보다 크지 않으면
+	  이슈를 가져오지 않습니다
+
+2009-11-09  semtlnori
+
+	* install.php: [#5225] cubrid로 nFORGE 데이터베이스 최초 생성시 크기를 20000페이지에서
+	  5000페이지로 줄입니다
+
+2009-11-09  utumdol
+
+	* www/account/login.php, www/themes/css/account.css: [#5217] 별도의
+	  theme 작업 없이 css 적용 만으로 로그인 테이블 모양이 나올 수 있도록 수정.
+
+2009-11-09  semtlnori
+
+	* install_util.php, nforge-install-3.php: [#5223] 설치시 An error
+	  ocurred running the last command... aborting. 에러가 발생했을 때 에러를 반환하지
+	  않는 문제를 고침
+
+2009-11-09  utumdol
+
+	* www/snippet/delete.php: [#5217] 삭제 페이지에도 css 추가
+	* www/themes/css/snippet.css: [#5217] css class 명을 2.0 테마에 맞추어
+	  변경합니다.
+	* www/include/languages/Korean.tab, www/snippet/addversion.php,
+	  www/snippet/detail.php, www/snippet/index.php,
+	  www/snippet/submit.php, www/themes/css/snippet.css: [#5217] CSS
+	  추가로 별도의 작업 없이 어느 정도 snippet이 나타날 수 있도록 작업.
+	  추후 theme로 작업해야 합니다.
+
+2009-11-09  semtlnori
+
+	* www/include/languages/Korean.tab: [#5221] 프로젝트 등록 승인 요청 메일에서,
+	  프로젝트 승인 페이지의 링크에 도메인이 빠지는 문제 고침
+
+2009-11-07  speedlimit
+
+	* migration/gforge-exporter.php, migration/nforge-importer.php:
+	  [#5074] 포럼과 이슈를 제대로 분리할 수 있도록 코드를 수정합니다.
+
+2009-11-06  utumdol
+
+	* www/snippet/index.php: [#5217] 테마 2.0과 충돌이 발생하므로 불필요한 정보 삭제
+
+2009-11-04  semtlnori
+
+	* install.php: [#5201] 설치 스크립트의 groupmems를 adduser로 교체합니다:
+	  groupmems를 사용할 수 없는 경우가 많기 때문입니다
+	* nforge-install-2.php: [#5204] 설치시 a2enmod가 동작하지 않고 있는 문제를 고침:
+	  a2en_path가 설정되어 있다면 a2enmod가 동작하게 합니다
+	* nforge-install-2.php: [#5202] 데비안 계열 배포판의 경우 아파치 모듈의 경로명을
+	  /usr/lib/apache2/modules로 설정
+
+2009-11-03  semtlnori
+
+	* www/tracker/add.php: [#4791] r2320으로 인한 $brow 관련 notice 제거
+
+2009-11-02  semtlnori
+
+	* plugins/svntracker/www/newcommit.php: [#3715] 이슈에 자동으로 커밋 로그가 남을
+	  때, 만약 그 이슈가 속한 프로젝트의 멤버가 아니라면 커밋 로그가 남지 않게 합니다
+
+2009-10-26  semtlnori
+
+	* plugins/codereview/common/CodeReviewPlugin.class,
+	  www/tracker/include/ArtifactHtml.class: [#5132] 패치파일이
+	  $sys_codereview_size_limit보다 큰 경우 diff를 보여주지 않습니다. 값이 설정되어 있지 않다면
+	  100kb가 넘으면 보여주지 않습니다
+
+2009-10-22  utumdol
+
+	* www/news/detail.php: [#5120] variable이 미리 세팅되지 않아 발생하는 notice 및
+	  이미지 파일이 없어서 발생하는 오류들이 나지 않도록 수정합니다.
+	* www/export/rss_utils.inc: [#5120] 다음 PHP Notice가 발생하지 않도록 합니다.
+	  "PHP Notice: Undefined index: description_notnull in
+	  /opt/nforge/www/export/rss_utils.inc on line 31"
+
+2009-10-21  semtlnori
+
+	* plugins/codereview/common/CodeReviewPlugin.class: [#3216] 덧글에서
+	  커밋의 변경 내역을 보여주는 기능은, $sys_use_commit_diff_on_comment가 켜져 있는 경우에만
+	  동작하게 고칩니다.
+	* plugins/codereview/common/CodeReviewPlugin.class: [#3216] 덧글에서
+	  커밋의 변경 내역을 보여줄 때, 특정 경우에 변경 내역이 나타나지 않는 문제 고침: 불필요한 trim을 제거하였습니다
+
+2009-10-21  utumdol
+
+	* cronjobs/backup_site.php: [#5118] exec를 호출할 때 마다 별도의 프로세스가 생성되므로
+	  서로 다른 환경을 가지게 됩니다. 따라서 환경 변수 적용을 동일한 프로세스 내에서 수행하도록 합니다.
+
+2009-10-21  semtlnori
+
+	* common/tracker/Artifact.class: [#5113] 댓글에서 역슬래시를 입력할 수 없는 문제 고침
+
+2009-10-21  utumdol
+
+	* www/export/rss20_newreleases.php: [#5120] 다음 PHP Notice가 발생하지 않도록
+	  합니다. "PHP Notice: Undefined variable: G_RELEASE in
+	  /opt/nforge/www/export/rss20_newreleases.php on line 97"
+	* common/include/database-cubrid.php: [#5105] select 문에서 commit 수행
+	  시 cas가 restart 하는 현상이 많이 발생하여 원래 코드로 원복합니다.
+	* cronjobs/backup_site.php: [#5118] cron으로 수행 시 cubrid 관련 환경 변수를 미리
+	  읽어오도록 수정하였습니다.
+
+2009-10-19  utumdol
+
+	* common/include/database-cubrid.php: [#5105] select 문을 수행할 때에도
+	  auto commit이면 commit을 명시적으로 수행하도록 함.
+
+2009-10-15  semtlnori
+
+	* www/tracker/browse.php: [#5031] 게시물 가져오기 API에서, start와 limit
+	  파라메터를 이용해 지정된 범위의 파라메터를 가져올 수 있게 함 (다만 limit 파라메터가 없는 경우 동작하지 않음)
+	* www/tracker/browse.php: [#5031] [#2678] 게시물 가져오기 API에서, 가져올 게시물
+	  갯수의 상한선을 지정할 수 있는 limit 파라메터 추가
+	* www/include/html.php: [#2935] [#5031] 프로젝트 정보 가져오기 API의 게시판 정보
+	  element에서 artifact_count를 artifacts_count로 이름 변경
+	* www/include/html.php: [#2935] [#5031] 프로젝트 정보 가져오기 API의 게시판 정보에
+	  게시물 갯수도 보여주도록 추가합니다
+	* www/include/project_home.php: [#2935] [#5031] 프로젝트 정보 가져오기 API에
+	  게시판 정보를 추가합니다
+	* www/include/project_home.php: [#2935] [#5031] 프로젝트 정보 가져오기 API가
+	  동작하지 않는 문제 고침: 프로젝트 홈에 대한 처리를 테마에서 하도록 고치면서 API 요청을 처리할 수 없게 되었기
+	  때문에 생긴 문제입니다
+	* www/my/index.php: [#5088] getArtifacts()가 nusoap 플러그인과 이름이 중복되므로
+	  get_artifacts()로 변경합니다.
+
+2009-10-13  speedlimit
+
+	* migration/nforge-importer.php: [#5074] GForge에서 데이터 migration 작업
+	  시에 세부 항목이 없는 이슈 게시판을 경우에, 기본적인 세부 항목을 넣어주어 이슈 게시판으로 판단되도록
+	  importer 코드를 수정합니다.
+
+2009-10-13  semtlnori
+
+	* www/tracker/artifact.php: [#4791] $brow가 설정되어 있지 않은 경우의 경고 메시지 제거
+	* common/include/utils.php, tests/func/action.php: [#5022]
+	  r2349(do_projects()에 대한 테스트케이스 추가)를 trunk에도 적용

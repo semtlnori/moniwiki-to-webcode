@@ -1,0 +1,70 @@
+=== 용어 ===
+Code Rank
+|| cr || Code Rank ||
+|| rcr || Reverse Code Rank ||
+
+Class Level
+|| dit || depth of inheritance tree ||
+|| impl || implemented interfaces ||
+|| cis || class interface size ||
+|| csz || class size ||
+|| vars || properties ||
+|| varsi || properties inherit ||
+|| varsnp || properties non private ||
+|| wmc || weighted methods ||
+|| wmci || weighted methods inherit ||
+|| wmcnp || weighted methods non private ||
+
+coupling
+|| calls || calls ||
+|| fanout || fanout ||
+
+cyclomatic Complexity
+|| ccn || cyclomatic complexity 1 ||
+|| ccn2 || cyclomatic complexity 2 ||
+
+dependency
+|| tc || number of classes || ||
+|| cc || number of concrete classes || ||
+|| ac || number of abstract classes || ||
+|| ca || afferent coupling || 이 클래스에 의존하는 클래스 ||
+|| ce || efferent coupling || 이 클래스가 의존하는 클래스 ||
+|| a || abstraction || ||
+|| i || instability || ||
+|| d || distance || ||
+
+hierarchy
+|| clsa || number of abstract classes ||
+|| clsc || number of concrete classes ||
+|| roots || number of root classes ||
+|| leafs || number of leaf classes ||
+|| dit || inheritance depth ||
+|| maxdit || maximum inheritance depth ||
+
+inheritance
+|| andc || average number derived classes ||
+|| ahh || average hierarchy height ||
+
+nPath Complexity
+|| npath || npath complexity ||
+
+node Count
+|| nop || number of packages ||
+|| noc || number of classes ||
+|| noi || number of interfaces ||
+|| nom || number of methods ||
+|| nof || number of functions ||
+
+node LOC
+|| loc || lines of code ||
+|| cloc || comment lines of code ||
+|| eloc || executable lines of code ||
+|| ncloc || non comment lines of code ||
+
+See http://en.wikipedia.org/wiki/Software_package_metrics
+
+=== 복잡도 ===
+ * Cyclomatic complexity: M = E - N + 2P
+  * E: 분기에 따른 edge
+  * N: 노드의 갯수
+  * P: edge로 이어진 덩어리의 갯수

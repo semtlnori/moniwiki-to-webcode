@@ -1,0 +1,61 @@
+== DB별 SQL파일 통합 관리 ==
+#2365 c115 참조
+
+db 디렉토리 아래에 mysql.sql, gforge.sql(pgsql.sql), cubrid.sql이 각각 따로 관리되고 있는데, 이것을 하나의 파일로 통합하여 관리하는 방안을 모색합니다.
+
+예를 들어, 각 DB에 specific한 부분은 각각 다음과 같은 식으로 통합을 해서 하나의 gforge.sql.in 이라는 파일을 만들어
+
+{{{
+-- MYSQL -- 명령~
+-- PGSQL -- 명령~ 
+-- CUBRID -- 명령~
+}}}
+
+이것을 make_sql($sql_template, $type = 'pgsql'); 과 같은 명령으로 각각의 type의 입력으로 만드는 것이죠.
+nFORGE는 이미 이 방식과 비슷한 방식으로 xml 파일을 읽어서 각 DBMS에 맞는 sql문을 generate하는 방식을 사용하고 있습니다.
+또 내부적으로는 db_query()도 각각의 DBMS에 맞게끔 내부적으로 쿼리문 교정(?)을 수행하고 있습니다.
+== view 테이블 만들기 ==
+view 테이블은 가장 유연한 문법을 가지는 pgsql을 기본으로 작성하되, mysql / cubrid에서 모두 공통적인 공통분모로 만든다.
+
+as varchar 이라고 하는 경우에, mysql에서는 as char로 자동 변환되는데 이 변환은 create_table.php의 make_sql()에서 처리된다.
+
+그밖에 reserverd words도 make_sql()에서 자동으로 처리되며, 일부 타입이 선택적으로 자동변환된다.
+
+=== view 테이블 테스트하기 ===
+만들어진 test.sql을 직접 테스트하려면
+ 1. `php utils/sql2sql.php test.sql mysql > my.sql` 이라고 하고 얻어진 my.sql을 `mysql -u nforge -p XXXX nforge < my.sql` 식으로 적용하면 된다.
+ 2. 혹은 `php nforge-upgrade-2.php test.sql` 명령을 내리면, 자동으로 make_sql() 함수에 의해 변환된 sql 구문이 DB에 적용되게 되고, 성공/실패의 결과를 보여준다.
+------
+모두 통합 완료했습니다. 각각의 공통분모만을 추려낸 방식인데, 제가 한것은 USING대신에 ON을 쓰고,
+괄호를 미세하게 다르게 취급하는 등의 문제만을 고친것입니다.
+pgsql => mysql / cubrid 변환 및 각각의 변환된 입력파일이 오류없이 제대로 입력됨을 확인하였습니다.
+
+stats_project_vw 을 cubrid는 조금 상이한 방식으로 취급하는데,
+pgsql과 cubrid의 sql 입력은 사실상 거의 동일해서, USING 대신 ON을 사용하고 괄호를 몇개 고쳐줬더니 입력은 문제가 없었습니다.
+이게 제대로 동작하는지도 확인해야 하는데, VIEW테이블은 각각의 DBMS의 고유한 기능을 거의 사용하지 않기때문에 별 문제 없을 것으로 보이며, install.php에 아직 반영이 안되어있으므로, mysql.sql 및 cubrid.sql은 pgsql을 고치면서 반영한 일부 내용을 반영했습니다. 차후에는 VIEW테이블은 mysql.sql과 cubrid.sql 없이 pgsql용 gforge.sql 하나로 관리하고 초기 입력 데이타는 data.sql을 통해 관리하는 방식이 될것입니다.
+
+gforge.sql을 새롭게 갱신하는 경우에는 각각 mysql과 cubrid에서 제대로 동작하는지에 대한 테스틀 해야 할텐데
+그 부분도 이제 생각해봐야 하겠습니다.
+== 각 DBMS별 차이점 ==
+=== cubrid ===
+ * {{{!=}}} 연산자를 알지 못한다. {{{<>}}} 연산자를 쓴다.
+ * {{{USING}}}을 알지 못한다. {{{ON}}} 구문을 사용한다.
+ * 부울이 없고 정수로 0, 1이다.
+ * IF문이 없다. CASE를 쓴다.
+ * `SELECT (count(*)=0)` 와 같은 구문 지원 안됨. CASE문으로 고쳐줘야 함. 예를 들어 `SELECT (CASE WHEN count(*)=0 THEN 1 ELSE 0 END)` ...
+=== mysql ===
+ * 키워드에 대한 quote처리를 {{{`}}}(역 홋따옴표)로 한다. pgsql / cubrid는 {{{"}}}를 쓴다.
+ * 부울이 없고 정수로 0, 1이다.
+ * CASE IF 모두 지원.
+=== pgsql ===
+ * {{{::text}}} {{{::integer}}}와 같은 타입 지정자가 있다. 이러한 지정자는 mysql / cubrid에 대해 적용할 때에는 간단히 제거된다.
+ * 세개의 DBMS중 가장 유연하다 할 수 있다. {{{psql}}}도 매우 편리하다.
+ * 부울 타입이 있다. 따라서 cast int를 해줘야 한다.
+ * CASE / IF 모두 지원.
+ * AS를 써야한다. mysql / cubrid는 AS가 없어도 인식하는 경우가 있으므로 주의해야 한다. <!> [#7163]
+== 각 DBMS별 공통 키워드 ==
+ * TODO
+== 각 DBMS별 지원 타입 및 상호 호환 가능 타입 ==
+|| postgresql || mysql || cubrid || 비고 ||
+|| int4 || unsigned || integer || unsigned와 int4는 분명히 다르다. 주의를 요함 ||
+|| varchar || char 외 || varchar || cubrid에서 varchar은 length를 지정하지 않아도 된다고 함||

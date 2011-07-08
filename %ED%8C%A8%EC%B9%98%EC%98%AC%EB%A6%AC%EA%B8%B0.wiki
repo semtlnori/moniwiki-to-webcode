@@ -1,0 +1,38 @@
+이슈나 포럼에 패치를 첨부하실 수 있습니다.
+
+패치(patch)란 작은 조각을 의미하는데, 여기서는 어떤 문제점을 해결해주는 작은 고침이나 변경을 의미합니다.
+
+다음과 같은 내용이 패치파일에 들어있습니다.
+
+{{{#!plain
+--- www/my/index.php    (revision 749)
++++ www/my/index.php    (working copy)
+@@ -68,7 +68,7 @@
+                return $arr[0];
+        }
+
+-       function &getArtifacts($artifactsForUser, $sql_filter, $start, $sql_order) {
++       function &get_Artifacts($artifactsForUser, $sql_filter, $start, $sql_order) {
+                global $item_per_page;
+                $sql="SELECT * FROM artifact_vw av".$sql_filter;
+                if ($sql_order) {
+@@ -134,7 +134,7 @@
+
+                $sql_filter = getFilter(getIntFromRequest($filter_arg), $status_id, $assigned, $submitted);
+
+-               echo tableContents(getArtifacts($artifactsForUser, $sql_filter, $start, $sql_order));
++               echo tableContents(get_Artifacts($artifactsForUser, $sql_filter, $start, $sql_order));
+
+                echo $HTML->filterTableBottom();
+}}}
+줄의 맨 앞부분에 + / -는 변경된 부분을 뜻합니다. 이러한 파일은 다음과 같은 방식으로 만들 수 있습니다.
+== 리눅스 / 유닉스 사용자 ==
+리눅스 사용자의 경우에는 {{{diff}}}라는 명령을 통해서 패치파일을 만들 수 있습니다. 반드시 '''원본''' 파일과 '''변경된'' 파일 두개가 있어야 합니다.
+
+원본 파일이 my.php.orig라고 하고, my.php이 새롭게 변경된 파일이라고 했을 때, 다음과 같은 명령으로 패치파일을 만드실 수 있습니다.
+{{{
+$ diff -u my.php.orig my.php > my.patch
+}}}
+
+{{{my.patch}}}라는 파일은 일반 텍스트 파일로 nFORGE 사이트의 이슈나 포럼 란에서 파일로 첨부하실 수 있습니다.
+== 윈도우즈 사용자 ==

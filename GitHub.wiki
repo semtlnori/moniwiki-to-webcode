@@ -1,0 +1,13 @@
+http://github.com/images/modules/header/logov3.png
+
+http://github.com/
+
+== 블로그 ==
+http://github.com/blog
+
+== 이슈 트래커 ==
+http://github.com/defunkt/github-issues/issues
+
+''동영상''
+
+[[HTML(<embed src="http://blip.tv/play/AfqxMpXxcg" type="application/x-shockwave-flash" width="720" height="480" allowscriptaccess="always" allowfullscreen="true"></embed>)]]

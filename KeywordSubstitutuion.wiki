@@ -1,0 +1,9 @@
+http://fixlinux.com/2006/07/24/subversion-and-keyword-substitution/
+
+http://svnbook.red-bean.com/en/1.0/ch07s02.html#svn-ch-7-sect-2.3.4
+
+ * {{{$ vi ~/.subversion/config}}}
+ * `enable-auto-props = yes`
+ * .php = svn:eol-style=native;svn:keywords=Date Author Id Revision LastChangedBy LastChangedDate
+ * .class = svn:eol-style=native;svn:keywords=Date Author Id Revision LastChangedBy LastChangedDate
+ * .sh = svn:eol-style=native;svn:keywords=Date Author Id Revision LastChangedBy LastChangedDate

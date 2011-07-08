@@ -1,0 +1,63 @@
+#title nFORGE 삭제
+
+=== 들어가는 말 ===
+이 문서는 설치된 nFORGE를 삭제하는 방법을 기록한 문서입니다.
+
+=== 데이타 디렉토리 삭제 ===
+업로드 파일 또는 scm repository를 저장하는 데이타 디렉토리를 삭제합니다.
+해당 디렉토리는 nFORGE 버전별 또는 사용자 설정 별로 다를 수 있습니다.
+
+ * 구버전일 경우
+{{{
+$ sudo rm -rf /var/lib/nforge
+}}}
+ * 신버전일 경우 - 2.0 이 후
+{{{
+$ sudo rm -rf /opt/nforge/var
+}}}
+
+=== 코드 디렉토리 삭제 ===
+nFORGE가 설치된 디렉토리를 삭제합니다.
+해당 디렉토리는 사용자 설정 별로 다를 수 있습니다.
+
+{{{
+$ sudo rm -rf /opt/nforge
+}}}
+
+=== 설정 디렉토리 삭제 ===
+nFORGE를 위한 DB 설정 및 Apache 설정이 있는 디렉토리를 삭제합니다.
+
+{{{
+$ sudo rm -rf /etc/nforge
+}}}
+
+=== cron 삭제 ===
+
+{{{
+$ sudo rm /etc/cron.d/nforgecron
+}}}
+
+=== nforge user/group 삭제 ===
+nforge 설치 시 DBMS를 위해 nforge user 또는 group을 생성할 수 있으므로 해당 user 또는 group을 삭제합니다.
+
+{{{
+$ sudo userdel nforge
+$ sudo groupdel nforge
+}}}
+
+nforge에 가입할 경우 cvs나 git를 위해 unix 계정이 생성되므로 생성된 계정 중 불필요한 계정도 삭제해야 합니다.
+
+=== DB 삭제 ===
+ * CUBRID의 경우
+
+{{{
+$ cubird server stop nforge
+$ cubrid deletedb nforge
+}}}
+
+ * MySQL의 경우
+{{{
+mysql> DROP DATABASE nforge
+mysql> DELETE FROM mysql.db WHERE db = 'nforge'
+mysql> DELETE FROM mysql.user WHERE user = 'nforge'
+}}}

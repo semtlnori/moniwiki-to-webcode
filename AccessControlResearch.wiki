@@ -1,0 +1,81 @@
+=== mantis ===
+버그 트래커 기능만 갖고 있기 때문에, permission 체계가 단순합니다. 권한 검사 함수들을 동작방식별로 이름을 통해 분명하게 구분 가능하게 하고 있습니다. (get/has/ensure)
+==== 권한을 얻어오는 함수 ====
+$p_user_id에 해당하는 유저가, $id에 해당하는 {global, project}에 대해 갖고 있는 권한 등급을 얻어옴
+ * access_get_global_level( $p_user_id = null )
+ * access_get_project_level( $p_project_id = null, $p_user_id = null )
+==== 권한이 있는지 확인하는 함수 ====
+$p_user_id에 해당하는 유저가, $id에 해당하는 {global, project, bug}에 대해 $p_access_level 이상의 권한을 갖고 있는지 검사
+ * access_has_global_level( $p_access_level, $p_user_id = null )
+ * access_has_project_level( $p_access_level, $p_project_id, $p_user_id = null )
+ * access_has_bug_level( $p_access_level, $p_bug_id, $p_user_id = null )
+==== 권한을 검사하고 접근을 제한하는 함수 ====
+access_has_{global,project,bug}_level과 같으나, acesss denied가 발생했다면 false를 리턴하는 것이 아니라 안내 페이지를 내보내고 종료
+ * access_ensure_global_level( $p_access_level, $p_user_id = null )
+ * access_ensure_project_level( $p_access_level, $p_project_id, $p_user_id = null )
+ * access_ensure_bug_level( $p_access_level, $p_bug_id, $p_user_id = null )
+==== 기타 권한 검사 유틸리티 함수들 ====
+ * access_has_any_project
+ * access_has_bugnote_level
+ * access_ensure_bugnote_level
+ * access_can_close_bug
+ * access_ensure_can_close_bug
+ * access_can_reopen_bug
+ * access_ensure_can_reopen_bug
+=== redmine ===
+permission, role, member는 각각 다음의 주체가 다음과 같이 정의할 수 있습니다.
+|| || 주체 || 정의 내용 ||
+|| permission || 개발자 ||어떤 permission으로 어떤 controller의 어떤 action을 실행할 수 있는지 ||
+|| role || 사이트 관리자||어떤 role이 어떤 permission을 갖는지 ||
+|| member || 프로젝트 관리자||누가 이 프로젝트의 member이며, 어떤 member가 어떤 role을 갖는지 ||
+
+==== AccessControl::Mapper.permission(name, hash, options={}) ====
+어떤 퍼미션(name)으로 어떤 일(hash)을 할 수 있는지 정의합니다.
+
+예) redmine에서 사용할 퍼미션들을 정의
+{{{
+map.permission :view_project, {:projects => [:show], :activities => [:index]}, :public => true
+map.permission :search_project, {:search => :index}, :public => true
+map.permission :add_project, {:projects => [:new, :create]}, :require => :loggedin
+map.permission :edit_project, {:projects => [:settings, :edit, :update]}, :require => :member
+map.permission :select_project_modules, {:projects => :modules}, :require => :member
+map.permission :manage_members, {:projects => :settings, :members => [:new, :edit, :destroy, :autocomplete_for_member]}, :require => :member
+map.permission :manage_versions, {:projects => :settings, :versions => [:new, :create, :edit, :update, :close_completed, :destroy]}, :require => :member
+map.permission :add_subprojects, {:projects => [:new, :create]}, :require => :member
+}}}
+==== Role.new(params) ====
+params에 정의된 데이터대로 새 role을 생성합니다. 생성된 role은 Role.save 메소드를 실행하여 db에 저장할 수 있습니다.
+
+예) :view_wiki_pages 를 할 수 있는 'ToBeDestoryted' 권한 생성
+{{{
+r = Role.new(:name => 'ToBeDestroyed', :permissions => [:view_wiki_pages])
+r.save
+}}}
+==== Member.new(params) ====
+params에 정의된 데이터대로 새 member를 생성합니다. 생성된 member는 Member.save 메소드를 실행하여 db에 저장할 수 있습니다.
+
+예) 아이디가 1번인 프로젝트에 아이디가 4번인 사용자를 추가하고, 아이디가 1번과 2번인 role을 부여함
+{{{
+Member.new(:project_id => 1, :user_id => 4, :role_ids => [1, 2])
+}}}
+
+==== User.allowed_to?(action, context, options={}) ====
+어떤 유저가 어떤 context(project 혹은 project들의 리스트)에 대해 어떤 action(permission symbol 혹은 권한을 서술하는 hash)을 취할 권한이 있는지 확인합니다.
+
+예) user가 self.project에 대해 :view_issues 권한이 있는지 확인
+{{{
+def visible?(user=User.current)
+  user.allowed_to?(:view_issues, self.project)
+end 
+}}}
+
+=== linux (파일) ===
+==== int inode_permission(struct inode *inode, int mask) ====
+inode에 대해 현재 사용자가 mask에 해당하는 권한이 있는지 검사합니다.
+
+내부적으로 check_acl()을 호출해서 권한을 검사하는데, 이 check_acl()은 함수 포인터로 파일 시스템에 따라 다른 함수가 불리도록 되어있습니다. 예를 들어 ext4라면 ext4_check_acl()이 호출됩니다. ext4_check_acl()은 현재 사용자와 접근하려는 파일의 acl 정보를 얻어낸 뒤, acl 정보를 분석하여 현재 사용자가 그 파일에 접근할 수 있는지 판단합니다.
+
+어떤 dir에 쓰기/실행 권한이 있는지 검사하는 예
+{{{
+error = inode_permission(dir, MAY_WRITE | MAY_EXEC);
+}}}

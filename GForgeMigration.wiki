@@ -1,0 +1,72 @@
+#title GForge에서 nFORGE로의 Migration을 위한 가이드
+
+기존에 GForge를 기반으로 운영 중인 사이트를 nFORGE로 이전하기 위한 가이드를 제시한다.
+
+[[TableOfContents]]
+
+=== GForge to nFORGE Migration 개요 ===
+
+    1. 기존에 GForge를 기반으로 하여 프로젝트를 관리하고 있는 시스템을, nFORGE 기반의 서비스로 이전한다.
+    2. GForge에서 진행되던 프로젝트의 데이터를 이전하여 nFORGE를 이용해 계속해서 진행할 수 있도록 한다.
+    3. GForge와 nFORGE 사이에 데이터 형태가 일치하지 않는 경우에는, 데이터를 변환하여 가능한 보존한다.
+
+=== Migration Tool 소개 ===
+
+    * migration/gforge-exporter.php - GForge의 DB 데이터와 저장소, 릴리즈 데이터를 추출하여 저장하는 프로그램.
+    * migration/nforge-importer.php - GForge에서 추출된 데이터를 nFORGE용으로 변환하여 이전하는 프로그램.
+    * Migration Tool은 추출된 DB 데이터를 저장하기 위해 SQLite 2.x 라이브러리를 사용한다.
+
+=== Migration Tool 사용법 ===
+
+    1. GForge가 운영되고 있는 시스템에서 gforge-exporter.php를 실행시켜 원하는 프로젝트의 데이터를 추출한다.
+      * DB 데이터를 추출하기 위해 PostgreSQL의 GForge 테이블에 접근할 수 있는 DB 사용자 권한이 필요하다.
+      * 또한, GForge의 데이터 파일에 접근하기 위하여 관리자 권한이 필요하다.
+    {{{
+sudo php gforge-exporter.php [GForge DB Table 이름] [DB 사용자] [DB 사용자 비밀번호] 
+     [GForge의 데이터 디렉토리] [추출된 데이터를 저장할 디렉토리] [추출하고자 하는 프로젝트 혹은 ALL (전부)]
+}}}
+      * 추출되는 데이터는 DB Table에 있는 데이터와 CVS, Subversion 저장소 그리고 릴리즈된 파일 데이터이다.
+      * GForge의 데이터 디렉토리는 일반적으로 /var/lib/gforge에 위치한다.
+
+    2. 추출된 데이터를 nFORGE로 이전하기 위해 nforge-importer.php를 실행한다.
+      * 새롭게 이전되는 nFORGE의 데이터베이스는 MySQL을 사용한다고 가정한다. 
+      * (현재 다른 DB 시스템을 지원하지 않는다)
+    {{{
+sudo php nforge-importer.php [nFORGE DB Table 이름] [DB 사용자] [DB 사용자 비밀번호] 
+     [추출된 디렉토리] [nFORGE 데이터 디렉토리]
+}}}
+      * nFORGE의 데이터 디렉토리는 일반적으로 /opt/nforge/var에 위치한다.
+
+    3. GForge의 프로젝트 ID부터 대부분의 데이터를 그대로 이전하기 때문에, Migration Tool을 여러번 사용해서 프로젝트를 이전하는 것은 동작하지 않는다.
+
+=== GForge에서 nFORGE로 이전되는 데이터 ===
+
+    * 사용자 정보 - GForge와 관련된 테마 등의 설정이 nFORGE에 맞도록 변환되어 이전된다.
+    * 프로젝트 정보
+      * 분류 - GForge와 nFORGE의 분류가 서로 달라 초기화시켜둔다.
+      * 문제점 추적 - nFORGE로 그대로 이전한다.
+      * 게시판 - nFORGE에는 Forum이란 테이블이 없기 때문에, 데이터를 변환하여 이전한다.
+          nFORGE에서는 원글에 대한 댓글만을 기록하기 때문에, 댓글의 댓글은
+          모두 원글에 대한 댓글로 변환된다.
+      * 뉴스 - nFORGE로 그대로 이전한다.
+      * 저장소 - CVS, Subversion 그대로 이전한다.
+      * 다운로드 - GForge의 패키지 > 릴리즈 > 파일 형태를 단순화시켜 패키지 > 파일 형태로 변환해 이전한다.
+
+=== GForge에서 nFORGE로 이전되지 않는 데이터 ===
+다음의 데이터는 nFORGE에서 지원하지 않는 데이터 형태이거나 거의 사용되지 않기 때문에 이전하지 않는다.
+
+    * 메일링 리스트
+    * 하위 프로젝트 (Task)
+    * 문서
+    * 설문조사
+
+프로젝트 별로 위의 데이터를 사용할 경우가 있기 때문에, kldp.net 이전이 시작된 뒤에도 
+어느 정도 기간까지는 원래의 데이터에 접근할 수 있도록 데이터를 유지할 예정이다.
+
+=== DB 데이터의 이전 ===
+    * DB 데이터는 크게 두 가지 분류로 나누어진다. 프로젝트와 관계 없는 데이터, 그리고 프로젝트와 연관이 있는 데이터이다.
+    * DB 데이터를 이전할 때는 이 두가지 형태의 테이블을 따로 처리하고 있다.
+    * 사용자 정보 등의 데이터는 이전하고자 하는 프로젝트에 관계없이 모두 추출하여 이전한다.
+    * 프로젝트에 관련된 데이터는 이전하고자 하는 프로젝트에 속해있는 데이터만을 따로 추출해 이전한다.
+    * GForge의 게시판 데이터는 Forum이라는 테이블에 저장되어 있다. 하지만, nFORGE에서는 Forum 데이터를 Artifact 테이블에 버그 데이터와 같이 저장하기 때문에 변환이 필요하다.
+    * 게시판 데이터를 새로 생성하여 Artifact 테이블에 저장하기 때문에, Migration Tool을 여러 번 사용해 프로젝트를 이전한다면 문제가 생기므로 가능한 한번에 이전하는 것을 권장한다.

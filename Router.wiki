@@ -1,0 +1,132 @@
+'''''nFORGE 3.0 이상에서만 동작합니다.'''''
+
+[[TableOfContents]]
+
+== Router ==
+Router는 <nFORGE 설치 디렉토리>/common/include/Router.php 에 구현되어 있습니다.
+== Routing Rule ==
+=== 정의 ===
+Routing Rule은 array의 key-value pair로 정의됩니다. URL matching pattern이 key가 되며, destination이 value가 됩니다. URL matching pattern은 Perl Compatible Regular Expression로 기술되어야 하며, destination은 Router 클래스에 정의된 Routing Method이거나, 함수이거나, 혹은 파일이름일 수 있습니다.
+
+이 규칙을 느슨하게 정의해보면 아래와 같습니다.
+{{{
+routing-rule = url-matching-pattern "=>" destination
+url-matching-pattern = perl-compatible-regular-expression
+destination = routing-method | function | filename
+}}}
+
+다음은 Routing Rule을 정의한 예 입니다.
+{{{
+static private $routes = array(
+    // ...
+    '@^/projects/(?P<project>[^/]+)/(?P<aid>\d+)$@' => 'tracker/index.php',
+    // ...
+);
+}}}
+=== 종류 ===
+ * 기본 Routing Rule: nFORGE에 기본적으로 정의된 Routing Rule 입니다. <nFORGE 설치 디렉토리>/common/include/Router.php의 Router::$routes에 정의되어 있습니다. 
+ * 플러그인 Routingn Rule: 플러그인에서 정의한 Routing Rule 입니다. 플러그인 개발자는, 자신의 플러그인이 URL Routing을 필요로 하는 경우, <해당 플러그인 디렉토리>/common/<플러그인 이름>-routes.php 에서 Router::addRoutes() 메소드를 호출하여 Router에 Routing Rule을 추가하는 코드를 작성해야 합니다.
+=== 우선순위 ===
+ 1. plugin에서 정의한 Routing Rule이 Router에서 정의한 Routing Rule 보다 높은 우선순위를 갖습니다.
+ 1. array 상 순서가 앞선 Rule이 높은 우선순위를 갖습니다.
+ 1. plugin 간 Routing Rule의 우선순위는 보장하지 않습니다.
+== Routing ==
+Routing이 필요한 시점에서, nFORGE는 첫번째 argument를 URL로 하여 Router::dispatch() 메소드를 호출합니다. Router::dispatch() 메소드는 정의된 Routing Rule을 읽어들여, 주어진 URL에 맞는 destination과 URL에서 얻어낸 정보(정규식 매칭 결과)를 반환합니다. nFORGE는 이 정보를 이용해 사용자의 요청을 처리합니다.
+
+단, RFC 3986에 따라 normalization 처리 후에 Routing을 시도합니다.
+=== destination의 종류별 Routing 방법 ===
+destination은 Router 클래스의 Routing 메소드 이름, 함수 이름, 파일 이름 중 하나일 수 있습니다. 우선순위는 아래와 같습니다.
+ 1. Router 클래스의 Routing 메소드
+ 1. 함수
+ 1. 파일
+==== destination이 Router 클래스의 Routing 메소드 이름인 경우 ====
+Router::dispatch()는 정규식 매칭 결과를 첫번째 argument로 하여 해당 메소드를 호출하고, 그 결과를 반환합니다.
+==== destination이 함수 이름인 경우 ====
+Router::dispatch()는 'function' key에 함수 이름을, 'request' key에 정규식 매칭 결과를 바인딩한 array를 반환합니다.
+
+예) URL의 path component가 '/projects/nforge/wiki/FrontPage'인 경우, 아래의 Routing Rule이 적용되면,
+{{{
+'@^/projects/(?P<project>[^/]+)/?/wiki(?P<PATH_INFO>/.*)?$@' => 'wiki'
+}}}
+
+Router::fetch()는 다음과 같은 결과를 반환합니다.
+{{{
+array(
+    'function' => 'wiki'
+    'request' => array(
+        0 => '/projects/nforge/wiki',
+        'project' => 'nforge',
+        1 => 'nforge',
+        'PATH_INFO' => '/FrontPage',
+        2 => '/FrontPage'
+    )
+)
+}}}
+==== destination이 파일 이름인 경우 ====
+Router::dispatch()는 'include_file' key에 파일 이름을, 'request' key에 정규식 매칭 결과를 바인딩한 array를 반환합니다.
+
+예) URL의 path component가 '/projects/nforge'인 경우, 아래의 Routing Rule이 적용되면,
+{{{
+    '@^/projects/(?P<project>[^/]+)/?$@' => 'project/index.php'
+}}}
+
+Router::fetch()는 다음과 같은 결과를 반환합니다.
+{{{
+array(
+    'include_file' => 'tracker/index.php',
+    'request' => array(
+        0 => '/projects/nforge',
+        'project' => 'nforge',
+        1 => 'nforge'
+    )
+)
+}}}
+=== 예외처리 ===
+==== _routeDefault() 의 예외처리 ====
+매칭되는 rule이 없는 경우를 대비해, Router::$routes 의 가장 마지막 Routing Rule은 다음과 같이 정의되어 있습니다.
+{{{
+     '@(.+)$@' => '_routeDefault'
+}}}
+
+_routeDefault()는 url에 매칭되는 파일이나 디렉토리가 존재하면, Router를 거치지 않고 그대로 해당 파일/디렉토리에 접근한 것 처럼 동작합니다. 즉 파일인 경우는 해당 파일을 include_file로 하여 Routing 결과를 반환하고, 디렉토리인 경우에는 해당 디렉토리의 index.php를 include_file로 하여 반환합니다.
+
+만약 매칭되는 파일이나 디렉토리가 없다면, 상위 path에 대해 매칭을 시도합니다. 예를 들어 /scm/viewvc.php/trunk 라는 path가 주어졌을 때, 이에 매칭되는 파일이나 디렉토리가 없다면 /scm/viewvc.php 에 매칭되는 것이 있는지 확인합니다. 만약 매칭되는 파일이 발견된다면, include_file과 SCRIPT_NAME은 /scm/viewvc.php 이 되고, PATH_INFO는 /trunk 가 됩니다. 이러한 방법으로 결정된 SCRIPT_NAME과 PATH_INFO는 다음과 같이 request에 포함됩니다.
+
+{{{
+array(
+    'include_file' => 'scm/viewvc.php'
+    'request' => array(
+        0 => '/scm/viewvc.php/trunk',
+        'SCRIPT_NAME' => '/scm/viewvc.php',
+        1 => '/scm/viewvc.php',
+        'PATH_INFO' => '/trunk',
+        2 => '/trunk'
+    )
+)
+}}}
+
+만약 매칭되는 파일이나 디렉토리가 없는 경우, 다음과 같이 <sys_urlroot>/index.php를 include_file로 하여 Routing 결과를 반환합니다.
+{{{
+array(
+    'include_file' => '/opt/nforge/www/index.php'
+)
+}}}
+
+또한 동시에 _routeDefault()는 Routing이 실패했음을 로그에 남깁니다. 형식은 아래와 같습니다.
+{{{
+Routing failed - invalid url: <url>
+}}}
+
+==== 그 외의 예외처리 ====
+만약 위 rule에도 매칭되지 않을 경우, Router::dispatch()는 다음의 array를 반환합니다.
+{{{
+array(
+    'include_file' => 'index-new.php',
+    'request' => array(),
+);
+}}}
+
+== 주의사항 ==
+ * 일반적으로 Router에는 HTML 코드에서 직접 참조하는 리소스 파일들에 대한 라우팅 룰이 포함되지 않습니다. 이미지 파일, 자바스크립트 파일, CSS 파일 등에 대한 요청이 Router로 보내지지 않도록 웹서버의 Rewrite Rule을 적절히 설정해야 합니다.
+
+== 개선할 점 ==

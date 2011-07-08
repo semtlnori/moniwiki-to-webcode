@@ -1,0 +1,22 @@
+nFORGE는 language tab파일 이라는 간단한 번역 파일 포맷을 사용하며 형식은 다음과 같다.
+
+{{{
+language_domain[탭]msgid[탭]msgstr
+...
+}}}
+
+예를 들어 다음과 같다.
+{{{
+tracker issues  버그
+}}}
+tracker라는 도메인의 issues라는 `msgid`에 버그라는 `msgstr`으로 구성되어있다.
+-----
+nFORGE의 language tab파일은 po/mo와 같은 형태의 gettext()포맷이 아니지만, 상당히 유연한 방식이다.
+
+그 일례로 /etc/nforge/languages-local/Korean.tab 파일에 자신이 원하는 다른 번역을 집어넣으면 곧바로 번역이 적용되게 된다.
+
+== 원하는 번역 집어넣기 ==
+자신이 원하는 번역으로 바꾸고 싶은 경우가 있을 수 있다. 이러한 경우는 다음과 같은 파일을 추가하거나 변경한다.
+
+ 1. {{{/etc/nforge/languages-locale/}}} 디렉토리의 Base.tab 혹은 Korean.tab 파일을 추가/변경.
+ 2. {{{www/themes/foobar/}}} 디렉토리의 Base.tab 혹은 Korean.tab 파일을 추가/변경.

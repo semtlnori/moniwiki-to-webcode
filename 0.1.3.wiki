@@ -1,0 +1,64 @@
+ * Trunk:www/export/rss20_news.php: 뉴스 RSS에 삭제된 뉴스가 포함되는 문제를 수정했습니다.
+
+ * Trunk:common/include/utils.php, Trunk:www/themes/nforge-dev/css/dev_style.css: #894
+   이슈번호/위키페이지이름/리비전번호로 링크를 건 경우, 링크에 색을 표시합니다. 파란색 계통의 색을 사용하도록
+   설정했습니다.
+
+ * Trunk:www/export/rss20_newreleases.php, Trunk:www/export/rss20_news.php:
+
+   [#866] 실서버에서 프로젝트별 RSS를 얻어오려고 했을 때, nFORGE 전체에 대한 RSS가 얻어지게 되는
+   문제를 수정했습니다. 문제가 발생했던 원인은, group_id를 얻어오지 않고 있다는 것이었습니다. 실서버에서만
+   발생하는 문제였으며, 사내 nFORGE나 베타 서버에서는 발생하지 않는 문제였습니다.
+
+ * Trunk:share/moniwiki/plugin/security/nforge.php:
+
+   로그인 사용자만 위키를 편집 가능하게 한
+   경우에는, 예외없이 어떤 페이지도 편집할 수 없게 합니다. 이전에는 WikiSandBox, WikiSandbox,
+   Guestbook, SandBox 페이지는 설정을 어떻게 하거나 상관 없이 항상 누구나 편집이 가능했었습니다.
+
+ * Trunk:www/tracker/browse.php:
+
+   #804 포럼/이슈의 고급검색에서 초기화를 누른 경우, '게시물
+   상태'와 '정렬'이 초기화되지 않으며 동시에 자바스크립트 에러가 발생하는 문제를 해결했습니다. 이제 초기화도 되고
+   에러도 발생하지 않습니다.
+
+ * Trunk:share/moniwiki/config.php, Trunk:share/moniwiki/wiki.php:
+
+   위키에서 이미지
+   디렉토리의 경로가 잘못 설정되어 있어서 바르게 수정했습니다.
+
+ * Trunk:www/scm/viewvc/lib/viewvc.py:
+
+   #785 커밋 로그에서 한글이 깨지는 경우가 있는 문제를
+   수정하였습니다. 현재 80자를 넘는 문자열은 잘라내도록 되어있는데, 멀티바이트 문자에 대한 고려가 되어있지 않기
+   때문에 생긴 문제였습니다. 멀티바이트 문자도 적절하게 잘라낼 수 있는 함수 mb_strcut을 만들어서 적용했습니다.
+
+ * Trunk:www/account/change_email.php, Trunk:www/account/index.php, Trunk:www/themes/nforge-dev/Theme.class:
+
+   정의되지 않은 변수를 억세스 하는 경우 등의 코드를
+   수정하여 warning/notice를 제거합니다.
+
+ * Trunk:www/admin/approve-pending.php:
+
+   #789 프로젝트 승인시 불필요하며 에러를 발생시키는
+   자바스크립트 코드가 동작하고 있어 삭제하였습니다.
+
+ * Trunk:www/my/index.php: 대시보드 내의 테이블 내에 가운데 정렬이 잘못된 부분이 있어 수정했습니다.
+
+ * Trunk:share/moniwiki/config.php, Trunk:share/moniwiki/moni-install,Trunk:www/admin/approve-pending.php:
+
+   #779 위키 생성 코드를 개선했습니다. 프로젝트별 위키에
+   만들어지는 config.php에는 꼭 필요한 부분만 남기고 최소화했으며, 이제
+   Trunk:share/moniwiki/wiki.php 에는 Trunk:share/moniwiki/index.php 를 통해 접근해야 하므로 그
+   부분도 수정했습니다.
+
+ * nforge-install-1.php:
+
+   nFORGE 설치시 rcs가 없는 경우 함께 설치해야 하는데, 어째서인지
+   데비안에서만 설치되지 않게 되어있어서 설치하도록 수정했습니다.
+
+ * Trunk:www/export/rss20_news.php, Trunk:www/export/rss_sfnewreleases.php, Trunk:www/export/rss_sfnews.php :
+
+   뉴스 RSS에서, 아이템의 url이 잘못되어 있으므로 모두
+   수정했습니다. 또한 쿼리에서 불필요하게 forum_id를 얻어오는 부분도 제거했으므로, 현재 RSS 관련하여
+   forum_id를 얻어오는 코드는 없습니다.

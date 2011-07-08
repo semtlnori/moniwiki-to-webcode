@@ -1,0 +1,135 @@
+Zend Framework는 웹애플리케이션에 필요한 많은 기능들을 이미 구현해 놓았습니다. 어떤 기능이 필요할 때, 우선 확인해보고 가져다 쓸 수 있는 것은 가져다 쓰는 것이 개발/유지보수 비용을 줄이고 코드품질을 높이는 데 유리할 것입니다.
+
+=== Component ===
+|| 이름 || 설명 || nFORGE에 적용할 수 있는 부분 ||
+||Zend_Form ||Form HTML element를 처리 ||각종 form의 처리 ||
+||Zend_Log ||로그 프레임워크 || 버그 추적을 용이하게 하기 위한 로깅 구현 ||
+||Zend_Wildfire ||Wildfire 클라이언트와 통신하게 해줌. 이를 이용해서 Stream, Database, Firebug등에 로그 남기기 가능 ||로깅 프레임워크 개발시 활용 가능할 듯(Firebug에 로그 남기기 기능) ||
+||Zend_Validate ||다양한 validator를 제공 (Zend_Validate 문단 참고) ||이메일 등의 validation이 필요한 경우 적용 가능 ||
+||Zend_Filter ||여러 종류의 필터 알고리즘을 위한 Strategy. 필터의 목록은 다음 문단 참고. ||HTML의 escaping 등 ||
+||Zend_Feed ||RSS, ATOM 형식의 Feed를 읽고 쓸 수 있음 ||RSS 처리 ||
+||Zend_Ldap ||LDAP 인증 처리 ||DevCode에 적용 ||
+||Zend_Acl ||ACL ||각종 권한 처리(프로젝트 Role 등) ||
+||Zend_Registry ||전역 데이터 저장 공간 ||전역 변수의 대체 ||
+||Zend_Tag ||태깅 기능 구현 지원||태깅 기능 구현시 적용 가능 ||
+||Zend_File ||HTTP를 이용해 파일을 전송할 수 있음. FTP, WEBDAV 지원예정 ||게시판, 자료실, 위키 등에서의 파일 업로드 ||
+||Zend_Console_Getopt ||콘솔용 option parser ||인스톨 스크립트의 옵션 파서 대체 ||
+||Zend_Auth ||인증 처리 ||LDAP, OpenID 로그인 처리 ||
+||Zend_Service ||아마존, 야후, 트위터 등의 서비스와 REST/SOAP 방식으로 연동할 수 있게 해줌 ||트위터 연동 기능 구현 가능할 듯 ||
+||Zend_Date ||날짜 처리 ||날짜 처리 ||
+||Zend_Config ||각종 환경 설정 ||local.inc, system_settings 테이블 등 대체 ||
+||Zend_Application ||웹애플리케이션 전체 구조를 잡아주는 듯 ||Router ||
+||Zend_Paginator ||pagination 지원 ||pagination 대체 ||
+||Zend_Rest ||REST Client/Server를 구현할 수 있게 해줌. (XML로 통신) ||복잡한 쿼리를 동반한 HTTP 요청/응답 코드의 대체 ||
+||Zend_Cache ||캐시 ||캐시 ||
+||Zend_Captcha ||Captcha ||Captcha ||
+||Zend_Config_Writer ||환경 설정을 파일로 씀 ||local.inc 대체 ||
+||ZendX_JQuery ||jQuery의 PHP wrapper ||AJAX등이 필요할 때 적용가능 ||
+||Zend_Amf ||support for Adobe's Action Message Format. PHP와 Flash 연동 || ||
+||Zend_Barcode ||바코드 관련 처리 || ||
+||Zend_CodeGenerator ||PHP 코드 생성 || ||
+||Zend_Controller ||MVC 모델에서의 Controller || ||
+||Zend_Currency ||통화 처리 || ||
+||Zend_Db ||DB 처리 || ||
+||Zend_Debug ||var_dump의 wrapper || ||
+||Zend_Dojo ||Dojo(자바스크립트 라이브러리)를 쉽게 쓰게 해줌 || ||
+||Zend_Dom ||XPATH 혹은 CSS Selector 형식으로 DOM Query를 사용할 수 있게 해줌 || ||
+||Zend_Exception ||zend에서는 예외 발생시 Zend_Exception 예외를 던짐 || ||
+||Zend_Gdata ||구글 GData API를 사용할 수 있게 해줌  || ||
+||Zend_Http ||HTTP 처리 || ||
+||Zend_InfoCard ||InfoCard를 다루기 위한 모듈 || ||
+||Zend_Json ||json 포맷으로 encode/decode 해줌. XML->JSON converting 지원|| ||
+||Zend_Layout ||HTML 템플릿 || ||
+||Zend_Loader ||PHP 파일이나 클래스를 읽어들임 || ||
+||Zend_Locale ||i18n 지원. || ||
+||Zend_Mail ||SMTP를 이용한 메일 발송 || ||
+||Zend_Markup ||BBCode와 Textile 포맷으로 parsing/rendering || ||
+||Zend_Measure ||단위 환산(미터<->야드 등) || ||
+||Zend_Memory ||메모리 관리|| ||
+||Zend_Mime ||multipart MIME message를 다룰 수 있게 도와줌 || ||
+||Zend_Navigation ||웹페이지들을 Navigation하기 위한 구조를 구축(MVC, 비MVC 양쪽의 형태를 모두 지원) || ||
+||Zend_Oauth ||OAuth 지원 || ||
+||Zend_OpenId ||OpenID 지원(Consumer, Provider) || ||
+||Zend_Pdf ||PDF 파일을 불러오고, 편집하고, 저장할 수 있게 해줌 || ||
+||Zend_ProgressBar || 진행바를 만들어줌 || ||
+||Zend_Queue ||큐 || ||
+||Zend_Reflection ||PHP Reflection API의 래퍼 || ||
+||Zend_Search_Lucene ||검색엔진. HTML, MS Word, MS Powerpoint, MS Excel 문서 검색 가능 || ||
+||Zend_Serializer ||데이터를 PhpSerialize, lgbinary, Wddx, JSON, PythonPickle, PhpCode 로 serialize 해줌 || ||
+||Zend_Server ||family of classes provides functionality for the various server classes, including Zend_XmlRpc_Server, Zend_Rest_Server, Zend_Json_Server and Zend_Soap_Wsdl || ||
+||Zend_Session ||세션 관리 || ||
+||Zend_Soap ||Soap Server/Client 구현 지원 || ||
+||Zend_Test ||PHPUnit 테스트 케이스 작성을 돕는 유틸리티 함수들을 제공. Zend MVC 구조로 개발하는 경우에만 사용할 수 있는 듯. || ||
+||Zend_Text ||글자만 써서 FIGlet 혹은 표를 만들어 줌 || ||
+||Zend_TimeSync ||NTP나 SNTP 프로토콜로 서버 시각을 싱크시켜 줌 || ||
+||Zend_Tool ||웹애플리케이션 개발을 돕는 커맨드라인 도구. Zend MVC 구조로 개발하는 경우에만 사용할 수 있는 듯. || ||
+||Zend_Tool_Framework ||웹애플리케이션의 scaffold 등을 만들어주는 프레임워크 || ||
+||Zend_Tool_Project ||웹애플리케이션 프로젝트 생성, Controller/Action 추가 등 프로젝트 진행을 돕는 툴 || ||
+||Zend_Translate ||번역 지원. csv, mo, ini, sql 등 다양한 포맷 사용 가능. || ||
+||Zend_Uri ||uri 생성, validation, parsing을 해줌 || ||
+||Zend_Version ||Zend Framework의 현재 버전이 특정 버전 이상인지 미만인지 확인 || ||
+||Zend_View ||MVC모델에서의 View|| ||
+||Zend_XmlRpc ||XML-RPC를 통해 통신하는 Client/Server를 구현할 수 있게 해줌 || ||
+||ZendX_Console_Process_Unix ||*nix 기반 시스템에서 프로세스를 만들 수 있게 해줌 || ||
+
+==== Zend_Filter ====
+|| 이름 || 설명 || nFORGE에 적용할 수 있는 부분 ||
+||Zend_Filter_Alnum ||removing all but alphabetic and digit characters || ||
+||Zend_Filter_Alpha ||removing all but alphabetic characters || ||
+||Zend_Filter_BaseName ||return the base name of the file || ||
+||Zend_Filter_Boolean ||입력값을 true로 봐야 할지 false로 봐야 할지 판별 || ||
+||Zend_Filter_Callback ||입력값에 주어진 함수를 적용 || ||
+||Zend_Filter_Compress ||Bz2, Gz, Lzf, Rar, Tar, Zip 의 압축 || ||
+||Zend_Filter_Decompress ||Bz2, Gz, Lzf, Rar, Tar, Zip 의 압축 해제 || ||
+||Zend_Filter_Decrypt ||Mcrypt, OpenSSL의 decryption || ||
+||Zend_Filter_Encrypt ||Mcrypt, OpenSSL의 encryption || ||
+||Zend_Filter_Digits ||removing all but digit characters || ||
+||Zend_Filter_Dir ||Returns directory name component of path || ||
+||Zend_Filter_HtmlEntities ||converting characters to their corresponding HTML entity equivalents where they exist ||트래커 등에서 HTML을 이스케이핑 할 때 ||
+||Zend_Filter_Int ||Returns (int) $value || ||
+||Zend_Filter_LocalizedToNormalized ||Localized된 값을 Normailze (numbers, date and time) || ||
+||Zend_Filter_NormalizedToLocalized ||Normalize된 값을 Localize (numbers, date and time) || ||
+||Zend_Filter_Null ||조건을 정해주면, 그에 따라 null을 리턴 || ||
+||Zend_Filter_PregReplace ||preg의 wrapper || ||
+||Zend_Filter_RealPath ||resolve given links and pathnames and returns canonicalized absolute pathnames || ||
+||Zend_Filter_StringToLower ||문자열을 소문자로 || ||
+||Zend_Filter_StringToUpper ||문자열을 대문자로 || ||
+||Zend_Filter_StringTrim ||공백 제거 || ||
+||Zend_Filter_StripNewlines ||newline 문자 제거 || ||
+||Zend_Filter_StripTags ||HTML Tag 제거 || ||
+
+==== Zend_Validate ====
+ * Alnum
+ * Alpha
+ * Barcode
+ * Between
+ * Callback
+ * CreditCard
+ * Ccnum
+ * Date
+ * Db_RecordExists
+ * Db_NoRecordExists
+ * Digits
+ * EmailAddress
+ * Float
+ * GreaterThan
+ * Hex
+ * Hostname
+ * Iban
+ * Identical
+ * InArray
+ * Int
+ * Ip
+ * Isbn
+ * LessThan
+ * NotEmpty
+ * PostCode
+ * Regex
+ * Sitemap_Changefreq
+ * Sitemap_Lastmod
+ * Sitemap_Loc
+ * Sitemap_Priority
+ * StringLength
+
+=== 특정 라이브러리만 가져와서 nFORGE에 포함시키기 ===
+ * 전체 라이브러리의 크기가 31메가에 달하므로, 필요한 모듈만 가져와서 적용하는 것이 좋겠습니다. 모듈간 결합은 느슨하고 코드가 명확해서 부분만 가져오는 것에 큰 문제는 없으나, Zend가 그러한 이용이 정상 동작함을 보장하지는 않으므로 테스트는 할 필요가 있습니다.

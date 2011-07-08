@@ -1,0 +1,3 @@
+== [NForge3/QA] (11/26 ~ 12/10) 번다운 차트 ==
+http://ci.dev.naver.com:8080/static/ea79ddd8/images/nforge-burndown-qa.png
+   * Sprint QA 관련 이슈목록 : [http://dev.naver.com/projects/nforge/issue?query_action=4&query_id=243]

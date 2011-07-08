@@ -1,0 +1,22 @@
+Group 클래스를 이용하면 nFORGE에 등록된 프로젝트들에 대해 접근할 수 있습니다.
+
+=== 관련 파일/디렉토리 ===
+|| 파일 || 설명 ||
+||common/include/Group.class.php ||Group 클래스 ||
+||www/project/admin ||프로젝트 관리 기능 ||
+
+=== 관련 DB 테이블 ===
+|| 테이블 || 설명 ||
+||groups ||프로젝트 ||
+||group_plugin ||특정 프로젝트에서 사용중인 플러그인 ||
+||user_group ||프로젝트에 속한 멤버 ||
+||group_history ||프로젝트에 대한 변경내역 ||
+||deleted_groups ||삭제된 프로젝트 ||
+
+=== 프로젝트 정보 얻어오기 ===
+'''group_get_object($group_id)''' $group_id에 해당하는 Group object를 얻을 수 있습니다. 프로젝트의 유닉스 이름으로 얻어오고 싶을때는 '''group_get_object_by_name($groupname)'''을 사용하면 됩니다.
+{{{ 
+include('common/include/Group.class.php);
+$group1 = group_get_object(26);
+$group2 = group_get_object_by_name('nforge');
+}}}

@@ -1,0 +1,16 @@
+http://www.positioniseverything.net/articles/onetruelayout/images/screenshots/equalheight.gif
+
+http://www.positioniseverything.net/articles/onetruelayout/equalheight
+
+정식 명칭은 Equal Height Columns
+
+멀티 컬럼을 쉽게 만들 수 있는 Faux Columns 방식과 더불어 널리 알려진 방식.
+== 장점 ==
+fixed + fluid 2컬럼을 비교적 손쉽게 만들 수 있다. Faux column 방식은 배경이미지가 필요하지만 이 방식은 배경이미지도 필요 없다.
+
+padding을 넣어서 가짜 컬럼을 만들고, fixed 컬럼을 position에 absolute를 먹이지 않고 그냥 float:left시켜도 된다.
+모든 컬럼이 진짜 컬럼이다.
+== 단점 ==
+overflow:hidden + anchor를 사용할 경우 자동으로 스크롤 되는 현상때문에 불편하며, 몇가지 해결책이 나온 상태.
+
+firefox나 safari에서는 자바스크립트를 써야만 이 문제를 해결할 수 있다. 자바스크립트가 해야 할 일은 negative margin을 0으로 리셋시키고, 컨텐츠의 높이를 계산해서 각 컬럼에 높이값을 세팅하는 것이다.

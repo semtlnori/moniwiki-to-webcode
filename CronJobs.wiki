@@ -1,0 +1,65 @@
+== 개요 ==
+nFORGE는 코드 저장소 생성, 통계 자료 생성 등 많은 데이터를 다루어야 하는 작업을 cronjob으로 처리하고 있습니다.                    
+=== crontab 생성 ===
+nFORGE 설치시 인스톨러는 <nforge 설치 디렉토리>/crontab.php 를 실행합니다. crontab.php는 crontab.in을 읽어서 nFORGE를 위한 crontab 파일을 /etc/cron.d/nforgecron 로 생성합니다.
+
+설치 이후에 사용자가 직접 crontab.php 를 실행해서 crontab 파일을 재생성 할 수도 있습니다.
+=== crontab 편집 ===
+사이트 관리 > Cron 설정 편집 에서 편집할 수 있습니다.
+
+그러나 scheduler 크론잡이 꺼져있는 상태에서는 웹에서의 편집이 불가능합니다. 이 경우 /etc/cron.d/nforgecron 파일을 직접 수정해서 고쳐야 합니다.
+
+== Cronjob 목록 ==
+=== 기본 Cronjob ===
+|| 이름 || 설명 ||
+||scheduler.php ||사이트 관리 > Cronjob 설정 편집 기능 지원: 실행 시각 수정/즉시 실행/사용 여부 변경 ||
+||db_trove_maint.php ||소프트웨어맵의 근간이 되는 trove_agg 테이블의 재구축 ||
+||homedirs.php ||사용자와 프로젝트에 대한 디렉토리를 /home에 만듦 ||
+||create_scm_repos.php ||모든 프로젝트의 SCM repository를 검사하여 필요한 경우 생성 혹은 갱신함 ||
+||ssh_create.php ||SCM에 ssh로 접근할 수 있도록 권한 설정 ||
+||update_filesize.php ||frs_file 테이블에 기록된 파일 크기와 실제 파일 크기를 비교해서 불일치하면 일치하도록 frs_file 테이블 갱신 ||
+||project_cleanup.php ||user_group, users, user_preferences, form_keys 테이블에서 오래된 데이터 삭제 ||
+||rotate_activity.php ||activity_log 테이블에서 오래된 레코드 삭제 ||
+||vacuum.php ||PostgreSQL에선 트랜잭션을 정리함(vacuum full). Cubrid에서는 DB 통계정보를 갱신함(UPDATE STATISTICS), MySQL에서는 아무것도 하지 않음 ||
+||backup_site.php ||DB, SVN 저장소(/opt/nforge/var/svnroot), CVS 저장소(/opt/nforge/var/cvsroot), 설정파일(/etc/nforge), 업로드 파일(/opt/nforge/var/uploads)을 백업하여 $sys_path_to_backup(디폴트: /nforge-backups/)에 저장 ||
+||mail/mailaliases.php ||트래커에 대한 메일을 처리하기 위해 /etc/aliases 를 갱신 ||
+||massmail.php ||사이트 관리 > 전체 메일 발송 을 통해 요청한 메일 발송 작업 수행 ||
+||db_stats_agg.php ||통계 갱신: stats_project_months, stats_site_months, stats_site_pages_by_month 테이블 ||
+||scm-stats.php ||SCM 관련 통계 #2255 ||
+||site_stats.php ||사이트 통계 ||
+||reporting_cron.php ||사이트 관리 > 보고서 를 위한 통계 자료 계산 ||
+||db_project_sums.php ||트래커별 게시물 갯수 합계 계산 ||
+||project_weekly_metric.php ||프로젝트 랭킹을 위한 통계 자료 계산 ||
+||stats_projects-backfill.php || ''obsoleted'' ||
+||project_weekly_metric-backfill.php || ''obsoleted'' ||
+
+=== 플러그인 Cronjob ===
+==== ggit ====
+|| 이름 || 설명 ||
+|| create_git.php ||저장소 생성 및 접근 권한 갱신 ||
+|| tarballs.php ||var/scmtarballs 에 tarball 생성 ||
+|| snapshots.sh ||/tmp/var/lib/nforge/scmsnapshots 에 스냅샷(특정 프로젝트 저장소의 trunk를 체크아웃한 workspace를 압축한 것) 생성 #2107 ||
+
+==== scmcvs ====
+|| 이름 || 설명 ||
+|| cvs.php ||저장소 생성 및 접근 권한 갱신 ||
+|| history_parse.php ||저장소 관련 통계 ||
+|| homedirs.php || ''obsoleted?'' 사용안하고 있음 ||
+|| ssh_create.php || ''obsolted by ssh_create.php'' r634 ||
+|| tarballs.php ||var/scmtarballs 에 tarball 생성 ||
+|| usergroup.php ||/etc/passwd, /etc/shadow, /etc/group 을 편집하여 저장소 접근 권한 설정 ||
+|| snapshots.sh ||/var/lib/nforge/scmsnapshots 에 스냅샷(특정 프로젝트 저장소의 trunk를 체크아웃한 workspace를 압축한 것) 생성 #969 ||
+
+==== scmsvn ====
+|| 이름 || 설명 ||
+|| create_svn.php ||저장소 생성 및 접근 권한 갱신 ||
+|| snapshots.php ||var/scmsnapshots 에 스냅샷(특정 프로젝트 저장소의 trunk를 체크아웃한 workspace를 압축한 것) 생성 #969 ||
+|| svn-stats.php ||''obsoleted by scm-stats.php. See #2255'' ||
+|| tarballs.php ||var/scmtarballs 에 tarball 생성 ||
+
+=== 크론잡이 아님 ===
+크론잡이 아님에도 cronjobs 디렉토리에 위치하고 있는 스크립트들이 있습니다.
+|| 이름 || 설명 ||
+||review_gateway.php ||온라인 코드리뷰에 대한 메일을 수신하고 처리 ''obsoleted by CodeReview'' ||
+||tracker_gateway.php ||트래커에 대한 메일을 수신하고 처리(메일로 댓글 달기 등) ||
+||tracker_gateway2.php ||트래커에 대한 메일을 수신하고 처리(메일로 댓글 달기 등) ''obsoleted?'' ||

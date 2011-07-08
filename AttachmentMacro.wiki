@@ -1,0 +1,21 @@
+== simple usage ==
+{{{[[Attachment(hello.png)]] or attachment:hello.png}}}
+
+[[Attachment(hello.png)]] or attachment:hello.png
+----
+[[Attachment(hello.txt)]]
+== MoniWiki extension ==
+== Image size and alignment ==
+{{{attachment:hello.png&width=200&align=left}}}
+attachment:hello.png?width=200&align=left
+----
+{{{attachment:ingi.jpg&width=200&align=middle}}}
+[[Attachment(ingi.jpg,width=200,align=middle)]]  내부파일테스트입니다.
+
+----
+ http://kldp.net/themes/kldp/images/kldplogo.png?width=400&align=middle  외부파일 테스트입니다 
+----
+[attachment:hello.png attachment:hello1.png]
+See also UploadFile
+----
+CategoryMacro

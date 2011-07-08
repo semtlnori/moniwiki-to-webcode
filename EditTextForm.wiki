@@ -1,0 +1,4 @@
+###[[EditToolbar]]
+[[EditHints(js)]]
+#editform
+[[UploadFile(js)]]

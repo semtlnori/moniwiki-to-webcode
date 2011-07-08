@@ -1,0 +1,26 @@
+=== 개발계획 ===
+|| Sprint || 완료일 || 설명 ||
+|| [NForge3/Sprint1] ||10.10.08 ||ErrorHandling 및 에러페이지 작업 ||
+|| [NForge3/Sprint2] ||10.10.29 ||AccessControl ||
+|| [NForge3/Sprint3] ||10.11.19 ||Router ||
+|| [NForge3/QA] || ||[NForge3/QA] ||
+|| [NForge3/Performance] ||11.01.31 ||성능개선 ||
+
+=== Refactoring ===
+ * ErrorHandling
+ * AccessControl
+
+=== Feature List ===
+'''아래의 기능목록은 현재 요구사항 분석단계에서 작성된 것이며, 확정된 것이 아닙니다.'''
+ * [NForge3/TextRenderer]
+ * [NForge3/Tracker]
+ * [NForge3/Milestone]
+ * [NForge3/Backlog]
+ * 검색기능
+  * 현재 프로젝트 검색: 트래커, 위키, 커밋로그, 릴리즈, 새소식을 키워드로 검색할 수 있다.
+  * 모든 프로젝트 검색: 모든 프로젝트를 키워드로 검색할 수 있다.
+  * 두 개 이상의 단어로 검색하는 경우, 두 단어를 모두 포함하는 항목만 검색한다.
+ * 삭제복원
+  * 삭제된 항목(게시물 등)을 복원할 수 있다.
+
+=== CodeConvention ===

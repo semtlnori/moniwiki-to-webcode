@@ -1,0 +1,26 @@
+{{{[[RandomQuote]]}}}
+
+[[RandomQuote]]
+----
+{{{#!randomquote @^\s\-\s(.*)$@
+ - Perl is executable line noise, Python is executable pseudo-code
+ - The wise shepherd never trusts his flock to a smiling wolf.
+ - You are secretive in your dealings but never to the extent of trickery.
+ - Hello World !
+}}}
+----
+[[RandomQuote(@^\{\{\{#.+\n(.*)\n\}\}\}@Us,RandomQuoteMacro)]]
+----
+[[RandomQuote(@^\{\{\{(#.*)\n\}\}\}@Us,RandomQuoteMacro)]]
+----
+###!randomquote 
+ * 현재 [삼차노스모크이전] 안정화중입니다.
+ * 여러 테스트를 위한 작업이 함께 진행중입니다.
+ * 문제점이 있으면 [삼차노스모크이전/문제점] 혹은 [사랑방]에 글을 남겨주세요. :)
+##
+----
+[[RandomQuote(@^###.+\n(.*)\n##@Us,RandomQuoteMacro)]]
+----
+알려요: [[RandomQuote(@^##(#.+)\n##@Us,공지)]]
+----
+CategoryMacro

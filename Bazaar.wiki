@@ -1,0 +1,8 @@
+== 체크아웃 ==
+=== 개발자 ===
+개발자 ID가 foobar / 프로젝트가 hello일 경우
+{{{
+$ bzr checkout sftp://foobar@nforge.magichost/bzroot/hello/trunk my-work
+}}}
+bazaar 브랜치 {{{trunk}}}를 가져와서 {{{my-work}}} 디렉토리로 가져온다.
+=== 익명 사용자 ===

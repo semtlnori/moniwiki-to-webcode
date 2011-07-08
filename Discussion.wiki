@@ -1,0 +1,45 @@
+== nFORGE 2 Error Handling의 문제점 ==
+{{|
+현재 방식으로는 callee(호출되는 함수)들에서 발생할 수 있는 모든 예외상황(에러 등등)에 대해 caller(호출하는 함수)가 모두 handling해줘야 합니다. 
+
+이로 인한 문제점은, 
+
+1. 예외처리 코드가 지나치게 많아집니다. 어떤 함수는 코드의 절반 이상이 예외처리입니다. exception을 사용한다면, 아무 처리를 하지 않은 예외상황은 더 상위의 caller로 알아서 넘어가게 될 것이므로 예외처리 코드를 많이 줄일 수 있습니다. 
+
+2. caller의 작성자가 callee에서 발생할 모든 예외를 다 고려하기 어렵습니다. 분명히 누락이 발생하게 됩니다. 
+
+3. 예외처리 코드가 분산되어 존재합니다. 예외 발생시마다 임기응변에 가깝게 처리하고 있어서 에러처리방식에 일관성이 없습니다. 메시지도 제각각이고 언제 exit_error()를 하고 언제 feedback메시지만 전달할 것인지에 대한 기준도 드러나지 않습니다. 기준이 세워지지 않았더라도 자연스럽게 어떤식으로 처리하면 될지는 알 수 있어야 하는데 그것도 전혀 안되고 있습니다.
+|}} -- #5504
+
+=== 사례 #1 ===
+{{{
+switch($type) {
+	case 'file':
+		if (!$group || !is_object($group) || $group->isError()) {
+			exit_no_group();
+		}
+		if (!$group || !is_object($group)) {
+			exit_error('Error','Error Getting Group');
+		} elseif ($group->isError()) {
+			exit_error('Error',$group->getErrorMessage());
+		}
+		if (!$group->stopFileMonitor()) {
+			exit_error($Language->getText('general','error'),$group->getErrorMessage());
+		}
+		break;
+}}} -- Trunk:nforge/www/my/monitor_util.php (r3042)
+
+위 사례에서 만약 $group이 직접 exception을 던지도록 개선한다면, 일일이 에러가 있는지 확인하지 않아도 될 것입니다.
+----
+위 예는 모두 group에 대한 처리의 예입니다. 그런데 group / user / artifact 모두 *_get_object()에 의해 가져오도록 되어있는데, 그 아무것도 setError()를 호출하지 않고, false 혹은 정상적인 object를 리턴합니다. 따라서 상당수의 것들은 지금에라도 당장 {{{!$group}}}으로만 처리할 수 있습니다. -- WkPark
+=== 리팩토링 방안 ===
+{{|
+기존의 setError()를, 
+ 1. 진행에 문제가 없다면 로그만 남기고 그냥 진행 (현재 setError()만 하고 그냥 진행하도록 된 부분들) 
+ 2. 정상 진행할 수 없다면 throw Exception (현재 setError()후 바로 return false하도록 처리된 경우입니다) 
+
+둘 중 적절한 방법으로 처리하도록 교체하면 될 것입니다.
+|}} -- #5504
+
+----
+기존 setError() 대신에 exception을 던지는 raiseError()가 있습니다. !GroupException이나 !UserException같은 또 다른 군더더기를 고안할게 아니라 각 클래스에서 raiseError()를 내게 하면 됩니다. 각 클래스가 Error를 최상위 클래스로 상속받고 있는데 이것을 폐기하다시피 하면서 또 다른 !GroupException, !UserException을 이용할 이유가 있을까요?

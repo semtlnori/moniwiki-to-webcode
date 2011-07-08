@@ -1,0 +1,103 @@
+#title nFORGE vs Redmine
+
+=== 기능비교 ===
+|| 기능 || Trac || redmine || nFORGE || Lighthouse ||
+|| Gannt chart || || O || X || ||
+|| CVS || || O || O || X ||
+|| SVN || || O || O || X ||
+|| Mercurial || || O || X || X ||
+|| Bazaar || || O || X || X ||
+|| Darcs || || O || X || X ||
+|| Git || || X || || X ||
+|| Tagging || || X || X || X ||
+|| Sitewide Formatting || O || O || X || O ||
+|| Wyswyg Editor || || O || X || ? ||
+|| Remote Repository || ? || O || X || ? ||
+|| Activity History || Timeline || Activity || O || O ||
+|| 작업진행도 입력 || X || O || X || X ||
+|| Roadmap || O || O || milestone || milestone ||
+|| Eclipse MyLyn || O || ? || X || X ||
+|| per project wiki || ? || O || O || X ||
+|| 문서 || X || O || X || O ||
+|| 관련파일 || X || O || || X ||
+|| mysql || || O || O || X ||
+|| Cubrid || || X || O || X ||
+|| pgsql || || O || ? || X ||
+|| sqllite || || O || X || X ||
+|| REST API || || || O || O ||
+|| Issue creation via email || || O || X || ? ||
+|| comment an issue via email || || ? || O || ? ||
+|| custom fields || || O || O || ? ||
+|| custom fields whth various formats || || O || X || ? ||
+|| LDAP || || O || O || ? ||
+|| Multilanguages || || O || 3? || X ||
+|| #으로 이슈 링크 || || O || O || ? ||
+|| 댓글로 커밋로그 남기기 || X || X || O || X ||
+|| 관련이슈 보여주기 || || 어떤 관련인지 (중복/ || 딱 이슈 제목/번호만 보여줌 || X ||
+|| Guide || || O || ? || O ||
+|| Test planning integration || plugin || O || X || X ||
+|| root 권한없이 설치하기 || || O || X || ? ||
+|| 검색패턴(쿼리) 저장 || || X(패치는 올라와있는데 적용안된듯)  || O || O ||
+|| 게시물 다른 프로젝트로 옮기기 || || O || X || ||
+|| 게시물 다른 프로젝트로 복사하기 || || O || X || ||
+|| 달력으로 활동내역 보기 || || O || X || ||
+|| 이슈 통계 || || O(보고서) || O || ||
+|| 커밋 통계 || || O(막대그래프) || O || X ||
+|| 자동통보  || || O || O || ||
+ * 이슈 인용기능
+ * Spent time 기록
+ * 이슈상태 커스터마이징
+ * 필수 필드 설정기능
+ * 로그도 아마 남기는 듯? 서버에서 현재 동작상태가 자세하고 보기쉽게 나옴
+ * 아주 강력한 custom field: 이슈/프로젝트 등등 거의 모든 곳에 붙일 수 있음
+  * 검색되게 할지, 필터로 사용하게 할지, 모든 프로젝트에 기본으로 적용할지 모두 설정 가능
+ * 이슈 목록 그룹화해서 보여주기 기능
+ * 필터: 특정 조건이 아닌 것 찾기 등
+  * 필터라는 이름 좋은 듯.
+ * 검색도 없는 줄 알았는데 잘 붙어 있다.
+ * 관리자가 Watch할 사람을 추가할 수 있음
+ * 위키
+  * RecentChanges 없음
+  * 단축키 없음
+  * 링크는 대괄호 두개. Camel Case로 링크 안걸림
+ * 문서와 위키가 따로 있는데 왜 그런지 모름. 문서를 쓰는 경우는 별 없는 듯	
+ * 레드마인 사용 프로젝트: http://www.redmine.org/wiki/redmine/WeAreUsingRedmine
+  * http://redmine.ruby-lang.org/projects/show/ruby-19
+ * 제어용 콘솔도 마련되어 있는 듯: script/console
+ * 이슈를 save as pdf 할 수 있으나 한글이 깨짐
+
+=== 기능비교 ===
+|| 분류 || 기능 || nFORGE 2.1 || redmine trunk ||
+|| 프로젝트 홈 ||  ||  ||  ||
+|| 위키 ||  ||  ||  ||
+|| 게시판 ||  ||  ||  ||
+|| 마일스톤 ||  ||  ||  ||
+|| 버그 ||  ||  ||  ||
+|| || 쿼리 저장 || O || O ||
+|| || Calendar || X || O ||
+|| || Gantt Chart || X || O ||
+|| 코드 ||  ||  ||  ||
+|| || CVS || O || O ||
+|| || SVN || O || O ||
+|| || Mercurial || X || O ||
+|| || Bazaar || X || O ||
+|| || Darcs || X || O ||
+|| || Git || - || O ||
+|| || 외부저장소연동 || X || O ||
+|| || 코드트리 || O || O ||
+|| || 리비전비교(파일) || O || O ||
+|| || 리비전비교(디렉토리) || X || O ||
+|| || side by side 비교 || O || O ||
+|| || inline 비교 || X || O ||
+|| || 코드 통계 || O || O ||
+|| || 커밋 로그 || O || O ||
+|| || 자동 알림 || O ||  ||
+|| 다운로드 ||  ||  ||  ||
+|| || 릴리즈노트 || O || X ||
+|| || MD5 || X || O ||
+|| || 목록 정렬 || X || O ||
+|| || 목록 순서 변경 || O || X ||
+|| || 릴리즈 덧글 || O || X ||
+|| || 자동 알림 || O ||  ||
+|| 프로젝트 관리 ||  ||  ||  ||
+|| 검색 ||  ||  ||  ||

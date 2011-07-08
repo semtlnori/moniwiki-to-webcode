@@ -1,0 +1,8 @@
+nFORGE는 HTML 페이지 렌더링을 위해 Smarty Template Enigne을 사용합니다.
+
+Smarty Template Engine은 www/themes/<현재테마이름> 디렉토리에 저장된 테마의 tpl 파일들을 불러서 HTML 페이지를 렌더링합니다.
+
+== 참고자료 ==
+ * ThemeGuide: 테마 작성법
+ * NaverTheme: nFORGE의 기본 테마
+ *[http://www.smarty.net/docsv2/en/ Smarty Template Engine 매뉴얼]

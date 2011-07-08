@@ -1,0 +1,74 @@
+nFORGE가 일반 게시판수준의 다양한 고객의 입맛을 요구하지도 않을 것이기때문에 Smarty가 되던 template_가 되던 아니면 그걸 아예 쓰지 않고 하던지 크게 다가오지는 않을 것으로 생각합니다. nFORGE의 타겟은 일반 게발자들이기때문에 적당한 수준의 겉모양으로 충분히 만족할 수 있다는 것이죠.
+
+개발자 측면에서 봤을때는 테마는 옵션에 해당한다고 할 수 있죠.
+
+그러나 현재 nFORGE의 코드를 보면 고치기 힘들었던 gforge의 겉모양을 뜯어고치기 위해 수많은 하드코딩된 스타일이 들어가고 암호같은 css class가 들어있고, 특별히 의미 없는 <br>이라던지 <div class="blank_29px"></div>같은 것들이 있습니다. 이런것을 모두 걷어내고 css만을 정리해도 1차적인 테마의 기능을 충분히 커버할 수 있을 것입니다.
+
+ 1. 하드코딩된 스타일 완전히 제거. 및 css 스타일링. [#2050] 참조.
+ 2. 하드코딩된 이미지 이름. 특히 heading에 대한 이미지 최소화 -> css로 돌림
+ 3. 일부 이미지 아이콘을 모두 png로. (투명이미지 때문)
+ 4. 일부 테이블 제거. <div>로 대체 가능한 부분 교체.
+
+1차적으로 3번 아이콘 png로 교체가 제일 쉽게 보이고, 1,2를 같이 처리하고나면 4번이 남게됩니다.
+
+이정도를 1차 작업으로 했으면 합니다. 디자인 작업이 곧바로 들어가려면 1번 2번 3번을 우선 처리해야겠군요.
+-----
+''섞여있는 html을 완전히 제거. 소스코드상 단 한번의 <?php만 들어가게.''
+
+이것을 처리하는 것을 2차 작업으로 생각해볼 수 있습니다.
+
+== CSS 스타일링 ==
+css 스타일링 (#2050)은 1차적인 템플릿 기능을 가집니다. 과거에 템플릿 엔진에서 하던 일을 요즘은 css만으로도
+상당히 커버하고 있지요. nFORGE는 일반 게시판이 아니기때문에 css수준에서의 자유자재의 커스터마이징만 가능해도
+1차적으로 충분하리라 생각합니다.
+
+== 아이콘 테마 ==
+간단히 아이콘만 바꾸는 것 만으로도 충분히 효과를 가집니다. 단지 아이콘만 바꿨을 뿐인데도 UI가 훨씬 사용자
+친화적이 될 수 있고 접근성을 향상시킵니다.
+
+ * 어포던스와 메타포 : http://www.joelonsoftware.com/uibook/chapters/fog0000000060.html
+ * 10 Mistakes in Icon Design : http://www.turbomilk.com/blog/cookbook/criticism/10_mistakes_in_icon_design/
+== 템플릿 엔진 ==
+최종적으로 css나 아이콘 만으로 부족한 부분을 템플릿엔진이 메꾸어주게 될 것입니다.
+
+=== 공용 변수 ===
+현재 프로젝트 페이지의 레이아웃과 초기 화면은 smarty 기반 템플릿으로 전환되었으며, 템플릿을 제작할 땐 다음과 같은 변수들을 사용할 수 있습니다.
+ * {$url_prefix} : 다른 분이 설명 좀 추가해주세요.
+ * {$theme_dir} : theme 의 base directory
+  * 일부 템플릿에서 현재 $img_dir 등의 변수를 설정해서 사용 중인데, 이는 {$theme_prefix}/img 등으로 변경하는 것이 좋을 것으로 보입니다. (실제 경로는 테마 제작자 입맛에 맞게)
+ * {$is_admin} : 관리자 여부
+ * {$is_logged_in} : 로그인 여부
+ * {$selected_menu} : 선택된 메뉴
+ * {$selected_submenu} : 선택된 서브메뉴
+ * {$is_XXX} : 현재 선택된 기능 (포럼, 이슈, 코드, 마일스톤, ...)
+ * {$username} : 현재 사용자 이름
+ * {$plugin_hooks.name_of_hook} : 플러그인이 생성한 HTML (ob_start()와 ob_get_contents()를 이용해 담으면 될 것입니다)
+ * 또 어떤 것들이 정의되어 있으면 쓸만 할까요? SeeAlso #2675
+
+=== 변수 네이밍 ===
+템플릿에서 사용할 변수의 네이밍은 다음의 Convention을 따릅니다.
+|| 의미 || 이전이름 || 새 이름 ||
+|| 제목 || summary || title ||
+|| 본문 || details, contents, body || description ||
+|| 링크 || url, uri || link ||
+|| 만든날짜 || post_date, set_date, add_date || pubDate ||
+|| 글쓴이/올린이 || created_by, submitted_by, released_by || author ||
+|| 덧글의 목록 || || comments ||
+일단 [http://cyber.law.harvard.edu/rss/rss.html#hrelementsOfLtitemgt RSS 2.0 스펙]을 참고해서 정해두었습니다. 
+
+=== 템플릿 작성 가이드 ===
+ * CSS 이름은 가급적 템플릿에서 정하도록
+ || 나쁜 예 ||{{{ <li class="{$foo.class}"> }}}||
+ || 좋은 예 ||{{{ {if $foo.on} <li class="on"> {else} <li> {/if} }}}||
+ * 메시지는 템플릿 파일에서 GetText를 사용해서 표현
+ || 나쁜 예 ||{{{ { $message } }}}||
+ || 좋은 예 ||{{{ { _ t="Blah Blah"} }}}||
+
+== nFORGE 레이아웃 (Layout.class, Theme.class) ==
+gforge / nforge는 Layout이라는 것을 사용하는데, 이것이 기존의 테마엔진이 하는 일과 일정부분 중복이 되고 있습니다.
+
+게다가 Layout은 전체 디자인을 정의하고 있는데, 이것을 고쳐야 하는 것은 *코딩*하는 것과 다르지 않죠ㅋ
+
+이 레이아웃 클래스가 테마엔진의 일차적 적용대상이 될 것으로 생각됩니다.
+----
+See also: ThemeGuide

@@ -1,0 +1,4 @@
+ * http://www.dynamicdrive.com/forums/showthread.php?t=51208
+ * http://stackoverflow.com/questions/1385878/php-without-start-end-tags
+
+

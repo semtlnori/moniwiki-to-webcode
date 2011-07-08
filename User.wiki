@@ -1,0 +1,31 @@
+User 클래스를 이용하면 nFORGE에 등록된 사용자들에 대해 접근할 수 있습니다.
+
+=== 관련 파일 ===
+|| 파일 || 설명 ||
+||common/include/User.class.php ||User 클래스 ||
+||common/include/sesssion.php ||세션 관련 함수 ||
+
+=== 관련 DB 테이블 ===
+||테이블 || 설명 ||
+||users ||사용자 정보 ||
+||user_session ||세션 정보 ||
+||user_plugin ||특정 유저가 사용중인 플러그인 ||
+
+그 외에 user_preferences, user_metric, user_metric0, user_metric_history 테이블이 있으나 현재 사용되지 않습니다.
+
+=== 사용자 정보 얻어오기 ===
+'''user_get_object($user_id)''' $user_id에 해당하는 User object를 얻을 수 있습니다. 사용자 유닉스 이름으로 얻어오고 싶을때는 '''user_get_object_by_name($user_name)'''을 사용하면 됩니다.
+{{{
+include('common/include/User.class.php);
+$user1 = user_get_object(102);
+$user2 = user_get_object_by_name('nforgeadmin');
+}}}
+
+=== 로그인 ===
+'''session_set_new($user_id)'''로 로그인 처리를 수행합니다. 다음의 코드가 실행되면 유저 아이디가 102인 사용자가 로그인한 상태가 되며 쿠키를 이용해 세션을 유지합니다. '''session_get_user()'''로 현재 로그인한 사용자를 얻어올 수 있으며, '''session_logout()'''으로 로그아웃 처리를 할 수 있습니다.
+{{{
+include('common/include/session.php');
+session_set_new(102);
+$user = session_get_user();
+session_logout();
+}}}

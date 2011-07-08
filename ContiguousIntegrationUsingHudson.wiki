@@ -1,0 +1,320 @@
+허드슨을 통해 nFORGE 프로젝트를 Contiguous Integration(지속적인 통합)하는 방법을 설명합니다.
+
+2010년 nFORGE 프리랜서 개발자(커미터) 개굴펭[[BR]]
+froguin3_(at)_naver.com
+
+[[TableOfContents]]
+== Hudson의 설치 ==
+허드슨은 일반적으로 많이 쓰이는 플러그인 기반 CI 서버 솔루션입니다. Standalone으로 사용하거나 Tomcat에 올려 사용하는 방법이 있으나, 여기서는 Standalone 으로 설치하는 방법을 CentOS 5.x 기준으로 기술합니다.
+
+참고 URL : [http://blog.jepamedia.org/2009/10/28/continuous-integration-for-php-with-hudson/]
+
+=== 허드슨 패키지 설치 ===
+허드슨을 rpm 패키지로 설치합니다. rpm 패키지로 설치하면 yum으로 업데이트를 할 수 있어 관리하기에 편리합니다. ([http://hudson-ci.org/redhat/] 참고)
+{{{
+sudo rpm --import http://hudson-ci.org/redhat/hudson-ci.org.key
+wget -O /tmp/hudson.rpm http://hudson-ci.org/latest/redhat/hudson.rpm
+sudo rpm --install /tmp/hudson.rpm
+}}}
+데비안이나 우분투의 경우는 [http://hudson-ci.org/debian/]를 확인하시면 되며, opensuse, freebsd 등은 허드슨 홈페이지의 내용을 참고하시면 됩니다.
+
+설치가 완료되면 hudson.war 파일을 찾아 실행을 합니다.
+{{{
+whereis hudson.war
+java -jar /usr/lib/hudson/hudson.war
+}}}
+위의 경우는 /usr/lib/hudson 경로에 파일이 위치한 경우이며, 경로는 달라질 수 있습니다. 
+첫 실행 시 & 을 붙이시고 쉘을 빠져나오시면 백그라운드 프로세스로 돌게 됩니다.
+
+설치하신 서버의 주소로 TCP 8080 포트를 웹접근 하시면 허드슨 페이지가 확인됩니다.
+{{{
+http://address_of_hudson_server:8080
+}}}
+
+우측 상단의 '''자동 재실행 켜기'''를 해 두시면 서버가 재시작되어도 자동으로 허드슨을 실행합니다.
+
+=== 허드슨 기본 설정 ===
+좌측 메뉴에서 '''Hudson 관리 > Configure System''' 으로 들어갑니다. 해당 메뉴에서 허드슨의 기본적인 설정 및 보안 설정 등을 할 수 있습니다.
+
+Access Control 부분에서는 허드슨을 사용할 사용자를 조정할 수 있습니다. (조정하기 전 사용자를 먼저 만들어놓으면 좋습니다. 만드는 방법은 '''Hudson 관리 > Manage Users > 사용자 생성''' 에서 진행합니다) 여기서는 직관적으로 권한 설정을 할 수 있도록 `'''Hudson's own user database'''` 를 선택하고, `'''Matrix-based security'''` 를 선택합니다. `'''Allow users to sign up'''` 을 선택 해제함으로서 외부 접근자가 가입할 수 없도록 권한을 제한할 수 있습니다. 
+아래쪽 '''E-mail Notification''' 에서는 허드슨에 지정한 프로젝트의 상태가 변경되었을 경우 이메일을 받을 수 있도록 설정할 수 있습니다.
+
+'''Hudson 관리 > Manage Plugin''' 에서는 허드슨에서 사용할 플러그인을 관리할 수 있습니다. 아래 설치할 패키지들의 결과물을 표시하기 위한 플러그인들을 주로 설치하게 됩니다. 아래에서 사용할 플러그인은 다음과 같으며, 미리 설치하시고 허드슨을 재시작하면 플러그인이 적용됩니다.
+
+ * Checkstyle Plugin (PHP_CodeSniffer에서 사용)
+ * Clover Plugin (PHPUnit 에서 사용)
+ * xUnit Plugin (PHPUnit 에서 사용)
+ * PMD Plugin (PHPmd 에서 사용)
+ * NSIQ Collector Plugin (NSIQ Collector 에서 사용)
+
+기타 설정은 사용하시는 분의 입맛에 맞게 설정하시면 됩니다.
+
+=== 새 작업 만들기 ===
+좌측 메뉴의 새 작업을 눌러 작업을 만들 수 있습니다. 작업명에는 테스트할 작업명(예: nFORGE-CI-Test)을 입력하고, '''Build a free-style software project''' 를 선택합니다.
+
+'''Source Code Management''' 의 '''Subversion''' 에서 NAVER 개발자센터의 저장소를 설정합니다. '''Repository URL''' 의 우측 '''?''' 부분을 클릭하면 아래 설명이 펼쳐지는데, 글상자의 '''this link''' 부분을 클릭하면 저장소의 사용자이름과 비밀번호를 설정할 수 있습니다. '''Use update''', '''Revert''' 를 선택하면 항시 저장소 기준으로 소스코드를 받아 빌드하게 됩니다.
+
+'''Build Triggers''' 에서는 빌드할 주기를 설정합니다. '''Build periodically''' 에 설정을 해 두면 저장소에 달라진 점이 없어도 지정한 시간엔 무조건 빌드를 하게 되고, '''Poll SCM''' 에 설정을 해 두면 지정한 주기동안 저장소를 확인하여 변경사항이 있을 경우 바로 빌드합니다. 
+{{{
+*/1 * * * *
+}}}
+위와 같이 Poll SCM에 스케쥴을 지정하면 매 1분마다 저장소를 확인하여 빌드합니다. Build periodically 에도 이와 같이 cron 스타일로 지정하실 수 있으며, 일 빌드나 주간 빌드 등을 설정하시면 좋습니다.
+
+'''Build''' 에서는 설정한 명령을 위 트리거에서 지정한 주기에 수행하게 되며, shell 명령이나 ant 스크립트, mavin 스크립트, 윈도 배치 스크립트의 수행이 가능합니다. NSIQ 플러그인을 설치하였다면 NSIQ가 검사할 디렉토리를 여기서 지정할 수 있습니다.
+
+프로젝트 왼쪽 메뉴의 '''Build Now''' 를 눌러 설정한 빌드를 바로 수행할 수 있으며, 그렇지 않은 경우 설정한 트리거의 주기 대로 빌드가 진행됩니다. 수행 과정은 빌드되는 빌드 번호 내역에서 '''콘솔 출력'''을 누르면 됩니다.
+
+== PHP_CodeSniffer를 통한 코딩 컨벤션 확인 ==
+코딩 스타일을 점검하기 위해 PHP_CodeSniffer를 사용하고, 출력을 checkstyle 방식으로 하여 허드슨 플러그인인 Checkstyle plugin 에서 그래프를 출력해줍니다.
+
+=== phpcs 설치 ===
+PHP_CodeSniffer 는 pear를 통해 설치할 수 있습니다. (여기서는 pear가 설치되었다고 가정하며, pear의 설치방법은 다루지 않습니다)
+{{{
+pear install PHP_CodeSniffer-1.2.2
+}}}
+현재 PHP_CodeSniffer 의 최종 stable 릴리즈는 1.2.2이며, 1.3.0 RC1 베타가 존재하므로 사용자의 입맛에 맞게 설치하십시오. ([http://pear.php.net/package/PHP_CodeSniffer/download] 참고)
+
+커맨드 라인에서 '''phpcs --help''' 를 실행했을 때 다음과 같은 메시지가 나오면 정상적으로 설치된 것입니다.
+{{{
+Usage: phpcs [-nwlsavi] [--extensions=<extensions>] [--ignore=<patterns>]
+    [--report=<report>] [--report-width=<reportWidth>] [--report-file=<reportfile>]
+    [--config-set key value] [--config-delete key] [--config-show]
+    [--standard=<standard>] [--sniffs=<sniffs>]
+    [--generator=<generator>] [--tab-width=<tabWidth>] <file> ...
+        -n            Do not print warnings
+        -w            Print both warnings and errors (on by default)
+        -l            Local directory only, no recursion
+        -s            Show sniff codes in all reports
+        -a            Run interactively
+        -v[v][v]      Print verbose output
+        -i            Show a list of installed coding standards
+        --help        Print this help message
+        --version     Print version information
+        <file>        One or more files and/or directories to check
+        <extensions>  A comma separated list of file extensions to check
+                      (only valid if checking a directory)
+        <patterns>    A comma separated list of patterns that are used
+                      to ignore directories and files
+        <sniffs>      A comma separated list of sniff codes to limit the check to
+                      (all sniffs must be part of the specified standard)
+        <standard>    The name of the coding standard to use
+        <tabWidth>    The number of spaces each tab represents
+        <generator>   The name of a doc generator to use
+                      (forces doc generation instead of checking)
+        <report>      Print either the "full", "xml", "checkstyle",
+                      "csv", "emacs", "source", "summary" or "svnblame" report
+                      (the "full" report is printed by default)
+        <reportWidth> How many columns wide screen reports should be printed
+        <reportfile>  Write the report to the specified file path
+                      (report is also written to screen)
+}}}
+
+=== phpcs 사용 ===
+phpcs 를 실행하면 기본 standard output에 결과물을 출력해주며, --report-file 옵션을 이용하여 결과를 별도의 xml에 저장할 수 있습니다.
+
+다음 명령줄은 오류를 포함하지 않고, Zend 코딩 컨벤션에 맞춰서 checkstyle 방식으로 build/logs/checkstyle.xml 파일에 결과를 기록하며, php 확장자명에 대해서만 nforge/share, nforge/jpgraph 디렉토리를 제외하고 nforge 디렉토리의 파일들을 검사하는 명령입니다.
+{{{
+phpcs -n --standard=Zend --report=checkstyle --report-file=build/logs/checkstyle.xml --extensions=php --ignore=nforge/share/,nforge/jpgraph/ nforge
+}}}
+ * 참고로 현재 nFORGE 3.0 에서는 Zend 코딩 컨벤션에서 조금 변형된 룰셋으로 체크하고 있습니다. (["NForge3#s-4" NForge3 CodeConvention] 참고)
+
+=== Checkstyle plugin 설정 ===
+허드슨에서 생성한 테스트 프로젝트 > Configure > Build 에서 Execute Shell의 Command 부분에 위의 명령어 또는 해당 프로젝트에 알맞은 옵션을 지정해 넣습니다.
+
+플러그인이 가져가서 그래프를 그릴 수 있도록 Post-build Actions 에서 Publish Checkstyle analysis result 의 Checkstyle results 에 workspace 이후의 경로를 넣습니다. (이 경우는 build/logs/checkstyle.xml 이 됩니다)
+
+저장하고 빠져나와 Build를 진행하면 phpcs 이후 정상적으로 결과를 가져오는 것을 볼 수 있습니다.
+
+== PHPUnit을 통한 코드 커버리지 확인 ==
+PHPUnit을 통해 코드 커버리지를 확인할 수 있으며, 이를 그래프로 표시해줍니다.
+
+=== phpunit 설치 ===
+역시 pear 를 통해 설치하면 됩니다. ([http://www.phpunit.de/manual/current/en/installation.html] 참고)
+{{{
+pear channel-discover pear.phpunit.de
+pear channel-discover components.ez.no
+pear channel-discover pear.symfony-project.com
+pear install phpunit/PHPUnit
+}}}
+
+PHPUnit 3.5 이상은 PHP 5.2.7 이상을 필요로 합니다. 일반적인 CentOS 5.x 에서는 PHP가 5.1 버전이므로, 아래 phpmd를 통한 사이클로매틱 복잡도가 굳이 필요없으신 경우 PHPUnit 3.4를 설치하시면 됩니다.
+{{{
+pear install phpunit/PHPUnit-3.4.15
+}}}
+
+ * phpmd도 PHP 5.2.3 이상을 필요로 하므로 PHP 5.1 을 지원하는 CentOS 5.x 에서는 설치가 힘듭니다. 아래 phpmd 섹션에서 테스트 저장소를 이용해 CentOS 5.x 에서 PHP 5.2 이상을 사용하는 방법이 기술됩니다. ["ContiguousIntegrationUsingHudson#s-4.2" CentOS 5.x 에 PHP 5.2 버전 설치]
+
+PHPUnit 의 설치 확인은 '''phpunit --help''' 로 하시면 되며, 아래와 같이 나오면 정상입니다.
+{{{
+PHPUnit 3.5.0 by Sebastian Bergmann.
+
+Usage: phpunit [switches] UnitTest [UnitTest.php]
+       phpunit [switches] <directory>
+
+  --log-junit <file>       Log test execution in JUnit XML format to file.
+  --log-tap <file>         Log test execution in TAP format to file.
+  --log-dbus               Log test execution to DBUS.
+  --log-json <file>        Log test execution in JSON format.
+
+  --coverage-html <dir>    Generate code coverage report in HTML format.
+  --coverage-clover <file> Write code coverage data in Clover XML format.
+
+  --testdox-html <file>    Write agile documentation in HTML format to file.
+  --testdox-text <file>    Write agile documentation in Text format to file.
+
+  --filter <pattern>       Filter which tests to run.
+  --group ...              Only runs tests from the specified group(s).
+  --exclude-group ...      Exclude tests from the specified group(s).
+  --list-groups            List available test groups.
+
+  --loader <loader>        TestSuiteLoader implementation to use.
+  --repeat <times>         Runs the test(s) repeatedly.
+
+  --tap                    Report test execution progress in TAP format.
+  --testdox                Report test execution progress in TestDox format.
+
+  --colors                 Use colors in output.
+  --stderr                 Write to STDERR instead of STDOUT.
+  --stop-on-error          Stop execution upon first error.
+  --stop-on-failure        Stop execution upon first error or failure.
+  --stop-on-skipped        Stop execution upon first skipped test.
+  --stop-on-incomplete     Stop execution upon first incomplete test.
+  --strict                 Mark a test as incomplete if no assertions are made.
+  --verbose                Output more verbose information.
+  --wait                   Waits for a keystroke after each test.
+
+  --skeleton-class         Generate Unit class for UnitTest in UnitTest.php.
+  --skeleton-test          Generate UnitTest class for Unit in Unit.php.
+
+  --process-isolation      Run each test in a separate PHP process.
+  --no-globals-backup      Do not backup and restore $GLOBALS for each test.
+  --static-backup          Backup and restore static attributes for each test.
+  --syntax-check           Try to check source files for syntax errors.
+
+  --bootstrap <file>       A "bootstrap" PHP file that is run before the tests.
+  --configuration <file>   Read configuration from XML file.
+  --no-configuration       Ignore default configuration file (phpunit.xml).
+  --include-path <path(s)> Prepend PHP's include_path with given path(s).
+  -d key[=value]           Sets a php.ini value.
+
+  --help                   Prints this usage information.
+  --version                Prints the version and exits.
+}}}
+
+=== nFORGE 프로젝트의 유닛 테스트 소스와 적용방법 (phpunit 사용) ===
+nFORGE 저장소에서는 유닛 테스트를 위한 테스트 코드를 이미 배포하고 있습니다. 하지만 아직 모든 기능에 대한 테스트가 완벽히 작성되지는 않은 상태입니다. 지속적으로 커버리지를 늘리는 작업을 진행하고 있습니다.
+
+테스트 코드는 nforge/tests/func/ 디렉토리에 위치하며(각 브랜치도 동일), 해당 디렉토리의 AllTests.php 를 걸어주면 테스트를 진행합니다. '''단, 시스템에 설치가 완료된 소스에 대해서 유닛 테스트가 정상적으로 작동합니다.''' nFORGE가 설치된 경로(예:/opt/nforge/) 하위의 테스트 케이스(예:/opt/nforge/tests/func/)를 가지고 phpunit 을 실행시켜주면 됩니다.
+{{{
+cd /opt/nforge/tests/func/
+phpunit --stderr --log-junit HUDSON_DIR/jobs/JOBNAME/workspace/build/logs/junit.xml --coverage-clover HUDSON_DIR/jobs/JOBNAME/workspace/build/logs/clover.xml AllTests
+}}}
+설치된 nforge의 경로가 /opt/nforge/ 일 경우 phpunit 으로 junit 로그와 clover coverage 로그를 build/logs/ 디렉토리에 각각 junit.xml, clover.xml 파일명으로 저장하는 명령입니다. '''반드시 슈퍼유저 권한(root)으로 실행해야 합니다.''' 
+HUDSON_DIR 과 JOBNAME 부분은 사용자의 환경에 맞게 변경하시면 됩니다. 일반적으로 HUDSON_DIR은 /var/lib/hudson 또는 /root/.hudson 이 될 것입니다.
+
+=== xUnit, Clover Plugin 설정 ===
+역시 마찬가지로 위의 스크립트를 Execute Shell의 Command 에 넣고, Post-build Actions의 '''Publish testing tools result report''' 에서 PHPUnit-3.4(default)를 선택하고 junit.xml 의 경로를 넣어줍니다. (예: build/logs/junit.xml) 
+
+Publish Clover Coverage Report에는 clover.xml 의 경로(예: build/logs)와 파일명(예: clover.xml), 그리고 Coverage Metric Targets에는 Methods, Conditionals, Statements의 기본값을 넣어줍니다. 저희는 70% Methods, 80% Conditionals, 80% Statements 이상이 되면 좋은 평가가 나오도록 설정했습니다.
+
+== PHP Mess Detector 를 통한 정적 분석(사이클로매틱 복잡도 확인) ==
+phpmd 를 이용하여 사이클로매틱 복잡도(CyclomatricComplexity)를 확인하고, PMD Plugin으로 결과를 확인합니다.
+
+=== phpmd 설치 ===
+pear를 통해 설치합니다. 필요에 따라 PHP_Depend(pdepend)도 같이 설치됩니다. ([http://phpmd.org/download/index.html] 참고)
+{{{
+pear channel-discover pear.phpmd.org
+pear channel-discover pear.pdepend.org
+pear install --alldeps phpmd/PHP_PMD-alpha
+}}}
+
+확인은 '''phpmd''' 라고 치면 다음과 같은 결과를 받아야 정상입니다.
+{{{
+Mandatory arguments:
+1) A php source code filename or directory
+2) A report format
+3) A ruleset filename or a comma-separated string of rulesetfilenames
+
+Optional arguments that may be put after the mandatory arguments:
+--minimumpriority: rule priority threshold; rules with lower priority than this will not be used
+--reportfile: send report output to a file; default to STDOUT
+--suffixes: comma-separated string of valid source code filename extensions
+--exclude: comma-separated string of patterns that are used to ignore directories
+}}}
+
+=== CentOS 5.x 에 PHP 5.2 버전 설치 ===
+phpunit 과 phpmd 의 경우 PHP 5.2 버전 이상을 필요로 합니다. 하지만 CentOS 5.x 에서는 PHP 5.1 버전을 지원하기 때문에 설치하려면 PHP 를 직접 컴파일하거나 베타 저장소의 PHP 5.2 패키지를 이용하면 됩니다. 여기에서는 후자에 대해서 설명합니다.
+
+슈퍼유저 권한(root)으로 다음 파일을 생성합니다.
+{{{
+vi /etc/yum.repos.d/CentOS-Testing.repo
+}}}
+
+다음 내용을 붙여넣기 합니다.
+{{{
+[c5-testing]
+name=CentOS-5 Testing
+baseurl=http://dev.centos.org/centos/$releasever/testing/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=http://dev.centos.org/centos/RPM-GPG-KEY-CentOS-testing
+includepkgs=php*
+}}}
+
+저장소를 업데이트하면 PHP 버전을 업그레이드 할 것입니다.
+{{{
+yum update
+}}}
+
+참고 URL: [http://wiki.centos.org/HowTos/PHP_5.1_To_5.2]
+
+=== phpmd 사용 ===
+phpmd의 사용법은 다른 툴보다 간단합니다.
+{{{
+phpmd nforge xml codesize --reportfile build/logs/pmd.xml
+}}}
+
+첫번째 '''nforge''' 부분은 workspace에서 검사할 로컬 저장소의 경로를 지정합니다.[[br]]
+두번째 '''xml''' 부분은 출력 포맷을 지정합니다.[[br]]
+세번째 '''codesize''' 부분은 룰셋 이름을 지정합니다. 여기서는 codesize 를 사용합니다.[[br]]
+마지막 '''--reportfile''' 부분은 출력할 파일 경로를 지정합니다. 지정하지 않으면 standard output으로 출력합니다.
+
+=== PMD Plugin 설정 ===
+역시 마찬가지로 위의 스크립트를 Execute Shell의 Command 에 넣고, Post-build Actions 의 '''Publish PMD analysis result > PMD Results''' 부분에 받은 결과 파일의 경로(예: build/logs/pmd.xml)를 지정합니다.
+
+== NSIQ Collector 를 통한 LOC 측정 ==
+NHN에서 제작한 NSIQ Code Metric Collector 를 이용하여 LOC(Lines of Code)를 측정하는 방법을 기술합니다.
+ * NSIQ Collector 에서도 사이클로매틱 복잡도를 구할 수 있으나, PHP에 대해선 동작하지 않으므로 PHP_Depend + PHP Mess Detector 조합을 사용하였습니다.
+
+프로젝트 URL : [http://dev.naver.com/projects/nsiqcollector]
+
+=== nsiqcollector 설치, 사용 ===
+프로젝트 홈의 다운로드에서 NSIQ Collector 파일을 다운받아 서버의 임의의 위치에 압축을 해제합니다.
+{{{
+wget http://dev.naver.com/frs/download.php/957/nsiqcollector_2.1.4.tar.gz
+tar zxvf nsiqcollector_2.1.4.tar.gz
+}}}
+
+사용할 때는 측정할 파일들이 위치한 디렉토리로 가서 실행하면 됩니다. 
+{{{
+cd /var/lib/hudson/job/nFORGE-CI-Test/workspace/
+/path_of_nsiqcollector/nsiqcollector nforge
+}}}
+nsiqcollector 의 경로를 PATH에 지정해 두면 편리하게 사용할 수 있습니다.
+
+측정할 디렉토리에 filefilter.txt 라는 파일을 만들어 두면, 측정 대상을 제한할 수 있습니다.
+{{{
++ /
+- /share
+- /jpgraph
+}}}
+이 설정은 분석 대상 디렉토리를 모두 포함하되, share 와 jpgraph 라는 디렉토리는 분석 대상에서 제외됩니다.
+
+=== nsiqcollector hudson plugin 설정 ===
+허드슨에서 nsiqcollector를 사용하려면 '''홈 > Hudson 관리 > Configure System''' 에서 nsiqcollector 실행파일의 경로를 잡아줘야 합니다.
+
+Configure N'SIQ Collector 에서 N'SIQ executable 칸에 nsiqcollector 의 경로를 지정해줍니다. (예:/usr/local/nsiqcollector/ 디렉토리에 풀어두었다면 /usr/local/nsiqcollector/nsiqcollector 라고 입력)
+
+'''만약 허드슨의 Update Center에서 NSIQ Collector plugin 을 설치하지 않은 경우는 이 부분이 나오지 않는 경우가 있으로 반드시 허드슨의 Update Center에서 설치하시기 바랍니다.'''
+
+개별 빌드 프로젝트의 Configure에서는 Build 섹션에서 '''Execute N'SIQ Collector''' 항목을 추가해 주면 실행을 하게 되며, Post-build Actions 에서 '''Publish N'SIQ Collector''' 부분의 Display LOC Graph 에 체크하면 빌드 후 해당 그래프가 확인됩니다.
